@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/count
+END
+CountPeopleArticle.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/CountPeopleArticle.java
+END
+CountPeopleDetails.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/CountPeopleDetails.java
+END
+OutCountPeopleAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/OutCountPeopleAction.java
+END
+ToCountPeopleDetailsAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/ToCountPeopleDetailsAction.java
+END
+SelPeopleDetaliInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/SelPeopleDetaliInfoAction.java
+END
+ToCountPeopleDetailsChartAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/ToCountPeopleDetailsChartAction.java
+END
+TestJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/TestJson.java
+END
+ToCountPeopleListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/ToCountPeopleListAction.java
+END
+CountPeopleDataAnalysis.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/CountPeopleDataAnalysis.java
+END
+CountPeople.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/count/CountPeople.xml
+END
+CountSucai.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/CountSucai.xml
+END
+CountPeople.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/count/CountPeople.java
+END

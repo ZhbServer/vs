@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="dish">
+
+	<typeAlias alias="dish" type="com.vshow.control.data.Dish" />
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+
+	 <select id="sel_dish_page_all_count" parameterClass="dish" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select count(*) from  t_data_dish where uid=#uid#
+		]]>
+	</select>
+	
+	
+		<select id="sel_dish_page_all" parameterClass="dish" resultClass="dish">
+	    <![CDATA[
+		    select * from t_data_dish
+	        where uid = #uid#
+			order by id desc
+			limit #startid#,#pagetype#
+	    ]]>
+	   </select>
+	   
+	   
+	   
+	   <insert id="add_dish" parameterClass="dish">
+	    <![CDATA[
+	       insert into t_data_dish (uid,content,create_time,last_edit_time,oncheck,title) values(#uid#,#content#,#create_time#,#last_edit_time#,#oncheck#,#title#)
+	    ]]>
+        <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_data_dish  limit 1
+        </selectKey>
+	   </insert>
+	   
+	   
+	   
+	   
+		<select id="sel_dish_info_id" parameterClass="java.lang.Integer" resultClass="dish">
+	    <![CDATA[
+	    
+		    select * from t_data_dish
+	        where id = #id#
+			
+	    ]]>
+	   </select>
+	   
+	   
+	   <update id="up_dish" parameterClass="dish">
+	    <![CDATA[
+	      update
+	      t_data_dish
+	      set 
+	      content=#content#,last_edit_time=#last_edit_time#,oncheck=#oncheck#,title=#title#
+	      where id=#id#
+	    ]]>
+	</update>
+	
+	
+	
+	 <select id="sel_noncheck_dish_all_count" resultClass="java.lang.Integer" parameterClass="user">
+         <![CDATA[
+          
+             SELECT count(*) FROM t_data_dish tdd where tdd.uid in (
+
+			   SELECT id FROM t_user t where tkey like '%$tkey$%' and id!=#id#
+			
+			 ) and oncheck=#ocheck#
+     
+         ]]>
+     </select>
+     
+     
+      <select id="sel_noncheck_dish_page" resultClass="dish"  parameterClass="dish">
+         <![CDATA[
+          
+	           SELECT tdd.id,tdd.title,tuser.`name` as uname FROM t_data_dish tdd ,t_user tuser where 
+	
+				tdd.uid=tuser.id and
+				
+				tdd.uid in (
+				
+				   SELECT id FROM t_user t where tkey like '%$tkey$%' and id!=#uid#
+				
+				) and tdd.oncheck=#oncheck# 
+				
+				order by tdd.id desc 
+				
+                limit #startid#,#pagetype#
+			     
+         ]]>
+     </select>
+     
+     
+     
+     <select id="sel_dish_title_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	    
+		    select title from t_data_dish
+	        where id = #id#
+			
+	    ]]>
+	   </select>
+	   
+	   
+	   <update id="up_data_oncheck" parameterClass="dish">
+	    <![CDATA[
+	      UPDATE t_data_dish SET 
+		  t_data_dish.oncheck = #oncheck#
+		  where t_data_dish.id=#id# 
+	    ]]>
+	 </update>
+	
+	
+	
+	<select id="sel_noncheck_dish_info" resultClass="dish"  parameterClass="java.lang.Integer">
+         <![CDATA[
+          
+	           SELECT tdd.id,tdd.title,tuser.`name` as uname,tdd.content,tdd.create_time,tdd.last_edit_time FROM t_data_dish tdd ,t_user tuser where 
+	
+				tdd.uid=tuser.id and
+				
+			    tdd.id=#did#
+				
+				order by tdd.id desc 
+				 
+         ]]>
+     </select>
+	
+	
+	
+    <delete id="del_data_dish" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	       delete from t_data_dish where id=#id#
+	    ]]>
+	</delete>
+	   
+	
+
+</sqlMap>
+    

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/client
+END
+ClientLxYjListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/ClientLxYjListAction.java
+END
+GetClientState.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/client/GetClientState.java
+END
+ToClientAjaxAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/client/ToClientAjaxAction.java
+END
+AjaxGetLxClientCountAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/AjaxGetLxClientCountAction.java
+END

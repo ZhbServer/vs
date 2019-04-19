@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/layout
+END
+layout.flex.less
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/layout/layout.flex.less
+END
+layout.scroll.less
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/layout/layout.scroll.less
+END
+layout.dock.less
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/layout/layout.dock.less
+END
+layout.container.less
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/layout/layout.container.less
+END
+layout.grid.less
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/layout/layout.grid.less
+END

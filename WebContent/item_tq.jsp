@@ -1,0 +1,503 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="ww" uri="/webwork"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="PRAGMA" content="NO-CACHE" />
+
+<base target="_self" />
+<style type="text/css">
+A{text-transform:none; text-decoration:none;}  
+</style> 
+
+<link rel="stylesheet" href="css/index.css"/>
+<link rel="stylesheet" href="css/common.css"/>
+<!-- ZUI 标准版压缩后的 CSS 文件 -->
+<link rel="stylesheet" href="zui-1.5.0-dist/dist/css/zui.min.css" />
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.5/themes/default/easyui.css"  />
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.5/themes/icon.css"  />
+
+
+<script type="text/javascript" src="js/jq/jquery.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
+<script src="js/jscolor.js"></script> 
+<!-- ZUI 标准版压缩后的 JavaScript 文件 -->
+<script  src="zui-1.5.0-dist/dist/js/zui.min.js"></script>
+
+<script   src="zui-1.5.0-dist/dist/lib/sortable/zui.sortable.js"></script>
+<script type="text/javascript" src="js/constant.js"></script>
+<style>
+	/* 为可拖动的条目应用可移动光标类型 */
+	#sortableList > .list-group-item {cursor: move}
+	
+	/* 为正在被拖动的条目应用半透明外观 */
+	#sortableList > .list-group-item.dragging {
+	  visibility: visible;
+	  opacity: .3;
+	}
+</style>
+
+
+
+<script src="js/fresh.js" type="text/javascript" language="javascript"></script>
+<script>
+
+    var ys = "000000";
+	var idd=0;
+	function see(var1) {
+		if (var1.length < 1) {
+			layer.msg("<ww:property value='#session.local.a00317' />");
+			return;
+		}
+		var vars=var1.split("_");
+		idd=vars[0];
+		var dx = document.getElementById("dx").value;
+		var zt = document.getElementById("zt").value;
+		var imgsize=document.getElementById("imgsize").value;
+		var tqtype=document.getElementById("tqtype").value;
+		if(tqtype==1){
+		  document.getElementById("show").src="gettq.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+		}else{
+			document.getElementById("show").src="gettq2.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+	    }
+		document.getElementById("citykey").value=vars[1];
+	}
+	function settcolor(var1) {
+	
+	}
+	function ztto(var1) {
+		if ( document.getElementById("tqid").value.length < 1) {
+			layer.msg("<ww:property value='#session.local.a00317' />");
+				return;
+			} 
+		var dx = document.getElementById("dx").value;
+		var zt = document.getElementById("zt").value;
+		var imgsize=document.getElementById("imgsize").value;
+		var tqtype=document.getElementById("tqtype").value;
+		if(tqtype==1){
+		  document.getElementById("show").src="gettq.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+		}else{
+			document.getElementById("show").src="gettq2.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+	    }
+	}
+	function dxto(var1) {
+		if ( document.getElementById("tqid").value.length < 1) {
+			layer.msg("<ww:property value='#session.local.a00317' />");
+				return;
+			} 
+		var dx = document.getElementById("dx").value;
+		var zt = document.getElementById("zt").value;
+		var imgsize=document.getElementById("imgsize").value;
+		var tqtype=document.getElementById("tqtype").value;
+		if(tqtype==1){
+		   document.getElementById("show").src="gettq.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+		}else{
+			document.getElementById("show").src="gettq2.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+	    }
+	} 
+	function imgwsize(var1) {
+		if ( document.getElementById("tqid").value.length < 1) {
+			layer.msg("<ww:property value='#session.local.a00317' />");
+				return;
+			} 
+		var dx = document.getElementById("dx").value;
+		var zt = document.getElementById("zt").value;
+		var imgsize=document.getElementById("imgsize").value;
+		var tqtype=document.getElementById("tqtype").value;
+		if(tqtype==1){
+		   document.getElementById("show").src="gettq.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+		}else{
+			document.getElementById("show").src="gettq2.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+	    }
+	}
+	function days(var1){
+		if ( document.getElementById("tqid").value.length < 1) {
+			layer.msg("<ww:property value='#session.local.a00317' />");
+				return;
+			} 
+		var dx = document.getElementById("dx").value;
+		var zt = document.getElementById("zt").value;
+		var imgsize=document.getElementById("imgsize").value;
+		var tqtype=document.getElementById("tqtype").value;
+		if(tqtype==1){
+		   document.getElementById("show").src="gettq.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+		}else{
+			document.getElementById("show").src="gettq2.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize;
+	    }
+
+    }  
+	function send() {
+		if ( document.getElementById("tqid").value.length < 1) {
+			layer.msg("<ww:property value='#session.local.a00317' />");
+				return;
+		}
+
+		  var xy_x = document.getElementById("xy_x").value;
+		  var xy_y = document.getElementById("xy_y").value;   
+	      var width = document.getElementById("width").value;
+		  var height = document.getElementById("height").value;
+		 
+		  if(xy_x<0){
+				layer.msg("<ww:property value='#session.local.a00283' />");
+		        return;
+		   }
+		  if(xy_y<0){
+				layer.msg("<ww:property value='#session.local.a00284' />");
+		        return;
+		  }
+		  if(width<=0){
+			layer.msg("<ww:property value='#session.local.a00285' />");
+	        return;
+		  }
+		  if(height<=0)
+		  {
+			  layer.msg("<ww:property value='#session.local.a00286' />");
+	          return;
+		  } 
+			
+		var dx = document.getElementById("dx").value;
+		var tqid = document.getElementById("tqid").value;
+		var zt = document.getElementById("zt").value;
+		var ip = document.getElementById("ip").value;
+		var fresh = document.getElementById("fresh").value;
+		var citykey=document.getElementById("citykey").value;
+		var imgsize=document.getElementById("imgsize").value;
+		var sf=document.getElementById("sf").value;
+		var tqtype=document.getElementById("tqtype").value;
+		
+		if(tqtype==1){
+		   var outname="http://"+ip+":<ww:property value='#session.tomcat_port' />/vs/gettq.vs?id=" + idd + "&ys=" + ys + "&dx=" + Math.round(dx*sf) + "&zt=" + zt+"&imgsize="+Math.round(imgsize*sf)+"$http://"+ip+":<ww:property value='#session.tomcat_port' />/vs/gettq.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize+"|"+fresh+"|"+width+"|"+height+"|"+citykey+"|"+xy_x+"|"+xy_y;
+		}else{
+		   var outname="http://"+ip+":<ww:property value='#session.tomcat_port' />/vs/gettq2.vs?id=" + idd + "&ys=" + ys + "&dx=" + Math.round(dx*sf) + "&zt=" + zt+"&imgsize="+Math.round(imgsize*sf)+"$http://"+ip+":<ww:property value='#session.tomcat_port' />/vs/gettq2.vs?id=" + idd + "&ys=" + ys + "&dx=" + dx + "&zt=" + zt+"&imgsize="+imgsize+"|"+fresh+"|"+width+"|"+height+"|"+citykey+"|"+xy_x+"|"+xy_y;
+	    }
+	   
+	
+		var index = window.parent.layer.getFrameIndex(window.name); //获取窗口索引
+		window.parent.returnValue=outname; 
+	    window.parent.layer.close(index);
+	}
+	function skipchinal(){
+		
+		document.form1.action = "toadtq.vs"; 
+		document.form1.submit();
+    }
+    function skipexternal(){
+    	document.form1.action = "toadentq.vs"; 
+		document.form1.submit();
+    } 
+
+
+    //修改编辑切换时长
+    function edit_qtime(sstime){
+        var sstimev=document.getElementById(sstime);
+        layer.prompt({
+        	  title: '<ww:property value='#session.local.a00017' /><ww:property value='#session.local.a00720' />',
+        	  value: sstimev.innerHTML.split('--')[1] //初始时的值，默认空字符
+        	 }, function(value,index){
+        		 if(!isNaN(value)){
+        			 sstimev.innerHTML=sstimev.innerHTML.split('--')[0]+"--"+value;
+               		 layer.close(index); 
+        		 }else{
+        			 layer.msg("<ww:property value='#session.local.a00671' />");
+        			 
+        		 }           	
+            }
+         );
+    }
+    //删除项
+    function del_qtime(_element){
+        var ssdiv=document.getElementById(_element);
+        var _parentElement = ssdiv.parentNode;
+        if(_parentElement){
+            _parentElement.removeChild(ssdiv);
+        }
+    }
+
+    //添加天气到天气列表
+    function add_tqlist(){
+        var tcityv=document.getElementById("tcity").value;     //城市 id_key
+
+        if(tcityv.length==0){
+            layer.msg("<ww:property value='#session.local.a00317' />");
+            return;
+        }
+        
+        var tqtimev=document.getElementById("tqtime").value;    //切换时长
+
+        if(tqtimev.length==0){
+             layer.msg("<ww:property value='#session.local.a00287' />");
+             return;
+        }
+
+
+        var sortList=document.getElementById("sortableList");
+        var sortLists=sortList.getElementsByTagName("span");
+        var spans="";
+        for(var i=0;i<sortLists.length;i++){
+     	  
+     	   if(spans.length==0){
+     		  spans=sortLists[i].innerHTML;
+           }else{
+              spans=spans+"@"+sortLists[i].innerHTML;     
+           }
+        }
+        if(spans.length==0){
+        	document.getElementById("sortableListSpans").value=tcityv+"--"+tqtimev;  
+        }else{
+        	document.getElementById("sortableListSpans").value=spans+"@"+tcityv+"--"+tqtimev;  
+        }
+            
+       
+	    //sortableListSpans
+        document.form1.action="toadtq.vs";
+    	document.form1.submit();
+
+	    
+    }
+
+    //保存
+    function adtqto(){
+       var sortList=document.getElementById("sortableList");
+       
+       var sortLists=sortList.getElementsByTagName("span");
+       var spans="";
+       var count=0;
+       for(var i=0;i<sortLists.length;i++){
+    	    if(spans.length==0){
+      		  spans=sortLists[i].innerHTML;
+            }else{
+               spans=spans+"@"+sortLists[i].innerHTML;     
+            }
+            count++;
+       }
+
+       if(count==0){
+             layer.msg("<ww:property value='#session.local.a00721' />");
+             return;
+       }
+
+          var xy_x = document.getElementById("xy_x").value;
+		  var xy_y = document.getElementById("xy_y").value;   
+	      var width = document.getElementById("width").value;
+		  var height = document.getElementById("height").value;
+		 
+		  if(xy_x<0){
+				layer.msg("<ww:property value='#session.local.a00283' />");
+		        return;
+		   }
+		  if(xy_y<0){
+				layer.msg("<ww:property value='#session.local.a00284' />");
+		        return;
+		  }
+		  if(width<=0){
+			layer.msg("<ww:property value='#session.local.a00285' />");
+	        return;
+		  }
+		  if(height<=0)
+		  {
+			  layer.msg("<ww:property value='#session.local.a00286' />");
+	          return;
+		  } 
+			
+		
+		var fresh = document.getElementById("fresh").value; //刷新时间
+
+		var dx = document.getElementById("dx").value;  //字体大小
+
+		var wfcolor=document.getElementById("wfcolor").value;//字体颜色
+
+		var index = window.parent.layer.getFrameIndex(window.name); //获取窗口索引
+
+		var wtype = document.getElementById("wtype").value;  //字体大小//获取显示样式 
+		//alert(wtype);
+		window.parent.returnValue=""; 
+		//x*y*w*h*刷新时间*字体大小*字体颜色*城市--切换时间@城市--切换时间*样式
+	    window.parent.returnValue=xy_x+"*"+xy_y+"*"+width+"*"+height+"*"+fresh+"*"+dx+"*"+wfcolor+"*"+spans+"*"+wtype; 
+	    window.parent.layer.close(index);
+       
+    }
+
+
+   
+
+    
+</script>
+</head>
+<body >
+    
+    <form method="post" name="form1" action="toadtq.vs">
+    
+         <div class="panel panel-primary" style="margin: 3px 3px;">
+           <div class="panel-heading">
+                <ww:property value="#session.local.a00177"/> <!-- 天气 -->
+           </div>
+           
+		          <input type="hidden"  value="" id="citykey"/>
+		          <div class="container clearfix" style="margin: 10px 10px;">
+		          <div class="main-wrap">
+				      <div class="result-wrap">
+				            <div class="result-content">
+				            
+		         <table class="insert-tab" width="100%" style="height: 400px;">
+		           
+		           <tr>
+		            <td  style="width: 55%;">
+		                 <ww:property  value="#session.local.a00718"/>:<!-- 天气显示参数 -->               
+				    </td>
+		            <td  style="width: 45%;">
+		                 <ww:property value="#session.local.a00719"/>:<!-- 已选天气列表 -->
+		            </td>
+		          </tr>
+		        
+				  <tr>
+		            <td  style="width: 55%;">
+		            
+		                   <ww:property value="#session.local.a00318" />： 
+		                   <select id="tcity">
+									<option value=""></option>
+									<ww:iterator value="list">
+										<option value="<ww:property  value="city"/>"><ww:property
+											value="city" />
+									    </option>
+									</ww:iterator>
+				           </select>
+				           <ww:if test="#session.sysset==0">
+															    
+						   </ww:if>
+						   <ww:else>
+							     <i onclick="fastAddParameterTq()" style="cursor: pointer;" title="<ww:property value='#session.local.a00021' />"  class="icon icon-plus-sign"></i>
+						   </ww:else>
+							
+				           &nbsp;&nbsp;
+				           <ww:property value="#session.local.a00720"  />:<!--切换时间(分)-->                   
+				           <input id="tqtime" <ww:if test="tqtime==5">value="5"</ww:if><ww:else>value="<ww:property value='tqtime' />"</ww:else>   type="text" style="width: 80px;line-height: 20px;"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  />     
+				          <button onclick="add_tqlist()" class="btn btn-mini btn-primary" type="button">
+				               <ww:property value="#session.local.a00652"/><!-- 添加 --> 
+				          </button> 
+				                     
+				    </td>
+		             <td rowspan="4" style="width: 45%;overflow: auto;">
+		                <div class="list-group" id="sortableList" style="overflow: auto;height: 300px;">
+							  
+							 <ww:iterator value="#request.sortableList" status="status">
+							    <div id='ssdiv<ww:property value='#status.index'/>' class='list-group-item'>
+							    
+							         <span id='sstime<ww:property value='#status.index'/>'><ww:property value="weatherCity"/>--<ww:property value="weatherQtime"/></span>
+			                         <div class='btn-group' style='float: right;margin-top: 5px;'>
+				                     <button type='button' onclick="edit_qtime('sstime<ww:property value='#status.index'/>')" title='<ww:property value='#session.local.a00024'/>' class='btn btn-primary'><i class='icon icon-edit'></i></button>
+				                     <button type='button' onclick="del_qtime('ssdiv<ww:property value='#status.index'/>')"   title='<ww:property value='#session.local.a00025'/>' class='btn btn-primary'><i class='icon icon-trash'></i></button>
+			                         </div>     
+			                   </div>
+							 </ww:iterator>
+						
+						</div>
+		            </td>
+		          </tr>
+		          
+		          <tr>
+		             <td>
+		                 <!--样式-->
+		                 <ww:property value="#session.local.a00537"/>
+		                <select id="wtype">
+		                    <option value="1"><ww:property value="#session.local.a00537"/>1 </option>
+		                    <option value="2"><ww:property value="#session.local.a00537"/>2</option>
+		                </select> 
+		                &nbsp;&nbsp;
+		                <img src="image/weather_type1.png" width="100px" height="60px" alt="" id="ysImg" />
+		                <script type="text/javascript">
+		                	$("#wtype").change(function(){
+		                			var ys=$("#wtype").val();
+		                			if(ys=="1")
+		                			{
+		                				$("#ysImg").attr("src","image/weather_type1.png");
+		                				$("#ysImg").attr("width","100px");
+		                				$("#ysImg").attr("height","60px");
+		                			}else if(ys=="2")
+		                			{
+		                				$("#ysImg").attr("src","image/weather_type2.png");
+		                				$("#ysImg").attr("width","120px");
+		                				$("#ysImg").attr("height","40px");
+		                			}
+		                    });
+					    </script>
+		             </td>
+		          
+		          </tr>
+		          
+				   <tr>
+		            <td><ww:property value="#session.local.a00319" />：
+		             <select style="width: 150px;" id="fresh" name="fresh">
+							
+							<option  <ww:if test="fresh==3">selected="selected"</ww:if>  value="3">3</option>
+						
+							<option  <ww:if test="fresh==6">selected="selected"</ww:if>  value="6">6</option>
+						
+							<option  <ww:if test="fresh==12">selected="selected"</ww:if>  value="12">12</option>
+							
+							<option  <ww:if test="fresh==24">selected="selected"</ww:if> value="24">24</option>
+				     </select>
+		            </td>
+		             
+		          </tr>
+				   <tr style="display: none;">
+		            <td><ww:property value="#session.local.a00324" />：
+		                <select style="width: 150px;"  id="dx" name="dx">
+		                
+                     	      <option   <ww:if test='dx==16'>selected="selected"</ww:if>   value="16"><ww:property value="#session.local.b00038" /></option>
+				              <option   <ww:if test='dx==24'>selected="selected"</ww:if>   value="24"><ww:property value="#session.local.b00039" /></option>
+				              <option   <ww:if test='dx==36'>selected="selected"</ww:if>   value="36"><ww:property value="#session.local.b00040" /></option>
+				              <option   <ww:if test='dx==48'>selected="selected"</ww:if>   value="48"><ww:property value="#session.local.b00041" /></option>
+				              <option   <ww:if test='dx==72'>selected="selected"</ww:if>   value="72"><ww:property value="#session.local.b00042" /></option>
+					              
+		                </select>
+		            </td>
+		            
+		          </tr>
+				  <tr>
+		            <td ><ww:property value="#session.local.a00325" />：
+		            
+		                <input  id="wfcolor"  name="wfcolor" class="jscolor {onFineChange:'settcolor(this)'}" style="background-color:#000000;line-height: 18px;"  value="<ww:property value='wfcolor'/>"/> </td>
+		           
+		          </tr>
+		          
+		          <tr style="display: none;">
+			           
+			            <td>
+			                    X:<input id="xy_x" name="xy_x" type="text" <ww:if test="xy_x==0">value="0"</ww:if><ww:else>value="<ww:property value='xy_x' />"</ww:else>  style="width: 40px;height: 20px;line-height: 20px;" value="0"   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+								Y:<input id="xy_y" name="xy_y" type="text" <ww:if test="xy_y==0">value="0"</ww:if><ww:else>value="<ww:property value='xy_y' />"</ww:else> style="width: 40px;height: 20px;line-height: 20px;" value="0" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+							    <ww:property value='#session.local.a00032' />:
+								     <input name="width" id="width" type="text" style="width:40px;height: 20px;line-height: 20px;" <ww:if test="width==0">value="300"</ww:if><ww:else>value="<ww:property value='width' />"</ww:else>  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+								<ww:property value='#session.local.a00033' />:
+								     <input name="height" id="height" type="text" style="width:40px;height: 20px;line-height: 20px;"  <ww:if test="height==0">value="300"</ww:if><ww:else>value="<ww:property value='height' />"</ww:else>  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />  
+			             </td>
+				   </tr>
+				 
+				   <tr>
+				   
+		            <td colspan="2" style="text-align: center;"  >
+		
+		                          <button class="btn btn-primary" onclick='adtqto()' type="button"><ww:property value='#session.local.a00080' /></button>
+				                 
+				                  <button class="btn btn-primary" onclick='close_win_nov()' type="button"><ww:property value='#session.local.a00014' /></button>
+		                
+		               
+		            </td>
+		           </tr>
+		        </table>
+		           </div>
+				  </div>
+				</div>
+		    </div>
+		 </div>   	        
+		<input  type="hidden" id="ip" value="<ww:property value="ip"/>" />
+		<input  type="hidden" id="zt" value="0" />
+		<input type="hidden" id="sf" value="<ww:property value="sf"/>" name="sf"/>
+		<input type="hidden" id="sortableListSpans"  name="sortableListSpans"/>
+</form>
+<script>
+$('#sortableList').sortable();
+</script>
+</body>
+</html>

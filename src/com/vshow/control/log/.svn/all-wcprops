@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/log
+END
+Log.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/log/Log.xml
+END
+DelClientLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/DelClientLogAction.java
+END
+CountLogSendAccurateListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/CountLogSendAccurateListAction.java
+END
+DownClientLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/DownClientLogAction.java
+END
+OutLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/log/OutLogAction.java
+END
+ClientLogListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/ClientLogListAction.java
+END
+LogSend.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/log/LogSend.xml
+END
+AddLogSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/AddLogSucaiAction.java
+END
+CountLogLoginListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/CountLogLoginListAction.java
+END
+DelCountLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/DelCountLogAction.java
+END
+DelSendLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/DelSendLogAction.java
+END
+OutLogSendAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/log/OutLogSendAction.java
+END
+LogType.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/log/LogType.java
+END
+CountLogListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/CountLogListAction.java
+END
+CountLogSendClientListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/CountLogSendClientListAction.java
+END
+LogHandle.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/log/LogHandle.java
+END
+CountLogSendListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/log/CountLogSendListAction.java
+END

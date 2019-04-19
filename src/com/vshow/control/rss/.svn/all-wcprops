@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/rss
+END
+AjaxAllRssAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/AjaxAllRssAction.java
+END
+SeeRssAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/SeeRssAction.java
+END
+GetRssAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/GetRssAction.java
+END
+Rss.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/Rss.xml
+END
+ShowRssAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/ShowRssAction.java
+END
+GetRssAction2.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/GetRssAction2.java
+END
+Rssxml.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/rss/Rssxml.java
+END
+GetRssDataJsonAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/GetRssDataJsonAction.java
+END
+DelRssAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/DelRssAction.java
+END
+AddRssAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/AddRssAction.java
+END
+SeeRssInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/rss/SeeRssInfoAction.java
+END

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="cutD">
+
+	<typeAlias alias="sucaiCloud" type="com.vshow.control.data.SucaiCloud" />
+	
+    
+    <insert id="add_sucaiCloud" parameterClass="sucaiCloud" >
+	   <![CDATA[
+	       insert into t_sucai_cloud 
+	       (filename,videoid,downurl,resultdata,cloudtype)
+	       values
+	       (#filename#,#videoid#,#downurl#,#resultdata#,#cloudtype#)
+	   ]]>
+	</insert>
+     
+    
+    
+   <delete id="del_sucaiCloud_videoid" parameterClass="java.lang.String" >
+    <![CDATA[
+       delete from t_sucai_cloud where videoid=#videoid#
+    ]]>
+	</delete>
+	
+	
+	<select id="sel_sucaiCloud_videoid" parameterClass="java.lang.String"  resultClass="java.lang.String" >
+    <![CDATA[
+       select 
+       videoid
+       FROM t_sucai_cloud
+       where filename=#filename#
+    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_sucaiCloud_downurl" parameterClass="java.lang.String"  resultClass="java.lang.String" >
+    <![CDATA[
+       select 
+       downurl
+       FROM t_sucai_cloud
+       where filename=#filename#
+    ]]>
+	</select>
+	
+	
+	<update id="up_sucaiCloud_downUrl" parameterClass="sucaiCloud">    
+		<![CDATA[
+		      update t_sucai_cloud set downurl=#downurl# where videoid=#videoid#     
+		 ]]>
+	</update>
+	
+	
+    <select id="sel_sucaiCloud_param" parameterClass="java.lang.String"  resultClass="sucaiCloud" >
+		    <![CDATA[
+		       select 
+		       *
+		       FROM t_sucai_cloud
+		       where filename=#filename#
+		    ]]>
+	</select>
+	
+	
+     
+    
+</sqlMap>
+    

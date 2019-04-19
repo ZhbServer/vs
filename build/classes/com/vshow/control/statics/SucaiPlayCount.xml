@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="item">
+
+	<typeAlias alias="scpc" type="com.vshow.control.data.SucaiPlayCount" />
+	   
+	 
+	  <insert id="insert_sucai_playCount" parameterClass="scpc">
+	    <![CDATA[
+	    insert into t_sucai_play_count
+        (mark,name,stype,sname,scount,sdate,filename)
+        value 
+       (#mark#,#name#,#stype#,#sname#,#scount#,#sdate#,#filename#)
+       ]]>
+       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_sucai_play_count  limit 1
+       </selectKey>
+    </insert>
+    
+    
+	<select id="sel_sucai_playCount"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(id)
+		from t_sucai_play_count
+		where mark = #mark# and
+		name = #name# and 
+		stype = #stype# and 
+		sname = #sname# and 
+		sdate like '%$sdate$%'
+        ]]> 
+	</select>
+	
+	<update id="update_sucai_playCount" parameterClass="scpc">   
+	 <![CDATA[      
+		update      
+		t_sucai_play_count     
+		set scount=scount+#scount# 
+		where mark = #mark# and
+		name = #name# and 
+		stype = #stype# and 
+		sname = #sname# and 
+		sdate = #sdate#
+	 ]]>
+	</update>    
+    
+    <select id="sel_scpc_list_count"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+		
+		select count(tspc.id)
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+         and tspc.sdate <=#etime# 
+         and tspc.sdate >=#btime#
+         and ts.id in ($scIds$) 
+		
+		
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_count_group"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+		
+	   select count(scount) from (
+		 select sum(tspc.scount) as scount 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         
+         group by tspc.mark,tspc.sname 
+        ) a
+         
+         
+         
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list"  parameterClass="scpc" resultClass="scpc">
+	
+       <![CDATA[
+	
+       
+       	select tc.name as mark,tspc.stype as tspc, ts.name as sname,tspc.scount as scount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$) 
+         limit #startid#,#pagetype#    
+        
+        
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_group"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    
+         select tc.name as mark,tspc.stype as tspc, ts.name as sname,sum(tspc.scount) as scount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         group by tspc.mark,tspc.sname 
+         limit #startid#,#pagetype#    
+         
+         
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_name_count"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(id)
+		from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		name like '%$name$%' and
+		sdate <=#etime# and sdate >=#btime#
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_name_count_group"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(c) from (
+		select sum(scount) c
+		from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		name like '%$name$%' and
+		sdate <=#etime# and sdate >=#btime# group by mark,name,sname) a
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_name"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		name like '%$name$%' and
+		sdate <=#etime# and sdate >=#btime# 
+        limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_name_group"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,sum(scount) scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		name like '%$name$%' and
+		sdate <=#etime# and sdate >=#btime# group by mark,name,sname
+        limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_sname_count"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+		
+		
+		select count(tspc.id)
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+         and tspc.sdate <=#etime# 
+         and tspc.sdate >=#btime#
+         and ts.name like '%$sname$%'
+         and ts.id in ($scIds$)
+         
+         
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_sname_count_group"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	  
+		
+		
+		select count(scount) from (
+		 select sum(tspc.scount) as scount 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         and ts.name like '%$sname$%'
+         group by tspc.mark,tspc.sname 
+        ) a
+        
+        
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_sname"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    
+        
+        select tc.name as mark,tspc.stype as tspc, ts.name as sname,tspc.scount as scount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+		 and ts.name like '%$sname$%'
+         and ts.id in ($scIds$) 
+         limit #startid#,#pagetype#    
+         
+         
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_sname_group"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	   
+        
+        select tc.name as mark,tspc.stype as tspc, ts.name as sname,sum(tspc.scount) as scount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         and ts.name like '%$sname$%'
+         group by tspc.mark,tspc.sname 
+         limit #startid#,#pagetype#    
+         
+         
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_min_date"  parameterClass="scpc" resultClass="java.lang.String">
+       <![CDATA[
+	    select min(sdate)
+		from t_sucai_play_count
+		where stype = #stype#
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_max_date"  parameterClass="scpc" resultClass="java.lang.String">
+       <![CDATA[
+	    select max(sdate)
+		from t_sucai_play_count
+		where stype = #stype# 
+        ]]> 
+	</select>
+	
+	<select id="sel_sc_name_byfname" parameterClass="java.lang.String" resultClass="java.lang.String">
+		<![CDATA[
+			select name from t_sucai where filename = #filename#
+		]]>
+	</select>
+	
+	<select id="sel_between_bitem_etime_count"  parameterClass="scpc" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(id)
+		from t_sucai_play_count
+		where stype = #stype# and mark = #mark#
+		and name = #name# and sname = #sname# and
+		sdate <=#etime# and sdate >=#btime#
+        ]]> 
+	</select>
+	
+	<select id="sel_between_bitem_etime"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select *
+		from t_sucai_play_count
+		where stype = #stype# and mark = #mark#
+		and name = #name# and sname = #sname# and
+		sdate <=#etime# and sdate >=#btime# 
+		limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_out"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		sdate <=#etime# and sdate >=#btime# 
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_out_group"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,sum(scount) scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		sdate <=#etime# and sdate >=#btime# group by mark,name,sname
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_out_name"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		name like '%$name$%' and
+		sdate <=#etime# and sdate >=#btime# 
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_out_name_group"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,sum(scount) scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		name like '%$name$%' and
+		sdate <=#etime# and sdate >=#btime# group by mark,name,sname
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_out_sname"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		sname like '%$sname$%' and
+		sdate <=#etime# and sdate >=#btime# 
+        ]]> 
+	</select>
+	
+	<select id="sel_scpc_list_out_sname_group"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    select mark,name,stype,sname,sum(scount) scount,sdate 
+	    from t_sucai_play_count
+		where stype = #stype# and LENGTH(trim(mark))>1 
+		and LENGTH(trim(name))>1 and LENGTH(trim(sname))>1 and
+		sname like '%$sname$%' and
+		sdate <=#etime# and sdate >=#btime# group by mark,name,sname
+        ]]> 
+	</select>
+	
+	
+	
+	<update id="update_sucai_playCount_click" parameterClass="scpc">   
+	 <![CDATA[      
+		update      
+		t_sucai_play_count     
+		set scount=scount+#scount# ,
+		mClickCount=mClickCount+#mClickCount#
+		where mark = #mark# and
+		name = #name# and 
+		stype = #stype# and 
+		sname = #sname# and 
+		sdate = #sdate# 
+		
+	 ]]>
+	</update>    
+	
+	
+	
+	 <insert id="insert_sucai_playCount_click" parameterClass="scpc">
+	    <![CDATA[
+	    insert into t_sucai_play_count
+        (mark,name,stype,sname,scount,sdate,filename,mClickCount)
+        value 
+       (#mark#,#name#,#stype#,#sname#,#scount#,#sdate#,#filename#,#mClickCount#)
+       ]]>
+       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_sucai_play_count  limit 1
+        </selectKey>
+    </insert>
+    
+    
+    
+    	<select id="sel_scpc_list_group_click"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    
+         select tc.name as mark,tspc.stype as tspc, ts.name as sname,sum(tspc.scount) as scount,sum(tspc.mClickCount) as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         group by tspc.mark,tspc.sname 
+         limit #startid#,#pagetype#    
+         
+         
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_scpc_list_click"  parameterClass="scpc" resultClass="scpc">
+	
+       <![CDATA[
+	
+       
+         select tc.name as mark,tspc.stype as tspc, ts.name as sname,tspc.scount as scount,tspc.mClickCount as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$) 
+         limit #startid#,#pagetype#    
+        
+        
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_scpc_list_sname_group_click"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	   
+        
+        select tc.name as mark,tspc.stype as tspc, ts.name as sname,sum(tspc.scount) as scount,sum(tspc.mClickCount) as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         and ts.name like '%$sname$%'
+         group by tspc.mark,tspc.sname 
+         limit #startid#,#pagetype#    
+         
+         
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_scpc_list_sname_click"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    
+        
+        select tc.name as mark,tspc.stype as tspc, ts.name as sname,tspc.scount as scount,tspc.mClickCount as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+		 and ts.name like '%$sname$%'
+         and ts.id in ($scIds$) 
+         limit #startid#,#pagetype#    
+         
+         
+        ]]> 
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<select id="sel_scpc_list_click_out"  parameterClass="scpc" resultClass="scpc">
+	
+       <![CDATA[
+	
+       
+       	select tc.name as mark,tspc.stype as tspc, ts.name as sname,tspc.scount as scount,tspc.mClickCount as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$) 
+         
+        
+        
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_scpc_list_sname_group_click_out"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	   
+        
+        select tc.name as mark,tspc.stype as tspc, ts.name as sname,sum(tspc.scount) as scount,sum(tspc.mClickCount) as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         and ts.name like '%$sname$%'
+         group by tspc.mark,tspc.sname 
+         
+         
+         
+        ]]> 
+	</select>
+	
+	
+	<select id="sel_scpc_list_group_click_out"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    
+         select tc.name as mark,tspc.stype as tspc, ts.name as sname,sum(tspc.scount) as scount,sum(tspc.mClickCount) as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+         and ts.id in ($scIds$)
+         group by tspc.mark,tspc.sname 
+        
+         
+        ]]> 
+	</select>
+	
+	
+	
+	
+	<select id="sel_scpc_list_sname_click_out"  parameterClass="scpc" resultClass="scpc">
+       <![CDATA[
+	    
+        
+        select tc.name as mark,tspc.stype as tspc, ts.name as sname,tspc.scount as scount,tspc.mClickCount as mClickCount,tspc.sdate as sdate 
+		 from t_sucai_play_count tspc
+         LEFT JOIN t_sucai ts  ON tspc.sname = ts.filename
+         LEFT JOIN t_user  tu  ON ts.userid = tu.id
+         LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		 where tspc.stype = #stype# 
+		 and tspc.sdate <=#etime# and tspc.sdate >=#btime#
+		 and ts.name like '%$sname$%'
+         and ts.id in ($scIds$) 
+         
+        ]]> 
+	</select>
+	
+	
+    
+</sqlMap>
+    

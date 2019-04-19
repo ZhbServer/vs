@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="jk">
+
+	<typeAlias alias="jk" type="com.vshow.control.data.JianKong" />
+	   
+    <select id="sel_jk_all"  resultClass="jk" parameterClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+       *
+       FROM t_jiankong_history 
+       where uid=#uid#
+       order by id desc
+    ]]>
+	</select>
+	
+	
+	
+	
+	     
+    <insert id="add_jk" parameterClass="jk" >
+	    <![CDATA[
+	       insert into t_jiankong_history (mark,filename,cdate,uid,sendkey) values(#mark#,#filename#,#cdate#,#uid#,#sendkey#)
+	    ]]>
+	    
+	</insert>
+	
+		     
+    <delete id="del_jk" parameterClass="java.lang.Integer" >
+    <![CDATA[
+       delete from t_jiankong_history where id=#id#
+    ]]>
+	</delete>
+	
+	
+	
+	 <select id="sel_jk_last_list"  resultClass="jk" parameterClass="java.lang.Integer">
+    <![CDATA[
+    
+		SELECT t_jiankong_history.*,t_client.`name` as clientName FROM t_jiankong_history,t_client where
+		 t_client.mark= t_jiankong_history.mark AND
+		 cdate =(
+		  SELECT cdate FROM t_jiankong_history   ORDER BY cdate DESC LIMIT 1 
+		) and t_jiankong_history.uid = #uid#
+
+
+    ]]>
+	</select>
+	
+	
+	
+	
+	
+</sqlMap>
+    

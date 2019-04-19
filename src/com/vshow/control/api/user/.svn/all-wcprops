@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/api/user
+END
+ApiAddUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/user/ApiAddUserAction.java
+END
+ApiLoginUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/api/user/ApiLoginUserAction.java
+END
+ApiSelSubUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/user/ApiSelSubUserAction.java
+END
+ApiUpdateUserPwdAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/user/ApiUpdateUserPwdAction.java
+END
+ApiUpdateUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/user/ApiUpdateUserAction.java
+END

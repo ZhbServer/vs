@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/client
+END
+SetDevicePlayImgModeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/client/SetDevicePlayImgModeAction.java
+END
+GetAreaDeviceListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/v1/client/GetAreaDeviceListAction.java
+END
+SetDevicePlayVideoFastAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/v1/client/SetDevicePlayVideoFastAction.java
+END
+SetDevicePlayStopAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/client/SetDevicePlayStopAction.java
+END
+SetDevicePowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/client/SetDevicePowerAction.java
+END
+GetItemInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/v1/client/GetItemInfoAction.java
+END
+GetDeviceInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/client/GetDeviceInfoAction.java
+END
+SetDeviceVolAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/v1/client/SetDeviceVolAction.java
+END
+SetDevicePlayImgNextAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/client/SetDevicePlayImgNextAction.java
+END
+GetDeviceStateAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/v1/client/GetDeviceStateAction.java
+END
+SetDevicePlayItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/v1/client/SetDevicePlayItemAction.java
+END

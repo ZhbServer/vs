@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="DataHl">
+    <typeAlias alias="hls" type="com.vshow.control.data.DataHlShow" />
+    
+	<insert id="insert_data_hlshow" parameterClass="hl">
+	 <![CDATA[
+		insert
+		into
+		t_data_hl_show
+		(lines,rows,name,content)
+		values
+		(#lines#,#rows#,#name#,#content#)
+		 ]]>
+	</insert>  
+
+	
+	<delete id="del_data_hlshow_id" parameterClass="java.lang.Integer" >
+    <![CDATA[
+       delete from t_data_hl_show where id=#id#
+    ]]>
+	</delete>
+	
+	
+</sqlMap>
+    

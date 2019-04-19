@@ -1,0 +1,341 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/client/set
+END
+AjaxZTreeRootAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/AjaxZTreeRootAction.java
+END
+FbCsCameraSetAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsCameraSetAction.java
+END
+SeeClientTreeSetListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/SeeClientTreeSetListAction.java
+END
+DelClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/DelClientAction.java
+END
+MoveClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/MoveClientAction.java
+END
+SeeClientSetListAction2.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/SeeClientSetListAction2.java
+END
+FbCsConNoverTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsConNoverTimeAction.java
+END
+DisabledClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/DisabledClientAction.java
+END
+AjaxZTreeCgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/AjaxZTreeCgAction.java
+END
+FbPeopleCountTypeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbPeopleCountTypeAction.java
+END
+ToFpClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/ToFpClientAction.java
+END
+FbCsAdvertisementAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/set/FbCsAdvertisementAction.java
+END
+DownClientLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/DownClientLogAction.java
+END
+FbCsVolSetAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsVolSetAction.java
+END
+FbCsTouchSpaceTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsTouchSpaceTimeAction.java
+END
+ClientBindAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/ClientBindAction.java
+END
+SeeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/set/SeeAction.java
+END
+FbCsGetClientLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsGetClientLogAction.java
+END
+UpPhotosAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/UpPhotosAction.java
+END
+SeeClientSetListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/SeeClientSetListAction.java
+END
+FbCsClientPawAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsClientPawAction.java
+END
+ToClientUpAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/set/ToClientUpAction.java
+END
+UpLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/UpLogAction.java
+END
+AddClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/AddClientAction.java
+END
+FbCsClientInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/set/FbCsClientInfoAction.java
+END
+GetClientInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/set/GetClientInfoAction.java
+END
+GetClientEyeInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/GetClientEyeInfoAction.java
+END
+UpCameraAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/UpCameraAction.java
+END
+FpClientUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FpClientUserAction.java
+END
+AllMark.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/set/AllMark.xml
+END
+SeeClientSetListAction1.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/SeeClientSetListAction1.java
+END
+UnFpClientUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/UnFpClientUserAction.java
+END
+FbCsClientInfoRefreshAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsClientInfoRefreshAction.java
+END
+ClientPaw.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/ClientPaw.xml
+END
+ToMoveClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/ToMoveClientAction.java
+END
+OpenAddClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/OpenAddClientAction.java
+END
+ToNewNoticeSetAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/ToNewNoticeSetAction.java
+END
+SendBroadcastAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/SendBroadcastAction.java
+END
+UpdateClientSizeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/UpdateClientSizeAction.java
+END
+AjaxClientCgAction1.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/set/AjaxClientCgAction1.java
+END
+SeeLogAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/SeeLogAction.java
+END
+AjaxZTreeRootItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/AjaxZTreeRootItemAction.java
+END
+FbCsSetClientIpAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/set/FbCsSetClientIpAction.java
+END
+FbCsUpClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsUpClientAction.java
+END
+FbCsSetClientDoubleScreenSwtictAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/client/set/FbCsSetClientDoubleScreenSwtictAction.java
+END
+FbCsDownSetAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsDownSetAction.java
+END
+FbCsTimeWriteInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsTimeWriteInfoAction.java
+END
+ClientUpAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/set/ClientUpAction.java
+END
+ToClientCsSetAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/ToClientCsSetAction.java
+END
+FbPeopleCountGetTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbPeopleCountGetTimeAction.java
+END
+AjaxZTreeCgItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/AjaxZTreeCgItemAction.java
+END
+RzClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/RzClientAction.java
+END
+AjaxClientCgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/AjaxClientCgAction.java
+END
+FbCsUpNoItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/FbCsUpNoItemAction.java
+END
+AjaxZTreeRushAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/set/AjaxZTreeRushAction.java
+END
+Client.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/set/Client.xml
+END

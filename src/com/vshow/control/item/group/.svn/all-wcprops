@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group
+END
+AddGroupItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/AddGroupItemAction.java
+END
+AjaxDelGroupItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/AjaxDelGroupItemAction.java
+END
+UpdGroupItemNameAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/UpdGroupItemNameAction.java
+END
+AjaxItemEditCheckAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/AjaxItemEditCheckAction.java
+END
+ToEditIgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/ToEditIgAction.java
+END
+AjaxItemAddCheckAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/AjaxItemAddCheckAction.java
+END
+ToSeeGroupItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/ToSeeGroupItemAction.java
+END
+ItemGroup.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/ItemGroup.xml
+END
+UpdateGroupItemNameAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/UpdateGroupItemNameAction.java
+END
+DelGroupItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/group/DelGroupItemAction.java
+END

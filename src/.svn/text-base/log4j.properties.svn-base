@@ -1,0 +1,84 @@
+log4j.rootLogger=D,info,error
+log4j.addivity.org.apache=true  
+
+log4j.logger.D=D
+log4j.appender.D=com.vshow.control.tool.CustomLogAppender
+log4j.appender.D.layout=org.apache.log4j.PatternLayout
+log4j.appender.D.layout.ConversionPattern=[%-5p] [%d{yyyy-MM-dd HH:mm:ss}] %c - %m%n
+
+log4j.appender.D.Threshold = DEBUG 
+log4j.appender.D.append=true
+log4j.appender.D.File=D:/vs/server/webapps/vs/vslogs/bug.log
+log4j.appender.D.Encoding=UTF-8
+ 
+
+log4j.logger.info=info
+log4j.appender.info=com.vshow.control.tool.CustomLogAppender
+log4j.appender.info.layout=org.apache.log4j.PatternLayout
+log4j.appender.info.layout.ConversionPattern=[%-5p] [%d{yyyy-MM-dd HH:mm:ss}] %c - %m%n
+log4j.appender.info.Threshold = INFO 
+log4j.appender.info.append=true
+log4j.appender.info.MaxBackupIndex=2
+log4j.appender.info.File=D:/vs/server/webapps/vs/vslogs/info.log
+log4j.appender.info.Encoding=UTF-8
+
+ 
+#log4j.appender.stdout=org.apache.log4j.ConsoleAppender  
+#log4j.appender.stdout.layout=org.apache.log4j.PatternLayout  
+#log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - %m%n  
+ 
+#log4j.logger.com.ibatis=debug  
+#log4j.logger.com.ibatis.common.jdbc.SimpleDataSource=debug  
+#log4j.logger.com.ibatis.common.jdbc.ScriptRunner=debug  
+#log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate=debug  
+#log4j.logger.java.sql.Connection=debug  
+#log4j.logger.java.sql.Statement=debug  
+#log4j.logger.java.sql.PreparedStatement=debug,stdout 
+
+
+
+log4j.logger.error=error
+log4j.appender.error=com.vshow.control.tool.CustomLogAppender
+log4j.appender.error.layout=org.apache.log4j.PatternLayout
+log4j.appender.error.layout.ConversionPattern=[%-5p] [%d{yyyy-MM-dd HH:mm:ss}] %c - %m%n
+
+log4j.appender.error.Threshold = ERROR 
+log4j.appender.error.append=true
+log4j.appender.error.File=D:/vs/server/webapps/vs/vslogs/error.log 
+log4j.appender.error.Encoding=UTF-8
+
+
+
+#发布终端协议#
+log4j.logger.com.vshow.control.tool.MainSendMsgHandle= DEBUG, send
+log4j.appender.send=com.vshow.control.tool.CustomLogAppender
+log4j.appender.send.layout=org.apache.log4j.PatternLayout
+log4j.appender.send.layout.ConversionPattern=[%-5p] [%d{yyyy-MM-dd HH:mm:ss}] %c - %m%n
+
+log4j.appender.send.append=true
+log4j.appender.send.File=D:/vs/server/webapps/vs/vslogs/send_log.log
+log4j.appender.send.Encoding=UTF-8
+
+
+#接收心跳#
+log4j.logger.com.vshow.control.tool.VSEchoServerHandler= DEBUG, receive
+log4j.appender.receive=com.vshow.control.tool.CustomLogAppender
+log4j.appender.receive.layout=org.apache.log4j.PatternLayout
+log4j.appender.receive.layout.ConversionPattern=[%-5p] [%d{yyyy-MM-dd HH:mm:ss}] %c - %m%n
+
+log4j.appender.receive.append=true
+log4j.appender.receive.File=D:/vs/server/webapps/vs/vslogs/receive_log.log
+log4j.appender.receive.Encoding=UTF-8
+
+
+#自动录入终端/修改终端名#
+log4j.logger.com.vshow.control.interfaces.EnterClientAdminAction= DEBUG, client
+log4j.appender.client=com.vshow.control.tool.CustomLogAppender
+log4j.appender.client.layout=org.apache.log4j.PatternLayout
+log4j.appender.client.layout.ConversionPattern=[%-5p] [%d{yyyy-MM-dd HH:mm:ss}] %c - %m%n
+
+log4j.appender.client.append=true
+log4j.appender.client.File=D:/vs/server/webapps/vs/vslogs/client_log.log
+log4j.appender.client.Encoding=UTF-8
+
+

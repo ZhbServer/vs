@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dataif
+END
+ConditionSendInterfaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dataif/ConditionSendInterfaceAction.java
+END
+Sjjk.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/dataif/Sjjk.xml
+END
+DelSjjkAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/dataif/DelSjjkAction.java
+END
+SeeDataInterfaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/dataif/SeeDataInterfaceAction.java
+END
+SaveDataInterfaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/dataif/SaveDataInterfaceAction.java
+END
+DataInterfaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/dataif/DataInterfaceAction.java
+END

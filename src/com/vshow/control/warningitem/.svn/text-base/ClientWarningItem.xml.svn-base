@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="ClientWarningItem">
+
+
+    <typeAlias alias="clientWarningItem" type="com.vshow.control.data.ClientWarningItem" />
+   
+    <typeAlias alias="client" type="com.vshow.control.data.Client" />
+    
+    <select id="sel_warning_item_list" parameterClass="clientWarningItem" resultClass="clientWarningItem">
+	    <![CDATA[
+	        
+			    SELECT 
+			    
+				    t_client_item_warning.mark,
+	                t_client_item_warning.id,
+					t_client_item_warning.itemfiles,
+					t_client_item_warning.edate,
+					t_client_item_warning.sdate,
+					t_client.`name` as clientname
+
+			    
+			    from t_client_item_warning,t_client 
+				
+				where  TIMESTAMPDIFF(DAY,current_date,edate)<=#dayDiff# and TIMESTAMPDIFF(DAY,current_date,edate)>0
+				
+				and t_client.mark=t_client_item_warning.mark and t_client_item_warning.state=2
+				
+				and t_client_item_warning.mark in (
+				
+				    select t_client.mark
+				
+								from 
+								
+						   (t_client_group_relation left join t_client_group on t_client_group_relation.gid=t_client_group.id) 
+								
+						    INNER join t_client on t_client_group_relation.cid=t_client.id
+								
+				       where 
+				
+							 t_client_group_relation.uid=#uid#
+				
+				)
+				
+				order by t_client_item_warning.id desc limit #startid#,#pagetype#
+	     ]]>
+	</select>
+	
+	
+	
+	<select id="sel_warning_item_list_count" parameterClass="clientWarningItem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        
+			    SELECT count(*) from t_client_item_warning,t_client 
+				
+				where  TIMESTAMPDIFF(DAY,current_date,edate)<=#dayDiff# and TIMESTAMPDIFF(DAY,current_date,edate)>0
+				
+				and t_client.mark=t_client_item_warning.mark  and t_client_item_warning.state=2
+				
+				and t_client_item_warning.mark in (
+				
+				    select t_client.mark
+				
+								from 
+								
+						   (t_client_group_relation left join t_client_group on t_client_group_relation.gid=t_client_group.id) 
+								
+						    INNER join t_client on t_client_group_relation.cid=t_client.id
+								
+				       where 
+				
+							 t_client_group_relation.uid=#uid#
+				
+				)
+	     ]]>
+	</select>
+	
+	
+	
+	
+	    
+    <insert id="ad_warning_item" parameterClass="clientWarningItem">
+        <![CDATA[
+			insert
+			into
+			t_client_item_warning
+			(mark,type,msg,sdate,edate,itemfiles,sendkey,state)
+			values
+			(#mark#,#type#,#msg#,#sdate#,#edate#,#itemfiles#,#sendkey#,#state#)
+		 ]]>
+	</insert>
+    
+    
+   <delete id="del_warning_item"  parameterClass="java.lang.String" >
+		 <![CDATA[
+		     DELETE  from t_client_item_warning where mark=#mark#
+		 ]]>
+	</delete>
+	
+	
+	 <update id="up_warning_item" parameterClass="client">    
+		<![CDATA[    
+			update t_client_item_warning set state=#state#
+			where sendkey=#name# and mark=#mark#
+	    ]]>
+	</update>
+	
+	
+	
+   
+	
+</sqlMap>
+    

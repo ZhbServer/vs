@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins
+END
+icons.less
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins/icons.less
+END
+text-hide.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins/text-hide.less
+END
+clearfix.less
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins/clearfix.less
+END
+transitions.less
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins/transitions.less
+END
+buttons.less
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins/buttons.less
+END
+color-variant.less
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins/color-variant.less
+END
+shadows.less
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins/shadows.less
+END

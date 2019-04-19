@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Log">
+
+	<typeAlias alias="log" type="com.vshow.control.data.Log" />
+	
+	<insert id="add_log" parameterClass="log">
+	   <![CDATA[ 
+		 insert into t_log
+		    (sdate,content,userid,sendkey,stype,state)
+		 value
+		    (#sdate#,#content#,#urid#,#sendkey#,#stype#,#state#)
+		]]>
+    </insert>
+	
+	
+    <select id="sel_log_id_sendkey" parameterClass="java.lang.String"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select
+	      id
+	      from t_log
+	      where sendkey=#sendkey#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_log_all" parameterClass="log"  resultClass="log">
+	    <![CDATA[
+	       SELECT t_log.id,t_log.sdate,t_log.content,t_log.state,t_user.name as uname FROM 
+	       t_log,t_user 
+	       where t_log.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%' 
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_log_all_count" parameterClass="log"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(t_log.id) FROM 
+	       t_log,t_user 
+	       where t_log.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%' 	     
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_log_uname_all" parameterClass="log"  resultClass="log">
+	    <![CDATA[
+	       SELECT t_log.id,t_log.sdate,t_log.content,t_log.state,t_user.name as uname FROM 
+	       t_log,t_user 
+	       where t_log.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%'
+	       and t_user.name like '%$uname$%' 
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_log_uname_all_count" parameterClass="log"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(t_log.id) FROM 
+	       t_log,t_user 
+	       where t_log.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%'
+	       and t_user.name like '%$uname$%'  	     
+	    ]]>
+	</select>
+	
+	
+	<delete id="del_log_id" parameterClass="java.lang.Integer">
+	   <![CDATA[
+		delete
+		from t_log where id=#id#
+	  ]]>
+    </delete>
+    
+    
+    <select id="sel_all_logs_out" parameterClass="java.lang.String" resultClass="log">
+		 <![CDATA[
+		  SELECT t_log.id,t_log.sdate,t_log.content,t_log.state,t_user.name as uname FROM 
+	      t_log,t_user 
+	      where t_log.userid=t_user.id 
+	      and t_user.tkey like '%$tkey$%'
+	      order by id DESC 
+		]]> 
+   </select>
+   
+   
+   
+   <select id="sel_all_logs_sel" parameterClass="java.lang.String" resultClass="log">
+		 <![CDATA[
+		  SELECT t_log.id,t_log.sdate,t_log.content,t_log.state,t_user.name as uname FROM 
+	      t_log,t_user 
+	      where t_log.userid=t_user.id 
+	      and t_log.id in ($idstr$)
+	      order by id DESC 
+		]]> 
+   </select>
+   
+   
+	
+</sqlMap>
+    

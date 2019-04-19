@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Allmark">
+
+
+    <typeAlias alias="allmark" type="com.vshow.control.data.AllMark" />
+    
+     
+    <select id="sel_unclient" parameterClass="allmark"
+		resultClass="allmark">
+    <![CDATA[
+      
+      select  t_allmark.id,t_allmark.mark,t_allmark.state,t_allmark_name.`name`
+      from t_allmark  left JOIN  t_allmark_name on  t_allmark.mark= t_allmark_name.mark
+      where state=0
+      limit #startid#,#pagetype#
+      
+    ]]>
+	</select>
+	
+	<select id="api_see_unclient" 
+		resultClass="allmark">
+	    <![CDATA[
+	    
+	      select
+	      id,mark,state
+	      from t_allmark
+	      where state=0
+	      
+	    ]]>
+	</select>
+     
+    <select id="sel_unclient_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+      select
+      count(id)
+      from t_allmark
+      where state=0;
+    ]]>
+	</select>
+	
+	<select id="s_ajkdd_ip" parameterClass="java.lang.Integer"
+		resultClass="java.lang.String">
+    <![CDATA[
+      select
+      mark
+      from t_allmark
+      where id=#id#
+    ]]>
+	</select>
+	
+	<update id="up_allmark" parameterClass="java.lang.String">
+    <![CDATA[
+      update
+      t_allmark
+      set state=1
+      where mark=#mark#
+    ]]>
+	</update>
+	
+	
+   	<select id="s_ajk_ip" parameterClass="java.lang.String"
+		resultClass="java.lang.Integer">
+        <![CDATA[
+	      select
+	      id
+	      from t_allmark
+	      where mark=#mark#
+	      limit 1
+        ]]>
+	</select>
+	
+   <insert id="insert_inip_down"  parameterClass="java.lang.String">
+       <![CDATA[
+		insert
+		into
+		t_allmark
+		(mark)
+		values
+		(#mark#)
+	   ]]>
+   </insert>
+	
+   <delete id="del_allmark" parameterClass="java.lang.String">    
+	<![CDATA[    
+	  delete
+	  from
+	  t_allmark    
+	  where id in ($ids$)   
+	]]>
+	</delete>
+	
+	
+	<delete id="del_allmark_mark" parameterClass="java.lang.String">    
+	<![CDATA[    
+	  delete
+	  from
+	  t_allmark    
+	  where mark=#mark#
+	]]>
+	</delete>
+	
+	<select id="sel_allmark_name" parameterClass="java.lang.String"
+		resultClass="allmark">
+        <![CDATA[
+	       select
+	       *
+	       from t_allmark_name
+	       where mark=#mark#
+	       limit 1
+        ]]>
+	</select>
+	
+	
+	
+	<insert id="insert_allmark_name"  parameterClass="allmark">
+       <![CDATA[
+		insert
+		into
+		t_allmark_name
+		(mark,name)
+		values
+		(#mark#,#name#)
+	   ]]>
+   </insert>
+	
+	
+	<update id="up_allmark_name" parameterClass="allmark">
+    <![CDATA[
+      update
+      t_allmark_name
+      set name=#name#
+      where mark=#mark#
+    ]]>
+	</update>
+	
+	
+	<delete id="del_allmark_mark_name" parameterClass="java.lang.String">    
+	<![CDATA[    
+	  delete
+	  from
+	  t_allmark_name    
+	  where mark=#mark#
+	]]>
+	</delete>
+	
+	  
+	
+	
+	
+</sqlMap>
+    

@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/protocol
+END
+ProtocolUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/protocol/ProtocolUtil.java
+END
+ProtocolPlayAccurate.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolPlayAccurate.java
+END
+Protocol.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/protocol/Protocol.java
+END
+ProtocolDownMediaResource.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolDownMediaResource.java
+END
+ProtocolDownResource.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolDownResource.java
+END
+ProtocolType.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/protocol/ProtocolType.java
+END
+ProtocolSetClientIP.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/protocol/ProtocolSetClientIP.java
+END
+ProtocolVoiceBroadcast.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolVoiceBroadcast.java
+END
+ProtocolDataSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolDataSource.java
+END
+ProtocolFactoryPlay.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolFactoryPlay.java
+END
+ProtocolPeopleCountType.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolPeopleCountType.java
+END
+ProtocolPlayBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolPlayBase.java
+END
+ProtocolPlayImgNext.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/protocol/ProtocolPlayImgNext.java
+END
+ProtocolDp.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/protocol/ProtocolDp.java
+END
+ProtocolDpB.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/protocol/ProtocolDpB.java
+END
+ProtocolPlay.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolPlay.java
+END
+ProtocolPlayImgMode.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/protocol/ProtocolPlayImgMode.java
+END
+ProtocolSetClientDoubleScreenSwitch.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/protocol/ProtocolSetClientDoubleScreenSwitch.java
+END
+ProtocolAdvertisement.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolAdvertisement.java
+END
+ProtocolPlayVideoFast.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/protocol/ProtocolPlayVideoFast.java
+END
+ProtocolPlayStop.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/protocol/ProtocolPlayStop.java
+END
+ProtocolPeopleCountGetTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/protocol/ProtocolPeopleCountGetTime.java
+END

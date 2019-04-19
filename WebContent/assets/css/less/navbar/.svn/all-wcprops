@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar
+END
+toggle-button.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar/toggle-button.less
+END
+user-buttons.less
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar/user-buttons.less
+END
+user-dropdown-position.less
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar/user-dropdown-position.less
+END
+navbar-menu-form.less
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar/navbar-menu-form.less
+END
+user-menu.less
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar/user-menu.less
+END
+user-buttons-move-down.less
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar/user-buttons-move-down.less
+END
+collapsible.less
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/navbar/collapsible.less
+END

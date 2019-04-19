@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/statics
+END
+ToSeeClientCountInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/ToSeeClientCountInfoAction.java
+END
+sucaiPlayCountAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/sucaiPlayCountAction.java
+END
+SucaiPlayCount.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/SucaiPlayCount.xml
+END
+CountClientTime.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/statics/CountClientTime.xml
+END
+OutZxTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/OutZxTimeAction.java
+END
+ToSeePlayCountInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/ToSeePlayCountInfoAction.java
+END
+ToSeeClientTodayInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/ToSeeClientTodayInfoAction.java
+END
+sucaiStaticsImport.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/sucaiStaticsImport.java
+END
+OutZxStatusAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/OutZxStatusAction.java
+END
+clientZxTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/clientZxTimeAction.java
+END
+OutPlaycAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/statics/OutPlaycAction.java
+END

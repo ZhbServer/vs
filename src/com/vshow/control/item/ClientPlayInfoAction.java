@@ -1,0 +1,88 @@
+package com.vshow.control.item;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.collections.map.HashedMap;
+
+import com.opensymphony.xwork.Action;
+import com.vshow.control.data.Client;
+import com.vshow.control.tool.Constant;
+import com.vshow.control.tool.SqlConnect;
+
+public class ClientPlayInfoAction implements Action {
+
+	private int itemid;
+	private List<Client> clients;
+	@Override
+	public String execute() throws Exception {
+	
+         String itemidStr=itemid+",";   		
+		//获取操作成功 未过期播放节目的终端
+        Map map=new HashedMap();
+        map.put("itemidStr",itemidStr);
+        map.put("cdate", Constant.getCurrentDate());
+        HashSet<Integer> hs=new HashSet();
+        //普通发布
+		List<Integer> sendList=SqlConnect.getSqlMapInstance().queryForList("sel_send_item_client", itemidStr);
+		for (Integer s : sendList) {
+			hs.add(s);
+		}
+		//有效期发布
+		List<Integer> sendDateList=SqlConnect.getSqlMapInstance().queryForList("sel_send_date_item_client", map);
+		for (Integer sd : sendDateList) {
+			hs.add(sd);
+		}
+		//轮播发布
+		List<Integer> sendTimeList=SqlConnect.getSqlMapInstance().queryForList("sel_send_time_item_client", itemidStr);
+		for (Integer st : sendTimeList) {
+			hs.add(st);
+		}
+		
+		//插播发布
+		List<Integer> sendInsertList=SqlConnect.getSqlMapInstance().queryForList("sel_send_insert_item_client", map);
+		for (Integer si : sendInsertList) {
+			hs.add(si);
+		}
+		
+		//垫片发布
+		List<Integer> sendDpList=SqlConnect.getSqlMapInstance().queryForList("sel_send_dp_item_client", map);
+		for (Integer sd : sendDpList) {
+			hs.add(sd);
+		}
+		
+		clients=new ArrayList<Client>();
+		//遍历终端
+		Client tempc;
+		for (Integer cid : hs) {
+			tempc=(Client)SqlConnect.getSqlMapInstance().queryForObject("sel_client_byid", cid);
+			if(tempc!=null){
+				int sName = tempc.getName().length();
+				if (sName >= 10) {
+					tempc.setNamesub(tempc.getName().substring(0, 9) + "...");
+				} else {
+					tempc.setNamesub(tempc.getName());
+				}
+				clients.add(tempc);
+			}
+			
+		}
+		
+		return SUCCESS;
+	}
+	public int getItemid() {
+		return itemid;
+	}
+	public void setItemid(int itemid) {
+		this.itemid = itemid;
+	}
+	public List<Client> getClients() {
+		return clients;
+	}
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
+	}
+
+}

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces
+END
+WarningInteraceSendkeyAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/interfaces/WarningInteraceSendkeyAction.java
+END
+DllInteraceSendkeyClientInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/DllInteraceSendkeyClientInfoAction.java
+END
+EnterClientAdminAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/EnterClientAdminAction.java
+END
+SendInteractClientsAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/SendInteractClientsAction.java
+END
+InteractDll.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/InteractDll.java
+END
+DllInteraceSendkeyAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/DllInteraceSendkeyAction.java
+END
+DllTool.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/DllTool.java
+END
+DllPublic.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/DllPublic.java
+END
+DllMedia.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/DllMedia.java
+END
+DllTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/DllTest.java
+END
+DllTxt.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/DllTxt.java
+END
+SendInteractClientInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/SendInteractClientInfoAction.java
+END
+SendInteractDllAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/interfaces/SendInteractDllAction.java
+END
+WarningInteraceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/interfaces/WarningInteraceAction.java
+END

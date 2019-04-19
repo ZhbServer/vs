@@ -1,0 +1,37 @@
+package com.vshow.control.item;
+
+import com.opensymphony.xwork.ActionSupport;
+
+public class ToProgramDllAction extends ActionSupport {
+	
+	private String jsonStr;
+	
+	private String happyVal;
+	
+	private String uncomVal;
+	
+	@Override
+	public String execute() throws Exception {
+		return SUCCESS;
+	}
+	
+	public String getHappyVal() {
+		return happyVal;
+	}
+	public void setHappyVal(String happyVal) {
+		this.happyVal = happyVal;
+	}
+	public String getUncomVal() {
+		return uncomVal;
+	}
+	public void setUncomVal(String uncomVal) {
+		this.uncomVal = uncomVal;
+	}
+	
+	public String getJsonStr() {
+		return jsonStr;
+	}
+	public void setJsonStr(String jsonStr) {
+		this.jsonStr = jsonStr;
+	}
+}

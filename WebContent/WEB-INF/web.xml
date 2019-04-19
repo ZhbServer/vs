@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <javaee:display-name>vs</javaee:display-name>
+  <filter>
+    <filter-name>webwork</filter-name>
+    <filter-class>com.opensymphony.webwork.dispatcher.FilterDispatcher</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>webwork</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+
+    
+
+  
+  
+   <!-- 设置session过期时间为分钟 -->
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
+
+  
+  <welcome-file-list>
+     <welcome-file>login_to.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>init</servlet-name>
+    <servlet-class>NT141JNI</servlet-class>
+        <init-param>
+			<param-name>outtime</param-name>
+			<param-value>31</param-value>
+	   </init-param>
+	   <init-param>
+			<param-name>srvmark</param-name>
+			<param-value></param-value>
+		</init-param>
+		<init-param>
+			<param-name>srvip</param-name>
+			<param-value>192.168.1.101</param-value>
+		</init-param>
+		<init-param>
+			<param-name>lian</param-name>
+			<param-value>10</param-value>
+		</init-param>
+		<init-param>
+			<param-name>xiansu</param-name>
+			<param-value>0</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>vshow</param-name>
+			<param-value>42</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>camera</param-name>
+			<param-value>D:\camera</param-value>
+		</init-param>
+		
+		
+		<init-param>
+			<param-name>photos</param-name>
+			<param-value>D:\photos</param-value>
+		</init-param>
+		
+		
+		<init-param>
+			<param-name>onfff_60818</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		
+		
+	    <init-param>
+			<param-name>ip</param-name>
+			<param-value></param-value>
+		</init-param>
+		
+		
+		
+    <load-on-startup>1</load-on-startup>
+  </servlet> 
+    
+    
+<!--  <error-page>-->
+<!--       <error-code>500</error-code>-->
+<!--       <location>/error_time_out.jsp</location>-->
+<!--   </error-page> -->
+      
+</web-app>

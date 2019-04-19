@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Notice">
+
+	<typeAlias alias="nce" type="com.vshow.control.data.Notice" />
+	<typeAlias alias="sendnce" type="com.vshow.control.data.SendNotice" />
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+	<typeAlias alias="njr" type="com.vshow.control.data.NoticeJhRelation" />
+	
+	
+    <delete id="del_one_notice" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_notice
+      where id=#id#
+    ]]>
+	</delete>
+	
+	<delete id="del_one_notice_rid" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_send_notice
+      where resultid=#rid#;
+    ]]>
+	</delete>
+	
+	<insert id="insert_one_notice" parameterClass="nce">
+		 <![CDATA[
+			insert
+			into 
+			t_notice
+			(fonttitle,fontcontent,backcolor,fontcolor,fonttype,fontsize,rollspeed,urid,upmove,fontcontent2,backcolor2,fontcolor2,fonttype2,fontsize2,rollspeed2,upmove2,sdate,edate)
+			values
+			(#fonttitle#,#fontcontent#,#backcolor#,#fontcolor#,#fonttype#,#fontsize#,#fontspeed#,#urid#,#up#,#fontcontent2#,#backcolor2#,#fontcolor2#,#fonttype2#,#fontsize2#,#fontspeed2#,#up2#,#sdate#,#edate#);
+		]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_notice  limit 1
+        </selectKey>
+	</insert>
+	
+     
+	<select id="see_zjnotice_id" parameterClass="nce" resultClass="java.lang.Integer">
+	   <![CDATA[
+	    select id from t_notice where 
+	    fonttitle=#fonttitle# and
+	    fontcontent=#fontcontent# and
+	    backcolor=#backcolor# and
+	    fontcolor=#fontcolor# and
+	    fonttype=#fonttype# and
+	    fontsize=#fontsize# and
+	    rollspeed=#fontspeed# and
+	    urid=#urid# and
+	    upmove=#up#
+	       ]]>
+	</select>
+	
+	
+	<delete id="del_one_sendnotic" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_send_notice
+      where resultid in (select id from t_result where clientid =#clid#);
+    ]]>
+	</delete>
+	
+	<insert id="insert_one_sendnotice" parameterClass="sendnce">
+		 <![CDATA[
+			insert
+			into 
+			t_send_notice
+			(noticeid,resultid)
+			values
+			(#noticeid#,#resultid#)
+		]]>
+	</insert>
+	
+	  
+    <select id="see_notice_page" parameterClass="user"  resultClass="nce">
+      <![CDATA[
+       select
+        id,
+        fonttitle,
+        fontcontent,
+	    backcolor,
+	    fontcolor,
+	    fonttype,
+	    fontsize,
+	    rollspeed as fontspeed,
+	    upmove as up
+        from t_notice where urid=#id#
+	    order by id desc
+	    limit #startid#,8
+	       ]]>
+    </select>
+    
+    
+    
+	  
+    <select id="see_notice_page_count" parameterClass="user"  resultClass="java.lang.Integer">
+     <![CDATA[
+       select count(id) from t_notice where urid=#id# 
+          ]]>
+     </select>
+	
+     
+	  <select id="see_notice_id" parameterClass="java.lang.Integer"  resultClass="nce">
+	   <![CDATA[
+       select
+        id,
+        fonttitle,
+        fontcontent,
+	    backcolor,
+	    fontcolor,
+	    fonttype,
+	    fontsize,
+	    rollspeed as fontspeed,
+	    upmove as up,
+	    fontcontent2,
+	    backcolor2,
+	    fontcolor2,
+	    fonttype2,
+	    fontsize2,
+	    rollspeed2 as fontspeed2,
+	    upmove2 as up2,
+	    sdate,
+		edate
+        from t_notice where id=#id#
+           ]]>
+    </select>
+	
+     
+	<update id="update_notice" parameterClass="nce">
+	 <![CDATA[
+	    UPDATE t_notice SET
+	    fonttitle=#fonttitle# ,
+	    fontcontent=#fontcontent# ,
+	    backcolor=#backcolor# ,
+	    fontcolor=#fontcolor# ,
+	    fonttype=#fonttype# ,
+	    fontsize=#fontsize# ,
+	    rollspeed=#fontspeed# ,
+	    upmove=#up#,
+	    fontcontent2=#fontcontent2#,
+	    backcolor2=#backcolor2# ,
+	    fontcolor2=#fontcolor2# ,
+	    fonttype2=#fonttype2# ,
+	    fontsize2=#fontsize2# ,
+	    rollspeed2=#fontspeed2# ,
+	    upmove2=#up2#,
+	    sdate=#sdate#,
+		edate=#edate# 
+	    where id=#id#
+	       ]]>
+	</update>
+	
+	  
+    <delete id="del_notice" parameterClass="java.lang.Integer">
+     <![CDATA[
+        DELETE FROM t_notice WHERE id=#id#;
+           ]]>
+    </delete>
+    
+     <delete id="del_notice_relation" parameterClass="java.lang.Integer">
+        <![CDATA[
+        DELETE FROM t_notice WHERE id  in ( select nid from t_notice_jh_relation where jid=#id#);
+           ]]>
+    </delete>
+     
+    <delete id="del_send_notice" parameterClass="java.lang.Integer">
+        <![CDATA[
+        DELETE FROM t_send_notice WHERE noticeid=#noticeid#;
+           ]]>
+    </delete>
+	
+	<select id="see_onocheck_noticesend_all" resultClass="sendnce">
+	   <![CDATA[
+	     select * from t_send_notice where resultid in (select id from t_result where logid in (select id from t_log where ocheck=3)) group by resultid
+	   ]]>
+	</select>
+	
+	<select id="see_notice_all"  resultClass="nce">
+	    <![CDATA[
+       select
+        id,
+        fonttitle,
+        fontcontent,
+	    backcolor,
+	    fontcolor,
+	    fonttype,
+	    fontsize,
+	    rollspeed as fontspeed,
+	    upmove as up,
+	    sdate,
+	    edate
+        from t_notice 
+	    order by id desc
+	       ]]>
+    </select>
+	
+	<select id="see_notice_all_page" parameterClass="njr"  resultClass="nce">
+	    <![CDATA[
+        select
+        id,
+        fonttitle,
+        fontcontent,
+	    backcolor,
+	    fontcolor,
+	    fonttype,
+	    fontsize,
+	    rollspeed as fontspeed,
+	    upmove as up,
+	    sdate,
+	    edate
+        from t_notice 
+	    order by id desc
+	    limit #startid#,#pagetype#
+	       ]]>
+    </select>
+	
+	<select id="see_notice_all_page_count" resultClass="java.lang.Integer">
+     <![CDATA[
+       select
+       count(id)
+       from t_notice
+       ]]>
+    </select>
+	
+     <select id="see_notice_jhid" parameterClass="java.lang.Integer"  resultClass="nce">
+        <![CDATA[ 
+       select
+        id,
+        fonttitle,
+        fontcontent,
+	    backcolor,
+	    fontcolor,
+	    fonttype,
+	    fontsize,
+	    rollspeed as fontspeed,
+	    upmove as up,
+	    sdate,
+	    edate
+        from t_notice where id in (select nid from t_notice_jh_relation where jid=#jid#)
+	    order by id desc
+	   ]]>
+    </select>
+    
+    <select id="see_notice_jhid_notnid" parameterClass="njr"  resultClass="nce">
+        <![CDATA[ 
+       select
+        id,
+        fonttitle,
+        fontcontent,
+	    backcolor,
+	    fontcolor,
+	    fonttype,
+	    fontsize,
+	    rollspeed as fontspeed,
+	    upmove as up,
+	    sdate,
+	    edate
+        from t_notice where id != #nid#
+	    order by id desc
+	   ]]>
+    </select>
+    
+    <select id="see_jid_notice_all" resultClass="nce" parameterClass="java.lang.Integer">
+	   <![CDATA[
+	        select 
+	        id,
+	        fonttitle,
+	        fontcontent,
+		    backcolor,
+		    fontcolor,
+		    fonttype,
+		    fontsize,
+		    rollspeed as fontspeed,
+		    upmove as up,
+		    fontcontent2,
+		    backcolor2,
+		    fontcolor2,
+		    fonttype2,
+		    fontsize2,
+		    rollspeed2 as fontspeed2,
+		    upmove2 as up2,
+		    sdate,
+		    edate
+	        from t_notice
+	   ]]>
+	</select>
+	
+	
+	
+	<select id="sel_notice_all_son" parameterClass="njr"  resultClass="nce">
+	    <![CDATA[
+        select
+        t_notice.id,
+        t_notice.fonttitle,
+        t_notice.fontcontent,
+	    t_notice.backcolor,
+	    t_notice.fontcolor,
+	    t_notice.fonttype,
+	    t_notice.fontsize,
+	    t_notice.rollspeed as fontspeed,
+	    t_notice.upmove as up,
+	    t_notice.sdate,
+	    t_notice.edate
+        from t_notice,t_user
+        where
+        t_notice.urid=t_user.id 
+        and
+        t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%') 
+	    order by t_notice.id desc
+	    limit #startid#,#pagetype#
+	       ]]>
+    </select>
+    
+    
+    
+    <select id="sel_notice_all_son_count" parameterClass="njr"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select
+	          count(t_notice.id)
+	        from t_notice,t_user
+	        where
+	        t_notice.urid=t_user.id 
+	        and
+	        t_user.id in
+			(SELECT id FROM t_user t where tkey like '%$tkey$%') 
+	 
+	    ]]>
+    </select>
+    
+    
+	
+</sqlMap>
+    

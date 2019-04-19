@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Share">
+
+	<typeAlias alias="scshare" type="com.vshow.control.data.ScShare" />
+	
+	<insert id="add_share" parameterClass="scshare">
+	   <![CDATA[
+		insert into t_sucai_share
+		(userid,scid,shareid)
+		 values
+		(#userid#,#scid#,#shareid#)
+	   ]]>
+	</insert>
+	
+	<select id="sel_scshare_exist" parameterClass="scshare" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select 
+	      count(t_sucai_share.id)
+	      from
+	      t_sucai_share
+	      where
+	  	  t_sucai_share.scid = #scid# and 
+	  	  (t_sucai_share.shareid like '$shareid$,%' or t_sucai_share.shareid like '%,$shareid$' or 
+		  t_sucai_share.shareid like '$shareid$' or t_sucai_share.shareid like '%,$shareid$,%') 
+	    ]]>
+	</select>
+	
+	<select id="sel_all_shareid" parameterClass="scshare" resultClass="scshare">
+	    <![CDATA[
+	      select 
+	      t_sucai_share.id,
+	      t_sucai_share.shareid
+	      from
+	      t_sucai_share
+	      where
+	  	  t_sucai_share.scid = #scid# and 
+	  	  (t_sucai_share.shareid like '$shareid$,%' or t_sucai_share.shareid like '%,$shareid$' or 
+		  t_sucai_share.shareid like '$shareid$' or t_sucai_share.shareid like '%,$shareid$,%') 
+	    ]]>
+	</select>
+	
+	
+	<update id="up_scshare" parameterClass="scshare">    
+	<![CDATA[    
+		update t_sucai_share set shareid=#shareid#
+		where id=#id#
+    ]]>
+	</update>
+	
+	<delete id="del_scshare" parameterClass="java.lang.Integer">    
+	 <![CDATA[      
+		 delete      
+		 from      
+		 t_sucai_share      
+		 where id=#id#  
+	 ]]>
+	</delete>
+</sqlMap>
+    

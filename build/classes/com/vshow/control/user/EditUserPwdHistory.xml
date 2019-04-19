@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="EditUserPwdHistory">
+
+
+    <typeAlias alias="eph" type="com.vshow.control.data.EditUserPwdHistory" />
+    
+    
+    
+    <insert id="ad_edit_pwd_history" parameterClass="eph">    
+		
+		<![CDATA[    
+		     insert into t_edit_pwd_history
+			  (sdate,pwd,account,handleaccount)
+			     values
+			  (#sdate#,#pwd#,#account#,#handleaccount#)
+		]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	               select last_insert_id() as id from  t_edit_pwd_history  limit 1
+	          ]]>
+        </selectKey>
+        
+	</insert>
+	
+	
+	
+	 <select id="sel_edit_pwd_history_zj" parameterClass="java.lang.String" resultClass="eph">
+	    <![CDATA[    
+	         SELECT * FROM t_edit_pwd_history where account=#account# order by sdate desc limit 0,3
+		 ]]>
+    </select>
+	
+	
+</sqlMap>
+    

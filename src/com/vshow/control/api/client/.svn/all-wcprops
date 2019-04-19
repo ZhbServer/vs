@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client
+END
+ApiUNFpClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiUNFpClientAction.java
+END
+ApiNoEnterClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiNoEnterClientAction.java
+END
+ApiClientBindAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiClientBindAction.java
+END
+ApiEnterClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiEnterClientAction.java
+END
+ApiSelClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiSelClientAction.java
+END
+ApiDelClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiDelClientAction.java
+END
+ApiClientUpNameAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiClientUpNameAction.java
+END
+ApiFpClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiFpClientAction.java
+END
+ApiSelZxClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiSelZxClientAction.java
+END
+ApiClientMoveAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiClientMoveAction.java
+END
+ApiSelLxClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/ApiSelLxClientAction.java
+END

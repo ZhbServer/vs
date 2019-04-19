@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/client/play
+END
+ClientPlayHandle.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/play/ClientPlayHandle.java
+END
+ClientPlay.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/play/ClientPlay.xml
+END
+ClientPlayItemListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/play/ClientPlayItemListAction.java
+END
+GetClientPlayInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/client/play/GetClientPlayInfoAction.java
+END

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src
+END
+xwork-api.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/xwork-api.xml
+END
+Mt.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/Mt.java
+END
+license.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/license.xml
+END
+Vslogin.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/Vslogin.java
+END
+Mts.java
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/Mts.java
+END
+NT141JNI.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/NT141JNI.java
+END
+xwork-c.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/xwork-c.xml
+END
+xwork.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/xwork.xml
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/log4j.properties
+END
+CheckNetJm.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/CheckNetJm.java
+END
+webwork.properties
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/webwork.properties
+END
+jdbc.properties
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/jdbc.properties
+END
+sql.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/sql.xml
+END

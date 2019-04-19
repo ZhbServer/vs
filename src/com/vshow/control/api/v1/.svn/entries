@@ -1,0 +1,43 @@
+10
+
+dir
+27
+https://192.168.3.253:8443/svn/vs_server_6.1/trunk/vs/src/com/vshow/control/api/v1
+https://192.168.3.253:8443/svn/vs_server_6.1
+
+
+
+2009-01-07T12:55:05.459613Z
+27
+zhb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3402c343-e45e-4c49-b624-1d524a447d92
+
+data
+dir
+
+base
+dir
+
+util
+dir
+
+client
+dir
+
+user
+dir
+

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/datainfo
+END
+HlRead.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/datainfo/HlRead.java
+END
+SeeDataHlAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/datainfo/SeeDataHlAction.java
+END
+DataHl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/datainfo/DataHl.xml
+END
+DataHlShow.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/datainfo/DataHlShow.xml
+END

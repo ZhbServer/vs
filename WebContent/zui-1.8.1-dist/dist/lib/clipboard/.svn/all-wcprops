@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/clipboard
+END
+clipboard.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/clipboard/clipboard.js
+END
+clipboard.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/clipboard/clipboard.min.js
+END

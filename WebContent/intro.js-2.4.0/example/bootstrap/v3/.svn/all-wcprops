@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/intro.js-2.4.0/example/bootstrap/v3
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/intro.js-2.4.0/example/bootstrap/v3/LICENSE
+END
+gulpfile.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/intro.js-2.4.0/example/bootstrap/v3/gulpfile.js
+END
+package.json
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/intro.js-2.4.0/example/bootstrap/v3/package.json
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/intro.js-2.4.0/example/bootstrap/v3/.gitignore
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/intro.js-2.4.0/example/bootstrap/v3/index.html
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/intro.js-2.4.0/example/bootstrap/v3/README.md
+END

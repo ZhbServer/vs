@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Power">
+	<typeAlias alias="power" type="com.vshow.control.data.Power" />
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+	 
+	 
+	<select id="user_login_check" parameterClass="user" resultClass="power">    
+	<![CDATA[    
+	    select
+	    t_power.id as id, 
+		t_user.id as userid,t_user.name as username,t_user.account as account,t_user.ocheck,t_user.tkey as usertkey,
+		t_power.seesucai,t_power.addsucai,t_power.delsucai,t_power.seeitem,t_power.additem,t_power.delitem,
+		t_power.publicsucai,t_power.publicitem,t_power.itemsend,t_power.listsend,t_power.insertsend,t_power.dpsend,
+		t_power.downmanager,t_power.clientset,t_power.clearclient,t_power.noticesend,t_power.onoffset,t_power.jhset,t_power.khmanager,
+		t_power.groupmanager,t_power.parameterset,t_power.serverip,t_power.usermanager,t_power.powermanager,t_power.clientdisabled,
+		t_power.sysset,t_power.userlog,t_power.clientlog,t_power.statistical,t_power.checksend,t_power.checkitem,t_user.ban
+		from t_user,t_power
+		where t_user.account=#account#      
+		and t_user.password=#password#
+		and t_user.powerid=t_power.id		
+	]]>
+	</select> 
+
+	<select id="sel_power_page" parameterClass="power" resultClass="power">
+	   <![CDATA[    
+	       select id,name from t_power 
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	   ]]>
+	</select>
+	
+	
+	<select id="sel_power_page_count"  resultClass="java.lang.Integer">
+	   <![CDATA[    
+	       select count(id)  from t_power 	   
+	   ]]>
+	</select>
+	
+	
+	<insert id="add_power" parameterClass="power">    
+		<![CDATA[    
+		  insert into t_power
+			 (
+				 name, seesucai,addsucai,delsucai,seeitem, additem, delitem,
+				 publicsucai,publicitem,itemsend,listsend,insertsend,dpsend,
+			     downmanager,clientset,clearclient,noticesend,onoffset,
+			     groupmanager,parameterset,serverip,usermanager,powermanager,clientdisabled,
+			     sysset,userlog,clientlog,statistical,checksend,checkitem,jhset,khmanager
+			 )
+			values	
+		    (
+			     #name#, #seesucai#,#addsucai#,#delsucai#,#seeitem#, #additem#, #delitem#,
+				 #publicsucai#,#publicitem#,#itemsend#,#listsend#,#insertsend#,#dpsend#,
+			     #downmanager#,#clientset#,#clearclient#,#noticesend#,#onoffset#,
+			     #groupmanager#,#parameterset#,#serverip#,#usermanager#,#powermanager#,#clientdisabled#,
+			     #sysset#,#userlog#,#clientlog#,#statistical#,#checksend#,#checkitem#,#jhset#,#khmanager#
+		    )
+		]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	               select last_insert_id() as id from  t_power  limit 1
+	          ]]>
+        </selectKey>
+        
+        
+	</insert>
+	
+	<select id="sel_power_name_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">    
+		<![CDATA[    
+		   select name from t_power where id=#id#
+		]]>
+	</select>
+	
+	<delete id="del_power" parameterClass="java.lang.Integer">    
+	<![CDATA[    
+	 delete      
+	 from      
+	 t_power 
+	 where id=#id#   
+	]]>
+	</delete>
+	
+	
+	
+	<select id="sel_power_all_id" parameterClass="java.lang.Integer" resultClass="power">    
+	<![CDATA[    
+	 select 
+		t_power.id,t_power.name,t_power.seesucai,t_power.addsucai,t_power.delsucai,t_power.seeitem,t_power.additem,t_power.delitem,
+		t_power.publicsucai,t_power.publicitem,t_power.itemsend,t_power.listsend,t_power.insertsend,t_power.dpsend,
+		t_power.downmanager,t_power.clientset,t_power.clearclient,t_power.noticesend,t_power.onoffset,t_power.clientdisabled,
+		t_power.groupmanager,t_power.parameterset,t_power.serverip,t_power.usermanager,t_power.powermanager,t_power.jhset,t_power.khmanager,
+		t_power.sysset,t_power.userlog,t_power.clientlog,t_power.statistical,t_power.checksend,t_power.checkitem
+		from t_power
+		where t_power.id=#id#
+	]]>
+	</select> 
+	
+	
+	<update id="update_power" parameterClass="power">    
+		<![CDATA[    
+			 update t_power set name=#name#, seesucai=#seesucai#,addsucai=#addsucai#,delsucai=#delsucai#, publicsucai=#publicsucai#,
+			 seeitem=#seeitem#,additem=#additem#,delitem=#delitem#,publicitem=#publicitem#,itemsend=#itemsend#,listsend=#listsend#,
+			 insertsend=#insertsend#,dpsend=#dpsend#,downmanager=#downmanager#,clientset=#clientset#,clearclient=#clearclient#,noticesend=#noticesend#,
+			 onoffset=#onoffset#,groupmanager=#groupmanager#,parameterset=#parameterset#,serverip=#serverip#,usermanager=#usermanager#,
+			 powermanager=#powermanager#,clientdisabled=#clientdisabled#,
+			 sysset=#sysset#,userlog=#userlog#,clientlog=#clientlog#,statistical=#statistical#,checksend=#checksend#,checkitem=#checkitem#,jhset=#jhset#,khmanager=#khmanager#
+			 where id=#id#
+			 
+	    ]]>
+	</update>
+	
+	
+	<select id="sel_power_all" resultClass="power">    
+	<![CDATA[    
+	select 
+	*
+	from t_power 
+    ]]>
+	</select>
+	
+	
+	
+	<select id="user_login_check2" parameterClass="user" resultClass="power">    
+		<![CDATA[    
+		    select
+		    t_power.id as id, 
+			t_user.id as userid,t_user.name as username,t_user.account as account,t_user.ocheck,t_user.tkey as usertkey,
+			t_power.seesucai,t_power.addsucai,t_power.delsucai,t_power.seeitem,t_power.additem,t_power.delitem,
+			t_power.publicsucai,t_power.publicitem,t_power.itemsend,t_power.listsend,t_power.insertsend,t_power.dpsend,
+			t_power.downmanager,t_power.clientset,t_power.clearclient,t_power.noticesend,t_power.onoffset,t_power.jhset,t_power.khmanager,
+			t_power.groupmanager,t_power.parameterset,t_power.serverip,t_power.usermanager,t_power.powermanager,t_power.clientdisabled,
+			t_power.sysset,t_power.userlog,t_power.clientlog,t_power.statistical,t_power.checksend,t_power.checkitem,t_user.ban,
+			t_user.jhocheck as jhocheck
+			from t_user,t_power
+			where t_user.account=#account#      
+			and t_user.password=#password#
+			and t_user.powerid=t_power.id		
+		]]>
+	</select> 
+	
+	
+	
+	
+</sqlMap>
+    

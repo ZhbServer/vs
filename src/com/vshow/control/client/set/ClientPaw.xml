@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="ClientPaw">
+
+
+    <typeAlias alias="clientPaw" type="com.vshow.control.data.ClientPaw" />
+    
+   
+	
+	<update id="up_client_paw_cpassword" parameterClass="clientPaw">
+	    <![CDATA[
+		      update
+		      t_client_paw
+		      set cpassword=#cpassword#
+		      where cid=#cid#
+	    ]]>
+	</update>
+	
+	
+   	<select id="sel_client_paw_cpassword" parameterClass="java.lang.Integer"
+		resultClass="java.lang.String">
+    <![CDATA[
+      select
+      cpassword
+      from t_client_paw
+      where cid=#cid#
+      limit 1
+    ]]>
+	</select>
+	
+   <insert id="insert_client_paw"  parameterClass="clientPaw">
+       <![CDATA[
+		insert
+		into
+		t_client_paw
+		(cid,cpassword)
+		values
+		(#cid#,#cpassword#)
+	   ]]>
+   </insert>
+	
+  
+	
+	
+	
+	
+	
+	
+</sqlMap>
+    

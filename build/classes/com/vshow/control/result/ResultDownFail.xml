@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="resultDownFail">
+
+	<typeAlias alias="resultDownFail" type="com.vshow.control.data.ResultDownFail" />
+	
+	 
+     
+     <insert id="ad_result_down_fail" parameterClass="resultDownFail">
+	    <![CDATA[
+			insert
+			into
+			t_result_down_fail
+			(sendkey,vu,fileName,sName,mark,state)
+			values
+			(#sendkey#,#vu#,#fileName#,#sName#,#mark#,#state#)
+		 ]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_result_down_fail  limit 1
+        </selectKey>
+	</insert>
+	
+	
+	
+        
+	<select id="sel_reuslt_by_mark_sendkey_vu" resultClass="java.lang.Integer" parameterClass="resultDownFail">
+       <![CDATA[
+           select id from t_result_down_fail where sendkey=#sendkey# and fileName=#fileName# and mark=#mark#
+       ]]>    
+    </select>
+    
+    
+    
+    <select id="sel_reuslt_down_fail_all_count" resultClass="java.lang.Integer" parameterClass="resultDownFail">
+       <![CDATA[
+            select count(id) from t_result_down_fail where sendkey=#sendkey# and mark=#mark#
+       ]]>    
+    </select>
+    
+    
+    
+    <select id="sel_reuslt_down_fail_all" parameterClass="resultDownFail"  resultClass="resultDownFail">
+	    <![CDATA[
+	       
+	       select * from t_result_down_fail where sendkey=#sendkey# and mark=#mark#
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	       
+	    ]]>
+	</select>
+	
+	
+    
+    
+</sqlMap>
+    

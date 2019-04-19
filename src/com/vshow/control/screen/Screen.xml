@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Screen">
+
+	<typeAlias alias="screen" type="com.vshow.control.data.Screen" />
+	
+     
+    <select id="sel_screen_all_page"  resultClass="screen" parameterClass="screen">
+    <![CDATA[
+       SELECT 
+        * 
+       FROM t_screen order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+	<select id="sel_screen_all_page_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+        count(id) 
+       FROM t_screen;
+    ]]>
+	</select>
+	
+	
+   <select id="gt_scr_one" resultClass="screen">
+    <![CDATA[
+      select
+      id,
+      filename, 
+      name,
+      type,
+      posx,
+      posy,
+      width, 
+      height,
+      stime
+      from t_screen order by id desc
+    ]]>
+	</select>
+	
+	 <select id="sel_screen_all_id" resultClass="screen" parameterClass="java.lang.Integer">
+    <![CDATA[
+      select
+      id,
+      filename, 
+      type,
+      posx,
+      posy,
+      width, 
+      height,
+      stime
+      from t_screen where id=#id#
+    ]]>
+	</select>
+   
+	
+	     
+    <insert id="add_screen" parameterClass="screen" >
+    <![CDATA[
+       insert into t_screen (name,type,filename,stime,height,width,posx,posy)
+        values(#name#,#type#,#filename#,#stime#,#height#,#width#,#posx#,#posy#)
+    ]]>
+	</insert>
+	
+	 
+    <delete id="del_screen" parameterClass="java.lang.Integer" >
+    <![CDATA[
+       delete from t_screen where id=#id#
+    ]]>
+	</delete>
+	
+</sqlMap>
+    

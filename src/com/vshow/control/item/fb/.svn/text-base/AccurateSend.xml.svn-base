@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="AccurateSend">
+
+	<typeAlias alias="accurateSend" type="com.vshow.control.data.AccurateSend" />
+	
+	
+	<insert id="ad_accurate_send" parameterClass="accurateSend">
+		 <![CDATA[
+			insert
+			into 
+			t_accurate_send
+			(itemids,resultid,type,sex,generation)
+			values
+			(#itemids#,#resultid#,#type#,#sex#,#generation#)
+		]]>
+	</insert>
+	
+     
+
+	
+   <delete id="del_accurate_send_rid" parameterClass="java.lang.Integer">
+       <![CDATA[
+            delete  from t_accurate_send where resultid=#resultid#
+       ]]>
+   </delete>
+	
+	
+ 
+
+  
+</sqlMap>
+    

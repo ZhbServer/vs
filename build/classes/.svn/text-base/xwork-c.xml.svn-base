@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<xwork>
+	<include file="webwork-default.xml" />
+
+	<package name="vsc" extends="vsm"  namespace="/c">
+	    
+	   
+	
+		
+		<action name="seecslist" class="com.vshow.control.client.set.SeeClientSetListAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/client_set_index.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<action name="seecslist1" class="com.vshow.control.client.set.SeeClientSetListAction1">
+			<result name="success" type="dispatcher">
+				 <param name="location">/client_set_index1.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<action name="ajaxclientcg" class="com.vshow.control.client.set.AjaxClientCgAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/client_set_ajax_list.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<action name="ajaxclientcg1" class="com.vshow.control.client.set.AjaxClientCgAction1">
+			<result name="success" type="dispatcher">
+				<param name="location">/client_set_ajax_list1.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<action name="openaddclient" class="com.vshow.control.client.set.OpenAddClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/client_set_add.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<action name="adclient" class="com.vshow.control.client.set.AddClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_close.jsp</param>
+			</result>
+			
+			<result name="netsuccess" type="dispatcher">
+				<param name="location">/result_show.jsp</param>
+			</result>
+			
+			
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+		<action name="delclient" class="com.vshow.control.client.set.DelClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_close2.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+	    <action name="tomoveclient" class="com.vshow.control.client.set.ToMoveClientAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/client_move_client.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+		 <action name="clientmove" class="com.vshow.control.client.set.MoveClientAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/result_close_value.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+	     <action name="tofpclientuser" class="com.vshow.control.user.ToUserListAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/client_fp_client_user.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+		 <action name="tofpclientlist" class="com.vshow.control.client.set.ToFpClientAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/client_fp_client_list.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		 <action name="fpclientuser" class="com.vshow.control.client.set.FpClientUserAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/result_close_value.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+		 <action name="unfpclientuser" class="com.vshow.control.client.set.UnFpClientUserAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/result_close_value.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<action name="toclientup" class="com.vshow.control.client.set.ToClientUpAction">
+			
+			<result name="success" type="dispatcher">
+				 <param name="location">/client_set_up.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			
+			<interceptor-ref name="params" />
+		</action>
+		
+		<action name="upclientname" class="com.vshow.control.client.set.ClientUpAction">
+			<result name="success" type="dispatcher">
+				 <param name="location">/result_close.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+	
+		
+		
+		<action name="rzclient" class="com.vshow.control.client.set.RzClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_close_value.jsp</param>
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+			</result>
+			<interceptor-ref name="checkclientset" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+	</package>	
+</xwork>  
+

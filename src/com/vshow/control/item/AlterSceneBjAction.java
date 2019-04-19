@@ -1,0 +1,119 @@
+package com.vshow.control.item;
+
+
+
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Map;
+
+import javax.imageio.ImageIO;
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.ActionContext;
+import com.vshow.control.data.Scene;
+import com.vshow.control.tool.Constant;
+import com.vshow.control.tool.SqlConnect;
+
+public class AlterSceneBjAction implements Action {
+
+	
+	private String afile;
+	private float sf;
+    
+	private String selfile;
+	private String info;
+	@Override
+	public String execute() throws Exception {
+		ActionContext ctx = ActionContext.getContext();
+		Map session = ctx.getSession();
+	
+		String bfile = selfile;
+		
+		//获取背景名
+		String bname=(String)SqlConnect.getSqlMapInstance().queryForObject("sel_sucai_name_by_filename",bfile);
+		
+		String type=selfile.substring(selfile.lastIndexOf(".")+1);
+		File file = new File(Constant.FILES + File.separator + selfile);
+		BufferedImage bi = ImageIO.read(file);
+		int tx = bi.getWidth();
+		int ty = bi.getHeight();
+		// 获取场景分辨率
+		Scene se = (Scene) session.get("scene");
+
+		if ((tx != se.getTx()) || (ty != se.getTy())) {
+			FileOutputStream out = new FileOutputStream(Constant.FILES
+					+ File.separator + se.getFilename() + File.separator
+					+ bfile);
+			BufferedImage image = new BufferedImage(se.getTx(), se.getTy(),
+					BufferedImage.TYPE_INT_BGR);
+			Graphics graphics = image.createGraphics();
+			graphics.drawImage(bi.getScaledInstance((int) se.getTx(),
+					(int) se.getTy(), Image.SCALE_SMOOTH), 0, 0, null);
+			graphics.dispose();
+			ImageIO.write(image, type, out);
+			out.flush();
+			out.close();
+		} else {
+			FileInputStream fis = new FileInputStream(Constant.FILES
+					+ File.separator + selfile);
+
+			FileOutputStream fos = new FileOutputStream(Constant.FILES
+					+ File.separator + se.getFilename() + File.separator
+					+ bfile);
+
+			byte[] buff = new byte[1024];
+			int readed = -1;
+			while ((readed = fis.read(buff)) > 0)
+				fos.write(buff, 0, readed);
+			fis.close();
+			fos.close();
+		}
+
+		afile = se.getFilename() +"/" + bfile;
+
+		info=afile+"$"+bname.replaceAll("\\$", "");
+		return SUCCESS;
+	}
+
+	
+	public String getInfo() {
+		return info;
+	}
+
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+
+	public String getSelfile() {
+		return selfile;
+	}
+
+
+	public void setSelfile(String selfile) {
+		this.selfile = selfile;
+	}
+
+
+	public String getAfile() {
+		return afile;
+	}
+
+	public void setAfile(String afile) {
+		this.afile = afile;
+	}
+
+	public float getSf() {
+		return sf;
+	}
+
+	public void setSf(float sf) {
+		this.sf = sf;
+	}
+
+}

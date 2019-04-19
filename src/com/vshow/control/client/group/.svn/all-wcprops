@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/group
+END
+DelCg3Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/DelCg3Action.java
+END
+AddCgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AddCgAction.java
+END
+ToEditCgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ToEditCgAction.java
+END
+SeeClientGroup1ListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/SeeClientGroup1ListAction.java
+END
+SeeClientGroup2ListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/SeeClientGroup2ListAction.java
+END
+SeeClientGroup3ListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/SeeClientGroup3ListAction.java
+END
+ClientGroupRelation.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ClientGroupRelation.xml
+END
+ClientGroup.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/client/group/ClientGroup.xml
+END
+DelCgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/DelCgAction.java
+END
+AjaxGetCg2NameAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AjaxGetCg2NameAction.java
+END
+EditCg1Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/EditCg1Action.java
+END
+EditCg2Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/EditCg2Action.java
+END
+AjaxDelCgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AjaxDelCgAction.java
+END
+EditCg3Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/EditCg3Action.java
+END
+AddCg1Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AddCg1Action.java
+END
+ToEditCg1Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ToEditCg1Action.java
+END
+AddCg2Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AddCg2Action.java
+END
+ToEditCg2Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ToEditCg2Action.java
+END
+AddCg3Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AddCg3Action.java
+END
+ToEditCg3Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ToEditCg3Action.java
+END
+AjaxEditCheckAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AjaxEditCheckAction.java
+END
+ToAddCg2Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ToAddCg2Action.java
+END
+ToAddCg3Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ToAddCg3Action.java
+END
+AjaxAddCheckAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/AjaxAddCheckAction.java
+END
+ClientGroup1.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ClientGroup1.xml
+END
+ClientGroup2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ClientGroup2.xml
+END
+DelCg1Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/DelCg1Action.java
+END
+ClientGroup3.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/ClientGroup3.xml
+END
+EditCgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/EditCgAction.java
+END
+DelCg2Action.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/client/group/DelCg2Action.java
+END

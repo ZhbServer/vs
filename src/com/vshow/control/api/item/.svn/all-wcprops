@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/api/item
+END
+ApiCopyItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiCopyItemAction.java
+END
+ApiDaoItemInAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiDaoItemInAction.java
+END
+ApiToAddItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiToAddItemAction.java
+END
+ApiShareItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiShareItemAction.java
+END
+ApiSelItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiSelItemAction.java
+END
+ApiDelItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiDelItemAction.java
+END
+ApiDaoItemBatchAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiDaoItemBatchAction.java
+END
+ApiDelShareItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/item/ApiDelShareItemAction.java
+END

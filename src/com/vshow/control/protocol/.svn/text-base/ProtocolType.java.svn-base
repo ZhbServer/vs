@@ -1,0 +1,153 @@
+package com.vshow.control.protocol;
+
+public class ProtocolType {
+
+	/*** 通知 ***/
+	public static final int TYPE1 = 1;
+
+	/*** 发布节目 [替换]***/
+	public static final int TYPE2 = 2;  
+
+	/*** 监控 ***/
+	public static final int TYPE3 = 3;
+	
+	/***清理终端(删除终端文件)***/
+	public static final int TYPE5 = 5;
+	
+	/**远程更新apk**/
+	public static final int TYPE10 = 10;
+	
+	
+	/**开机发送系统信息**/
+	public static final int TYPE21 = 21;
+	
+	
+	/*** 发布节目 [追加]***/
+	public static final int TYPE44 = 44;
+	
+	/***叫号 ***/
+	public static final int TYPE45 = 45;
+	public static final int TYPE46 = 46;
+	
+	/**切纸**/
+	public static final int TYPE47 = 47;
+	
+	/**修改终端名**/
+	public static final int TYPE48 = 48;
+	
+	
+	/**禁用终端**/
+	public static final int TYPE49 = 49;
+	
+	/**设置终端密码**/
+	public static final int TYPE50 = 50;
+	
+	/**公交巴士/刷新控件**/
+	public static final int TYPE51 = 51;
+	
+	/**撤销节目**/
+	public static final int TYPE52 = 52;
+	
+	/**传输新协议**/
+	public static final int TYPE53 = 53;
+	
+	/**语音播报**/
+	public static final int TYPE54 = 54;
+	
+	
+	/**人数统计方式**/
+	public static final int TYPE55 = 55;
+	
+	/**人数统计设置返回数据时长**/
+	public static final int TYPE56 = 56;
+
+	/**发布工厂计划**/
+	public static final int TYPE57 = 57;
+	
+	/**精准投放**/
+	public static final int TYPE58 = 2;
+	
+	
+	/**mark标识码/终端参数**/
+    public static final int TYPE59 = 58;
+	
+    
+    /**台标**/
+    public static final int TYPE60 = 59;
+    
+    
+    /**发布预警节目**/
+    public static final int TYPE61 = 61;
+    
+    
+    /**预警节目显示或撤销**/
+    public static final int TYPE62 = 62;
+    
+    
+    /**投影仪协议**/
+    public static final int TYPE63 = 63;
+    
+   
+    /**广告位**/
+    public static final int TYPE64 = 64;
+    
+    
+    /**垫片**/
+    public static final int TYPE65 = 65;
+    
+    
+    /**设置终端指向服务端IP**/
+    public static final int TYPE66 = 66;
+    
+    
+    /**资源显示**/
+    public static final int TYPE67 = 67;
+    
+    
+    /**资源显示获取终端信息**/
+    public static final int TYPE68 = 68;
+    
+    
+    /**设置终端双屏开关**/
+    public static final int TYPE69 = 69;
+    
+    
+    /**条件发布**/
+    public static final int TYPE70 = 70;
+    
+    
+    /**条件发布指定节目**/
+    public static final int TYPE71 = 71;
+    
+    
+    /**发布指定节目filename**/
+    public static final int TYPE72 = 72;
+    
+    
+    /**播放暂停停止**/
+    public static final int TYPE73 = 73;
+    
+    
+    /**设置图片播放模式**/
+    public static final int TYPE74 = 74;
+    
+    
+    /**设置图片上一张 下一张**/
+    public static final int TYPE75 = 75;
+    
+    
+    /**设置视频快进快退**/
+    public static final int TYPE76 = 76;
+    
+    
+    /**获取终端温度、亮度、烟感的状态**/
+    public static final int TYPE77=77;
+    
+    
+    /**宝箱发布**/
+    public static final int TYPE78 = 78;
+    
+    /**宝箱撤销**/
+    public static final int TYPE79 = 79;
+    
+}

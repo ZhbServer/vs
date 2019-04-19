@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Inductionsend">
+
+   <typeAlias alias="inductionsend" type="com.vshow.control.data.InductionSend" />
+   
+   <delete id="del_one_inductionitem" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_induction_send
+      where resultid in (select id from t_result where clientid =#clid#)
+    ]]>
+	</delete>
+	
+	<insert id="insert_one_inductionitem" parameterClass="inductionsend">
+	    <![CDATA[
+		insert
+		into
+		t_induction_send
+		(itemids,resultid,type,inductiontime)
+		values
+		(#itemids#,#resultid#,#type#,#inductiontime#)
+		 ]]>
+    </insert>
+    
+    
+    <select id="sel_onocheck_inductionsend_all" resultClass="inductionsend">
+	   <![CDATA[
+	     select * from t_induction_send where resultid in (select id from t_result where logid in (select id from t_log where ocheck=3))
+	   ]]>
+	</select>
+    
+</sqlMap>
+    

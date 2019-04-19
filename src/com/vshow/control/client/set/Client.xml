@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="client">
+
+
+    <typeAlias alias="client" type="com.vshow.control.data.Client" />
+    <typeAlias alias="cgr" type="com.vshow.control.data.ClientGroupRelation" />
+    <typeAlias alias="user" type="com.vshow.control.data.User" />
+    <typeAlias alias="cpc" type="com.vshow.control.data.ClientPeopleCode" />
+    
+    <typeAlias alias="clientMobile" type="com.vshow.control.data.ClientMobile" />
+    
+    <typeAlias alias="clientAdvertising" type="com.vshow.control.data.ClientAdvertising" />
+        
+    
+   	<insert id="add_client" parameterClass="client">    
+		<![CDATA[    
+		  insert into t_client
+			 (name,mark,ip,last,serverid,downstate,size,nvn,uid,netstate)
+			 values	
+		     (#name#,#mark#,#ip#,#last#,#serverid#,#downstate#,#size#,#nvn#,#uid#,#netstate#)
+		]]>
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	            select last_insert_id() as id from  t_client  limit 1
+	          ]]>
+	     </selectKey>
+	</insert>
+	
+	
+	
+	<select id="sel_client_cg_list" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	        select c.* from t_client c
+	        left join t_client_group_relation cgr1 on (cgr.cid = c.id)
+	        where cgr.uid=#gid# and cgr.uid =#uid# and cgr.gtype =#gtype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	   
+	       
+	        select t_client.*
+
+				from 
+				
+		   (t_client_group_relation left join t_client_group on t_client_group_relation.gid=t_client_group.id) 
+				
+		    INNER join t_client on t_client_group_relation.cid=t_client.id
+				
+			where t_client_group.tkey like '%$tkey$%'
+				
+			and t_client_group_relation.uid=#uid#
+			
+			order by $orderv$ desc limit #startid#,#pagetype#
+			
+			
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    
+	      
+	       
+	       select count(t_client.id)
+
+				from 
+				
+		   (t_client_group_relation left join t_client_group on t_client_group_relation.gid=t_client_group.id) 
+				
+		    INNER join t_client on t_client_group_relation.cid=t_client.id
+				
+			where t_client_group.tkey like '%$tkey$%'
+				
+			and t_client_group_relation.uid=#uid#
+
+
+	       
+	    ]]>
+	</select>
+	
+	
+	
+	
+	<select id="sel_client_ser_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       
+	       
+	       select t_client.*
+
+				from 
+				
+		   (t_client_group_relation left join t_client_group on t_client_group_relation.gid=t_client_group.id) 
+				
+		    left join t_client on t_client_group_relation.cid=t_client.id
+				
+			where t_client_group.tkey like '%$tkey$%'
+				
+			and t_client_group_relation.uid=#uid#
+			
+			and $sname$ like '%$ser$%'
+			
+			order by $orderv$ desc limit #startid#,#pagetype#
+
+
+	       
+	        
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_ser_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      
+	       
+	         select count(t_client.id)
+
+				from 
+				
+		   (t_client_group_relation left join t_client_group on t_client_group_relation.gid=t_client_group.id) 
+				
+		    left join t_client on t_client_group_relation.cid=t_client.id
+				
+			where t_client_group.tkey like '%$tkey$%'
+				
+			and t_client_group_relation.uid=#uid#
+			
+			and $sname$ like '%$ser$%'
+			
+			
+			
+			
+	    ]]>
+	</select>
+	
+	<select id="sel_client_byid" parameterClass="java.lang.Integer" resultClass="client">    
+		<![CDATA[    
+		   select * from t_client  where id=#id#
+		]]>
+	</select>
+	
+	<delete id="del_client_id"  parameterClass="java.lang.Integer" >
+		 <![CDATA[
+		    delete from t_client where id=#id#    
+		 ]]>
+	</delete>
+	
+	
+	<select id="sel_client_bymark" parameterClass="java.lang.String"
+		resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select
+	      id
+	      from t_client
+	      where mark=#mark#
+	    ]]>
+	</select>
+	
+	
+	<insert id="add_client2" parameterClass="client">
+    <![CDATA[
+      insert
+      into
+      t_client
+      (name,ip,mark,serverid,uid,netstate)
+      values
+      (#name#,#ip#,#mark#,#serverid#,#uid#,#netstate#)
+    ]]>
+	</insert>
+	
+	
+	<select id="sel_client_ccount_all" parameterClass="java.lang.Integer" resultClass="client">    
+		<![CDATA[    
+		   select *  from t_client where  id  in (select cid from t_client_group_relation where uid=#uid#)
+		]]>
+	</select>
+	
+  	<select id="init_all_remark" resultClass="client">
+    <![CDATA[
+	      select
+	      ip,
+	      mark
+	      from t_client
+    ]]>
+	</select>
+	
+	<update id="update_xiaba" parameterClass="client">   
+	 <![CDATA[      
+		 update      
+		 t_client     
+		 set last=#last#,
+		 downstate=#downstate#,
+		 zxstate=1,
+		 ip=#ip#      
+		 where mark=#mark#    
+	 ]]>
+	</update>
+	
+	
+	
+	<update id="update_xiaba_last" parameterClass="client">   
+	 <![CDATA[      
+		 update      
+		 t_client     
+		 set last=#last#,
+		 downstate=#downstate#,
+		 zxstate=1,
+		 last=#last#,
+		 ip=#ip#      
+		 where mark=#mark#    
+	 ]]>
+	</update>
+	
+	
+	
+	
+	<select id="sel_client_page_fp" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,ip,last,serverid,zxstate,disabledstate from t_client where id in (select cid from t_client_group_relation where  uid=#uid#) order by id desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+    <select id="sel_client_page_fp_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(id) from t_client where id in (select cid from t_client_group_relation where  uid=#uid#) 
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_onclient"  parameterClass="user" resultClass="client">
+       <![CDATA[
+	    select id,name,mark,ip,last,serverid,downstate,size,nvn,zxstate,disabledstate
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and TIMESTAMPDIFF(SECOND,last,#dqdate#)<=#outtime#
+        limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_onclient_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(id)
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and TIMESTAMPDIFF(SECOND,last,#dqdate#)<=#outtime#
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_onclient_ser"  parameterClass="user" resultClass="client">
+       <![CDATA[
+	    select id,name,mark,ip,last,serverid,downstate,size,nvn,zxstate,disabledstate
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and TIMESTAMPDIFF(SECOND,last,#dqdate#)<=#outtime#
+	    and $sname$ like '%$ser$%' order by $orderv$ desc
+        limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_onclient_ser_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(id)
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and TIMESTAMPDIFF(SECOND,last,#dqdate#)<=#outtime#
+	    and $sname$ like '%$ser$%'
+        ]]> 
+	</select>
+	
+	
+	
+	
+	 <select id="sel_offclient"  parameterClass="user" resultClass="client">
+       <![CDATA[   
+	    select id,name,mark,ip,last,serverid,downstate,nvn,zxstate,disabledstate
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and (TIMESTAMPDIFF(SECOND,last,#dqdate#)>#outtime# or last='')
+        limit #startid#,#pagetype#
+       ]]>
+	</select>
+	
+	
+	 <select id="sel_offclient_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[   
+	    select count(id)
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and (TIMESTAMPDIFF(SECOND,last,#dqdate#)>#outtime# or last='')
+        
+       ]]>
+	</select>
+	
+	
+	
+	 <select id="sel_offclient_ser"  parameterClass="user" resultClass="client">
+       <![CDATA[   
+	    select id,name,mark,ip,last,serverid,downstate,nvn,disabledstate
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and (TIMESTAMPDIFF(SECOND,last,#dqdate#)>#outtime# or last='')
+	    and $sname$ like '%$ser$%' order by $orderv$ desc 
+        limit #startid#,#pagetype#
+       ]]>
+	</select>
+	
+	
+	 <select id="sel_offclient_ser_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[   
+	    select count(id)
+	    from t_client
+	    where  id in 
+	    (select cid from t_client_group_relation where  uid=#id#) and (TIMESTAMPDIFF(SECOND,last,#dqdate#)>#outtime# or last='')
+	    and $sname$ like '%$ser$%' 
+        
+       ]]>
+	</select>
+	
+	
+	<update id="update_client_size" parameterClass="client">    
+	<![CDATA[    
+	 update t_client set size=#size#
+	 where mark=#mark#	]]>
+	</update>
+	
+	
+	<update id="update_client_mark_by_netstate1" parameterClass="java.lang.String">    
+		 <![CDATA[    
+		   update t_client set netstate=1
+		   where mark=#mark#	
+		 ]]>
+	</update>
+	
+	
+	<update id="update_client_all_netstate0">    
+		 <![CDATA[    
+		   update t_client set netstate=0
+		  
+		 ]]>
+	</update>
+
+    
+   <update id="update_client_name" parameterClass="client">    
+	<![CDATA[    
+	 update t_client set name=#name#
+	 where id=#id#	
+	 ]]>
+	</update>	
+	
+	 <select id="sel_resultid_client"  parameterClass="java.lang.Integer" resultClass="client">
+       <![CDATA[   
+	     select id,name,mark,ip,last,serverid,downstate,nvn,zxstate,disabledstate from t_client where id =(SELECT clientid FROM t_result where id=#resultid#)
+       ]]>
+	</select>	
+	
+	
+	<update id="update_client_zxstate_mark" parameterClass="client">   
+	 <![CDATA[      
+		 update      
+		 t_client     
+		 set zxstate=#zxstate#,standbystate=0
+		 where mark=#mark#    
+	 ]]>
+	</update>
+	
+	
+	<update id="update_client_zxstate_all_0">   
+	 <![CDATA[      
+		 update      
+		 t_client     
+		 set zxstate=0,standbystate=0    
+	 ]]>
+	</update>
+	
+	
+	
+	<select id="sel_onclient_zxstate"  parameterClass="user" resultClass="client">
+       <![CDATA[
+
+        
+        select t_client.*  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+        
+        where t_client_group_relation.uid=#id# and  t_client.zxstate=#zxstate# order by $orderv$ desc
+        
+        limit #startid#,#pagetype#
+        
+        
+        
+        ]]> 
+	</select>
+	
+	<select id="sel_onclient_zxstate_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+	    
+	    select count(t_client.id)  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+        
+        where t_client_group_relation.uid=#id# and  t_client.zxstate=#zxstate#
+        
+        ]]> 
+	</select>
+	
+	
+	<select id="sel_onclient_ser_zxstate"  parameterClass="user" resultClass="client">
+	
+	       <![CDATA[
+	       
+		        select t_client.*  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+		        
+		        where t_client_group_relation.uid=#id# and  t_client.zxstate=#zxstate# 
+		        
+		        and $sname$ like '%$ser$%'
+		        
+		        order by $orderv$ desc
+		        
+		        limit #startid#,#pagetype#
+	        
+	        ]]> 
+	        
+	        
+	</select>
+	
+	<select id="sel_onclient_ser_zxstate_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+	 
+	       select count(t_client.id)  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+        
+           where t_client_group_relation.uid=#id# and  t_client.zxstate=#zxstate# 
+        
+           and $sname$ like '%$ser$%'
+       
+        ]]> 
+	</select>
+	
+	
+	<update id="update_client_zxstate" parameterClass="client">   
+		 <![CDATA[      
+			 update      
+			 t_client     
+			 set zxstate=#zxstate#,ip=#ip#,standbystate=0
+			 where mark=#mark#    
+		 ]]>
+	</update>
+	
+	
+	<update id="update_client_zxstate_last" parameterClass="client">   
+		 <![CDATA[      
+			 update      
+			 t_client     
+			 set zxstate=#zxstate#,ip=#ip#,standbystate=0,last=#last#
+			 where mark=#mark#    
+		 ]]>
+	</update>
+	
+	
+	<update id="update_downstate" parameterClass="client">   
+	 <![CDATA[ 
+	      
+		 update      
+		 t_client     
+		 set
+		 downstate=#downstate# 
+		 where mark=#mark#    
+	 
+	 ]]>
+	</update>
+	
+	
+	
+	<select id="sel_view_cut_client_sum" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,zxstate,cutstate,case ISNULL(addnum) when 1 then 0 else addnum end-case ISNULL(delnum) when 1 then 0 ELSE delnum end as stock from view_cut_client_sum where gtype=#gtype# and gid=#gid# and uid=#uid# order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_view_cut_client_sum_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(0) from view_cut_client_sum where gtype=#gtype# and gid=#gid# and uid=#uid# 
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_view_cut_client_sum_ser" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,zxstate,cutstate,case ISNULL(addnum) when 1 then 0 else addnum end-case ISNULL(delnum) when 1 then 0 ELSE delnum end as stock from view_cut_client_sum where gtype=#gtype# and gid=#gid# and uid=#uid# and $sname$ like '%$ser$%' order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_view_cut_client_sum_ser_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(0) from view_cut_client_sum where gtype=#gtype# and gid=#gid# and uid=#uid# and $sname$ like '%$ser$%' 
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_view_cut_client_hz_count" parameterClass="user" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(0) from view_cut_client_sum where uid=#id# and case ISNULL(addnum) when 1 then 0 else addnum end-case ISNULL(delnum) when 1 then 0 ELSE delnum end <=#caveat#
+	    ]]>
+	</select>
+	
+	
+   <select id="sel_view_cut_client_hz" parameterClass="user" resultClass="client">
+	    <![CDATA[
+	        select id,name,mark,zxstate,cutstate,case ISNULL(addnum) when 1 then 0 else addnum end-case ISNULL(delnum) when 1 then 0 ELSE delnum end as stock from view_cut_client_sum where  uid=#id# and case ISNULL(addnum) when 1 then 0 else addnum end-case ISNULL(delnum) when 1 then 0 ELSE delnum end<=#caveat#  order by $orderv$ desc limit #startid#,#pagetype# 
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_view_cut_client_hz_ser_count" parameterClass="user" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(0) from view_cut_client_sum where uid=#id# and (addnum-delnum)<=#caveat# and $sname$ like '%$ser$%'
+	    ]]>
+	</select>
+	
+	
+   <select id="sel_view_cut_client_hz_ser" parameterClass="user" resultClass="client">
+	    <![CDATA[
+	        select id,name,mark,zxstate,cutstate,case ISNULL(addnum) when 1 then 0 else addnum end-case ISNULL(delnum) when 1 then 0 ELSE delnum end as stock from view_cut_client_sum where  uid=#id# and case ISNULL(addnum) when 1 then 0 else addnum end-case ISNULL(delnum) when 1 then 0 ELSE delnum end <=#caveat# and $sname$ like '%$ser$%' order by $orderv$ desc limit #startid#,#pagetype# 
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_make_name_client"  parameterClass="java.lang.String" resultClass="java.lang.String">
+        <![CDATA[   
+	       select name from t_client where mark=#mark#
+        ]]>
+	</select>	
+	
+	
+	<select id="sel_client_mark_zxstate" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select zxstate from t_client where mark=#mark#
+	    ]]>
+	</select>
+	
+	<select id="sel_make_all_client"  parameterClass="java.lang.String" resultClass="client">
+       <![CDATA[   
+	     select * from t_client where mark=#mark#
+       ]]>
+	</select>
+	
+	
+	
+	
+  <update id="update_client_zxstate_standby" parameterClass="client">   
+	 <![CDATA[      
+		 update      
+		 t_client     
+		 set zxstate=#zxstate#,ip=#ip#,standbystate=1
+		 where mark=#mark#    
+	 ]]>
+	</update>
+	
+	
+	<select id="sel_client_big_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select t_client.id,t_client.name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client LEFT JOIN t_bind_big ON t_client.id=t_bind_big.cid  where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and t_bind_big.cid is null  order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_big_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(t_client.id) from t_client LEFT JOIN t_bind_big ON t_client.id=t_bind_big.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and t_bind_big.cid is null 
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_ser_big_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select t_client.id,t_client.name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client LEFT JOIN t_bind_big ON t_client.id=t_bind_big.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and $sname$ like '%$ser$%' and t_bind_big.cid is null  order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_ser_big_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(t_client.id) from t_client LEFT JOIN t_bind_big ON t_client.id=t_bind_big.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and $sname$ like '%$ser$%' and t_bind_big.cid is null
+	    ]]>
+	</select>
+	
+	
+	
+	
+	<select id="sel_client_win_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select t_client.id,t_client.name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client LEFT JOIN t_bind_win ON t_client.id=t_bind_win.cid  where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and t_bind_win.cid is null  order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_win_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(t_client.id) from t_client LEFT JOIN t_bind_win ON t_client.id=t_bind_win.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and t_bind_win.cid is null 
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_ser_win_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select t_client.id,t_client.name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client LEFT JOIN t_bind_win ON t_client.id=t_bind_win.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and $sname$ like '%$ser$%' and t_bind_win.cid is null order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_ser_win_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(t_client.id) from t_client LEFT JOIN t_bind_win ON t_client.id=t_bind_win.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and $sname$ like '%$ser$%' and t_bind_win.cid is null
+	    ]]>
+	</select>
+	
+	
+	
+    <select id="sel_client_default_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       
+	       
+	        select t_client.*  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+        
+            where t_client_group_relation.uid=#uid# 
+
+            and t_client_group_relation.gid=#gid#
+        
+            order by $orderv$ desc  limit #startid#,#pagetype# 
+ 
+   
+	       
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_default_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	     
+	       
+	       select count(t_client.id)  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+        
+           where t_client_group_relation.uid=#uid# 
+
+            and t_client_group_relation.gid=#gid#
+	       
+	    ]]>
+	</select>
+	
+	 <select id="sel_client_all_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       
+	       
+	      
+	       
+	       select t_client.*  from t_client 
+	       
+	       INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid
+	       
+	       where t_client_group_relation.uid=#uid#
+	       
+	       order by $orderv$ desc limit #startid#,#pagetype#
+	       
+	       
+	       
+	    ]]>
+	</select>
+	
+	<select id="sel_client_all_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       
+	       
+	       select count(t_client.id)  from t_client 
+	       
+	       INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid
+	       
+	       where t_client_group_relation.uid=#uid#
+	      
+	       
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_default_ser_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       
+	     
+	      
+	       select t_client.*  from t_client LEFT JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+        
+            where t_client_group_relation.uid=#uid# 
+
+            and t_client_group_relation.gid=#gid#
+        
+            and $sname$ like '%$ser$%'
+
+            order by $orderv$ desc  limit #startid#,#pagetype# 
+ 
+	       
+	       
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_default_ser_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select count(t_client.id)  from t_client LEFT JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+        
+            where t_client_group_relation.uid=#uid# 
+
+            and t_client_group_relation.gid=#gid#
+        
+	      
+	      
+	    ]]>
+	</select>
+	
+	<select id="sel_client_all_ser_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       
+	       
+	       select t_client.*  from t_client 
+	       
+	       INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid
+	       
+	       where t_client_group_relation.uid=#uid#
+	       
+	       and $sname$ like '%$ser$%'
+	       
+	       order by $orderv$ desc limit #startid#,#pagetype#
+	       
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_all_ser_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       
+	       
+	       
+	       select count(t_client.id)  from t_client 
+	       
+	       INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid
+	       
+	       where t_client_group_relation.uid=#uid#
+	       
+	       and $sname$ like '%$ser$%'
+	       
+	       
+	    ]]>
+	</select>
+	
+	
+	<update id="update_disabled" parameterClass="client">   
+	 <![CDATA[      
+		 update      
+		 t_client     
+		 set disabledstate=#disabledstate#
+		 where id=#id#    
+	 ]]>
+	</update>
+	
+	
+	
+	
+	<select id="sel_client_bus_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select t_client.id,t_client.name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client LEFT JOIN t_bind_bus ON t_client.id=t_bind_bus.cid  where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and t_bind_bus.cid is null  order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_bus_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(t_client.id) from t_client LEFT JOIN t_bind_bus ON t_client.id=t_bind_bus.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and t_bind_bus.cid is null 
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_client_ser_bus_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select t_client.id,t_client.name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client LEFT JOIN t_bind_bus ON t_client.id=t_bind_bus.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and $sname$ like '%$ser$%' and t_bind_bus.cid is null  order by $orderv$ desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_ser_bus_page_count" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       select count(t_client.id) from t_client LEFT JOIN t_bind_bus ON t_client.id=t_bind_bus.cid where t_client.id in (select cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#) and $sname$ like '%$ser$%' and t_bind_bus.cid is null
+	    ]]>
+	</select>
+	
+	
+    <select id="sel_client_all_out_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client where id in (select cid from t_client_group_relation where uid=#uid#) order by $orderv$ desc
+	    ]]>
+	</select>
+	
+	<select id="sel_client_default_out_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client where id in (select cid from t_client_group_relation where  gid =#gid# and uid=#uid#) order by $orderv$ desc
+	    ]]>
+	</select>
+	
+	<select id="sel_client_out_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client where id in (select cid from t_client_group_relation where  gid in ( SELECT id from t_client_group where tkey like '%$tkey$%') and uid=#uid#) order by $orderv$ desc
+	    ]]>
+	</select>
+	
+	<select id="sel_client_all_ser_out_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client where id in (select cid from t_client_group_relation where uid=#uid#) and $sname$ like '%$ser$%' order by $orderv$ desc
+	    ]]>
+	</select>
+	
+	<select id="sel_client_default_ser_out_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client where id in (select cid from t_client_group_relation where  gid = #gid#  and uid=#uid#) and $sname$ like '%$ser$%' order by $orderv$ desc
+	    ]]>
+	</select>
+	
+	<select id="sel_client_ser_out_page" parameterClass="cgr" resultClass="client">
+	    <![CDATA[
+	       select id,name,mark,ip,last,serverid,netstate,zxstate,disabledstate from t_client where id in (select cid from t_client_group_relation where  gid in ( SELECT id from t_client_group where tkey like '%$tkey$%')  and uid=#uid#) and $sname$ like '%$ser$%' order by $orderv$ desc
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_ccount_all_rj" parameterClass="java.lang.Integer" resultClass="client">    
+		<![CDATA[    
+
+		   select t_client.*  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid where t_client_group_relation.uid=#uid#
+		]]>
+	</select>
+	
+	
+	
+	<select id="sel_onclient_zxstate_count_rj"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+           select count(t_client.id)  from t_client INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid where t_client_group_relation.uid=#id# and t_client.zxstate=#zxstate#
+	   ]]> 
+	</select>
+	
+	
+	 <select id="sel_id_name_client"  parameterClass="java.lang.Integer" resultClass="java.lang.String">
+       <![CDATA[   
+	     select name from t_client where id=#id#
+       ]]>
+    </select>   
+    
+    
+    
+    <select id="sel_client_user_all" parameterClass="java.lang.Integer" resultClass="client">
+	    <![CDATA[
+	       
+	       select t_client.*  from t_client 
+	       
+	       INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid
+	       
+	       where t_client_group_relation.uid=#uid#
+	       
+	    ]]>
+	</select>
+	
+	
+	
+	 <select id="sel_client_mark_cIds" parameterClass="java.lang.String" resultClass="java.lang.String">
+	    <![CDATA[
+	       
+	       select  mark  from t_client 
+	      
+	       where id in ($cIds$)
+	       
+	    ]]>
+	</select>
+	
+	
+	
+	 <select id="sel_client_people_code_mark" parameterClass="java.lang.String" resultClass="cpc">
+	    <![CDATA[
+	      
+	       select * from t_client_people_code where mark= #mark#
+	       
+	    ]]>
+	 </select>
+	 
+	 
+	 <insert id="add_client_people_code" parameterClass="cpc">    
+		<![CDATA[    
+		  insert into t_client_people_code
+			 (mark,code)
+			 values	
+		     (#mark#,#code#)
+		]]>
+	</insert>
+	
+	
+	<update id="up_client_people_code" parameterClass="cpc">   
+	 <![CDATA[      
+		 update t_client_people_code set code=#code# where mark=#mark#    
+	 ]]>
+	</update>
+	
+	
+	<select id="tdxs_sel_client_all"  resultClass="client">
+       <![CDATA[   
+	     select * from t_client
+       ]]>
+	</select>
+	
+ 
+    <delete id="del_client_advertising"  parameterClass="java.lang.String" >
+		 <![CDATA[
+		    delete from t_client_advertising where mark=#mark#    
+		 ]]>
+	</delete>
+	
+	
+	<insert id="add_client_advertising" parameterClass="clientAdvertising">    
+		<![CDATA[    
+		  insert into t_client_advertising
+			 (mark,number,use_number)
+			 values	
+		     (#mark#,#number#,#use_number#)
+		]]>
+	</insert>
+		
+	<select id="sel_client_advertising"  resultClass="clientAdvertising" parameterClass="java.lang.String">
+       <![CDATA[   
+	       select * from t_client_advertising where mark=#mark#
+       ]]>
+	</select>
+	
+	 <update id="update_client_standbystate" parameterClass="client">   
+	 <![CDATA[      
+		 update      
+		 t_client     
+		 set  standbystate=#standbystate#
+		 where mark=#mark#    
+	 ]]>
+	</update>
+	
+	
+	
+	<select id="sel_lxclinet_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+           
+             select count(t_client.id)  from t_client 
+           
+             INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+
+             where t_client_group_relation.uid=#id# 
+
+             and TIMESTAMPDIFF(DAY,last,sysdate())>=3 or last= ''
+
+
+	   ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_lxclinet_list"  parameterClass="user" resultClass="client">
+       <![CDATA[
+           
+             select *,TIMESTAMPDIFF(DAY,last,sysdate()) as lxDay from t_client 
+ 
+			 INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+		
+			 where t_client_group_relation.uid=#id#
+		
+			 and TIMESTAMPDIFF(DAY,last,sysdate())>=3 or last= ''
+			 
+			 order by lxDay DESC
+
+     		 limit #startid#,#pagetype# 
+
+
+	   ]]> 
+	</select>
+	
+	
+	
+	
+	<select id="sel_lxclinet_name_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+           
+             select count(t_client.id)  from t_client 
+           
+             INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+
+             where t_client_group_relation.uid=#id# 
+
+             and (TIMESTAMPDIFF(DAY,last,sysdate())>=3 or last= '')
+              
+             and name like '%$sname$%'
+
+
+	   ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_lxclinet_name_list"  parameterClass="user" resultClass="client">
+       <![CDATA[
+           
+             select *,TIMESTAMPDIFF(DAY,last,sysdate()) as lxDay from t_client 
+ 
+			 INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+		
+			 where t_client_group_relation.uid=#id# 
+		
+			 and (TIMESTAMPDIFF(DAY,last,sysdate())>=3 or last= '')
+			 
+			 and name like '%$sname$%'
+			 
+			 order by lxDay DESC
+
+             limit #startid#,#pagetype# 
+
+
+	   ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_lxclinet_mark_count"  parameterClass="user" resultClass="java.lang.Integer">
+       <![CDATA[
+           
+             select count(t_client.id)  from t_client 
+           
+             INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+
+             where t_client_group_relation.uid=#id# 
+
+             and (TIMESTAMPDIFF(DAY,last,sysdate())>=3 or last= '')
+              
+             and mark like '%$sname$%'
+
+
+	   ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_lxclinet_mark_list"  parameterClass="user" resultClass="client">
+       <![CDATA[
+           
+             select *,TIMESTAMPDIFF(DAY,last,sysdate()) as lxDay from t_client 
+ 
+			 INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid 
+		
+			 where t_client_group_relation.uid=#id# 
+		
+			 and (TIMESTAMPDIFF(DAY,last,sysdate())>=3 or last= '')
+			 
+			 and mark like '%$sname$%'
+			 
+			 order by lxDay DESC
+
+             limit #startid#,#pagetype# 
+
+
+	   ]]> 
+	</select>
+	
+	
+	<select id="sel_client_info_uid_mark"  parameterClass="client" resultClass="client">
+       <![CDATA[
+           
+           SELECT * from t_client tc,t_client_group_relation tcr  where tc.id=tcr.cid and tcr.uid=#uid# and tc.mark=#mark#
+
+
+	   ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_client_all_mobile_count" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[
+	       
+	       
+	       select count(t_client.id)  from t_client 
+	       
+	       INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid
+	       
+	       where t_client_group_relation.uid=#uid#
+	      
+	       
+	    ]]>
+	</select>
+	
+	 <select id="sel_client_all_mobile_page" parameterClass="cgr" resultClass="clientMobile">
+	    <![CDATA[
+	       
+	       
+	       select t_client.*  from t_client 
+	       
+	       INNER JOIN t_client_group_relation on t_client.id=t_client_group_relation.cid
+	       
+	       where t_client_group_relation.uid=#uid#
+	       
+	       order by zxstate desc limit #startid#,#pagetype#
+	    
+	       
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_client_token_check" parameterClass="cgr" resultClass="cgr">
+	    <![CDATA[
+	       
+	       
+	      SELECT * from t_client_group_relation where uid=(
+
+		  SELECT id from t_user where account=#account#) and cid=
+			
+		  (SELECT id from t_client where mark = #mark#)
+	    
+	       
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_group_client_all" parameterClass="java.lang.Integer" resultClass="client">
+	    <![CDATA[
+	       
+	      SELECT * from t_client where id in (
+
+                    SELECT cid from t_client_group_relation WHERE gid = #gid#
+
+          )
+	      
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_gid_mark" parameterClass="client" resultClass="client">
+	    <![CDATA[
+	        SELECT * from t_client WHERE id = (
+
+			SELECT cid from t_client_group_relation where cid =
+			
+			(SELECT id from t_client where mark = #mark#) and gid = #gid# and uid = #uid#
+			
+			)
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_gid_uid_all_count" parameterClass="client" resultClass="java.lang.Integer">
+	    <![CDATA[
+	          SELECT  count(*) from t_client  where  id  in (SELECT cid from t_client_group_relation WHERE gid=#gid# and uid=#uid#)
+	    ]]>
+	</select>
+	
+	
+   <select id="sel_client_gid_uid_page" parameterClass="client" resultClass="client">
+	    <![CDATA[
+	          SELECT  *  from t_client  where  id  in (SELECT cid from t_client_group_relation WHERE gid=#gid# and uid=#uid#) 
+	          
+	          limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_client_gid_uid_sel_all_count" parameterClass="client" resultClass="java.lang.Integer">
+	    <![CDATA[
+	          SELECT  count(*) from t_client  where  id  in (SELECT cid from t_client_group_relation WHERE gid=#gid# and uid=#uid#)
+	          and name like '%$name$%'
+	    ]]>
+	</select>
+	
+	
+   <select id="sel_client_gid_uid_sel_page" parameterClass="client" resultClass="client">
+	    <![CDATA[
+	          SELECT  *  from t_client  where  id  in (SELECT cid from t_client_group_relation WHERE gid=#gid# and uid=#uid#) 
+	          
+	          and name like '%$name$%'
+	          
+	          limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	
+</sqlMap>
+    

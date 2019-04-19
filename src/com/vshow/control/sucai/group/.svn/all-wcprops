@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group
+END
+ToSeeGroupSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/ToSeeGroupSucaiAction.java
+END
+ScGroup.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/ScGroup.xml
+END
+ToEditScgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/ToEditScgAction.java
+END
+UpdateGroupSucaiNameAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/UpdateGroupSucaiNameAction.java
+END
+DelGroupSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/DelGroupSucaiAction.java
+END
+AjaxCheckEditGroupSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/AjaxCheckEditGroupSucaiAction.java
+END
+AddGroupSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/AddGroupSucaiAction.java
+END
+AjaxDelGroupSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/AjaxDelGroupSucaiAction.java
+END
+AjaxCheckAddGroupSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/sucai/group/AjaxCheckAddGroupSucaiAction.java
+END

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="cgroup">
+
+
+    <typeAlias alias="cg" type="com.vshow.control.data.ClientGroup" />
+    <typeAlias alias="cgt" type="com.vshow.control.data.ClientGroupTree" />
+    
+   	<insert id="add_cg" parameterClass="cg">    
+		<![CDATA[    
+		  insert into t_client_group
+			 (uid, gname,level,pid,tkey)
+			 values	
+		     (#uid#,#gname#,#level#,#pid#,#tkey#)
+		]]>
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	            select last_insert_id() as id from  t_client_group  limit 1
+	          ]]>
+	     </selectKey>
+	</insert>
+	
+	<update id="update_cg_tkey" parameterClass="cg">    
+		<![CDATA[    
+			 update t_client_group set tkey=#tkey#
+			 where id=#id# 
+	    ]]>
+	</update>
+	
+	
+	<update id="update_cg" parameterClass="cg">    
+		<![CDATA[    
+			 update t_client_group set gname=#gname#
+			 where id=#id# 
+	    ]]>
+	</update>
+	
+	<select id="sel_cg_tkey" parameterClass="java.lang.Integer" resultClass="java.lang.String">    
+		<![CDATA[    
+			 select tkey from t_client_group where id=#id# 
+	    ]]>
+	</select>
+	
+	<select id="sel_all_bytkey" parameterClass="java.lang.String" resultClass="cg">    
+		<![CDATA[    
+			 select * from t_client_group where tkey like '$tkey$%'
+	    ]]>
+	</select>
+	
+	<select id="sel_cg_page" parameterClass="cg" resultClass="cg">
+	    <![CDATA[
+	        select id,gname,uid,pid,tkey from t_client_group where uid=#uid#  and level=#level# order by id desc  limit #startid#,#pagetype#  
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_cg_page_count" parameterClass="cg" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select count(id) from t_client_group where uid=#uid# and level=#level#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_cg_all_level" parameterClass="cg" resultClass="cg">
+	    <![CDATA[
+	        select id,gname,uid,tkey,pid,level from t_client_group where uid=#uid# and level=#level# order by id desc  
+	    ]]>
+	</select>
+	
+	<select id="sel_cg_all_level1" parameterClass="java.lang.Integer" resultClass="cgt">
+	    <![CDATA[
+	        select id,gname as name,uid,pid from t_client_group where uid=#uid# and pid = 0
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_cg_id" parameterClass="java.lang.Integer" resultClass="cg">
+	    <![CDATA[
+	        select * from t_client_group where id=#id#
+	    ]]>
+	</select>
+	
+	<select id="sel_cg_id1" parameterClass="cg" resultClass="cgt">
+	    <![CDATA[
+	        select id,gname as name,uid,pid from t_client_group where pid=#pid# and uid=#uid# 
+	    ]]>
+	</select>
+	
+	<select id="sel_cg_pid" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select pid from t_client_group where id=#id#
+	    ]]>
+	</select>
+	
+	<select id="sel_cg_gname" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	        select gname from t_client_group where id=#id#
+	    ]]>
+	</select>
+	
+	
+	<update id="update_cg_pidtkey" parameterClass="cg">    
+		<![CDATA[    
+			 update t_client_group set gname=#gname#,pid=#pid#,tkey=#tkey#
+			 where id=#id# 
+	    ]]>
+	</update>
+	
+	
+	<select id="sel_cg_all_level_pid" parameterClass="cg" resultClass="cg">
+	    <![CDATA[
+	        select id,gname,uid,tkey from t_client_group where pid=#pid# and uid=#uid# order by id desc  
+	    ]]>
+	</select>
+	
+	
+	
+	
+	
+	<select id="sel_cg_gname_ganme" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	        select gname from t_client_group where id= (select pid from t_client_group where id= (select pid from t_client_group where pid=#pid# limit 1))
+	    ]]>
+	</select>
+	
+	
+	<delete id="del_cg" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       delete from t_client_group where id=#id#
+	    ]]>
+	</delete>
+	
+	<select id="check_cgname" parameterClass="cg" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select count(*) from t_client_group where 
+	        gname = #gname# and uid = #uid# and 
+	        level = #level# and pid = #pid#
+	    ]]>
+	</select>
+	
+	<select id="check_edit_cgname" parameterClass="cg" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select count(*) from t_client_group where 
+	        gname = #gname# and uid = #uid# and 
+	        level = #level#
+	    ]]>
+	</select>
+	
+	<!-- ApiClientMoveAction -->
+	<select id="api_sel_cg_byiduid" parameterClass="cg" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select count(*) from t_client_group where id=#id# and uid=#uid#  
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_cg_uid_all" parameterClass="java.lang.Integer" resultClass="cg">
+	    <![CDATA[
+	        select * from t_client_group where uid=#uid# 
+	    ]]>
+	</select>
+	
+	
+</sqlMap>
+    

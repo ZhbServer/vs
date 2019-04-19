@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/terminalfb
+END
+NoticeJhRelation.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/NoticeJhRelation.xml
+END
+NoticeJhToListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/NoticeJhToListAction.java
+END
+ToNoticeJhListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/ToNoticeJhListAction.java
+END
+NoticeJh.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/NoticeJh.xml
+END
+FbNoticeYySendAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/terminalfb/FbNoticeYySendAction.java
+END
+DelNoticeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/DelNoticeAction.java
+END
+DelNoticeJhAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/DelNoticeJhAction.java
+END
+UpdNoticeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/UpdNoticeAction.java
+END
+NoticeAddJhAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/terminalfb/NoticeAddJhAction.java
+END
+ToUpdNoticeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/ToUpdNoticeAction.java
+END
+ToAddNoticeJhAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/ToAddNoticeJhAction.java
+END
+NoticeToHandleAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/terminalfb/NoticeToHandleAction.java
+END

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Ishare">
+
+	<typeAlias alias="itemshare" type="com.vshow.control.data.ItemShare" />
+	
+	<insert id="add_item_share" parameterClass="itemshare">
+	   <![CDATA[
+		insert into t_item_share
+		(userid,itemid,shareid)
+		 values
+		(#userid#,#itemid#,#shareid#)
+	   ]]>
+	</insert>
+	
+	<select id="sel_itemshare_exist" parameterClass="itemshare" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select 
+	      count(t_item_share.id)
+	      from
+	      t_item_share
+	      where
+	  	  t_item_share.itemid = #itemid# and 
+	  	  (t_item_share.shareid like '$shareid$,%' or t_item_share.shareid like '%,$shareid$' or 
+		  t_item_share.shareid like '$shareid$' or t_item_share.shareid like '%,$shareid$,%') 
+	    ]]>
+	</select>
+	
+	<select id="sel_all_item_shareid" parameterClass="itemshare" resultClass="itemshare">
+	    <![CDATA[
+	      select 
+	      t_item_share.id,
+	      t_item_share.shareid
+	      from
+	      t_item_share
+	      where
+	  	  t_item_share.itemid = #itemid# and 
+	  	  (t_item_share.shareid like '$shareid$,%' or t_item_share.shareid like '%,$shareid$' or 
+		  t_item_share.shareid like '$shareid$' or t_item_share.shareid like '%,$shareid$,%') 
+	    ]]>
+	</select>
+	
+	
+	<update id="up_item_scshare" parameterClass="itemshare">    
+	<![CDATA[    
+		update t_item_share set shareid=#shareid#
+		where id=#id#
+    ]]>
+	</update>
+	
+	<delete id="del_item_scshare" parameterClass="java.lang.Integer">    
+	 <![CDATA[      
+		 delete      
+		 from      
+		 t_item_share      
+		 where id=#id#  
+	 ]]>
+	</delete>
+	
+	<select id="sel_item_share_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">	
+	    <![CDATA[
+	      select 
+	      t_item_share.shareid
+	      from t_item
+	      left join t_item_share on (t_item.id = t_item_share.itemid)
+	      where
+	  	  t_item_share.itemid = #itemid#
+	    ]]>
+	</select>
+	
+	
+	
+	<delete id="del_item_share_itemid" parameterClass="java.lang.Integer">    
+	 <![CDATA[      
+		 delete      
+		 from      
+		 t_item_share      
+		 where itemid=#itemid#  
+	 ]]>
+	</delete>
+</sqlMap>
+    

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/share
+END
+ToSeeShareUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/share/ToSeeShareUserAction.java
+END
+ToSeeShareUserAjaxAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/share/ToSeeShareUserAjaxAction.java
+END
+SaveShareIItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/share/SaveShareIItemAction.java
+END
+InteractItemShare.xml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/share/InteractItemShare.xml
+END
+DelShareIItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/share/DelShareIItemAction.java
+END

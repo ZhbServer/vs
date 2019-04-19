@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish
+END
+OnCheckDataAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/OnCheckDataAction.java
+END
+GetDataInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/GetDataInfoAction.java
+END
+SaveDishAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/SaveDishAction.java
+END
+FbDishMobileAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/FbDishMobileAction.java
+END
+Dish.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/Dish.xml
+END
+DelDishAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/DelDishAction.java
+END
+AjaxToSeeDishListMobileAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/AjaxToSeeDishListMobileAction.java
+END
+ToDishEditAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/ToDishEditAction.java
+END
+ToDishNoOcheckListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/dish/ToDishNoOcheckListAction.java
+END

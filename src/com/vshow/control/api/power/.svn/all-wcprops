@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/power
+END
+ApiUpdatePowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/power/ApiUpdatePowerAction.java
+END
+ApiSelPowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/power/ApiSelPowerAction.java
+END
+ApiDelPowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/power/ApiDelPowerAction.java
+END
+ApiAddPowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/power/ApiAddPowerAction.java
+END

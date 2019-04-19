@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Sucai">
+
+	<typeAlias alias="sucai" type="com.vshow.control.data.Sucai" />
+	
+	<insert id="add_sucai" parameterClass="sucai">
+	   <![CDATA[
+		insert into t_sucai
+		(filename,name,size,type,userid,stime,sdate,len)
+		values
+		(#filename#,#name#,#size#,#type#,#urid#,#stime#,#sdate#,#len#)
+	    ]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+		  <![CDATA[
+            select last_insert_id() as id from  t_sucai  limit 1
+          ]]>
+        </selectKey>
+        
+	</insert>
+	
+	
+	
+     <insert id="add_sucai_txt" parameterClass="sucai">
+	    
+	    <![CDATA[
+	    
+		insert into t_sucai
+		(filename,name,size,type,userid,stime,sdate,len,txt_content)
+		values
+		(#filename#,#name#,#size#,#type#,#urid#,#stime#,#sdate#,#len#,#txt_content#)
+	    
+	    ]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+		  <![CDATA[
+            select last_insert_id() as id from  t_sucai  limit 1
+          ]]>
+        </selectKey>
+        
+	</insert>
+	
+	<select id="sel_sc_page_all" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+	    select * from((select 
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user 
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%'))
+		union 
+		(select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid=0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc)) a
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_page_count_all" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select count(*) from((select 
+		t_sucai.id
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%'))
+		union 
+		(select
+		t_sucai.id
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		GROUP by t_sucai.id desc)) a
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_page_other" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+	    select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_sucai_group_relation.scgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_page_count_other" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_sucai.id)
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_sucai_group_relation.scgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_name_page_all" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+	    select * from((select 
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user 
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%')
+		and t_sucai.name like '%$name$%' )
+		union 
+		(select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_sucai.name like '%$name$%'
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc)) a
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_name_page_count_all" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+        select count(*) from((select 
+		t_sucai.id
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%') 
+		and t_sucai.name like '%$name$%')
+		union 
+		(select
+		t_sucai.id
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_sucai.name like '%$name$%'
+		GROUP by t_sucai.id desc)) a
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_name_page_other" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+		select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_sucai_group_relation.scgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_sucai.name like '%$name$%'
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc 
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_name_page_count_other" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+        select 
+		count(t_sucai.id) 
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_sucai_group_relation.scgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_sucai.name like '%$name$%'
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_user_page_all" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+	    select * from((select 
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user 
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%')
+		and t_user.name like '%$user$%' )
+		union 
+		(select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_user.name like '%$user$%'
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc)) a
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_user_page_count_all" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select count(*) from((select 
+		t_sucai.id
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%') 
+		and t_user.name like '%$user$%')
+		union 
+		(select
+		t_sucai.id
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_user.name like '%$user$%'
+		GROUP by t_sucai.id desc)) a
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_user_page_other" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+		select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_sucai_group_relation.scgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_user.name like '%$user$%'
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_user_page_count_other" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_sucai.id)
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_sucai_group_relation.scgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_user.name like '%$user$%'
+	    ]]>
+	</select>
+	
+    <select id="get_sc_all_id" parameterClass="java.lang.Integer" resultClass="sucai">
+	    <![CDATA[
+	      select
+	      t_sucai.id,
+	      t_sucai.name,
+	      t_sucai.filename,
+	      t_sucai.size,
+	      t_sucai.sdate,
+	      t_sucai.userid as urid,
+	      t_sucai.stime,
+	      t_sucai.type
+	      from t_sucai
+	      where id=#id#
+	    ]]>
+	</select>
+	
+	<delete id="del_sucai" parameterClass="sucai">    
+	 <![CDATA[      
+		 delete      
+		 from      
+		 t_sucai      
+		 where id=#id#   
+		 and userid=#urid# 
+	 ]]>
+	</delete>
+	
+	
+	 <select id="sel_sucai_txtcontent_filename" parameterClass="java.lang.String" resultClass="java.lang.String">
+	    <![CDATA[
+	      select
+	      t_sucai.txt_content
+	      from t_sucai
+	      where t_sucai.filename=#filename#
+	    ]]>
+	</select>
+	
+	 <select id="sel_sc_filename" parameterClass="java.lang.String" resultClass="sucai">
+    <![CDATA[
+      select
+      t_sucai.id,
+      t_sucai.name,
+      t_sucai.filename,
+      t_sucai.userid as urid,
+      t_sucai.stime,
+      t_sucai.type,
+      t_sucai.len
+      from t_sucai
+      where t_sucai.filename=#filename#
+    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_filename2" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	      select
+	      filename
+	      from t_sucai
+	      where id=#id#
+	    ]]>
+	</select>
+	
+	
+	 <select id="sel_sc_stime" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+    <![CDATA[
+      select 
+      stime
+	  from t_sucai
+      where filename=#filename#
+    ]]>
+	</select>
+	
+  <select id="sel_sc_filename_like" parameterClass="java.lang.String" resultClass="sucai">
+    <![CDATA[
+      select
+      t_sucai.id,
+      t_sucai.name,
+      t_sucai.filename,
+      t_sucai.userid as urid,
+      t_sucai.type
+      from t_sucai
+      where t_sucai.filename like '%$filename$%'
+    ]]>
+	</select>
+	
+	
+	<select id="sel_sucai_filename"  resultClass="java.lang.String">
+    <![CDATA[
+      SELECT filename FROM t_sucai where type in (6,7,8,9);
+    ]]>
+	</select>
+	
+	<select id="sel_sucai_name_by_filename"  resultClass="java.lang.String" parameterClass="java.lang.String">
+    <![CDATA[
+      SELECT name FROM t_sucai where t_sucai.filename=#filename#;
+    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_name_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	      select
+	      name
+	      from t_sucai
+	      where id=#id#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sc_type_all" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+	      select
+	      t_sucai.id,
+	      t_sucai.name,
+	      t_sucai.stime,
+	      t_sucai.filename,
+	      t_sucai.size,t_sucai.type,t_sucai.userid,t_sucai.sdate,t_user.name as user
+	      from t_sucai,t_user
+	      where t_sucai.type=#type#
+	      and t_user.id in
+	      (SELECT id FROM t_user t where tkey like '%$tkey$%')
+	      and t_sucai.userid=t_user.id
+	      order by t_sucai.id desc
+	      
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_share_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">	
+	    <![CDATA[
+	      select 
+	      t_sucai_share.shareid
+	      from t_sucai
+	      left join t_sucai_share on (t_sucai.id = t_sucai_share.scid)
+	      where
+	  	  t_sucai_share.scid = #scid#
+	    ]]>
+	</select>
+	
+	<select id="sel_scshare_page" parameterClass="sucai" resultClass="sucai">
+    <![CDATA[
+        select 
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_user.name as user 
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%') 
+		limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_scshare_page_count" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        count(t_sucai_share.id)
+	        from t_sucai_share 
+			left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+	    	left join t_user on (t_sucai_share.userid=t_user.id)
+			where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+			t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%')
+	    ]]>
+	</select>
+	
+	<select id="sel_scshare_name_page" parameterClass="sucai" resultClass="sucai">
+    <![CDATA[
+        select 
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_user.name as user 
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%') and t_sucai.name like '%$name$%'
+		limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_scshare_name_page_count" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        count(t_sucai_share.id)
+	        from t_sucai_share 
+			left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+	    	left join t_user on (t_sucai_share.userid=t_user.id)
+			where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+			t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%') and t_sucai.name like '%$name$%'
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_scshare_user_page" parameterClass="sucai" resultClass="sucai">
+    <![CDATA[
+        select 
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_user.name as user 
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%') and t_user.name like '%$user$%'
+		limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_scshare_user_page_count" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        count(t_sucai_share.id)
+	        from t_sucai_share 
+			left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+	    	left join t_user on (t_sucai_share.userid=t_user.id)
+			where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+			t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%') and t_user.name like '%$user$%'
+	    ]]>
+	</select>
+	
+	<select id="get_sc_userid_id" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select
+	      t_sucai.userid 
+	      from t_sucai
+	      where id=#id#
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_page_self" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+	    select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id = #urid#
+		and (t_sucai.userid=t_user.id)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_page_count_self" parameterClass="sucai" resultClass="java.lang.Integer">
+		<![CDATA[
+			select
+			count(t_sucai.id)
+			from t_sucai,t_user,t_sucai_group_relation
+			where t_sucai.type=#type#
+			and t_user.id = #urid#
+			and (t_sucai.userid=t_user.id)
+			and t_sucai.id=t_sucai_group_relation.sucaiid
+		]]>
+	</select>
+	
+	<select id="sel_sc_name_page_self" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+		select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id = #urid#
+		and (t_sucai.userid=t_user.id)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_sucai.name like '%$name$%'
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc 
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_name_page_count_self" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+        select 
+		count(t_sucai.id) 
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id = #urid#
+		and (t_sucai.userid=t_user.id)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_sucai.name like '%$name$%'
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_user_page_self" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+		select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id = #urid#
+		and (t_sucai.userid=t_user.id)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_user.name like '%$user$%'
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_sc_user_page_count_self" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_sucai.id)
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id = #urid#
+		and (t_sucai.userid=t_user.id)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		and t_user.name like '%$user$%'
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_sucai_filename_all"  resultClass="java.lang.String">
+    <![CDATA[
+      SELECT filename FROM t_sucai 
+    ]]>
+	</select>
+	
+	
+	<select id="sel_sucai_user_all"  parameterClass="java.lang.Integer" resultClass="sucai">
+    <![CDATA[
+       select * from t_sucai where userid=#userid#
+    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_sc_all" parameterClass="sucai" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    
+	    
+	    select * from((
+	    select 
+		t_sucai.id
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%'))
+		union 
+		(select
+		t_sucai.id
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid= 0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc)) a
+
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_sc_user_group_all" parameterClass="sucai" resultClass="sucai">
+	    <![CDATA[
+	    
+	    select * from((select 
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user 
+		from t_sucai_share 
+		left join t_sucai on (t_sucai_share.scid = t_sucai.id)
+    	left join t_user on (t_sucai_share.userid=t_user.id)
+		where t_sucai.type = #type# and (t_sucai_share.shareid like '$urid$,%' or t_sucai_share.shareid like '%,$urid$' or 
+		t_sucai_share.shareid like '$urid$' or t_sucai_share.shareid like '%,$urid$,%'))
+		union 
+		(select
+		t_sucai.id,
+		t_sucai.name,
+		t_sucai.stime,
+		t_sucai.filename,
+		t_sucai.size,
+		t_sucai.type,
+		t_sucai.userid as urid,
+		t_sucai.sdate,
+		t_sucai.txt_content,
+		t_user.name as user
+		from t_sucai,t_user,t_sucai_group_relation
+		where t_sucai.type=#type#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and (t_sucai.userid=t_user.id or t_sucai.userid=0)
+		and t_sucai.id=t_sucai_group_relation.sucaiid
+		GROUP by t_sucai.id desc
+		order by t_sucai.id desc)) a
+		
+	    ]]>
+	</select>
+	
+	
+	
+</sqlMap>
+    

@@ -1,0 +1,419 @@
+{
+  "lib": {
+    "zepto.core": {
+      "name": "Zepto core module",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/zepto.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "desc": "Core module; contains most methods"
+    },
+    "zepto.event": {
+      "name": "Zepto event",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/event.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Event handling via on() & off()"
+    },
+    "zepto.ajax": {
+      "name": "Zepto ajax",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/ajax.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "XMLHttpRequest and JSONP functionality"
+    },
+    "zepto.form": {
+      "name": "Zepto form",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/form.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Serialize & submit web forms"
+    },
+    "zepto.ie": {
+      "name": "Zepto ie",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/ie.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Add support for Internet Explorer 10+ on desktop and Windows Phone 8."
+    },
+    "zepto.detect": {
+      "name": "Zepto detect",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/detect.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Provides $.os and $.browser information"
+    },
+    "zepto.fx": {
+      "name": "Zepto fx",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/fx.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "The `animate()` method"
+    },
+    "zepto.fx_methods": {
+      "name": "Zepto fx_methods",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/fx_methods.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core", "zepto.fx"],
+      "desc": "Animated `show`, `hide`, `toggle`, and `fade*()` methods."
+    },
+    "zepto.assets": {
+      "name": "Zepto assets",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/assets.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core", "zepto.fx"],
+      "desc": "Experimental support for cleaning up iOS memory after removing image elements from the DOM."
+    },
+    "zepto.data": {
+      "name": "Zepto data",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/data.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "A full-blown `data()` method, capable of storing arbitrary objects in memory."
+    },
+    "zepto.deferred": {
+      "name": "Zepto deferred",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/deferred.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Provides `$.Deferred` promises API. Depends on the \"callbacks\" module. When included, `[$.ajax()](http://zeptojs.com/#$.ajax)` supports a promise interface for chaining callbacks."
+    },
+    "zepto.callbacks": {
+      "name": "Zepto callbacks",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/callbacks.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core", "zepto.deferred"],
+      "desc": "Provides `$.Callbacks` for use in \"deferred\" module."
+    },
+    "zepto.selector": {
+      "name": "Zepto selector",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/selector.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Experimental [jQuery CSS extensions](http://api.jquery.com/category/selectors/jquery-selector-extensions/) support for functionality such as `$('div:first')` and `el.is(':visible')`."
+    },
+    "zepto.touch": {
+      "name": "Zepto touch",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/touch.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Fires tap– and swipe–related events on touch devices. This works with both `touch` (iOS, Android) and `pointer` events (Windows Phone)."
+    },
+    "zepto.gesture": {
+      "name": "Zepto gesture",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/gesture.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Fires pinch gesture events on touch devices"
+    },
+    "zepto.stack": {
+      "name": "Zepto stack",
+      "pver": "1.1.6",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/stack.js"]},
+      "thirdpart": true,
+      "website": "http://zeptojs.com/",
+      "dpds": ["zepto.core"],
+      "desc": "Provides `andSelf` & `end()` chaining methods"
+    },
+    "zepto.scroll": {
+      "name": "Zepto stack",
+      "pver": "1.0.0",
+      "ver": "1.0.0",
+      "src": {"js": ["assets/zepto/scroll.js"]},
+      "thirdpart": true,
+      "website": "https://github.com/suprMax/ZeptoScroll",
+      "dpds": ["zepto.core"],
+      "desc": "Zepto scroll animate plug"
+    },
+    "zepto": {
+      "name": "Zepto defaults",
+      "dpds": ["zepto.core", "zepto.event", "zepto.touch", "zepto.data"],
+      "desc": "String.prototype.trim and Array.prototype.reduce methods (if they are missing) for compatibility with iOS 3.x."
+    },
+    "jquery": {
+      "name": "jQuery",
+      "pver": "3.2.0",
+      "ver": "1.0.1",
+      "src": {
+        "resource": ["assets/jquery//jquery-3.2.1.min.js"]
+      },
+      "desc": "MZUI的JS组件都依赖于jQuery",
+      "website": "http://jquery.com/",
+      "license": "MIT",
+      "licenseFile": "https://jquery.org/license/",
+      "source": "jQuery"
+    },
+    "jquery.touch": {
+      "name": "jQuery Touch Events",
+      "pver": "1.1.0",
+      "ver": "1.0.1",
+      "src": {
+        "js": ["assets/jquery.touch/jquery.touch.min.js"]
+      },
+      "desc": "Adds touch gesture events to jQuery.",
+      "website": "https://github.com/ajlkn/jquery.touch",
+      "license": "MIT",
+      "licenseFile": "https://github.com/ajlkn/jquery.touch#license",
+      "source": "ajlkn"
+    },
+    "prettyprint": {
+      "name": "Google Javascript code prettifier",
+      "src": ["assets/prettify/prettify.js"],
+      "desc": "An embeddable script that makes source-code snippets in HTML prettier.",
+      "pver": "1.?",
+      "website": "https://github.com/google/code-prettify"
+    },
+    "normalize": {
+      "name": "全局样式表",
+      "src": {"less": ["normalize"]},
+      "pver": "3.0.3",
+      "website": "http://necolas.github.io/normalize.css/",
+      "desc": "A collection of HTML element and attribute style-normalizations"
+    },
+    "colorset": {
+      "name": "Less colorset",
+      "config": true,
+      "src": "colorset.less"
+    },
+    "colorset.test": {
+      "src": "~.less"
+    },
+    "variables": {
+      "name": "Less variables",
+      "config": true,
+      "src": "variables.less"
+    },
+    "mixins": {
+      "name": "样式片段",
+      "src": {"less": ["mixins"]},
+      "config": true
+    },
+    "utilities": {
+      "name": "常用辅助类",
+      "src": {"less": ["utilities"]}
+    },
+    "scaffolding": {
+      "name": "脚手架",
+      "src": {"less": ["scaffolding"]}
+    },
+    "animations": {
+      "name": "脚手架",
+      "src": {"less": ["animations"]}
+    },
+    "grid": {
+      "name": "栅格系统",
+      "src": {"less": ["grid"]}
+    },
+    "responsive.embed": {
+      "name": "栅格系统",
+      "src": {"less": ["responsive.embed"]}
+    },
+    "typography": {
+      "name": "文字排版",
+      "src": {"less": ["typography"]}
+    },
+    "icons.variables": {
+      "name": "图标名称配置",
+      "src": {"less": ["~/icons/icons.variables"]},
+      "config": true
+    },
+    "icons.core": {
+      "name": "图标核心样式",
+      "src": {"less": ["~/icons/icons.core"]}
+    },
+    "icons.set": {
+      "name": "图标定义",
+      "src": {"less": ["~/icons/icons.set"]},
+      "config": true,
+      "dpds": ["icons.variables"]
+    },
+    "icons.font": {
+      "name": "图标字体",
+      "src": {
+        "resource": ["src//fonts/zenicon.eot", "src//fonts/zenicon.svg", "src//fonts/zenicon.ttf", "src//fonts/zenicon.woff"]
+      }
+    },
+    "icons.data": {
+      "name": "图标集数据",
+      "src": {"resource": ["src//fonts//icons.json"]},
+      "config": true,
+      "ver": "1.3.0"
+    },
+    "icons": {
+      "name": "图标",
+      "dpds": ["icons.font", "icons.core", "icons.set"]
+    },
+    "utils.js": {
+      "src": "utils.js"
+    },
+    "color": {
+      "src": "~.js"
+    },
+    "skin": {
+      "src": "~.less"
+    },
+    "skin.js": {
+      "src": "skin.js",
+      "dpds": ["color", "utils.js"]
+    },
+    "avatar": {
+      "src": "~.less"
+    },
+    "scrollListener": {
+      "src": "scroll-listener.js",
+      "dpds": "utils.js"
+    },
+    "layout": {
+      "src": "~.less"
+    },
+    "heading": {
+      "src": "~.less"
+    },
+    "navs": {
+      "src": "~.less"
+    },
+    "buttons": {
+      "src": "~.less"
+    },
+    "labels": {
+      "src": "~.less"
+    },
+    "appbar": {
+      "src": "~.less",
+      "dpds": "heading"
+    },
+    "appnav": {
+      "src": "~.less"
+    },
+    "list": {
+      "src": "~.less"
+    },
+    "table": {
+      "src": "~.less"
+    },
+    "forms": {
+      "src": "~.less"
+    },
+    "article": {
+      "src": "~.less"
+    },
+    "code": {
+      "src": "~.less"
+    },
+    "display": {
+      "src": ["~.js", "~.less"],
+      "dpds": ["utils.js"]
+    },
+    "display.plugs": {
+      "src": ["~.js", "~.less"],
+      "dpds": "display"
+    },
+    "ajax.action": {
+      "src": "~.js",
+      "dpds": ["utils.js"]
+    },
+    "ajax.form": {
+      "src": "~.js",
+      "dpds": ["utils.js"]
+    },
+    "transition": {
+      "src": "~.js"
+    },
+    "hammer": {
+      "src": "~.js"
+    },
+    "carousel": {
+      "src": ["~.js", "~.less"],
+      "dpds": ["transition", "hammer"]
+    },
+    "doc.js": {
+      "src": "doc.js"
+    },
+    "doc.style": {
+      "src": "~/doc.less"
+    },
+    "custom.js": {
+      "src": "app.custom.js"
+    },
+    "variables.custom": {
+      "src": "variables.custom.less"
+    }
+  },
+  "builds": {
+    "standard": {
+      "title": "Standard edition",
+      "dest": "dist/",
+      "filename": "mzui",
+      "subdirectories": true,
+      "includes": ["colorset", "variables", "mixins", "normalize", "scaffolding", "utilities", "typography", "layout", "animations", "icons", "avatar", "navs", "buttons", "labels", "heading", "list", "table", "forms", "article", "display", "display.plugs", "scrollListener", "color", "skin", "skin.js", "ajax.action", "ajax.form", "code"]
+    },
+    "dist": {
+      "title": "dist",
+      "dest": "dist/",
+      "filename": "mzui",
+      "subdirectories": true,
+      "bundles": ["jquery", "standard"]
+    },
+    "custom": {
+      "title": "Custom edition",
+      "dest": "build/",
+      "filename": "mzui",
+      "subdirectories": true,
+      "includes": ["colorset", "variables", "variables.custom", "mixins", "zepto", "zepto.scroll", "normalize", "scaffolding", "utilities", "typography", "layout", "animations", "icons", "avatar", "navs", "buttons", "labels", "heading", "list", "table", "forms", "article", "display", "display.plugs", "scrollListener", "color", "skin", "skin.js", "ajax.action", "ajax.form", "code", "custom.js"]
+    },
+    "onlyZepto": {
+      "includes": ["zepto.core", "zepto.event", "zepto.touch", "zepto.data", "zepto.ajax", "zepto.form"]
+    },
+    "doc": {
+      "dest": "doc/",
+      "filename": "doc",
+      "subdirectories": true,
+      "includes": ["colorset", "variables", "mixins", "doc.js", "doc.style", "colorset.test", "prettyprint"],
+      "bundles": ["dist"]
+    }
+  }
+}

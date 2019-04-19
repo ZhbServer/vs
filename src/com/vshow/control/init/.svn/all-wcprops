@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/init
+END
+AjaxLoginMobileAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/init/AjaxLoginMobileAction.java
+END
+LoginAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/init/LoginAction.java
+END
+InternationAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/init/InternationAction.java
+END
+ToLoginAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/init/ToLoginAction.java
+END
+AjaxLoginAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/init/AjaxLoginAction.java
+END
+LoginMainAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/init/LoginMainAction.java
+END

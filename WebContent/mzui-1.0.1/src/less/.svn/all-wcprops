@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less
+END
+code.less
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/code.less
+END
+icons.less
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/icons.less
+END
+list.less
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/list.less
+END
+utilities.less
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/utilities.less
+END
+layout.less
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/layout.less
+END
+avatar.less
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/avatar.less
+END
+scaffolding.less
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/scaffolding.less
+END
+article.less
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/article.less
+END
+forms.less
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/forms.less
+END
+table.less
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/table.less
+END
+colorset.less
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/colorset.less
+END
+buttons.less
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/buttons.less
+END
+display.plugs.less
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/display.plugs.less
+END
+heading.less
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/heading.less
+END
+normalize.less
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/normalize.less
+END
+labels.less
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/labels.less
+END
+animations.less
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/animations.less
+END
+skin.less
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/skin.less
+END
+doc.less
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/doc.less
+END
+display.less
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/display.less
+END
+typography.less
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/typography.less
+END
+navs.less
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/navs.less
+END
+responsive-embed.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/responsive-embed.less
+END
+mixins.less
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/mixins.less
+END
+variables.less
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/variables.less
+END
+colorset.test.less
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/src/less/colorset.test.less
+END

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="countPeople">
+	<typeAlias alias="countPeople" type="com.vshow.control.data.CountPeopleData" />
+
+
+	<insert id="add_count_people" parameterClass="countPeople">
+	    <![CDATA[
+	     insert into t_count_people
+         (mark,countDate,countPeople,countPeopleDetails)
+         value 
+         (#mark#,#countDate#,#countPeople#,#countPeopleDetails#)
+        ]]>
+	</insert>
+
+	
+	<select id="sel_cp_list_group"  parameterClass="countPeople" resultClass="countPeople">
+       <![CDATA[
+	   
+        select t_client.mark,t_client.name,sum(countPeople) countPeople ,t_client.ip ip,t_count_people.countPeopleDetails
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+		limit #startid#,#pagetype#
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_cp_list_group_count"  parameterClass="countPeople" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+       SELECT count(*) from ( 
+        select sum(countPeople) countPeople 
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+	   ) temp	
+	
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	
+	<select id="sel_cp_list_name_group"  parameterClass="countPeople" resultClass="countPeople">
+       <![CDATA[
+	   
+        
+        select t_client.mark,t_client.name,sum(countPeople) countPeople ,t_client.ip ip,t_count_people.countPeopleDetails
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		t_client.name like '%$name$%' and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+		limit #startid#,#pagetype#
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_cp_list_name_group_count"  parameterClass="countPeople" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+       SELECT count(*) from ( 
+        select sum(countPeople) countPeople 
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		t_client.name like '%$name$%' and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+	   ) temp	
+	
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	
+	<select id="sel_cp_list_ip_group"  parameterClass="countPeople" resultClass="countPeople">
+       <![CDATA[
+	   
+        
+        select t_client.mark,t_client.name,sum(countPeople) countPeople ,t_client.ip ip,t_count_people.countPeopleDetails
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		t_client.ip like '%$ip$%' and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+		limit #startid#,#pagetype#
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_cp_list_ip_group_count"  parameterClass="countPeople" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+       SELECT count(*) from ( 
+        select sum(countPeople) countPeople 
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		t_client.ip like '%$ip$%' and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+	   ) temp	
+	
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_cp_list_mark_group"  parameterClass="countPeople" resultClass="countPeople">
+       <![CDATA[
+	   
+        
+        select t_client.mark,t_client.name,sum(countPeople) countPeople ,t_client.ip ip,t_count_people.countPeopleDetails
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		t_client.mark like '%$mark$%' and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+		limit #startid#,#pagetype#
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_cp_list_mark_group_count"  parameterClass="countPeople" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+       SELECT count(*) from ( 
+        select sum(countPeople) countPeople 
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and LENGTH(trim(t_client.name))>=1 and t_client.id in (select cid from t_client_group_relation where uid=#uid#) and
+		t_client.mark like '%$mark$%' and
+		countDate <=#etime#  and countDate >=#btime# group by t_count_people.mark
+	   ) temp	
+	
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_cp_list_info"  parameterClass="countPeople" resultClass="countPeople">
+       <![CDATA[
+	   
+        
+        select id,countPeople,countDate,countPeopleDetails
+	    from t_count_people
+		where t_count_people.mark= #mark#  
+		and 
+		countDate <=#etime#  and countDate >=#btime#  order by id desc
+		limit #startid#,#pagetype#
+		
+		
+        ]]> 
+	</select>
+	
+	
+	<select id="sel_cp_list_info_count"  parameterClass="countPeople" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+        
+        select count(*)
+	    from t_count_people
+		where t_count_people.mark= #mark#  
+		and 
+		countDate <=#etime#  and countDate >=#btime# 
+		
+		
+		
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_cp_list_all"  parameterClass="java.lang.Integer" resultClass="countPeople">
+       <![CDATA[
+	   
+        
+        select t_count_people.id,t_client.mark,countPeople,countDate,countPeopleDetails
+	    from t_count_people,t_client
+		where t_count_people.mark= t_client.mark and LENGTH(trim(t_count_people.mark))>1 
+		and t_client.id in (select cid from t_client_group_relation where uid=#uid#)
+		
+	
+		
+        ]]> 
+	</select>
+	
+	
+	
+   <select id="sel_cp_countPeopleDetalis"  parameterClass="java.lang.Integer" resultClass="java.lang.String">
+       <![CDATA[
+	     
+        select countPeopleDetails
+	    from t_count_people
+		where t_count_people.id= #id#  
+		
+        ]]> 
+	</select>
+
+		
+
+   
+   
+   
+   <select id="sel_cp_list_info_countPeopleDetails"  parameterClass="countPeople" resultClass="countPeople">
+       <![CDATA[
+	   
+        
+        select id,countPeople,countDate,countPeopleDetails
+	    from t_count_people
+		where t_count_people.mark= #mark#  
+		and 
+		countDate <=#etime#  and countDate >=#btime#  order by id desc Limit 0,80000
+		
+		
+		
+        ]]> 
+	</select>
+	
+		
+	
+	
+	
+	
+	
+
+</sqlMap>
+    

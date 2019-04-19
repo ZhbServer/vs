@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="iitemgroup">
+
+	<typeAlias alias="interactitemgroup" type="com.vshow.control.data.InteractItemGroup" />
+	<typeAlias alias="interactitemgrouprelation" type="com.vshow.control.data.InteractItemGroupRelation" />
+	
+	
+	<select id="check_iitgname" parameterClass="interactitemgroup" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select count(*) from
+	      t_interact_item_group,t_user
+	      where t_interact_item_group.uid= t_user.id and
+	      t_user.id = #userid# and 
+	      t_interact_item_group.gname = #name#
+	    ]]>
+	</select>
+	
+	<select id="sel_iitg_gid" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	      select gname from
+	      t_interact_item_group
+	      where t_interact_item_group.id = #itemgid#
+	    ]]>
+	</select>
+	
+	<select id="sel_iitg_gname" parameterClass="interactitemgroup" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select count(*) from
+	      t_interact_item_group
+	      where t_interact_item_group.uid = #userid# and 
+	      t_interact_item_group.gname = #name#
+	    ]]>
+	</select>
+	
+	<select id="sel_iitgroup_id_uid" parameterClass="interactitemgroup" resultClass="java.lang.Integer">
+	  <![CDATA[
+	      select count(*) from t_interact_item_group
+	      where t_interact_item_group.id=#id# and t_interact_item_group.uid=#userid#
+	   ]]>
+	</select>
+	
+	<insert id="add_interactitem_group" parameterClass="interactitemgroup">
+	   <![CDATA[
+		insert into t_interact_item_group
+		(gname,uid)
+		 values
+		(#name#,#userid#)
+	   ]]>
+	</insert>
+	
+	<insert id="add_interactitem_group_relation" parameterClass="interactitemgrouprelation">
+	   <![CDATA[
+		insert into t_interact_item_group_relation
+		(itemid,itemgroupid)
+		values
+		(#itemid#,#itemgroupid#)
+	    ]]>  
+	</insert>
+	
+	<update id="upd_interactitemgroup_name_id" parameterClass="interactitemgroup">
+    <![CDATA[
+      update
+      t_interact_item_group 
+      set gname=#name#
+      where id=#id#
+    ]]>
+	</update>
+	
+	<select id="sel_interactitemgroup_name_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	  <![CDATA[
+	      select 
+	      t_interact_item_group.gname   
+	      from
+	      t_interact_item_group
+	      where 
+	      t_interact_item_group.id=#id#    
+	   ]]>
+	</select>
+	
+	<select id="sel_group_interact_item_id_all" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+    <![CDATA[
+      SELECT itemid FROM t_interact_item_group_relation where t_interact_item_group_relation.itemgroupid=#itemgroupid#;
+    ]]>
+	</select>
+	
+	<delete id="del_interactitemgroup_id" parameterClass="java.lang.Integer">    
+		 <![CDATA[      
+		 delete      
+		 from      
+		 t_interact_item_group      
+		 where id=#id#   
+		 ]]>
+	</delete>
+	
+	<delete id="del_interactitemgrouprelation_id" parameterClass="java.lang.Integer">    
+		 <![CDATA[      
+		 delete      
+		 from      
+		 t_interact_item_group_relation      
+		 where itemid=#id#   
+		 ]]>
+	</delete>
+	
+	<select id="sel_interactitemgroup_all" parameterClass="interactitemgroup" resultClass="interactitemgroup">
+	    <![CDATA[
+	      select 
+	      t_interact_item_group.id,
+	      t_interact_item_group.gname as name,      
+	      t_user.id as userid,
+	      t_user.name as uname
+	      from
+	      t_interact_item_group,t_user
+	      where 
+	      t_interact_item_group.uid in (SELECT id FROM t_user t where tkey like '%$tkey$%')  and
+	      t_interact_item_group.uid= t_user.id
+	    ]]>
+	</select>
+	
+	<select id="interact_item_group_uid" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select 
+	      t_interact_item_group.uid
+	      from
+	      t_interact_item_group
+	      where 
+	      t_interact_item_group.id=#id#    
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_interact_group_item_igid_all" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT itemgroupid FROM t_interact_item_group_relation where t_interact_item_group_relation.itemid=#itemid# limit 0,1
+    ]]>
+	</select>
+	
+</sqlMap>
+    

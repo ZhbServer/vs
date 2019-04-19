@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="tq">
+
+	<typeAlias alias="tq" type="com.vshow.control.data.Tq" />
+	
+     
+	<update id="update_tqyb" parameterClass="tq">
+    <![CDATA[
+      update
+      t_tq
+      set day=#day#,
+      content=#content#,
+      wdata=#wdata#,
+      gif=#gif#
+      where id=#id#
+    ]]>
+	</update>
+	
+	<select id="get_tqyb" resultClass="tq">
+    <![CDATA[
+      select
+      *
+      from t_tq order by id desc
+    ]]>
+	</select>
+     
+    <select id="sel_tq_all_page"  resultClass="tq" parameterClass="tq">
+    <![CDATA[
+       SELECT 
+        * 
+       FROM t_tq  where type=0 order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+    <select id="sel_tq_all_page_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+        count(id) 
+       FROM t_tq where type=0;
+    ]]>
+	</select>
+    
+     
+	<select id="see_tq_all"  resultClass="tq">
+    <![CDATA[
+       SELECT 
+        id,city,citykey
+       FROM t_tq;
+    ]]>
+	</select> 
+     
+    <select id="g_wotq_value" parameterClass="java.lang.Integer"
+		resultClass="tq">
+    <![CDATA[
+      select
+      id,
+      day,
+      city,
+      code,
+      gif,
+      content,
+      citykey
+      from t_tq
+      where id=#id#
+    ]]>
+	</select>    
+	
+	<select id="g_wotq_citykey" parameterClass="java.lang.String"
+		resultClass="tq">
+    <![CDATA[
+      select
+      id,
+      day,
+      city,
+      code,
+      gif,
+      content,
+      citykey
+      from t_tq
+      where citykey=#citykey#
+    ]]>
+	</select>    
+   
+     
+    <insert id="add_tq" parameterClass="tq" >
+    <![CDATA[
+       insert into t_tq (city,code,citykey)
+        values(#city#,#code#,#citykey#)
+    ]]>
+	</insert>
+	
+	<insert id="add_tq_server" parameterClass="tq" >
+    <![CDATA[
+        insert into t_tq (city,code,citykey,day,gif,content)
+        values(#city#,#code#,#citykey#,#day#,#gif#,#content#)
+    ]]>
+	</insert>
+	
+	<update id="update_tq_server" parameterClass="tq" >
+    <![CDATA[
+      UPDATE t_tq t SET day=#day#,city=#city#,code=#code#,gif=#gif#,content=#content#  where  citykey=#citykey#;
+    ]]>
+	</update>
+		  
+    <delete id="del_tq" parameterClass="java.lang.Integer" >
+    <![CDATA[
+       delete from t_tq where id=#id#
+    ]]>
+	</delete>
+	
+    <select id="sel_tq_code" resultClass="java.lang.String"  parameterClass="java.lang.String">
+    <![CDATA[
+      select
+      code
+      from t_tq where code=#code#
+    ]]>
+	</select>
+	
+	
+	 <select id="sel_tq_wdata" parameterClass="java.lang.String"  resultClass="java.lang.String">
+    <![CDATA[
+      select
+      wdata
+      from t_tq
+      where city=#city# limit 1
+    ]]>
+	</select>    
+	
+	
+	 <select id="g_wotq" parameterClass="java.lang.String"
+		resultClass="tq">
+    <![CDATA[
+      select
+      id,
+      day,
+      city,
+      code,
+      gif,
+      content
+      from t_tq
+      where city=#city#
+    ]]>
+	</select>    
+	
+	
+	
+   <insert id="add_tq_en" parameterClass="tq" >
+    <![CDATA[
+       insert into t_tq (city,code,citykey,type)
+        values(#city#,#code#,#citykey#,#type#)
+    ]]>
+	</insert>
+	
+	
+	
+	 <select id="sel_tq_en_all_page"  resultClass="tq" parameterClass="tq">
+    <![CDATA[
+       SELECT 
+        * 
+       FROM t_tq  where type=1 order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+    <select id="sel_tq_en_all_page_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+        count(id) 
+       FROM t_tq where type=1;
+    ]]>
+	</select>
+</sqlMap>
+    

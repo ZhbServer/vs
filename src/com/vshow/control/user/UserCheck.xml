@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserCheck">
+
+
+    <typeAlias alias="userCheck" type="com.vshow.control.data.UserCheck" />
+  
+    
+    <insert id="add_user_check" parameterClass="userCheck">    
+		
+		<![CDATA[    
+		      insert into t_user_check
+			  (sdate,account,ip,type,state,failState)
+			     values
+			  (#sdate#,#account#,#ip#,#type#,#state#,#failState#)
+		]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	               select last_insert_id() as id from  t_user_check  limit 1
+	          ]]>
+        </selectKey>
+        
+	</insert>
+	
+	
+	 <update id="up_user_check" parameterClass="userCheck">    
+		<![CDATA[
+		      update t_user_check set failState=#failState# where account=#account#     
+		 ]]>
+	</update>
+	
+	
+	<select id="sel_user_check_fail_5" parameterClass="java.lang.String"  resultClass="java.lang.Integer">    
+		<![CDATA[    
+		select 
+		count(id)
+		from t_user_check
+	 	where account=#account# and type=1 and state = 2 and failState=1
+		]]>
+	</select>
+	
+	
+	
+	<select id="sel_user_check_all" parameterClass="userCheck"  resultClass="userCheck">
+	    <![CDATA[
+	       SELECT *  FROM 
+	       t_user_check
+	       order by sdate DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_user_check_all_count"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(*)  FROM 
+	       t_user_check
+	       order by sdate DESC      
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_user_check_account_all" parameterClass="userCheck"  resultClass="userCheck">
+	    <![CDATA[
+	       SELECT *  FROM 
+	       t_user_check 
+	       where  
+	        t_user_check.account like '%$account$%'
+	       order by sdate DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_user_check_account_all_count" parameterClass="userCheck"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(*)  FROM 
+	       t_user_check 
+	       where  
+	       t_user_check.account like '%$account$%'
+	    
+	    ]]>
+	</select>
+	
+	
+	
+	
+</sqlMap>
+    

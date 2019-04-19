@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Insertsend">
+
+	<typeAlias alias="insertsend" type="com.vshow.control.data.InsertSend" />
+	
+     <delete id="del_one_insertitem" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_insert_send
+      where resultid in (select id from t_result where clientid =#clid#)
+    ]]>
+	</delete>
+	
+	<delete id="del_one_insertitems" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_insert_send
+      where resultid = #rid#;
+    ]]>
+	</delete>
+	
+     
+	<insert id="insert_one_insertitem" parameterClass="insertsend">
+	    <![CDATA[
+		insert
+		into
+		t_insert_send
+		(sdate,edate,itemid,xiadate,resultid)
+		values
+		(#sdate#,#edate#,#itemid#,#xiadate#,#resultid#)
+		 ]]>
+    </insert>
+    <select id="see_zj_one_insertitem" parameterClass="insertsend" resultClass="java.lang.Integer">
+        <![CDATA[
+		  select id from t_insert_send where   sdate=#sdate# and edate=#edate# and itemid =#itemid# and xiadate=#xiadate# and resultid=#resultid#;
+		 ]]>
+    </select>
+     
+    <update id="update_insertsend_state" parameterClass="java.lang.Integer">
+       <![CDATA[
+           UPDATE t_insert_send t SET state=1  where  resultid=#rid#; 
+       ]]>
+    </update> 
+    
+    <update id="update_insertsend_state_id" parameterClass="java.lang.Integer">
+       <![CDATA[
+           UPDATE t_insert_send t SET state=1  where  id=#id#; 
+       ]]>
+    </update> 
+      
+     <select id="see_noxiazaiitme" resultClass="insertsend">
+         <![CDATA[
+            select * from t_insert_send where state=0; 
+         ]]>
+     </select>
+     
+     
+     <select id="see_onocheck_insertsend_all" resultClass="insertsend">
+	   <![CDATA[
+	     select * from t_insert_send where resultid in (select id from t_result where logid in (select id from t_log where ocheck=3)) group by group by resultid
+	   ]]>
+	</select>
+     
+     
+   <select id="sel_send_insert_all_id" resultClass="insertsend" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  *  from  t_insert_send where resultid = #resultid# 
+       ]]>     
+   </select>  
+     
+ 
+     
+</sqlMap>
+    

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact
+END
+AjaxInteractItemAddCheckAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/AjaxInteractItemAddCheckAction.java
+END
+ToEditIitgAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/ToEditIitgAction.java
+END
+InteractItemGroup.xml
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/InteractItemGroup.xml
+END
+AjaxInteractItemSonZTreeRootAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/AjaxInteractItemSonZTreeRootAction.java
+END
+AjaxInteractItemZTreeRootAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/AjaxInteractItemZTreeRootAction.java
+END
+AddGroupInteractItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/AddGroupInteractItemAction.java
+END
+AjaxDelGroupInteractItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/AjaxDelGroupInteractItemAction.java
+END
+UpdGroupInteractItemNameAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/UpdGroupInteractItemNameAction.java
+END
+AjaxInteractItemEditCheckAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/item/interact/AjaxInteractItemEditCheckAction.java
+END

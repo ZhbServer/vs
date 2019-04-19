@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="cutD">
+
+	<typeAlias alias="cutd" type="com.vshow.control.kh.cut.CutD" />
+	
+    
+    <insert id="add_cutd" parameterClass="cutd" >
+	   <![CDATA[
+	       insert into t_kh_cut_d 
+	       (cmark,cnum,cdate)
+	       values
+	       (#cmark#,#cnum#,#cdate#)
+	   ]]>
+	</insert>
+     
+    
+     
+     
+    
+</sqlMap>
+    

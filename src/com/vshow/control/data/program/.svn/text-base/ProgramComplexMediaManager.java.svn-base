@@ -1,0 +1,186 @@
+package com.vshow.control.data.program;
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.tools.ant.taskdefs.Touch;
+
+
+
+/**
+ * 
+ * @author w
+ * 元素 音视频图片
+ *
+ */
+
+public class ProgramComplexMediaManager extends ProgramPublic {
+   
+	
+    
+    //播放时长(未定)
+    private int mPlayTimes = 1; 
+    
+    //声音开关 只针对于视频,音频,流媒体,AV数据源,实时显示(摄像头)
+    private float mVol = 0;
+
+    //播放列表
+    private List<ProgramMedia> mMediaList=new ArrayList<ProgramMedia>();
+        
+	//图片组显示方式  0平铺  1等比列
+    private int imageGroupShowType;
+        
+    //图片组滚动方式  0静态 1向左  2向右
+    private int imageGroupScrollType;
+    
+    //office文件夹名
+    private String officeFileName;
+    
+    //office类型(6.ppt 7.word 8.excel 9.pdf)
+    private int officeType;  
+    
+    
+    //office全局切换时长
+    private int officeTimeoutMillis;
+    
+    //office全局特效
+    private int officeInAnim;
+    
+    //office名称
+    private String officeName;
+    
+    
+    //图片是否按比例显示 0不 1按
+    private int blflag;
+    //缩放比
+    private double bl=0D;
+    
+    private String tellerKey;  //二次开发柜员叫号key
+    
+    
+    private String ycCount;//轮播待播放列表行数
+    
+   
+    
+    
+    public String getYcCount() {
+		return ycCount;
+	}
+
+	public void setYcCount(String ycCount) {
+		this.ycCount = ycCount;
+	}
+
+	public String getTellerKey() {
+		return tellerKey;
+	}
+
+	public void setTellerKey(String tellerKey) {
+		this.tellerKey = tellerKey;
+	}
+
+	public double getBl() {
+		return bl;
+	}
+
+	public void setBl(double bl) {
+		this.bl = bl;
+	}
+
+	public int getBlflag() {
+		return blflag;
+	}
+
+	public void setBlflag(int blflag) {
+		this.blflag = blflag;
+	}
+
+	public int getImageGroupShowType() {
+		return imageGroupShowType;
+	}
+
+	public void setImageGroupShowType(int imageGroupShowType) {
+		this.imageGroupShowType = imageGroupShowType;
+	}
+
+	public int getImageGroupScrollType() {
+		return imageGroupScrollType;
+	}
+
+	public void setImageGroupScrollType(int imageGroupScrollType) {
+		this.imageGroupScrollType = imageGroupScrollType;
+	}
+	
+    
+    public String getOfficeName() {
+		return officeName;
+	}
+
+	public void setOfficeName(String officeName) {
+		this.officeName = officeName;
+	}
+
+	public int getOfficeTimeoutMillis() {
+		return officeTimeoutMillis;
+	}
+
+	public void setOfficeTimeoutMillis(int officeTimeoutMillis) {
+		this.officeTimeoutMillis = officeTimeoutMillis;
+	}
+
+	public int getOfficeInAnim() {
+		return officeInAnim;
+	}
+
+	public void setOfficeInAnim(int officeInAnim) {
+		this.officeInAnim = officeInAnim;
+	}
+
+	
+    
+
+	public String getOfficeFileName() {
+		return officeFileName;
+	}
+
+	public void setOfficeFileName(String officeFileName) {
+		this.officeFileName = officeFileName;
+	}
+
+	public int getOfficeType() {
+		return officeType;
+	}
+
+	public void setOfficeType(int officeType) {
+		this.officeType = officeType;
+	}
+
+	public int getmPlayTimes() {
+		return mPlayTimes;
+	}
+
+	public void setmPlayTimes(int mPlayTimes) {
+		this.mPlayTimes = mPlayTimes;
+	}
+
+	
+	public float getmVol() {
+		return mVol;
+	}
+
+	public void setmVol(float mVol) {
+		this.mVol = mVol;
+	}
+
+	public List<ProgramMedia> getmMediaList() {
+		return mMediaList;
+	}
+
+	public void setmMediaList(List<ProgramMedia> mMediaList) {
+		this.mMediaList = mMediaList;
+	}
+   
+    
+}

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/js/date-time
+END
+bootstrap-datetimepicker.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/js/date-time/bootstrap-datetimepicker.min.js
+END
+bootstrap-datepicker.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/js/date-time/bootstrap-datepicker.min.js
+END
+bootstrap-timepicker.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/js/date-time/bootstrap-timepicker.min.js
+END
+daterangepicker.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/js/date-time/daterangepicker.min.js
+END
+moment.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/js/date-time/moment.min.js
+END

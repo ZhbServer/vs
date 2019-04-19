@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="itemgroup">
+
+	<typeAlias alias="itgroup" type="com.vshow.control.data.ItemGroup" />
+	<typeAlias alias="itgroupletion" type="com.vshow.control.data.ItemGroupRelation" />
+	
+    <select id="item_group_uid" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select 
+	      t_item_group.uid
+	      from
+	      t_item_group
+	      where 
+	      t_item_group.id=#id#    
+	    ]]>
+	</select>
+	
+	<select id="item_self_group_all" parameterClass="itgroup" resultClass="itgroup">
+	    <![CDATA[
+	      select 
+	      t_item_group.id,
+	      t_item_group.gname as name,      
+	      t_user.id as userid,
+	      t_user.name as uname
+	      from
+	      t_item_group,t_user
+	      where 
+	      t_item_group.uid in (SELECT id FROM t_user t where tkey like '%$tkey$%')   and
+	      t_item_group.uid= t_user.id 
+	      order by t_item_group.id  
+	    ]]>
+	</select>
+	
+	<insert id="ad_item_group_relation" parameterClass="itgroupletion">
+	   <![CDATA[
+		insert into t_item_group_relation
+		(itemid,itemgroupid)
+		values
+		(#itemid#,#itemgroupid#)
+	    ]]>  
+	</insert>
+	
+	
+	 <select id="sel_itemgroup_page" parameterClass="itgroup" resultClass="itgroup">
+	    <![CDATA[
+	      select 
+	      t_item_group.id,
+	      t_item_group.gname as name,      
+	      t_user.id as userid,
+	      t_user.name as uname
+	      from
+	      t_item_group,t_user
+	      where 
+	      t_item_group.uid in (SELECT id FROM t_user t where tkey like '%$tkey$%')  and
+	      t_item_group.uid= t_user.id
+	      order by t_item_group.id desc
+	      limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+    <select id="sel_itemgroup_page_count" parameterClass="itgroup" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select 
+	      count(t_item_group.id)
+	      from
+	      t_item_group,t_user
+	      where 
+	      t_item_group.uid in (SELECT id FROM t_user t where tkey like '%$tkey$%')  and
+	      t_item_group.uid= t_user.id
+	      
+	    ]]>
+	</select>
+	
+	<insert id="add_item_group" parameterClass="itgroup">
+	   <![CDATA[
+		insert into t_item_group
+		(gname,uid)
+		 values
+		(#name#,#userid#)
+	   ]]>
+	</insert>
+
+
+   <update id="upd_itemgroup_name_id" parameterClass="itgroup">
+    <![CDATA[
+      update
+      t_item_group 
+      set gname=#name#
+      where id=#id#
+    ]]>
+	</update>
+	
+	
+	<select id="sel_itemgroup_name_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	  <![CDATA[
+	      select 
+	      t_item_group.gname   
+	      from
+	      t_item_group
+	      where 
+	      t_item_group.id=#id#    
+	   ]]>
+	</select>
+	
+	
+	<select id="sel_group_item_id_all" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+    <![CDATA[
+      SELECT itemid FROM t_item_group_relation where t_item_group_relation.itemgroupid=#itemgroupid#;
+    ]]>
+	</select>
+	
+	
+	<delete id="del_itemgroup_id" parameterClass="java.lang.Integer">    
+		 <![CDATA[      
+		 delete      
+		 from      
+		 t_item_group      
+		 where id=#id#   
+		 ]]>
+	</delete>
+	
+	
+	<select id="sel_group_item_igid_all" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT itemgroupid FROM t_item_group_relation where t_item_group_relation.itemid=#itemid# limit 0,1
+    ]]>
+	</select>
+	
+	
+	<select id="sel_itemgroup_all" parameterClass="itgroup" resultClass="itgroup">
+	    <![CDATA[
+	      select 
+	      t_item_group.id,
+	      t_item_group.gname as name,      
+	      t_user.id as userid,
+	      t_user.name as uname
+	      from
+	      t_item_group,t_user
+	      where 
+	      t_item_group.uid in (SELECT id FROM t_user t where tkey like '%$tkey$%')  and
+	      t_item_group.uid= t_user.id
+	    ]]>
+	</select>
+	
+	<select id="check_igname" parameterClass="itgroup" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select count(*) from
+	      t_item_group,t_user
+	      where t_item_group.uid= t_user.id and
+	      t_user.id = #userid# and 
+	      t_item_group.gname = #name#
+	    ]]>
+	</select>
+	
+	<select id="sel_ig_gid" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	      select gname from
+	      t_item_group
+	      where t_item_group.id = #itemgid#
+	    ]]>
+	</select>
+	
+	<select id="sel_ig_gname" parameterClass="itgroup" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select count(*) from
+	      t_item_group
+	      where t_item_group.uid = #userid# and 
+	      t_item_group.gname = #name#
+	    ]]>
+	</select>
+	
+	<select id="sel_itemgroup_id_uid" parameterClass="itgroup" resultClass="java.lang.Integer">
+	  <![CDATA[
+	      select count(*) from t_item_group
+	      where t_item_group.id=#id# and t_item_group.uid=#userid#
+	   ]]>
+	</select>
+	
+	
+	<delete id="del_itgrouprelation_id" parameterClass="java.lang.Integer">    
+		 <![CDATA[      
+		 delete      
+		 from      
+		 t_item_group_relation      
+		 where itemid=#id#   
+		 ]]>
+	</delete>
+	
+	<!-- ApiDelItemAction -->
+	<delete id="api_del_itgrouprelation_id" parameterClass="java.lang.Integer">    
+		 <![CDATA[      
+		 delete      
+		 from      
+		 t_item_group_relation      
+		 where itemid=#id#   
+		 ]]>
+	</delete>
+	
+</sqlMap>
+    

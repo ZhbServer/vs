@@ -1,0 +1,401 @@
+<style>
+#iconsExample > a {color: #333; display: block; float: left; width: 4rem; height: 3.5rem; text-align: center; position: relative; padding: .25rem 0}
+#iconsExample > a > i:before {font-size: 1.05rem}
+#iconsExample > a > small {font-size: .5rem; display: block; opacity: .7; line-height: 1}
+.icon-10x {min-width: 5rem;}
+.icon-5x {min-width: 2.5rem;}
+.icon-2x {min-width: 1.4rem;}
+.icon-10x:before {font-size: 5rem;}
+.icon-5x:before {font-size: 2.5rem;}
+#iconPreviewModal {top: auto;}
+#iconPreviewModal .icons {padding: 1rem 0; text-align: center;}
+#iconPreviewModal .icons > i {display: inline-block; text-align: center; margin: .4rem; line-height: 1}
+body.show-icon-modal #fabNav {z-index: 0}
+body.show-icon-modal {padding-bottom: 10.5rem!important}
+</style>
+
+<div class="section">
+  <div class="heading"><div class="title"><strong>图标</strong></div></div>
+  <div class="box"><p>MZUI 中的图标基于 <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">FontAwesome</a> 定制，包含 <strong class="text-icon-total-count">332</strong> 个图标。</p></div>
+  <div class="clearfix" id="iconsExample">
+    <a data-icon-code="resize"><i class="icon-resize"></i><small>resize</small></a>
+    <a data-icon-code="expand-full"><i class="icon-expand-full"></i><small>expand-full</small></a>
+    <a data-icon-code="collapse-full"><i class="icon-collapse-full"></i><small>collapse-full</small></a>
+    <a data-icon-code="yinyang"><i class="icon-yinyang"></i><small>yinyang</small></a>
+    <a data-icon-code="window"><i class="icon-window"></i><small>window</small></a>
+    <a data-icon-code="window-alt"><i class="icon-window-alt"></i><small>window-alt</small></a>
+    <a data-icon-code="carousel"><i class="icon-carousel"></i><small>carousel</small></a>
+    <a data-icon-code="spinner-snake"><i class="icon-spinner-snake"></i><small>spinner-snake</small></a>
+    <a data-icon-code="spinner-indicator"><i class="icon-spinner-indicator"></i><small>spinner-indicator</small></a>
+    <a data-icon-code="check-board"><i class="icon-check-board"></i><small>check-board</small></a>
+    <a data-icon-code="bar-chart"><i class="icon-bar-chart"></i><small>bar-chart</small></a>
+    <a data-icon-code="github"><i class="icon-github"></i><small>github</small></a>
+    <a data-icon-code="dot-circle"><i class="icon-dot-circle"></i><small>dot-circle</small></a>
+    <a data-icon-code="cube-alt"><i class="icon-cube-alt"></i><small>cube-alt</small></a>
+    <a data-icon-code="cubes"><i class="icon-cubes"></i><small>cubes</small></a>
+    <a data-icon-code="file-pdf"><i class="icon-file-pdf"></i><small>file-pdf</small></a>
+    <a data-icon-code="file-word"><i class="icon-file-word"></i><small>file-word</small></a>
+    <a data-icon-code="file-excel"><i class="icon-file-excel"></i><small>file-excel</small></a>
+    <a data-icon-code="file-powerpoint"><i class="icon-file-powerpoint"></i><small>file-powerpoint</small></a>
+    <a data-icon-code="file-image"><i class="icon-file-image"></i><small>file-image</small></a>
+    <a data-icon-code="file-archive"><i class="icon-file-archive"></i><small>file-archive</small></a>
+    <a data-icon-code="file-audio"><i class="icon-file-audio"></i><small>file-audio</small></a>
+    <a data-icon-code="file-movie"><i class="icon-file-movie"></i><small>file-movie</small></a>
+    <a data-icon-code="file-code"><i class="icon-file-code"></i><small>file-code</small></a>
+    <a data-icon-code="circle-o-notch"><i class="icon-circle-o-notch"></i><small>circle-o-notch</small></a>
+    <a data-icon-code="qq"><i class="icon-qq"></i><small>qq</small></a>
+    <a data-icon-code="wechat"><i class="icon-wechat"></i><small>wechat</small></a>
+    <a data-icon-code="history"><i class="icon-history"></i><small>history</small></a>
+    <a data-icon-code="circle-thin"><i class="icon-circle-thin"></i><small>circle-thin</small></a>
+    <a data-icon-code="sliders"><i class="icon-sliders"></i><small>sliders</small></a>
+    <a data-icon-code="newspaper-o"><i class="icon-newspaper-o"></i><small>newspaper-o</small></a>
+    <a data-icon-code="calculator"><i class="icon-calculator"></i><small>calculator</small></a>
+    <a data-icon-code="paint-brush"><i class="icon-paint-brush"></i><small>paint-brush</small></a>
+    <a data-icon-code="area-chart"><i class="icon-area-chart"></i><small>area-chart</small></a>
+    <a data-icon-code="pie-chart"><i class="icon-pie-chart"></i><small>pie-chart</small></a>
+    <a data-icon-code="line-chart"><i class="icon-line-chart"></i><small>line-chart</small></a>
+    <a data-icon-code="toggle-off"><i class="icon-toggle-off"></i><small>toggle-off</small></a>
+    <a data-icon-code="toggle-on"><i class="icon-toggle-on"></i><small>toggle-on</small></a>
+    <a data-icon-code="diamond"><i class="icon-diamond"></i><small>diamond</small></a>
+    <a data-icon-code="venus"><i class="icon-venus"></i><small>venus</small></a>
+    <a data-icon-code="mars"><i class="icon-mars"></i><small>mars</small></a>
+    <a data-icon-code="server"><i class="icon-server"></i><small>server</small></a>
+    <a data-icon-code="music"><i class="icon-music"></i><small>music</small></a>
+    <a data-icon-code="search"><i class="icon-search"></i><small>search</small></a>
+    <a data-icon-code="envelope"><i class="icon-envelope"></i><small>envelope</small></a>
+    <a data-icon-code="heart"><i class="icon-heart"></i><small>heart</small></a>
+    <a data-icon-code="star"><i class="icon-star"></i><small>star</small></a>
+    <a data-icon-code="star-empty"><i class="icon-star-empty"></i><small>star-empty</small></a>
+    <a data-icon-code="user"><i class="icon-user"></i><small>user</small></a>
+    <a data-icon-code="film"><i class="icon-film"></i><small>film</small></a>
+    <a data-icon-code="th-large"><i class="icon-th-large"></i><small>th-large</small></a>
+    <a data-icon-code="th"><i class="icon-th"></i><small>th</small></a>
+    <a data-icon-code="th-list"><i class="icon-th-list"></i><small>th-list</small></a>
+    <a data-icon-code="check"><i class="icon-check"></i><small>check</small></a>
+    <a data-icon-code="times"><i class="icon-times"></i><small>times</small></a>
+    <a data-icon-code="zoom-in"><i class="icon-zoom-in"></i><small>zoom-in</small></a>
+    <a data-icon-code="zoom-out"><i class="icon-zoom-out"></i><small>zoom-out</small></a>
+    <a data-icon-code="off"><i class="icon-off"></i><small>off</small></a>
+    <a data-icon-code="cog"><i class="icon-cog"></i><small>cog</small></a>
+    <a data-icon-code="trash"><i class="icon-trash"></i><small>trash</small></a>
+    <a data-icon-code="home"><i class="icon-home"></i><small>home</small></a>
+    <a data-icon-code="file-o"><i class="icon-file-o"></i><small>file-o</small></a>
+    <a data-icon-code="time"><i class="icon-time"></i><small>time</small></a>
+    <a data-icon-code="download-alt"><i class="icon-download-alt"></i><small>download-alt</small></a>
+    <a data-icon-code="download"><i class="icon-download"></i><small>download</small></a>
+    <a data-icon-code="upload"><i class="icon-upload"></i><small>upload</small></a>
+    <a data-icon-code="inbox"><i class="icon-inbox"></i><small>inbox</small></a>
+    <a data-icon-code="play-circle"><i class="icon-play-circle"></i><small>play-circle</small></a>
+    <a data-icon-code="repeat"><i class="icon-repeat"></i><small>repeat</small></a>
+    <a data-icon-code="refresh"><i class="icon-refresh"></i><small>refresh</small></a>
+    <a data-icon-code="list-alt"><i class="icon-list-alt"></i><small>list-alt</small></a>
+    <a data-icon-code="lock"><i class="icon-lock"></i><small>lock</small></a>
+    <a data-icon-code="flag"><i class="icon-flag"></i><small>flag</small></a>
+    <a data-icon-code="headphones"><i class="icon-headphones"></i><small>headphones</small></a>
+    <a data-icon-code="volume-off"><i class="icon-volume-off"></i><small>volume-off</small></a>
+    <a data-icon-code="volume-up"><i class="icon-volume-up"></i><small>volume-up</small></a>
+    <a data-icon-code="qrcode"><i class="icon-qrcode"></i><small>qrcode</small></a>
+    <a data-icon-code="barcode"><i class="icon-barcode"></i><small>barcode</small></a>
+    <a data-icon-code="tag"><i class="icon-tag"></i><small>tag</small></a>
+    <a data-icon-code="tags"><i class="icon-tags"></i><small>tags</small></a>
+    <a data-icon-code="book"><i class="icon-book"></i><small>book</small></a>
+    <a data-icon-code="bookmark"><i class="icon-bookmark"></i><small>bookmark</small></a>
+    <a data-icon-code="print"><i class="icon-print"></i><small>print</small></a>
+    <a data-icon-code="camera"><i class="icon-camera"></i><small>camera</small></a>
+    <a data-icon-code="font"><i class="icon-font"></i><small>font</small></a>
+    <a data-icon-code="bold"><i class="icon-bold"></i><small>bold</small></a>
+    <a data-icon-code="italic"><i class="icon-italic"></i><small>italic</small></a>
+    <a data-icon-code="header"><i class="icon-header"></i><small>header</small></a>
+    <a data-icon-code="underline"><i class="icon-underline"></i><small>underline</small></a>
+    <a data-icon-code="strikethrough"><i class="icon-strikethrough"></i><small>strikethrough</small></a>
+    <a data-icon-code="eraser"><i class="icon-eraser"></i><small>eraser</small></a>
+    <a data-icon-code="align-justify"><i class="icon-align-justify"></i><small>align-justify</small></a>
+    <a data-icon-code="align-left"><i class="icon-align-left"></i><small>align-left</small></a>
+    <a data-icon-code="list"><i class="icon-list"></i><small>list</small></a>
+    <a data-icon-code="picture"><i class="icon-picture"></i><small>picture</small></a>
+    <a data-icon-code="pencil"><i class="icon-pencil"></i><small>pencil</small></a>
+    <a data-icon-code="map-marker"><i class="icon-map-marker"></i><small>map-marker</small></a>
+    <a data-icon-code="adjust"><i class="icon-adjust"></i><small>adjust</small></a>
+    <a data-icon-code="tint"><i class="icon-tint"></i><small>tint</small></a>
+    <a data-icon-code="edit"><i class="icon-edit"></i><small>edit</small></a>
+    <a data-icon-code="share"><i class="icon-share"></i><small>share</small></a>
+    <a data-icon-code="checked"><i class="icon-checked"></i><small>checked</small></a>
+    <a data-icon-code="arrows"><i class="icon-arrows"></i><small>arrows</small></a>
+    <a data-icon-code="step-backward"><i class="icon-step-backward"></i><small>step-backward</small></a>
+    <a data-icon-code="fast-backward"><i class="icon-fast-backward"></i><small>fast-backward</small></a>
+    <a data-icon-code="backward"><i class="icon-backward"></i><small>backward</small></a>
+    <a data-icon-code="play"><i class="icon-play"></i><small>play</small></a>
+    <a data-icon-code="pause"><i class="icon-pause"></i><small>pause</small></a>
+    <a data-icon-code="stop"><i class="icon-stop"></i><small>stop</small></a>
+    <a data-icon-code="forward"><i class="icon-forward"></i><small>forward</small></a>
+    <a data-icon-code="fast-forward"><i class="icon-fast-forward"></i><small>fast-forward</small></a>
+    <a data-icon-code="step-forward"><i class="icon-step-forward"></i><small>step-forward</small></a>
+    <a data-icon-code="eject"><i class="icon-eject"></i><small>eject</small></a>
+    <a data-icon-code="chevron-left"><i class="icon-chevron-left"></i><small>chevron-left</small></a>
+    <a data-icon-code="chevron-right"><i class="icon-chevron-right"></i><small>chevron-right</small></a>
+    <a data-icon-code="plus-sign"><i class="icon-plus-sign"></i><small>plus-sign</small></a>
+    <a data-icon-code="minus-sign"><i class="icon-minus-sign"></i><small>minus-sign</small></a>
+    <a data-icon-code="remove-sign"><i class="icon-remove-sign"></i><small>remove-sign</small></a>
+    <a data-icon-code="check-circle"><i class="icon-check-circle"></i><small>check-circle</small></a>
+    <a data-icon-code="question-sign"><i class="icon-question-sign"></i><small>question-sign</small></a>
+    <a data-icon-code="info-sign"><i class="icon-info-sign"></i><small>info-sign</small></a>
+    <a data-icon-code="remove-circle"><i class="icon-remove-circle"></i><small>remove-circle</small></a>
+    <a data-icon-code="check-circle-o"><i class="icon-check-circle-o"></i><small>check-circle-o</small></a>
+    <a data-icon-code="ban-circle"><i class="icon-ban-circle"></i><small>ban-circle</small></a>
+    <a data-icon-code="arrow-left"><i class="icon-arrow-left"></i><small>arrow-left</small></a>
+    <a data-icon-code="arrow-right"><i class="icon-arrow-right"></i><small>arrow-right</small></a>
+    <a data-icon-code="arrow-up"><i class="icon-arrow-up"></i><small>arrow-up</small></a>
+    <a data-icon-code="arrow-down"><i class="icon-arrow-down"></i><small>arrow-down</small></a>
+    <a data-icon-code="share-alt"><i class="icon-share-alt"></i><small>share-alt</small></a>
+    <a data-icon-code="resize-full"><i class="icon-resize-full"></i><small>resize-full</small></a>
+    <a data-icon-code="resize-small"><i class="icon-resize-small"></i><small>resize-small</small></a>
+    <a data-icon-code="plus"><i class="icon-plus"></i><small>plus</small></a>
+    <a data-icon-code="minus"><i class="icon-minus"></i><small>minus</small></a>
+    <a data-icon-code="asterisk"><i class="icon-asterisk"></i><small>asterisk</small></a>
+    <a data-icon-code="exclamation-sign"><i class="icon-exclamation-sign"></i><small>exclamation-sign</small></a>
+    <a data-icon-code="gift"><i class="icon-gift"></i><small>gift</small></a>
+    <a data-icon-code="leaf"><i class="icon-leaf"></i><small>leaf</small></a>
+    <a data-icon-code="eye-open"><i class="icon-eye-open"></i><small>eye-open</small></a>
+    <a data-icon-code="eye-close"><i class="icon-eye-close"></i><small>eye-close</small></a>
+    <a data-icon-code="warning-sign"><i class="icon-warning-sign"></i><small>warning-sign</small></a>
+    <a data-icon-code="plane"><i class="icon-plane"></i><small>plane</small></a>
+    <a data-icon-code="calendar"><i class="icon-calendar"></i><small>calendar</small></a>
+    <a data-icon-code="random"><i class="icon-random"></i><small>random</small></a>
+    <a data-icon-code="comment"><i class="icon-comment"></i><small>comment</small></a>
+    <a data-icon-code="chevron-up"><i class="icon-chevron-up"></i><small>chevron-up</small></a>
+    <a data-icon-code="chevron-down"><i class="icon-chevron-down"></i><small>chevron-down</small></a>
+    <a data-icon-code="shopping-cart"><i class="icon-shopping-cart"></i><small>shopping-cart</small></a>
+    <a data-icon-code="folder-close"><i class="icon-folder-close"></i><small>folder-close</small></a>
+    <a data-icon-code="folder-open"><i class="icon-folder-open"></i><small>folder-open</small></a>
+    <a data-icon-code="resize-v"><i class="icon-resize-v"></i><small>resize-v</small></a>
+    <a data-icon-code="resize-h"><i class="icon-resize-h"></i><small>resize-h</small></a>
+    <a data-icon-code="bar-chart-alt"><i class="icon-bar-chart-alt"></i><small>bar-chart-alt</small></a>
+    <a data-icon-code="camera-retro"><i class="icon-camera-retro"></i><small>camera-retro</small></a>
+    <a data-icon-code="key"><i class="icon-key"></i><small>key</small></a>
+    <a data-icon-code="cogs"><i class="icon-cogs"></i><small>cogs</small></a>
+    <a data-icon-code="comments"><i class="icon-comments"></i><small>comments</small></a>
+    <a data-icon-code="thumbs-o-up"><i class="icon-thumbs-o-up"></i><small>thumbs-o-up</small></a>
+    <a data-icon-code="thumbs-o-down"><i class="icon-thumbs-o-down"></i><small>thumbs-o-down</small></a>
+    <a data-icon-code="star-half"><i class="icon-star-half"></i><small>star-half</small></a>
+    <a data-icon-code="heart-empty"><i class="icon-heart-empty"></i><small>heart-empty</small></a>
+    <a data-icon-code="signout"><i class="icon-signout"></i><small>signout</small></a>
+    <a data-icon-code="pushpin"><i class="icon-pushpin"></i><small>pushpin</small></a>
+    <a data-icon-code="external-link"><i class="icon-external-link"></i><small>external-link</small></a>
+    <a data-icon-code="signin"><i class="icon-signin"></i><small>signin</small></a>
+    <a data-icon-code="trophy"><i class="icon-trophy"></i><small>trophy</small></a>
+    <a data-icon-code="upload-alt"><i class="icon-upload-alt"></i><small>upload-alt</small></a>
+    <a data-icon-code="lemon"><i class="icon-lemon"></i><small>lemon</small></a>
+    <a data-icon-code="phone"><i class="icon-phone"></i><small>phone</small></a>
+    <a data-icon-code="check-empty"><i class="icon-check-empty"></i><small>check-empty</small></a>
+    <a data-icon-code="bookmark-empty"><i class="icon-bookmark-empty"></i><small>bookmark-empty</small></a>
+    <a data-icon-code="phone-sign"><i class="icon-phone-sign"></i><small>phone-sign</small></a>
+    <a data-icon-code="credit"><i class="icon-credit"></i><small>credit</small></a>
+    <a data-icon-code="rss"><i class="icon-rss"></i><small>rss</small></a>
+    <a data-icon-code="hdd"><i class="icon-hdd"></i><small>hdd</small></a>
+    <a data-icon-code="bullhorn"><i class="icon-bullhorn"></i><small>bullhorn</small></a>
+    <a data-icon-code="bell"><i class="icon-bell"></i><small>bell</small></a>
+    <a data-icon-code="certificate"><i class="icon-certificate"></i><small>certificate</small></a>
+    <a data-icon-code="hand-right"><i class="icon-hand-right"></i><small>hand-right</small></a>
+    <a data-icon-code="hand-left"><i class="icon-hand-left"></i><small>hand-left</small></a>
+    <a data-icon-code="hand-up"><i class="icon-hand-up"></i><small>hand-up</small></a>
+    <a data-icon-code="hand-down"><i class="icon-hand-down"></i><small>hand-down</small></a>
+    <a data-icon-code="circle-arrow-left"><i class="icon-circle-arrow-left"></i><small>circle-arrow-left</small></a>
+    <a data-icon-code="circle-arrow-right"><i class="icon-circle-arrow-right"></i><small>circle-arrow-right</small></a>
+    <a data-icon-code="circle-arrow-up"><i class="icon-circle-arrow-up"></i><small>circle-arrow-up</small></a>
+    <a data-icon-code="circle-arrow-down"><i class="icon-circle-arrow-down"></i><small>circle-arrow-down</small></a>
+    <a data-icon-code="globe"><i class="icon-globe"></i><small>globe</small></a>
+    <a data-icon-code="wrench"><i class="icon-wrench"></i><small>wrench</small></a>
+    <a data-icon-code="tasks"><i class="icon-tasks"></i><small>tasks</small></a>
+    <a data-icon-code="filter"><i class="icon-filter"></i><small>filter</small></a>
+    <a data-icon-code="group"><i class="icon-group"></i><small>group</small></a>
+    <a data-icon-code="link"><i class="icon-link"></i><small>link</small></a>
+    <a data-icon-code="cloud"><i class="icon-cloud"></i><small>cloud</small></a>
+    <a data-icon-code="beaker"><i class="icon-beaker"></i><small>beaker</small></a>
+    <a data-icon-code="cut"><i class="icon-cut"></i><small>cut</small></a>
+    <a data-icon-code="copy"><i class="icon-copy"></i><small>copy</small></a>
+    <a data-icon-code="paper-clip"><i class="icon-paper-clip"></i><small>paper-clip</small></a>
+    <a data-icon-code="save"><i class="icon-save"></i><small>save</small></a>
+    <a data-icon-code="sign-blank"><i class="icon-sign-blank"></i><small>sign-blank</small></a>
+    <a data-icon-code="bars"><i class="icon-bars"></i><small>bars</small></a>
+    <a data-icon-code="list-ul"><i class="icon-list-ul"></i><small>list-ul</small></a>
+    <a data-icon-code="list-ol"><i class="icon-list-ol"></i><small>list-ol</small></a>
+    <a data-icon-code="table"><i class="icon-table"></i><small>table</small></a>
+    <a data-icon-code="magic"><i class="icon-magic"></i><small>magic</small></a>
+    <a data-icon-code="caret-down"><i class="icon-caret-down"></i><small>caret-down</small></a>
+    <a data-icon-code="caret-up"><i class="icon-caret-up"></i><small>caret-up</small></a>
+    <a data-icon-code="caret-left"><i class="icon-caret-left"></i><small>caret-left</small></a>
+    <a data-icon-code="caret-right"><i class="icon-caret-right"></i><small>caret-right</small></a>
+    <a data-icon-code="columns"><i class="icon-columns"></i><small>columns</small></a>
+    <a data-icon-code="sort"><i class="icon-sort"></i><small>sort</small></a>
+    <a data-icon-code="sort-down"><i class="icon-sort-down"></i><small>sort-down</small></a>
+    <a data-icon-code="sort-up"><i class="icon-sort-up"></i><small>sort-up</small></a>
+    <a data-icon-code="envelope-alt"><i class="icon-envelope-alt"></i><small>envelope-alt</small></a>
+    <a data-icon-code="undo"><i class="icon-undo"></i><small>undo</small></a>
+    <a data-icon-code="dashboard"><i class="icon-dashboard"></i><small>dashboard</small></a>
+    <a data-icon-code="comment-alt"><i class="icon-comment-alt"></i><small>comment-alt</small></a>
+    <a data-icon-code="comments-alt"><i class="icon-comments-alt"></i><small>comments-alt</small></a>
+    <a data-icon-code="bolt"><i class="icon-bolt"></i><small>bolt</small></a>
+    <a data-icon-code="sitemap"><i class="icon-sitemap"></i><small>sitemap</small></a>
+    <a data-icon-code="umbrella"><i class="icon-umbrella"></i><small>umbrella</small></a>
+    <a data-icon-code="paste"><i class="icon-paste"></i><small>paste</small></a>
+    <a data-icon-code="lightbulb"><i class="icon-lightbulb"></i><small>lightbulb</small></a>
+    <a data-icon-code="exchange"><i class="icon-exchange"></i><small>exchange</small></a>
+    <a data-icon-code="cloud-download"><i class="icon-cloud-download"></i><small>cloud-download</small></a>
+    <a data-icon-code="cloud-upload"><i class="icon-cloud-upload"></i><small>cloud-upload</small></a>
+    <a data-icon-code="bell-alt"><i class="icon-bell-alt"></i><small>bell-alt</small></a>
+    <a data-icon-code="coffee"><i class="icon-coffee"></i><small>coffee</small></a>
+    <a data-icon-code="file-text-o"><i class="icon-file-text-o"></i><small>file-text-o</small></a>
+    <a data-icon-code="building"><i class="icon-building"></i><small>building</small></a>
+    <a data-icon-code="double-angle-left"><i class="icon-double-angle-left"></i><small>double-angle-left</small></a>
+    <a data-icon-code="double-angle-right"><i class="icon-double-angle-right"></i><small>double-angle-right</small></a>
+    <a data-icon-code="double-angle-up"><i class="icon-double-angle-up"></i><small>double-angle-up</small></a>
+    <a data-icon-code="double-angle-down"><i class="icon-double-angle-down"></i><small>double-angle-down</small></a>
+    <a data-icon-code="angle-left"><i class="icon-angle-left"></i><small>angle-left</small></a>
+    <a data-icon-code="angle-right"><i class="icon-angle-right"></i><small>angle-right</small></a>
+    <a data-icon-code="angle-up"><i class="icon-angle-up"></i><small>angle-up</small></a>
+    <a data-icon-code="angle-down"><i class="icon-angle-down"></i><small>angle-down</small></a>
+    <a data-icon-code="desktop"><i class="icon-desktop"></i><small>desktop</small></a>
+    <a data-icon-code="laptop"><i class="icon-laptop"></i><small>laptop</small></a>
+    <a data-icon-code="tablet"><i class="icon-tablet"></i><small>tablet</small></a>
+    <a data-icon-code="mobile"><i class="icon-mobile"></i><small>mobile</small></a>
+    <a data-icon-code="circle-blank"><i class="icon-circle-blank"></i><small>circle-blank</small></a>
+    <a data-icon-code="quote-left"><i class="icon-quote-left"></i><small>quote-left</small></a>
+    <a data-icon-code="quote-right"><i class="icon-quote-right"></i><small>quote-right</small></a>
+    <a data-icon-code="spinner"><i class="icon-spinner"></i><small>spinner</small></a>
+    <a data-icon-code="circle"><i class="icon-circle"></i><small>circle</small></a>
+    <a data-icon-code="reply"><i class="icon-reply"></i><small>reply</small></a>
+    <a data-icon-code="folder-close-alt"><i class="icon-folder-close-alt"></i><small>folder-close-alt</small></a>
+    <a data-icon-code="folder-open-alt"><i class="icon-folder-open-alt"></i><small>folder-open-alt</small></a>
+    <a data-icon-code="expand-alt"><i class="icon-expand-alt"></i><small>expand-alt</small></a>
+    <a data-icon-code="collapse-alt"><i class="icon-collapse-alt"></i><small>collapse-alt</small></a>
+    <a data-icon-code="smile"><i class="icon-smile"></i><small>smile</small></a>
+    <a data-icon-code="frown"><i class="icon-frown"></i><small>frown</small></a>
+    <a data-icon-code="meh"><i class="icon-meh"></i><small>meh</small></a>
+    <a data-icon-code="gamepad"><i class="icon-gamepad"></i><small>gamepad</small></a>
+    <a data-icon-code="keyboard"><i class="icon-keyboard"></i><small>keyboard</small></a>
+    <a data-icon-code="flag-alt"><i class="icon-flag-alt"></i><small>flag-alt</small></a>
+    <a data-icon-code="flag-checkered"><i class="icon-flag-checkered"></i><small>flag-checkered</small></a>
+    <a data-icon-code="terminal"><i class="icon-terminal"></i><small>terminal</small></a>
+    <a data-icon-code="code"><i class="icon-code"></i><small>code</small></a>
+    <a data-icon-code="reply-all"><i class="icon-reply-all"></i><small>reply-all</small></a>
+    <a data-icon-code="star-half-full"><i class="icon-star-half-full"></i><small>star-half-full</small></a>
+    <a data-icon-code="location-arrow"><i class="icon-location-arrow"></i><small>location-arrow</small></a>
+    <a data-icon-code="crop"><i class="icon-crop"></i><small>crop</small></a>
+    <a data-icon-code="code-fork"><i class="icon-code-fork"></i><small>code-fork</small></a>
+    <a data-icon-code="unlink"><i class="icon-unlink"></i><small>unlink</small></a>
+    <a data-icon-code="question"><i class="icon-question"></i><small>question</small></a>
+    <a data-icon-code="info"><i class="icon-info"></i><small>info</small></a>
+    <a data-icon-code="shield"><i class="icon-shield"></i><small>shield</small></a>
+    <a data-icon-code="calendar-empty"><i class="icon-calendar-empty"></i><small>calendar-empty</small></a>
+    <a data-icon-code="rocket"><i class="icon-rocket"></i><small>rocket</small></a>
+    <a data-icon-code="chevron-sign-left"><i class="icon-chevron-sign-left"></i><small>chevron-sign-left</small></a>
+    <a data-icon-code="chevron-sign-right"><i class="icon-chevron-sign-right"></i><small>chevron-sign-right</small></a>
+    <a data-icon-code="chevron-sign-up"><i class="icon-chevron-sign-up"></i><small>chevron-sign-up</small></a>
+    <a data-icon-code="chevron-sign-down"><i class="icon-chevron-sign-down"></i><small>chevron-sign-down</small></a>
+    <a data-icon-code="html5"><i class="icon-html5"></i><small>html5</small></a>
+    <a data-icon-code="anchor"><i class="icon-anchor"></i><small>anchor</small></a>
+    <a data-icon-code="unlock-alt"><i class="icon-unlock-alt"></i><small>unlock-alt</small></a>
+    <a data-icon-code="bullseye"><i class="icon-bullseye"></i><small>bullseye</small></a>
+    <a data-icon-code="ellipsis-h"><i class="icon-ellipsis-h"></i><small>ellipsis-h</small></a>
+    <a data-icon-code="ellipsis-v"><i class="icon-ellipsis-v"></i><small>ellipsis-v</small></a>
+    <a data-icon-code="rss-sign"><i class="icon-rss-sign"></i><small>rss-sign</small></a>
+    <a data-icon-code="play-sign"><i class="icon-play-sign"></i><small>play-sign</small></a>
+    <a data-icon-code="minus-sign-alt"><i class="icon-minus-sign-alt"></i><small>minus-sign-alt</small></a>
+    <a data-icon-code="plus-sign-alt"><i class="icon-plus-sign-alt"></i><small>plus-sign-alt</small></a>
+    <a data-icon-code="check-minus"><i class="icon-check-minus"></i><small>check-minus</small></a>
+    <a data-icon-code="check-plus"><i class="icon-check-plus"></i><small>check-plus</small></a>
+    <a data-icon-code="level-up"><i class="icon-level-up"></i><small>level-up</small></a>
+    <a data-icon-code="level-down"><i class="icon-level-down"></i><small>level-down</small></a>
+    <a data-icon-code="check-sign"><i class="icon-check-sign"></i><small>check-sign</small></a>
+    <a data-icon-code="edit-sign"><i class="icon-edit-sign"></i><small>edit-sign</small></a>
+    <a data-icon-code="external-link-sign"><i class="icon-external-link-sign"></i><small>external-link-sign</small></a>
+    <a data-icon-code="share-sign"><i class="icon-share-sign"></i><small>share-sign</small></a>
+    <a data-icon-code="compass"><i class="icon-compass"></i><small>compass</small></a>
+    <a data-icon-code="collapse"><i class="icon-collapse"></i><small>collapse</small></a>
+    <a data-icon-code="collapse-top"><i class="icon-collapse-top"></i><small>collapse-top</small></a>
+    <a data-icon-code="expand"><i class="icon-expand"></i><small>expand</small></a>
+    <a data-icon-code="dollar"><i class="icon-dollar"></i><small>dollar</small></a>
+    <a data-icon-code="yen"><i class="icon-yen"></i><small>yen</small></a>
+    <a data-icon-code="file"><i class="icon-file"></i><small>file</small></a>
+    <a data-icon-code="file-text"><i class="icon-file-text"></i><small>file-text</small></a>
+    <a data-icon-code="sort-by-alphabet"><i class="icon-sort-by-alphabet"></i><small>sort-by-alphabet</small></a>
+    <a data-icon-code="sort-by-alphabet-alt"><i class="icon-sort-by-alphabet-alt"></i><small>sort-by-alphabet-alt</small></a>
+    <a data-icon-code="sort-by-attributes"><i class="icon-sort-by-attributes"></i><small>sort-by-attributes</small></a>
+    <a data-icon-code="sort-by-attributes-alt"><i class="icon-sort-by-attributes-alt"></i><small>sort-by-attributes-alt</small></a>
+    <a data-icon-code="sort-by-order"><i class="icon-sort-by-order"></i><small>sort-by-order</small></a>
+    <a data-icon-code="sort-by-order-alt"><i class="icon-sort-by-order-alt"></i><small>sort-by-order-alt</small></a>
+    <a data-icon-code="thumbs-up"><i class="icon-thumbs-up"></i><small>thumbs-up</small></a>
+    <a data-icon-code="thumbs-down"><i class="icon-thumbs-down"></i><small>thumbs-down</small></a>
+    <a data-icon-code="long-arrow-down"><i class="icon-long-arrow-down"></i><small>long-arrow-down</small></a>
+    <a data-icon-code="long-arrow-up"><i class="icon-long-arrow-up"></i><small>long-arrow-up</small></a>
+    <a data-icon-code="long-arrow-left"><i class="icon-long-arrow-left"></i><small>long-arrow-left</small></a>
+    <a data-icon-code="long-arrow-right"><i class="icon-long-arrow-right"></i><small>long-arrow-right</small></a>
+    <a data-icon-code="apple"><i class="icon-apple"></i><small>apple</small></a>
+    <a data-icon-code="windows"><i class="icon-windows"></i><small>windows</small></a>
+    <a data-icon-code="android"><i class="icon-android"></i><small>android</small></a>
+    <a data-icon-code="linux"><i class="icon-linux"></i><small>linux</small></a>
+    <a data-icon-code="sun"><i class="icon-sun"></i><small>sun</small></a>
+    <a data-icon-code="moon"><i class="icon-moon"></i><small>moon</small></a>
+    <a data-icon-code="archive"><i class="icon-archive"></i><small>archive</small></a>
+    <a data-icon-code="bug"><i class="icon-bug"></i><small>bug</small></a>
+    <a data-icon-code="zhifubao"><i class="icon-zhifubao"></i><small>zhifubao</small></a>
+    <a data-icon-code="zhifubao-square"><i class="icon-zhifubao-square"></i><small>zhifubao-square</small></a>
+    <a data-icon-code="taobao"><i class="icon-taobao"></i><small>taobao</small></a>
+    <a data-icon-code="weibo"><i class="icon-weibo"></i><small>weibo</small></a>
+    <a data-icon-code="renren"><i class="icon-renren"></i><small>renren</small></a>
+    <a data-icon-code="chrome"><i class="icon-chrome"></i><small>chrome</small></a>
+    <a data-icon-code="firefox"><i class="icon-firefox"></i><small>firefox</small></a>
+    <a data-icon-code="ie"><i class="icon-ie"></i><small>ie</small></a>
+    <a data-icon-code="opera"><i class="icon-opera"></i><small>opera</small></a>
+    <a data-icon-code="safari"><i class="icon-safari"></i><small>safari</small></a>
+    <a data-icon-code="node"><i class="icon-node"></i><small>node</small></a>
+    <a data-icon-code="layout"><i class="icon-layout"></i><small>layout</small></a>
+    <a data-icon-code="usecase"><i class="icon-usecase"></i><small>usecase</small></a>
+    <a data-icon-code="stack"><i class="icon-stack"></i><small>stack</small></a>
+    <a data-icon-code="branch"><i class="icon-branch"></i><small>branch</small></a>
+    <a data-icon-code="chat"><i class="icon-chat"></i><small>chat</small></a>
+    <a data-icon-code="chat-line"><i class="icon-chat-line"></i><small>chat-line</small></a>
+    <a data-icon-code="chat-dot"><i class="icon-chat-dot"></i><small>chat-dot</small></a>
+    <a data-icon-code="cube"><i class="icon-cube"></i><small>cube</small></a>
+    <a data-icon-code="database"><i class="icon-database"></i><small>database</small></a>
+    <a data-icon-code="chanzhi"><i class="icon-chanzhi"></i><small>chanzhi</small></a>
+    <a data-icon-code="chanzhi-pro"><i class="icon-chanzhi-pro"></i><small>chanzhi-pro</small></a>
+    <a data-icon-code="zsite"><i class="icon-zsite"></i><small>zsite</small></a>
+    <a data-icon-code="zsite-pro"><i class="icon-zsite-pro"></i><small>zsite-pro</small></a>
+  </div>
+</div>
+
+<div class="display-backdrop fade hidden" id="backdropIconsExample" type="" data-display-name="iconsExample" data-dismiss="display" style="z-index: 2000;"></div>
+
+<div class="modal hidden affix enter-from-bottom" id="iconPreviewModal">
+  <a data-dismiss="display" class="btn dock-top dock-right dock"><i class="icon-remove muted"></i></a>
+  <div class="icons"><i class="icon-10x icon-resize"></i><i class="icon-5x icon-resize"></i><i class="icon-2x icon-resize"></i><i class="icon-resize"></i></div>
+  <h3 class="has-padding text-center code">.<span class="name">icon-resize</span></h3>
+  <pre class="copyable text-center no-margin"><code><span class="tag">&lt;i</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"icon <em class="name">icon-resize</em>"</span><span class="tag">&gt;&lt;/i&gt;</span></code></pre>
+</div>
+
+<script>
+$(function() {
+    var $backdrop = $('#backdropIconsExample');
+    var $icons = $('#iconsExample').display({
+        name: 'iconsExample',
+        selector: 'a',
+        targetZIndex: 2010,
+        target: '#iconPreviewModal',
+        show: function(options) {
+            options.$target.find('.icons').html($.format('<i class="icon-10x icon-{iconCode}"></i><i class="icon-5x icon-{iconCode}"></i><i class="icon-2x icon-{iconCode}"></i><i class="icon-{iconCode}"></i>', options));
+            options.$target.find('.name').text('icon-' + options.iconCode);
+            options.$target.find('.icon-tmp').attr('class', 'icon-tmp icon-' + options.iconCode);
+            $('body').addClass('show-icon-modal');
+            $backdrop.removeClass('hidden');
+            setTimeout(function(){$backdrop.addClass('in')}, 10);
+        },
+        hide: function() {
+            $('body').removeClass('show-icon-modal');
+            $backdrop.removeClass('in');
+            setTimeout(function(){$backdrop.addClass('hidden')}, 300);
+        }
+    });
+    $('.text-icon-total-count').text($icons.children('a').length);
+});
+</script>

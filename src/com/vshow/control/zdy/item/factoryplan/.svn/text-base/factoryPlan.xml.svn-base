@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="factoryPlan">
+
+	<typeAlias alias="factoryplan" type="com.vshow.control.data.FactoryPlan" />
+	<typeAlias alias="factoryplanitem" type="com.vshow.control.data.FactoryPlanItem" />
+	<typeAlias alias="factoryplanitemrelation" type="com.vshow.control.data.FactoryPlanItemRelation" />
+	
+	
+	<insert id="add_factoryplan" parameterClass="factoryplan">
+	   <![CDATA[
+		insert into t_factory_plan
+		(name,itemC)
+		 values
+		(#name#,#itemC#)
+	   ]]>
+	   <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_factory_plan  limit 1
+        </selectKey>
+	</insert>
+	
+	<insert id="add_factoryplanitem" parameterClass="factoryplanitem">
+	   <![CDATA[
+		insert into t_factory_plan_item
+		(fid,cid,filenames)
+		 values
+		(#fid#,#cid#,#filenames#)
+	   ]]>
+	</insert>
+	
+	<update id="update_factoryplan" parameterClass="factoryplan">
+		<![CDATA[
+		update t_factory_plan set name = #name# where id = #id#
+		]]>
+	</update>
+	
+	<delete id="delete_factoryplan" parameterClass="java.lang.Integer">
+		<![CDATA[
+		delete from t_factory_plan where id = #id#
+		]]>
+	</delete>
+	
+	<delete id="delete_factoryplan_item" parameterClass="java.lang.Integer">
+		<![CDATA[
+		delete from t_factory_plan_item where id = #id#
+		]]>
+	</delete>
+	
+	<delete id="delete_fp_item_byfid" parameterClass="java.lang.Integer">
+		<![CDATA[
+		delete from t_factory_plan_item where fid = #fid#
+		]]>
+	</delete>
+	
+	<select id="sel_factoryplan_count" resultClass="java.lang.Integer">
+	  <![CDATA[
+	      select count(id) as count from t_factory_plan 
+	   ]]>
+	</select>
+	
+	<select id="sel_factoryplan_page" resultClass="factoryplan" parameterClass="factoryplan" >
+	  <![CDATA[
+	      select * from t_factory_plan order by id desc limit #startid#,#pagetype#
+	   ]]>
+	</select>
+	
+	<select id="sel_factoryplan_items_count" resultClass="java.lang.Integer" parameterClass="java.lang.Integer" >
+	  <![CDATA[
+	      select count(id) as count from t_factory_plan_item where fid = #fid# 
+	   ]]>
+	</select>
+	
+	<select id="sel_factoryplan_items_page" resultClass="factoryplanitem" parameterClass="factoryplanitem" >
+	  <![CDATA[
+	      select * from t_factory_plan_item where fid = #fid# order by id desc limit #startid#,#pagetype#
+	   ]]>
+	</select>
+	
+	<select id="sel_factoryplan_name" resultClass="java.lang.String" parameterClass="java.lang.Integer" >
+	  <![CDATA[
+	      select name from t_factory_plan where id = #fid# 
+	   ]]>
+	</select>
+	
+	<select id="sel_factoryplan_items_fid" resultClass="factoryplanitem" parameterClass="java.lang.Integer" >
+	  <![CDATA[
+	      select * from t_factory_plan_item where fid = #fid#
+	   ]]>
+	</select>
+	
+	<update id="update_factoryplan_itemC" parameterClass="factoryplan">
+		<![CDATA[
+		update t_factory_plan set itemC = #itemC# where id = #id#
+		]]>
+	</update>
+	
+	
+	<insert id="add_factoryplanitem_relation" parameterClass="factoryplanitemrelation">
+	   <![CDATA[
+		insert into t_factory_plan_item_relation
+		(fid,iid)
+		 values
+		(#fid#,#iid#)
+	   ]]>
+	</insert>
+	
+	<delete id="del_factoryplanitem_relation" parameterClass="java.lang.Integer">
+		<![CDATA[
+		   delete from t_factory_plan_item_relation where fid = #fid#
+		]]>
+	</delete>
+	
+	<select id="sel_factoryplanitem_relation_iid" resultClass="java.lang.Integer" parameterClass="java.lang.Integer" >
+	  <![CDATA[
+	      select iid from t_factory_plan_item_relation where fid = #fid#
+	   ]]>
+	</select>
+	
+	
+	
+</sqlMap>
+    

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserSpace">
+
+	<typeAlias alias="userspace" type="com.vshow.control.data.UserSpace" />
+	<typeAlias alias="userspacestate" type="com.vshow.control.data.UserSpaceState" />
+	<typeAlias alias="sucai" type="com.vshow.control.data.Sucai" />
+    
+    <insert id="add_user_space" parameterClass="userspace">    
+		<![CDATA[    
+		     insert into t_user_space
+			  (userid,total,date) values 
+			  (#userid#,#total#,#date#)
+		]]>
+	</insert>
+	
+	<insert id="add_user_space_state" parameterClass="userspacestate">    
+		<![CDATA[    
+		     insert into t_user_space_state
+			  (userid,state) values 
+			  (#userid#,#state#)
+		]]>
+	</insert>
+	
+	<delete id="del_user_space"  parameterClass="java.lang.Integer" >
+		 <![CDATA[
+		    delete from t_user_space where userid=#userid# 
+		 ]]>
+	</delete>
+
+
+    <delete id="del_user_space_state" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            
+	            DELETE FROM t_user_space_state
+				
+				where userid=#userid#
+		
+	    ]]>
+	</delete>
+	
+		
+	 <select id="sel_user_space_uid" parameterClass="java.lang.Integer" resultClass="userspace">
+	    <![CDATA[    
+	         SELECT * FROM t_user_space where userid=#userid#
+		]]>
+    </select>
+    
+    <select id="sel_us_total_uid" parameterClass="java.lang.Integer" resultClass="java.lang.Float">
+	    <![CDATA[    
+	         SELECT sum(total) FROM t_user_space where userid=#userid#
+		]]>
+    </select>
+	
+	<select id="sel_sucai_total_size" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+		<![CDATA[
+			select sum(size) from t_sucai where userid = #userid#
+		]]>
+	</select>
+	
+	<select id="sel_item_total_len" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+		<![CDATA[
+			select sum(len) from t_item where userid = #userid#
+		]]>
+	</select>
+	
+	<select id="sel_interactitem_total_len" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+		<![CDATA[
+			select sum(len) from t_interact_item where userid = #userid#
+		]]>
+	</select>
+	
+	<select id="sel_desc_state_byuid" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+		<![CDATA[
+			select state from t_user_space_state where userid = #userid#
+		]]>
+	</select>
+	
+	<select id="sel_stateCount_byuid" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+		<![CDATA[
+			select count(state) from t_user_space_state where userid = #userid#
+		]]>
+	</select>
+	
+	<update id="update_user_space_state" parameterClass="userspacestate">    
+		<![CDATA[
+		      update t_user_space_state set state=#state# where userid=#userid#
+		 ]]>
+	</update>
+	
+</sqlMap>
+    

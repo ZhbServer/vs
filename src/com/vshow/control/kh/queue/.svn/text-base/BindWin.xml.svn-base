@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="bindWin">
+
+	<typeAlias alias="bw" type="com.vshow.control.data.BindBig" />
+	
+	<insert id="add_bindwin" parameterClass="bw">
+	   <![CDATA[ 
+		insert into t_bind_win
+		(name,point,win,cid,uid)
+		value
+		(#name#,#point#,#win#,#cid#,#uid#)
+		]]>
+    </insert>
+	
+	
+    <select id="sel_bindwin_page" parameterClass="bw" resultClass="bw">
+	    <![CDATA[	      
+	      SELECT t_bind_win.id,point,win,t_bind_win.name,t_client.name as cname from t_bind_win,t_client 
+	      where t_bind_win.cid=t_client.id and t_bind_win.uid=#uid#
+	      order by t_bind_win.id desc
+	      limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_bindwin_page_count" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[	      
+	      SELECT count(0) from t_bind_win,t_client 
+	      where t_bind_win.cid=t_client.id and t_bind_win.uid=#uid#
+	     
+	    ]]>
+	</select>
+	
+	
+	<delete id="del_bindwin" parameterClass="java.lang.Integer">
+	   <![CDATA[
+		delete
+		from t_bind_win where id=#id#
+	  ]]>
+    </delete>
+	
+   <select id="sel_bindwin_all" parameterClass="bw" resultClass="bw">
+	    <![CDATA[	      
+	       SELECT * from t_bind_win where point=#point# and win=#win# limit 1     
+	    ]]>
+	</select>
+   
+	
+</sqlMap>
+    

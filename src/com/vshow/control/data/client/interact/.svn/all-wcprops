@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/client/interact
+END
+ResourceData.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/client/interact/ResourceData.java
+END
+ClientReportDataAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/client/interact/ClientReportDataAction.java
+END
+Report.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/client/interact/Report.java
+END
+ClientPostDataAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/client/interact/ClientPostDataAction.java
+END
+ClientApprovePeopleFaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/client/interact/ClientApprovePeopleFaceAction.java
+END

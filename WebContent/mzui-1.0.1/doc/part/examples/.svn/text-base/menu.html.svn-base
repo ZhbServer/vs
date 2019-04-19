@@ -1,0 +1,23 @@
+<div class="section">
+  <div class="box">
+    <a id="menuExampleBtn" class="btn btn-lg primary" data-name="menuExample" data-display="modal" data-remote="doc/part/examples/menu-example.html" data-placement="left">打开左侧滑动菜单</a>
+  </div>
+</div>
+
+<script>
+$(function() {
+    $(document).on('swipeLeft', function(e) {
+        var display = $.Display.all.menuExample;
+        if(display && display.isShow()) {
+            display.hide();
+        }
+    }).on('swipeRight', function(e) {
+        $('#menuExampleBtn').trigger($.TapName);
+    });
+});
+</script>
+
+<nav class="fab affix dock-bottom dock-right shadow-none dock-auto">
+  <a target="_blank" href="https://github.com/easysoft/mzui/blob/master/doc/part/examples/menu.html" class="btn circle shadow-2 has-margin-sm dark"><i class="icon-code"></i> 示例源码</a>
+  <a target="_blank" href="https://github.com/easysoft/mzui/blob/master/doc/part/examples/menu-example.html" class="btn circle shadow-2 has-margin-sm dark"><i class="icon-code"></i> 菜单源码</a>
+</nav>

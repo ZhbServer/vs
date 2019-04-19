@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="cgroup1">
+
+
+    <typeAlias alias="cg1" type="com.vshow.control.data.ClientGroup1" />
+    
+   	<insert id="add_cg1" parameterClass="cg1">    
+	<![CDATA[    
+	  insert into t_client_group1
+		 (uid, g1name)
+		 values	
+	     (#uid#,#g1name#)
+	]]>
+	</insert>
+	
+	
+	<select id="sel_cg1_page" parameterClass="cg1" resultClass="cg1">
+	    <![CDATA[
+	        select id,g1name,uid from t_client_group1 where uid=#uid# order by id desc  limit #startid#,#pagetype#  
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_cg1_page_count" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select count(id) from t_client_group1 where uid=#uid#
+	    ]]>
+	</select>
+	
+	<select id="sel_cg1_g1name_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	        select g1name from t_client_group1 where id=#id#  
+	    ]]>
+	</select>
+	
+	
+	<update id="update_cg1" parameterClass="cg1">    
+		<![CDATA[    
+			 update t_client_group1 set g1name=#g1name#
+			 where id=#id# 
+	    ]]>
+	</update>
+	
+	<delete id="del_cg1" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       delete from t_client_group1 where id=#id#
+	    ]]>
+	</delete>
+	
+	
+	
+	<select id="sel_cg1_all" parameterClass="java.lang.Integer" resultClass="cg1">
+	    <![CDATA[
+	        select id,g1name,uid from t_client_group1 where uid=#uid# order by id 
+	    ]]>
+	</select>
+	
+	
+</sqlMap>
+    

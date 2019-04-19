@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="DataHl">
+    <typeAlias alias="hl" type="com.vshow.control.data.DataHl" />
+    
+	<insert id="insert_data_hl" parameterClass="hl">
+	 <![CDATA[
+		insert
+		into
+		t_data_hl
+		(name,mBuyPrice,fBuyPrice,mSellPrice,fSellPrice,bankConversionPrice,sdate,stime,symbol)
+		values
+		(#name#,#mBuyPrice#,#fBuyPrice#,#mSellPrice#,#fSellPrice#,#bankConversionPrice#,#sdate#,#stime#,#symbol#)
+		 ]]>
+	</insert>  
+
+	
+	<delete id="del_data_hl" parameterClass="java.lang.String" >
+    <![CDATA[
+       delete from t_data_hl where symbol=#symbol#
+    ]]>
+	</delete>
+
+    <select id="sel_hl_all" resultClass="hl">
+	    <![CDATA[
+	      select
+	      *
+	      from t_data_hl
+	      order by id asc
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_hl_show" resultClass="hl" parameterClass="java.lang.String">
+	    <![CDATA[
+	      select
+	      *
+	      from t_data_hl
+	      where  symbol=#symbol#
+	    ]]>
+	</select> 
+	
+</sqlMap>
+    

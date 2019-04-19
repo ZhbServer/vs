@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="entq">
+
+	<typeAlias alias="tq" type="com.vshow.control.data.Tq" />
+	
+     
+	<update id="update_entqyb" parameterClass="tq">
+    <![CDATA[
+      update
+      t_en_tq
+      set day=#day#,
+      content=#content#,
+      gif=#gif#
+      where id=#id#
+    ]]>
+	</update>
+	
+	<select id="get_entqyb" resultClass="tq">
+    <![CDATA[
+      select
+      *
+      from t_en_tq
+    ]]>
+	</select>
+     
+    <select id="see_entq_all_page"  resultClass="tq" parameterClass="tq">
+    <![CDATA[
+       SELECT 
+        * 
+       FROM t_en_tq order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+    <select id="see_entq_all_page_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+        count(id) 
+       FROM t_en_tq;
+    ]]>
+	</select>
+    
+     
+	<select id="see_entq_all"  resultClass="tq">
+    <![CDATA[
+       SELECT 
+        id,city,citykey
+       FROM t_en_tq;
+    ]]>
+	</select> 
+     
+    <select id="g_enwotq_value" parameterClass="java.lang.Integer"
+		resultClass="tq">
+    <![CDATA[
+      select
+      id,
+      day,
+      city,
+      code,
+      gif,
+      content,
+      citykey
+      from t_en_tq
+      where id=#id#
+    ]]>
+	</select>    
+	
+	<select id="g_enwotq_citykey" parameterClass="java.lang.String"
+		resultClass="tq">
+    <![CDATA[
+      select
+      id,
+      day,
+      city,
+      code,
+      gif,
+      content,
+      citykey
+      from t_en_tq
+      where citykey=#citykey#
+    ]]>
+	</select>    
+   
+     
+    <insert id="add_entq" parameterClass="tq" >
+    <![CDATA[
+       insert into t_en_tq (city,code,citykey)
+        values(#city#,#code#,#citykey#)
+    ]]>
+	</insert>
+	
+	<insert id="add_entq_server" parameterClass="tq" >
+    <![CDATA[
+       insert into t_en_tq (city,code,citykey,day,gif,content)
+        values(#city#,#code#,#citykey#,#day#,#gif#,#content#)
+    ]]>
+	</insert>
+	
+	<update id="update_entq_server" parameterClass="tq" >
+    <![CDATA[
+      UPDATE t_en_tq t SET day=#day#,city=#city#,code=#code#,gif=#gif#,content=#content#  where  citykey=#citykey#;
+    ]]>
+	</update>
+		  
+    <delete id="del_entq" parameterClass="java.lang.Integer" >
+    <![CDATA[
+       delete from t_en_tq where id=#id#
+    ]]>
+	</delete>
+	
+</sqlMap>
+    

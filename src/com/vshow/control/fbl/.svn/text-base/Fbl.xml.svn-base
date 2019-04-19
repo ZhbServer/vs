@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Fbl">
+
+	<typeAlias alias="fbl" type="com.vshow.control.data.Fbl" />
+	   
+    <select id="sel_fbl_all"  resultClass="fbl" >
+    <![CDATA[
+       SELECT 
+       t_fbl.id,
+       t_fbl.name,
+       t_fbl.tx,
+       t_fbl.ty
+       FROM t_fbl 
+       order by id desc
+    ]]>
+	</select>
+	
+	
+	<select id="sel_fbl_xy"  resultClass="fbl" parameterClass="fbl" >
+    <![CDATA[
+       SELECT 
+       t_fbl.id,
+       t_fbl.name,
+       t_fbl.tx,
+       t_fbl.ty
+       FROM t_fbl 
+       where t_fbl.tx=#tx# and t_fbl.ty=#ty# 
+       limit 0,1
+    ]]>
+	</select>
+	
+	
+     
+    <select id="sel_fbl_all_page"  resultClass="fbl" parameterClass="fbl">
+    <![CDATA[
+       SELECT 
+       t_fbl.id,
+       t_fbl.name,
+       t_fbl.tx,
+       t_fbl.ty
+       FROM t_fbl 
+       order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_fbl_all_page_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+       count(t_fbl.id)
+       FROM t_fbl 
+    ]]>
+	</select>
+	
+     
+	<select id="sel_fbl_all_id" parameterClass="java.lang.Integer"  resultClass="fbl" >
+    <![CDATA[
+       SELECT 
+       t_fbl.id,
+       t_fbl.name,
+       t_fbl.tx,
+       t_fbl.ty
+       FROM t_fbl
+       where t_fbl.id=#id#
+    ]]>
+	</select>
+	
+	     
+    <insert id="add_fbl" parameterClass="fbl" >
+	    <![CDATA[
+	       insert into t_fbl (name,tx,ty) values(#name#,#tx#,#ty#)
+	    ]]>
+	    <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_fbl  limit 1
+        </selectKey>
+	</insert>
+	
+		     
+    <delete id="del_fbl" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	       delete from t_fbl where id=#id#
+	    ]]>
+	</delete>
+	
+	
+	
+	
+</sqlMap>
+    

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/voicebroadcast
+END
+ToVoiceBroadcastEditAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/voicebroadcast/ToVoiceBroadcastEditAction.java
+END
+VoiceBroadcastAddAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/voicebroadcast/VoiceBroadcastAddAction.java
+END
+ToVoiceBroadcastListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/voicebroadcast/ToVoiceBroadcastListAction.java
+END
+VoiceBroadcast.xml
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/voicebroadcast/VoiceBroadcast.xml
+END
+FbVoiceBroadCastSendAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/voicebroadcast/FbVoiceBroadCastSendAction.java
+END
+VoiceBroadcastDelAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/voicebroadcast/VoiceBroadcastDelAction.java
+END

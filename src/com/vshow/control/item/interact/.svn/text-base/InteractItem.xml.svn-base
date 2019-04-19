@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="interactitem">
+	
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+	
+	<typeAlias alias="interactitem" type="com.vshow.control.data.InteractItem" />
+
+	<typeAlias alias="itemscene" type="com.vshow.control.data.ItemScene" />
+	
+	<typeAlias alias="interactScene" type="com.vshow.control.data.InteractScene" />
+	
+
+    <typeAlias alias="scene" type="com.vshow.control.data.Scene" />
+    
+    <select id="sel_interactitem_all" parameterClass="interactitem" resultClass="interactitem">
+	     <![CDATA[
+		   select * from((
+			 select 
+			 t.id,
+			 t.name,
+			 t.sdate,
+			 t.ocheck,
+			 ts.filename as filename, 
+			 t.len ,
+			 u.name as user,
+			 u.id as userid,
+			 alllen 
+			 from t_interact_item_share
+		     left join t_interact_item t on (t_interact_item_share.itemid = t.id)
+			 left join t_user u on (t_interact_item_share.userid = u.id)
+			 left join t_interact_item_scene tis on(tis.itemid=t.id)
+			 left join t_interact_scene ts on(tis.sceneid=ts.id)
+			 where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+			 t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%'))
+			 union
+			 (SELECT 
+		     t.id,
+			 t.name,
+			 t.sdate,
+			 t.ocheck,
+			 ts.filename as filename, 
+			 t.len ,
+			 u.name as user,
+			 u.id as userid,
+			 alllen 
+			 FROM t_interact_item t,t_user u,t_interact_item_scene tis,t_interact_scene ts
+			 where t.userid=u.id and t.id = tis.itemid and tis.sceneid = ts.id 
+			 and u.id in (SELECT id FROM t_user t where tkey like '%$tkey$%')))a
+			 order by id desc
+			 limit #startid#,#pagetype#
+        ]]>
+	</select>
+     
+	<select id="sel_interactitem_all_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	   	 select count(*) from((
+		 select 
+		 t.id
+		 from t_interact_item_share
+	   	 left join t_interact_item t on (t_interact_item_share.itemid = t.id)
+		 left join t_user u on (t_interact_item_share.userid = u.id)
+		 left join t_interact_item_scene tis on(tis.itemid=t.id)
+		 left join t_interact_scene ts on(tis.sceneid=ts.id)
+		 where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+		 t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%'))
+		 union
+		 (SELECT 
+	     t.id
+		 FROM t_interact_item t,t_user u,t_interact_item_scene tis,t_interact_scene ts 
+		 where t.userid=u.id and t.id = tis.itemid and tis.sceneid = ts.id 
+		 and u.id in (SELECT id FROM t_user t where tkey like '%$tkey$%')))a
+	   ]]>
+	</select>
+	
+	<select id="sel_interactitem_ser_name" parameterClass="interactitem" resultClass="interactitem">
+	    <![CDATA[
+	     select * from((
+		 select 
+		 t.id,
+		 t.name,
+		 t.sdate,
+		 t.ocheck,
+		 ts.filename as filename, 
+		 t.len ,
+		 u.name as user,
+		 u.id as userid,
+		 alllen 
+		 from t_interact_item_share
+	     left join t_interact_item t on (t_interact_item_share.itemid = t.id)
+		 left join t_user u on (t_interact_item_share.userid = u.id)
+		 left join t_interact_item_scene tis on(tis.itemid=t.id)
+		 left join t_interact_scene ts on(tis.sceneid=ts.id)
+		 where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+		 t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%')
+		 and t.name like '%$name$%')
+		 union
+		 (SELECT 
+	     t.id,
+		 t.name,
+		 t.sdate,
+		 t.ocheck,
+		 ts.filename as filename, 
+		 t.len ,
+		 u.name as user,
+		 u.id as userid,
+		 alllen 
+		 FROM t_interact_item t,t_user u,t_interact_item_scene tis,t_interact_scene ts 
+		 where t.userid=u.id and t.id = tis.itemid and tis.sceneid = ts.id 
+		 and u.id in (SELECT id FROM t_user t where tkey like '%$tkey$%')
+		 and t.name like '%$name$%'))a
+		 order by id desc
+		 limit #startid#,#pagetype#
+       ]]>
+	</select>
+	
+	<select id="sel_interactitem_ser_name_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	     <![CDATA[
+	     select count(*) from((
+		 select 
+		 t.id
+		 from t_interact_item_share
+	     left join t_interact_item t on (t_interact_item_share.itemid = t.id)
+		 left join t_user u on (t_interact_item_share.userid = u.id)
+		 left join t_interact_item_scene tis on(tis.itemid=t.id)
+		 left join t_interact_scene ts on(tis.sceneid=ts.id)
+		 where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+		 t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%')
+		 and t.name like '%$name$%')
+		 union
+		 (SELECT 
+	     t.id
+		 FROM t_interact_item t,t_user u,t_interact_item_scene tis,t_interact_scene ts 
+		 where t.userid=u.id and t.id = tis.itemid and tis.sceneid = ts.id
+		 and u.id in (SELECT id FROM t_user t where tkey like '%$tkey$%')
+		 and t.name like '%$name$%'))a
+	   ]]>
+	</select>
+	
+	<insert id="insert_one_interactitem" parameterClass="interactitem">
+	    <![CDATA[
+		insert into t_interact_item
+		(name,userid,sdate,ocheck,fblid,len,lable)
+		value
+		(#name#,#userid#,#sdate#,#ocheck#,#fblid#,#len#,#lable#)
+	 	 ]]>
+		  <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_interact_item  limit 1
+        </selectKey>
+        
+    </insert>
+    
+    
+       <select id="see_zjinteractitem"  resultClass="interactitem" parameterClass="interactitem">
+	    <![CDATA[
+	       select 
+	       t_interact_item.id,
+	       t_interact_item.name,
+	       t_interact_item.sdate,
+	       t_interact_item.ocheck,
+	       t_interact_item.fblid,
+	       t_interact_item.len,
+	       t_user.id as userid,
+	       t_user.name as user
+	       from t_interact_item,t_user 
+	       where 
+	       t_user.id=t_interact_item.userid
+	       and t_interact_item.userid=#userid# 
+	       and t_interact_item.sdate=#sdate# 
+	       and t_interact_item.name=#name#
+	    ]]>
+	 </select>
+	 
+	 
+	<insert id="insert_one_interactitemscene" parameterClass="itemscene">
+      <![CDATA[
+	    insert into t_interact_item_scene
+        (sceneid,itemid)
+        value 
+       (#sceneid#,#itemid#)
+       ]]>
+       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_interact_item_scene  limit 1
+        </selectKey>
+       
+    </insert> 
+    
+    
+    <update id="upd_interactitem_ocheck" parameterClass="interactitem">
+    <![CDATA[
+      UPDATE t_interact_item t SET 
+      ocheck=#ocheck#
+      where id=#id# 
+    ]]>
+	</update>
+	
+    <update id="upd_interactitem" parameterClass="interactitem">
+    <![CDATA[
+      UPDATE t_interact_item t SET
+      len=#len#,ocheck=#ocheck#
+      where id=#id# 
+    ]]>
+	</update>
+	
+	<update id="upd_interactitem2" parameterClass="interactitem">
+    <![CDATA[
+      UPDATE t_interact_item t SET 
+      len=#len#,ocheck=#ocheck#,name=#name#
+      where id=#id# 
+    ]]>
+	</update>
+	
+	
+
+	
+	
+	
+   <select id="sel_id_interactitem"  resultClass="interactitem" parameterClass="java.lang.Integer">
+      <![CDATA[
+	       select 
+	       t_interact_item.id,
+	       t_interact_item.name,
+	       t_interact_item.sdate,
+	       t_interact_item.ocheck,
+	       t_interact_item.fblid,
+	       t_interact_item.len,
+	       t_interact_item.lable,
+	       t_user.id as userid,
+	       t_user.name as user,
+	       t_interact_item.alllen
+	       from t_interact_item,t_user 
+	       where 
+	       t_user.id=t_interact_item.userid
+	       and t_interact_item.id=#id# 
+	    ]]>
+	 </select>
+	
+	
+	 <delete id="del_interactitem_scene" parameterClass="java.lang.Integer">
+        <![CDATA[
+       DELETE FROM t_interact_item_scene
+       WHERE sceneid=#sceneid#;
+       ]]>
+     </delete>
+     
+     
+    <delete id="del_interactitem" parameterClass="java.lang.Integer">
+       <![CDATA[
+	      DELETE FROM t_interact_item where id=#id#
+	    ]]>
+	</delete>
+	
+	
+	<select id="sel_nocheckinteractitem_count"  resultClass="java.lang.Integer" parameterClass="user">
+	    <![CDATA[
+	       SELECT count(t_interact_item.id) from t_interact_item RIGHT JOIN t_user on t_interact_item.userid=t_user.id  where t_user.tkey like '%$tkey$%' and t_user.id !=#id#  and t_interact_item.ocheck=0
+	    ]]>
+	 </select>
+	 
+	
+      
+	<select id="sel_nocheckinteractitem"  resultClass="interactitem" parameterClass="user">
+	    <![CDATA[
+	       
+           
+           
+           SELECT 
+           
+           t_interact_item.id,
+	       t_interact_item.name,
+	       t_interact_item.sdate,
+	       t_interact_item.ocheck,
+	       t_interact_item.fblid,
+	       t_interact_item.len,
+	       t_user.id as userid,
+	       t_user.name as user
+           
+           from t_interact_item RIGHT JOIN t_user on t_interact_item.userid=t_user.id  
+           
+           
+           where 
+           
+           t_user.tkey like '%$tkey$%' 
+           
+           and t_user.id !=#id#  
+           
+           and t_interact_item.ocheck=0
+           
+           order by t_interact_item.id desc
+           
+           limit #startid#,#pagetype#
+           
+           
+           
+           
+	    ]]>
+	 </select>
+	 
+	 
+  <update id="upd_intetact_item_ocheck" parameterClass="interactitem">
+    <![CDATA[
+      UPDATE t_interact_item t SET 
+      ocheck=#ocheck#
+      where id=#id# 
+    ]]>
+	</update>
+	
+	
+	<select id="sel_interact_item_filename"  resultClass="interactitem" parameterClass="java.lang.String">
+	    <![CDATA[
+	        select id,name from  t_interact_item where id =(select itemid from t_interact_item_scene where sceneid=(  select id from t_interact_scene where filename=#filename# ))
+	    ]]>
+	 </select>
+	 
+	 <select id="sel_interact_th_item_id" parameterClass="interactitem" resultClass="java.lang.Integer">
+		<![CDATA[
+		
+		   SELECT id FROM t_interact_item t where userid=#userid#
+		   and ocheck=#ocheck# and fblid=#fblid# and  name=#name#
+		   and len=#len#
+		   
+	     ]]>
+	</select>
+	
+	
+	 <select id="sel_interact_item_filename_all" parameterClass="interactitem" resultClass="interactitem">
+		<![CDATA[
+		
+		
+		        select filename,t_interact_item.`name` from t_interact_item,t_interact_item_scene,t_interact_scene 
+                where 				
+				t_interact_item.id=t_interact_item_scene.itemid 
+				and 				
+				t_interact_item_scene.sceneid=t_interact_scene.id 
+				and 
+				ocheck = #ocheck# 
+				and  userid =#userid#
+				order by t_interact_item.id desc
+				
+	   
+	     ]]>
+	</select>
+	
+	
+    <select id="sel_interact_item_filename_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+		<![CDATA[
+		     select filename from t_interact_item,t_interact_item_scene,t_interact_scene 
+             where 				
+			 t_interact_item.id=t_interact_item_scene.itemid 
+			 and 				
+			 t_interact_item_scene.sceneid=t_interact_scene.id 			
+			 and  t_interact_item.id =#id#  
+			 order by t_interact_item.id limit 1 		   
+	     ]]>
+	</select>
+	
+	
+	 <update id="upd_interactitem_alllen" parameterClass="interactitem">
+	    <![CDATA[
+	      UPDATE t_interact_item t SET 
+	      alllen=#alllen#
+	      where id=#id# 
+	    ]]>
+	 </update>
+	
+	    
+	 <select id="get_interact_item_userid_id"  resultClass="java.lang.Integer" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT userid FROM t_interact_item where t_interact_item.id=#id#
+	    ]]>
+	 </select>
+	 
+	 
+	<select id="sel_interact_itemIdStr" resultClass="interactitem" parameterClass="java.lang.String">
+       <![CDATA[
+          SELECT t_interact_item.id,t_interact_item.name from t_interact_item where id in ($itemidStr$)  order by find_in_set(id,'$itemidStr$')
+           
+       ]]>     
+    </select>
+    
+    
+    <!-- ApiSelInteractItemAction -->
+      <select id="sel_interactitem_byUser"  resultClass="interactitem" parameterClass="user">
+      <![CDATA[
+	       select 
+	       t_interact_item.id,
+	       t_interact_item.name,
+	       t_user.name as user,
+	       t_interact_item.sdate,
+	       t_interact_item.ocheck,
+	       t_interact_item.len,
+	       t_interact_item.alllen
+	       from t_interact_item,t_user
+	       where 
+	       t_user.id=t_interact_item.userid
+	       and t_user.id=#id# 
+	    ]]>
+	 </select>
+	 
+	 <select id="sel_interact_itemshare_page" parameterClass="interactitem" resultClass="interactitem">
+    <![CDATA[
+        select 
+		t_interact_item.id,
+        t_interact_item.name,
+        t_interact_item.sdate,
+        t_interact_item.ocheck,
+        t_interact_item.alllen,
+		t_interact_scene.filename as filename, 
+		t_interact_item.len,t_interact_item.userid,t_user.name as user 
+		from t_interact_item_share 
+		left join t_interact_item on (t_interact_item_share.itemid = t_interact_item.id)
+    	left join t_user on (t_interact_item_share.userid = t_user.id) 
+    	left join t_interact_item_scene on (t_interact_item_scene.itemid = t_interact_item.id)
+    	left join t_interact_scene on(t_interact_item_scene.sceneid=t_interact_scene.id)
+		where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+		t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%') and t_interact_item.id is not null
+		order by t_interact_item.id desc
+		limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_interact_itemshare_page_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        count(t_interact_item_share.id)
+	        from t_interact_item_share 
+			left join t_interact_item on (t_interact_item_share.itemid = t_interact_item.id)
+	    	left join t_user on (t_interact_item_share.userid=t_user.id)
+	    	left join t_interact_item_scene on (t_interact_item_scene.itemid = t_interact_item.id)
+    		left join t_interact_scene on(t_interact_item_scene.sceneid=t_interact_scene.id)
+			where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+			t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%') and t_interact_item.id is not null
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_interact_itemshare_name_page" parameterClass="interactitem" resultClass="interactitem">
+    <![CDATA[
+        select 
+		t_interact_item.id,
+        t_interact_item.name,
+        t_interact_item.sdate,
+        t_interact_item.ocheck,
+        t_interact_item.alllen,
+		t_interact_scene.filename as filename, 
+		t_interact_item.len,t_interact_item.userid,t_user.name as user 
+		from t_interact_item_share 
+		left join t_interact_item on (t_interact_item_share.itemid = t_interact_item.id)
+    	left join t_user on (t_interact_item_share.userid = t_user.id) 
+    	left join t_interact_item_scene on (t_interact_item_scene.itemid = t_interact_item.id)
+   		left join t_interact_scene on(t_interact_item_scene.sceneid=t_interact_scene.id)
+		where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+		t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%') and t_interact_item.name like '%$name$%'
+		and t_interact_item.id is not null
+		order by t_interact_item.id desc
+		limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_interact_itemshare_page_name_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        count(t_interact_item_share.id)
+	        from t_interact_item_share 
+			left join t_interact_item on (t_interact_item_share.itemid = t_interact_item.id)
+	    	left join t_user on (t_interact_item_share.userid=t_user.id)
+	    	left join t_interact_item_scene on (t_interact_item_scene.itemid = t_interact_item.id)
+   			left join t_interact_scene on(t_interact_item_scene.sceneid=t_interact_scene.id)
+			where (t_interact_item_share.shareid like '$userid$,%' or t_interact_item_share.shareid like '%,$userid$' or 
+			t_interact_item_share.shareid like '$userid$' or t_interact_item_share.shareid like '%,$userid$,%') and t_interact_item.name like '%$name$%'
+			and t_interact_item.id is not null
+	    ]]>
+	</select>
+	
+	<select id="sel_interact_item_name_page_self_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_interact_item.id)
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene
+		where t_user.id = #userid#
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+		and t_interact_item.name like '%$name$%' 
+	    ]]>
+	</select>
+	
+	<select id="sel_interact_item_name_page_self" parameterClass="interactitem" resultClass="interactitem">
+	    <![CDATA[
+	    select
+		t_interact_item.id,
+        t_interact_item.name,
+        t_interact_item.sdate,
+        t_interact_item.ocheck,
+        t_interact_item.alllen,
+		t_interact_scene.filename as filename, 
+		t_interact_item.len,t_interact_item.userid,t_user.name as user
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene 
+		where t_user.id in = #userid#
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+		and t_interact_item.name like '%$name$%'
+		order by t_interact_item.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	 
+	 <select id="sel_interact_item_page_self_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_interact_item.id)
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene
+		where t_user.id = #userid#
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_interact_item_page_self" parameterClass="interactitem" resultClass="interactitem">
+	    <![CDATA[
+		select
+		t_interact_item.id,
+        t_interact_item.name,
+        t_interact_item.sdate,
+        t_interact_item.ocheck,
+        t_interact_item.alllen,
+		t_interact_scene.filename as filename, 
+		t_interact_item.len,t_interact_item.userid,t_user.name as user
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene
+		where t_user.id = #userid#
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+		order by t_interact_item.id desc 
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_interact_item_page_other" parameterClass="interactitem" resultClass="interactitem">
+	    <![CDATA[
+		select
+		t_interact_item.id,
+        t_interact_item.name,
+        t_interact_item.sdate,
+        t_interact_item.ocheck,
+        t_interact_item.alllen,
+		t_interact_scene.filename as filename, 
+		t_interact_item.len,t_interact_item.userid,t_user.name as user
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene 
+		where t_interact_item_group_relation.itemgroupid=#gpid#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+		order by t_interact_item.id desc 
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_interact_item_page_other_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_interact_item.id)
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene 
+		where t_interact_item_group_relation.itemgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+	    ]]>
+	</select>
+	
+	<select id="sel_interact_item_name_page_other" parameterClass="interactitem" resultClass="interactitem">
+	    <![CDATA[
+	    select
+		t_interact_item.id,
+        t_interact_item.name,
+        t_interact_item.sdate,
+        t_interact_item.ocheck,
+        t_interact_item.alllen,
+		t_interact_scene.filename as filename, 
+		t_interact_item.len,t_interact_item.userid,t_user.name as user
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene 
+		where t_interact_item_group_relation.itemgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+		and t_interact_item.name like '%$name$%'
+		order by t_interact_item.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	 <select id="sel_interact_item_name_page_other_count" parameterClass="interactitem" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_interact_item.id)
+		from t_interact_item,t_user,t_interact_item_group_relation,t_interact_scene,t_interact_item_scene 
+		where t_interact_item_group_relation.itemgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%tkey%')
+		and t_interact_item.userid=t_user.id
+		and t_interact_item.id=t_interact_item_group_relation.itemid
+		and t_interact_item.id=t_interact_item_scene.itemid
+		and t_interact_scene.id=t_interact_item_scene.sceneid
+		and t_interact_item.name like '%$name$%' 
+	    ]]>
+	</select>
+	
+	
+	
+	
+	
+	<select id="sel_interact_item_filename_attributes_all"  resultClass="interactitem" parameterClass="java.lang.String">
+	    <![CDATA[
+	        select * from  t_interact_item where id =(select itemid from t_interact_item_scene where sceneid=(  select id from t_interact_scene where filename=#filename# ))
+	    ]]>
+	 </select>
+	 
+	 
+	 
+	
+	 <insert id="insert_one_interactitem_dao" parameterClass="interactitem">
+	    <![CDATA[
+		insert into t_interact_item
+		(name,userid,sdate,ocheck,fblid,len,alllen)
+		value
+		(#name#,#userid#,#sdate#,#ocheck#,#fblid#,#len#,#alllen#)
+	 	 ]]>
+		  <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_interact_item  limit 1
+        </selectKey>
+    </insert>
+    
+    
+    <select id="sel_interact_item_user_all"  parameterClass="java.lang.Integer" resultClass="interactitem">
+	    <![CDATA[
+	       select * from t_interact_item where userid=#userid#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_interact_item_fcontent"  resultClass="java.lang.String"  parameterClass="java.lang.Integer">
+	    <![CDATA[
+	    
+	         select fcontent from t_interact_item,t_interact_item_scene,t_interact_scene 
+             where 				
+			 t_interact_item.id=t_interact_item_scene.itemid 
+			 and 				
+			 t_interact_item_scene.sceneid=t_interact_scene.id 			
+			 and  t_interact_item.id =#id#  
+			 order by t_interact_item.id limit 1 		  
+			
+	    ]]>
+	 </select>
+	 
+	 
+	  <select id="sel_interact_scene_by_all"  resultClass="scene" parameterClass="java.lang.Integer">
+		    <![CDATA[
+		    	
+					SELECT
+					tis.filename,
+				    tis.mcontent,
+				    tis.vname,
+				    tis.fcontent,
+				    tis.sf,
+				    tis.tson,
+				    tis.`name`
+					FROM t_interact_scene tis,t_interact_item_scene tiis
+				    where tis.id=tiis.sceneid and tiis.itemid=#itemid#
+  
+  
+		    ]]>
+	 </select>
+	 
+	 
+	 
+	 <insert id="insert_one_interactitem2" parameterClass="interactitem">
+	    <![CDATA[
+		insert into t_interact_item
+		(name,userid,sdate,ocheck,fblid,len,alllen)
+		value
+		(#name#,#userid#,#sdate#,#ocheck#,#fblid#,#len#,#alllen#)
+	 	 ]]>
+		  <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_interact_item  limit 1
+        </selectKey>
+        
+    </insert>
+    
+    
+    
+	
+	<update id="upd_interactitem2_sub" parameterClass="interactitem">
+    <![CDATA[
+      UPDATE t_interact_item t SET 
+      len=#len#,ocheck=#ocheck#
+      where id=#id# 
+    ]]>
+	</update>
+	
+	
+	 <select id="sel_interact_id_filename"  resultClass="java.lang.Integer" parameterClass="java.lang.String">
+		    <![CDATA[
+		    	
+						SELECT id from t_interact_item where id =(
+							SELECT itemid from t_interact_item_scene where sceneid=
+							(SELECT id from t_interact_scene WHERE filename =#fileName#)
+						)
+  
+  
+		    ]]>
+	 </select>
+	 
+	 
+	 <delete id="del_interactitem_scene_itemid" parameterClass="java.lang.Integer">
+        <![CDATA[
+            DELETE FROM t_interact_item_scene
+            WHERE itemid=#itemid#
+       ]]>
+     </delete>
+	
+
+	
+	 
+     
+</sqlMap>
+    

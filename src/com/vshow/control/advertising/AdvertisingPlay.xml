@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="AdvertisingPlay">
+
+
+    <typeAlias alias="adPlay" type="com.vshow.control.data.AdvertisingPlay" />
+   
+	<insert id="ad_adPlay"  parameterClass="adPlay">
+       <![CDATA[
+			insert
+			into
+			t_advertising_play
+			(aid,atime,aurl,adate,mark,acount)
+			values
+			(#aid#,#atime#,#aurl#,#adate#,#mark#,#acount#)
+	   ]]>
+   </insert>
+	
+	
+	
+	<select id="sel_adPlay_list_count"  parameterClass="adPlay" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+		   select count(acount) from (
+		     select sum(tspc.acount) as acount 
+		     from t_advertising_play tspc
+             LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		     where tspc.adate <=#etime# and tspc.adate >=#btime#
+	         group by tspc.mark,tspc.aid 
+	       ) a
+	
+        ]]> 
+	</select>
+	
+	
+	<select id="sel_adPlay_list"  parameterClass="adPlay" resultClass="adPlay">
+       <![CDATA[
+	   
+		     select sum(tspc.acount) as acount ,tspc.aurl,(sum(tspc.acount)*tspc.atime) as atime ,tc.mark as mark
+		     
+		     from t_advertising_play tspc
+             
+             LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		     
+		     where tspc.adate <=#etime# and tspc.adate >=#btime#
+	         
+	         group by tspc.mark,tspc.aurl,tc.name
+	         
+	         limit #startid#,#pagetype#    
+	      
+        ]]> 
+	</select>
+	
+	
+	
+	<select id="sel_adPlay_acount"  parameterClass="adPlay" resultClass="java.lang.Integer">
+       <![CDATA[
+	   
+		     select acount
+		     
+		     from t_advertising_play tspc
+             
+             where adate=#adate#  
+	         
+	         and aurl=#aurl#
+	         
+	         and mark=#mark# 
+	      
+	
+        ]]> 
+	</select>
+	
+	
+	<update id="up_adPlay_acount" parameterClass="adPlay">   
+	 <![CDATA[
+	       
+		update      
+		t_advertising_play
+		set acount=acount+#acount# 
+		where mark = #mark# 
+		and aurl = #aurl# 
+		and adate= #adate#
+		
+		
+		
+	 ]]>
+	</update>    
+	
+	
+	
+	<select id="sel_adPlay_list_all"  parameterClass="adPlay" resultClass="adPlay">
+       <![CDATA[
+	   
+		     select sum(tspc.acount) as acount ,tspc.aurl,(sum(tspc.acount)*tspc.atime) as atime ,tc.mark as mark
+		     
+		     from t_advertising_play tspc
+             
+             LEFT JOIN t_client tc ON tc.mark=tspc.mark  
+		     
+		     where tspc.adate <=#etime# and tspc.adate >=#btime#
+	         
+	         group by tspc.mark,tspc.aurl,tc.name
+	         
+	      
+        ]]> 
+	</select>
+	
+	
+	
+	
+	
+</sqlMap>
+    

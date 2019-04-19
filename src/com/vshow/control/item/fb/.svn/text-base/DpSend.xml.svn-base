@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Dpsend">
+
+	<typeAlias alias="dpsend" type="com.vshow.control.data.DpSend" />
+   
+   <delete id="del_one_dpitem" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_dp_send
+      where resultid in (select id from t_result where clientid =#clid#)
+    ]]>
+	</delete>
+	
+	<insert id="insert_one_dpitem" parameterClass="dpsend">
+	    <![CDATA[
+		insert
+		into
+		t_dp_send
+		(sdate,edate,itemid,resultid,pcount,idate)
+		values
+		(#sdate#,#edate#,#itemid#,#resultid#,#pcount#,#idate#)
+		 ]]>
+    </insert>
+    
+    
+    <select id="see_onocheck_dpsend_all" resultClass="dpsend">
+	   <![CDATA[
+	     select * from t_dp_send where resultid in (select id from t_result where logid in (select id from t_log where ocheck=3))
+	   ]]>
+	</select>
+	
+	
+	
+	 <select id="sel_send_dp_all_id" resultClass="dpsend" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  *  from  t_dp_send where resultid = #resultid# 
+       ]]>     
+   </select>  
+   
+    
+</sqlMap>
+    

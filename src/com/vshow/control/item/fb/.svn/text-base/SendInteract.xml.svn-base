@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="SendInteract">
+
+	<typeAlias alias="sendinteract" type="com.vshow.control.data.SendInteract" />
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+	
+	
+    <delete id="del_one_sendinteractitem" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_send_interact
+      where resultid in (select id from t_result where clientid =#clid#)
+    ]]>
+	</delete>
+	
+	<delete id="del_one_sendinteract_resultid" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_send_interact
+      where resultid=#resultid#;
+    ]]>
+	</delete>
+	
+	<insert id="insert_one_sendinteractitem" parameterClass="sendinteract">
+		 <![CDATA[
+			insert
+			into 
+			t_send_interact
+			(interactitemid,resultid)
+			values
+			(#interactitemid#,#resultid#)
+		]]>
+	</insert>
+	
+     	
+   <select id="sel_send_interact_all_id" resultClass="sendinteract" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  *  from  t_send_interact where resultid = #resultid# 
+       ]]>     
+   </select>  
+
+  
+</sqlMap>
+    

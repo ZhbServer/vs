@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/power
+END
+DelPowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/power/DelPowerAction.java
+END
+UpPowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/power/UpPowerAction.java
+END
+ToUpPowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/power/ToUpPowerAction.java
+END
+AddPowerAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/power/AddPowerAction.java
+END
+ToPowerListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/power/ToPowerListAction.java
+END
+PowerUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/power/PowerUtil.java
+END
+Power.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/power/Power.xml
+END
+PowerExpand.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/power/PowerExpand.xml
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/migrate1.2
+END
+zui.migrate1.2.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/migrate1.2/zui.migrate1.2.js
+END
+zui.migrate1.2.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/migrate1.2/zui.migrate1.2.min.js
+END

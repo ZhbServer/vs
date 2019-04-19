@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather
+END
+w_clear.png
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_clear.png
+END
+w_overcast.png
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_overcast.png
+END
+w_snow.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_snow.png
+END
+w_haze.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_haze.png
+END
+w_rain.png
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_rain.png
+END
+w_fog.png
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_fog.png
+END
+w_cloudy.png
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_cloudy.png
+END
+w_thunderstorms.png
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/image/weather/w_thunderstorms.png
+END

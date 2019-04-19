@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/client/clear
+END
+FbClearClientDpAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientDpAction.java
+END
+FbClearClientInsertAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientInsertAction.java
+END
+FbClearClientWarningItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientWarningItemAction.java
+END
+FbClearClientConditionItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/client/clear/FbClearClientConditionItemAction.java
+END
+FbClearClientAccurateItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientAccurateItemAction.java
+END
+FbClearClientAllAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientAllAction.java
+END
+FbClearClientInductionItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientInductionItemAction.java
+END
+FbClearClientDateItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientDateItemAction.java
+END
+FbClearClientItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientItemAction.java
+END
+FbClearClientTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/client/clear/FbClearClientTimeAction.java
+END

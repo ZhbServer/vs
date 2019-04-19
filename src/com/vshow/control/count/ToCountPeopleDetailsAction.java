@@ -1,0 +1,299 @@
+package com.vshow.control.count;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.ActionContext;
+import com.vshow.control.data.CountClientTime;
+import com.vshow.control.data.CountPeopleData;
+import com.vshow.control.data.Pages;
+import com.vshow.control.tool.Constant;
+import com.vshow.control.tool.SqlConnect;
+
+public class ToCountPeopleDetailsAction implements Action {
+
+	private int id; // 当前页数
+	private int total; // 数据总个数
+	private int totalpage; // 总页数
+	private int qian; // 上一页
+	private int hou; // 下一页
+	private Pages ps; // 分页
+	private Integer pagetype; // 页码类型(10,20,30)
+	private String btime = ""; // 开始时间
+	private String etime = ""; // 结束时间
+	private String name = ""; //终端名
+	private String mark; //Mac
+	private String ip = ""; //ip
+
+	private List<CountPeopleData> countPeopleList;
+	private CountPeopleData cpd;
+	private int sel=0;
+	@Override
+	public String execute() throws Exception {
+		ActionContext ctx = ActionContext.getContext();
+		Map session = ctx.getSession();
+
+		// 分页类型存入session
+		if (pagetype == null) {
+
+			// 查看session是否有分页类型 null择默认10条显示
+			Integer publicPagetype = (Integer) session.get("publicPagetype");
+			if (publicPagetype == null) {
+				session.put("publicPagetype", 10);
+				pagetype = 10;
+			} else {
+				pagetype = publicPagetype;
+			}
+		} else {
+			session.put("publicPagetype", pagetype);
+		}
+		
+		// 当前页码 
+		if (id <= 0) {
+			id = 1;
+		}
+
+		cpd = new CountPeopleData();
+		cpd.setBtime(btime);
+		cpd.setEtime(etime);
+		cpd.setMark(mark);
+		
+		total = (Integer) SqlConnect.getSqlMapInstance()
+				.queryForObject("sel_cp_list_info_count", cpd);
+
+		if (pagetype == -1) {
+			pagetype = total;
+		}
+
+		cpd.setStartid((id - 1) * pagetype);
+		cpd.setPagetype(pagetype);
+		if(sel==0){
+			countPeopleList = SqlConnect.getSqlMapInstance().queryForList(
+					"sel_cp_list_info", cpd);
+		}else if(sel==1) //人脸
+		{
+			List<CountPeopleData> countlist=SqlConnect.getSqlMapInstance().queryForList(
+					"sel_cp_list_info", cpd);
+			countPeopleList=new ArrayList<CountPeopleData>();
+			for (int i = 0; i < countlist.size(); i++) {
+				JSONArray jsonArray=JSONArray.fromObject(countlist.get(i).getCountPeopleDetails());
+				JSONObject jsonObject=JSONObject.fromObject(jsonArray.getJSONObject(0));
+				String mac=jsonObject.get("mac").toString();
+				if(mac==null)
+				{
+					countPeopleList.add(countlist.get(i));
+				}
+			}
+		}else if(sel==2)//Wife
+		{
+			List<CountPeopleData> countlist=SqlConnect.getSqlMapInstance().queryForList(
+					"sel_cp_list_info", cpd);
+			countPeopleList=new ArrayList<CountPeopleData>();
+			for (int i = 0; i < countlist.size(); i++) {
+				JSONArray jsonArray=JSONArray.fromObject(countlist.get(i).getCountPeopleDetails());
+				JSONObject jsonObject=JSONObject.fromObject(jsonArray.getJSONObject(0));
+				String mac=jsonObject.get("mac").toString();
+				if(mac!=null)
+				{
+					countPeopleList.add(countlist.get(i));
+				}
+			}
+		}
+		if (pagetype == 0) {
+		} else {
+			if (total % pagetype > 0) {
+				totalpage = total / pagetype + 1;
+			} else {
+				totalpage = total / pagetype;
+			}
+
+		}
+		qian = id - 1;
+		hou = id + 1;
+		if (hou >= totalpage) {
+			hou = totalpage;
+		}
+
+		ps = Constant.getPages(totalpage, id);
+		
+		
+		return SUCCESS;
+	}
+	
+
+	/* 
+	 * 毫秒转化时分秒
+	 */  
+	public static String formatTime(Integer time) {  
+	    Integer ss = 1;  
+	    Integer mi = ss * 60;  
+	    Integer hh = mi * 60;  
+	  
+	    Long ms = Long.parseLong(String.valueOf(time));
+	    
+	    Long hour = ms / hh;  
+	    Long minute = (ms - hour * hh) / mi;  
+	    Long second = (ms - hour * hh - minute * mi) / ss;  
+	      
+	    StringBuffer sb = new StringBuffer();  
+//	    if(day > 0) {  
+//	        sb.append(day+"天");  
+//	    }  
+	    if(hour > 0 && hour <= 9) {  
+	        sb.append("0"+hour+":"); 
+	    }else if(hour > 9){
+	    	sb.append(hour+":");  
+	    }else{
+	    	sb.append("00:");  
+	    }
+	    if(minute > 0 && minute <= 9) {  
+	        sb.append("0"+minute+":");  
+	    }else if(minute > 9){
+	    	sb.append(minute+":");  
+	    }else{
+	    	sb.append("00:");  
+	    }
+	    if(second > 0 && second <= 9) {  
+	        sb.append("0"+second);  
+	    }else if(second > 9){
+	    	sb.append(second);  
+	    }else{
+	    	sb.append("00");
+	    }
+//	    if(milliSecond > 0) {  
+//	        sb.append(milliSecond+"毫秒");  
+//	    }  
+	    return sb.toString();  
+	}  
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public int getTotalpage() {
+		return totalpage;
+	}
+
+	public void setTotalpage(int totalpage) {
+		this.totalpage = totalpage;
+	}
+
+	public int getQian() {
+		return qian;
+	}
+
+	public void setQian(int qian) {
+		this.qian = qian;
+	}
+
+	public int getHou() {
+		return hou;
+	}
+
+	public void setHou(int hou) {
+		this.hou = hou;
+	}
+
+	public Pages getPs() {
+		return ps;
+	}
+
+	public void setPs(Pages ps) {
+		this.ps = ps;
+	}
+
+	public Integer getPagetype() {
+		return pagetype;
+	}
+
+	public void setPagetype(Integer pagetype) {
+		this.pagetype = pagetype;
+	}
+
+	public String getBtime() {
+		return btime;
+	}
+	
+	public int getSel() {
+		return sel;
+	}
+
+
+	public void setSel(int sel) {
+		this.sel = sel;
+	}
+
+
+	public void setBtime(String btime) {
+		this.btime = btime;
+	}
+
+	public String getEtime() {
+		return etime;
+	}
+
+	public void setEtime(String etime) {
+		this.etime = etime;
+	}
+
+	public String getMark() {
+		return mark;
+	}
+
+	public void setMark(String mark) {
+		this.mark = mark;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public List<CountPeopleData> getCountPeopleList() {
+		return countPeopleList;
+	}
+
+	public void setCountPeopleList(List<CountPeopleData> countPeopleList) {
+		this.countPeopleList = countPeopleList;
+	}
+
+	public CountPeopleData getCpd() {
+		return cpd;
+	}
+
+	public void setCpd(CountPeopleData cpd) {
+		this.cpd = cpd;
+	}
+
+	
+	
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Send">
+
+	<typeAlias alias="send" type="com.vshow.control.data.Send" />
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+	
+ 
+	
+	<insert id="ad_send" parameterClass="send">
+		 <![CDATA[
+			insert
+			into 
+			t_send
+			(itemids,resultid)
+			values
+			(#itemids#,#resultid#)
+		]]>
+	</insert>
+	
+     
+
+	
+   <delete id="del_send_rid" parameterClass="java.lang.Integer">
+       <![CDATA[
+            delete  from t_send where resultid=#id#
+       ]]>
+   </delete>
+	
+	
+   <select id="sel_send_all_id" resultClass="send" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  *  from  t_send where resultid = #resultid# 
+       ]]>     
+   </select>  
+	
+
+  
+</sqlMap>
+    

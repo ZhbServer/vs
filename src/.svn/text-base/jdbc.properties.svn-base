@@ -1,0 +1,5 @@
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/vs?characterEncoding=UTF-8
+username=root
+password=ZQh/YD2aVXs=
+#password=ywfisj

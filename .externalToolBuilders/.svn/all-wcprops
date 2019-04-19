@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/.externalToolBuilders
+END
+org.eclipse.wst.jsdt.core.javascriptValidator.launch
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/.externalToolBuilders/org.eclipse.wst.jsdt.core.javascriptValidator.launch
+END
+org.eclipse.wst.common.project.facet.core.builder.launch
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/.externalToolBuilders/org.eclipse.wst.common.project.facet.core.builder.launch
+END
+org.eclipse.wst.validation.validationbuilder.launch
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/.externalToolBuilders/org.eclipse.wst.validation.validationbuilder.launch
+END

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="itemMaterial">
+
+	<typeAlias alias="item" type="com.vshow.control.data.Item" />
+	<typeAlias alias="itemmaterial" type="com.vshow.control.data.ItemMaterial" />
+	
+	<select id="sel_itemmaterial_itmeid" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	  <![CDATA[
+	      select itemid from t_item_material where itemid = #itemid#
+	   ]]>
+	</select>
+	
+	<insert id="add_itemmaterial" parameterClass="itemmaterial">
+	   <![CDATA[
+		insert into t_item_material
+		(itemid,filenames)
+		 values
+		(#itemid#,#filenames#)
+	   ]]>
+	</insert>
+	
+	<update id="update_itemmaterial" parameterClass="itemmaterial">
+		<![CDATA[
+		update t_item_material set filenames = #filenames# where itemid = #itemid#
+		]]>
+	</update>
+	
+	<select id="sel_itemlist_bymid" resultClass="item">
+		<![CDATA[
+		  select item.id,item.name from t_item_material m 
+		  inner join t_item item on (m.itemid = item.id)
+	   ]]>
+	</select>
+	
+	<select id="sel_itemmaterial_byitmeid" parameterClass="java.lang.Integer" resultClass="itemmaterial">
+	  <![CDATA[
+	      select filenames from t_item_material where itemid = #itemid#
+	   ]]>
+	</select>
+	
+	<select id="sel_itemmaterial_option" resultClass="itemmaterial">
+	  <![CDATA[
+	      select m.id,m.itemid,m.filenames from t_item_material m
+		  inner join t_item t on (m.itemid = t.id) 
+		  order by id desc
+	   ]]>
+	</select>
+	
+	<select id="sel_itemmaterial_option_ser" parameterClass="java.lang.String" resultClass="itemmaterial">
+	  <![CDATA[
+	      select m.id,m.itemid,m.filenames from t_item_material m
+		  inner join t_item t on (m.itemid = t.id) where t.name like '%$name$%'
+		  order by id desc 
+	   ]]>
+	</select>
+	
+</sqlMap>
+    

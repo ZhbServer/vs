@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar
+END
+active.less
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/active.less
+END
+responsive-1.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/responsive-1.less
+END
+responsive-2.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/responsive-2.less
+END
+responsive-3.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/responsive-3.less
+END
+shortcuts-toggle.less
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/shortcuts-toggle.less
+END
+ff_fix.less
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/ff_fix.less
+END
+sub-arrow.less
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/sub-arrow.less
+END
+hover.less
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/hover.less
+END
+min.less
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/min.less
+END
+compact.less
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/compact.less
+END
+old-toggle-button.less
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/old-toggle-button.less
+END
+sidebar-fixed.less
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/sidebar-fixed.less
+END
+highlight.less
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/highlight.less
+END
+horizontal.less
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/sidebar/horizontal.less
+END

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="res">
+
+	<typeAlias alias="result" type="com.vshow.control.data.Result" />
+	<typeAlias alias="client" type="com.vshow.control.data.Client" />
+	
+	<select id="sel_out_return" resultClass="result" parameterClass="java.lang.Integer">
+		select t_result.state,t_client.name as name from t_result,t_client where  t_result.clientid=t_client.id and logid=#logid#
+     </select> 
+     
+     <insert id="ad_result" parameterClass="result">
+	 <![CDATA[
+		insert
+		into
+		t_result
+		(clientid,logid,state,type)
+		values
+		(#clid#,#logid#,#state#,#type#)
+		 ]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_result  limit 1
+        </selectKey>
+	</insert>
+	
+	
+	<update id="up_on_result_suc" parameterClass="client">
+    <![CDATA[
+      update
+      t_result
+      set 
+      state=#state#
+      where clientid = (select id from t_client where mark=#mark#)
+      and logid=(select id from t_log_send where sendkey=#name#)
+    ]]>
+	</update>
+        
+	<select id="sel_last_result" resultClass="client" parameterClass="java.lang.Integer">
+       <![CDATA[
+        select  * from  view_result where lid =(SELECT  lid  from view_result where luid=#uid#  order BY lsdate DESC LIMIT 0,1) 
+       ]]>    
+    </select>
+    
+    
+    
+    <select id="sel_last_result_count" resultClass="java.lang.Integer" parameterClass="client">
+       <![CDATA[
+        select  count(*) from  view_result where lid =(SELECT  lid  from view_result where luid=#uid#  order BY lsdate DESC LIMIT 0,1) 
+       ]]>       
+    </select>
+    
+    
+    
+    <select id="sel_result_state_by_logid" resultClass="java.lang.Integer" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  id  from  t_result where logid = #lid# and state=2 or state=1
+       ]]>     
+    </select>
+    
+    <delete id="del_result_id" parameterClass="java.lang.Integer">
+       <![CDATA[
+           delete from t_result where id=#id# 
+       ]]>
+    
+    </delete>
+    
+    
+    <select id="sel_result_state3_by_logid" resultClass="java.lang.Integer" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  id  from  t_result where logid = #lid# and state=3
+       ]]>     
+    </select>
+    
+    
+    <select id="sel_send_item_client" resultClass="java.lang.Integer" parameterClass="java.lang.String">
+       <![CDATA[
+          SELECT clientid from t_send,t_result where t_send.resultid=t_result.id and state=2 and itemids like '%$itemidStr$%' GROUP BY clientid
+       ]]>     
+    </select>
+    
+    
+    <select id="sel_send_date_item_client" resultClass="java.lang.Integer" parameterClass="map">
+       <![CDATA[
+          SELECT clientid from t_send_date,t_result where t_send_date.resultid=t_result.id and state=2 and itemids like '%$itemidStr$%' and edate>=#cdate#  GROUP BY clientid   
+       ]]>     
+    </select>
+    
+    
+    <select id="sel_send_time_item_client" resultClass="java.lang.Integer" parameterClass="java.lang.String">
+       <![CDATA[
+          SELECT clientid from t_send_time,t_result where t_send_time.resultid=t_result.id and state=2 and itemid like '%$itemidStr$%'   GROUP BY clientid   
+       ]]>     
+    </select>
+    
+    <select id="sel_send_insert_item_client" resultClass="java.lang.Integer" parameterClass="map">
+       <![CDATA[
+          SELECT clientid from t_insert_send,t_result where t_insert_send.resultid=t_result.id and t_result.state=2 and itemid like '%$itemidStr$%' and edate>=#cdate#  GROUP BY clientid   
+       ]]>     
+    </select>
+    
+    
+    <select id="sel_send_dp_item_client" resultClass="java.lang.Integer" parameterClass="map">
+       <![CDATA[
+           SELECT clientid from t_dp_send,t_result where t_dp_send.resultid=t_result.id and t_result.state=2 and itemid like '%$itemidStr$%' and edate>=#cdate#  GROUP BY clientid   
+       ]]>     
+    </select>
+    
+    
+    
+    <select id="sel_result_all_id" resultClass="result" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  id,clientid as clid,logid,state,type  from  t_result where id = #id# 
+       ]]>     
+    </select>
+    
+    <select id="sel_zlstate_result" parameterClass="result"  resultClass="result">
+	    <![CDATA[
+	     
+	       
+			    select
+					t_client.id as clid,
+					t_client.name as name,
+					t_client.ip as ip,
+			        t_client.mark as mark, 
+					t_result.state,
+					t_result.id,
+					t_result.logid
+				from t_result,t_client,t_log_send
+				where t_result.clientid=t_client.id 
+				and t_result.logid=t_log_send.id
+				and t_result.logid = #id#
+				order by t_client.id DESC 
+			    limit #startid#,#pagetype# 
+	       
+	       
+	    ]]>
+	</select>      
+	
+	
+	
+	 <select id="sel_zlstate_result_count" parameterClass="result"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	     
+	       
+			    select
+					count(t_client.id)
+			    from t_result,t_client,t_log_send
+				where t_result.clientid=t_client.id 
+				and t_result.logid=t_log_send.id
+				and t_result.logid = #id#
+			
+	    ]]>
+	</select>      
+	
+	
+	 <select id="sel_result_clid_type26" parameterClass="java.lang.Integer"  resultClass="result">
+	    <![CDATA[
+	     
+	       
+			    select
+				*
+			    from t_result
+				where t_result.clientid=#clid# 
+				and state=0 and type=26 order by id desc limit 1
+				
+			
+	    ]]>
+	</select>      
+	
+	
+   <update id="up_on_result_state" parameterClass="java.lang.Integer">
+    <![CDATA[
+      update
+      t_result
+      set 
+      state=2
+      where id=#id#
+    ]]>
+	</update>
+	
+	
+	
+	 <select id="sel_result_clid_type16" parameterClass="java.lang.Integer"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	     
+	     	select case when t_result.type = 16 then 1 else 0 end  as count
+			from t_result where t_result.clientid=#clid# order by id desc limit 1
+			
+	    ]]>
+	</select>
+	
+	
+	
+	<update id="up_on_result_state_byCidLid" parameterClass="client">
+    <![CDATA[
+      update
+      t_result
+      set 
+      state=#state#
+      where 
+      clientid = #clientId#
+      and logid=#lid#
+    ]]>
+	</update>
+	
+	
+	<select id="sel_result_clid_logid" parameterClass="java.lang.Integer"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	     
+	     	select clientid  from t_result 
+	     	
+	     	where logid=#logid#
+			
+	    ]]>
+	</select>
+	
+	
+	<delete id="del_result_lid" parameterClass="java.lang.Integer">
+       
+       <![CDATA[
+           delete from t_result where logid=#logid# 
+       ]]>
+    
+    </delete>
+    
+    
+</sqlMap>
+    

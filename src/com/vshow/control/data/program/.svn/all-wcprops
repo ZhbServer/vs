@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/program
+END
+ProgramRss.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramRss.java
+END
+ProgramDll.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/program/ProgramDll.java
+END
+TouchBasis.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/data/program/TouchBasis.java
+END
+ProgramPublic.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/data/program/ProgramPublic.java
+END
+ProgramMedia.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/data/program/ProgramMedia.java
+END
+Program.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/data/program/Program.java
+END
+ProgramScreen.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramScreen.java
+END
+ProgramTxt.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/data/program/ProgramTxt.java
+END
+ProgramAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramAdapter.java
+END
+ProgramQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramQueue.java
+END
+ProgramComplexWeather.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramComplexWeather.java
+END
+TouchInteractive.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/program/TouchInteractive.java
+END
+ProgramDllItemUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramDllItemUser.java
+END
+ProgramBus.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramBus.java
+END
+TouchClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/data/program/TouchClient.java
+END
+ProgramDllItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramDllItem.java
+END
+ProgramDataSourceUnit.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramDataSourceUnit.java
+END
+ProgramDataSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/data/program/ProgramDataSource.java
+END
+ProgramComplexHtml.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramComplexHtml.java
+END
+ProgramRecyder.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramRecyder.java
+END
+ProgramTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramTime.java
+END
+ProgramImageGroupMedia.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/data/program/ProgramImageGroupMedia.java
+END
+ProgramImageGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/program/ProgramImageGroup.java
+END
+ProgramNetCamera.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramNetCamera.java
+END
+ProgramWeather.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramWeather.java
+END
+ResourceType.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/28/trunk/vs/src/com/vshow/control/data/program/ResourceType.java
+END
+ProgramComplexMediaManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/program/ProgramComplexMediaManager.java
+END
+ProgramRecyderMain.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramRecyderMain.java
+END
+ProgramHl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/data/program/ProgramHl.java
+END
+ProgramHtml.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/data/program/ProgramHtml.java
+END

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Jhsend">
+
+    <typeAlias alias="user" type="com.vshow.control.data.User" />
+	<typeAlias alias="jh" type="com.vshow.control.data.Jh" />
+	<typeAlias alias="jhitem" type="com.vshow.control.data.JhItem" />
+    
+    <select id="see_jh_id" parameterClass="java.lang.Integer" resultClass="jh">
+       select id,name,type from t_jh where id=#id#;
+    </select>
+    
+    <select id="see_jh_name" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+       select name from t_jh where id=#id#;
+    </select>
+
+     
+    <insert id="ad_jh" parameterClass="jh">
+        <![CDATA[
+			insert
+			into
+			t_jh
+			(name,urid,type)
+			values
+			(#name#,#urid#,#type#)
+		 ]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_jh  limit 1
+        </selectKey>
+    </insert>
+    
+    
+     <insert id="ad_jh2" parameterClass="jh">
+        <![CDATA[
+			insert
+			into
+			t_jh
+			(name,urid,type,ocheck)
+			values
+			(#name#,#urid#,#type#,#ocheck#)
+		 ]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_jh  limit 1
+        </selectKey>
+    </insert>
+    
+    
+     
+    <insert id="insert_one_jhitem" parameterClass="jhitem">
+       <![CDATA[
+		insert
+		into
+		t_jh_item
+		(jhid,itemids,sdate,edate,xiadate,day,itemnames)
+		values
+		(#jhid#,#itemids#,#sdate#,#edate#,#xiadate#,#day#,#itemnames#)
+		]]>
+    </insert>
+    
+    
+    <select id="sel_jh_item_page" resultClass="jhitem" parameterClass="jhitem">
+       <![CDATA[
+        select  
+        t_jh_item.id,
+        t_jh_item.itemnames,
+        t_jh_item.itemids,
+        t_jh_item.sdate,
+        t_jh_item.edate,
+        t_jh_item.day,
+        t_jh_item.xiadate 
+        from t_jh_item
+        where t_jh_item.jhid=#jhid#
+        order by t_jh_item.id 
+        limit #startid#,#pagetype#
+        ]]>
+     </select>
+     
+       
+     <select id="sel_jh_item_page_count" resultClass="java.lang.Integer" parameterClass="jhitem">
+         <![CDATA[
+        select  
+        count(0)
+        from t_jh_item
+        where t_jh_item.jhid= #jhid#
+        ]]>
+     </select>
+     
+   
+     <select id="see_jh_page" parameterClass="jh"  resultClass="jh">
+       <![CDATA[
+       select id,name,type,ocheck from t_jh where urid=#urid# and type=#type#
+	   order by id desc
+	   limit #startid#,#pagetype#
+	   ]]>
+    </select>
+	  
+    <select id="see_jh_page_count" parameterClass="jh"  resultClass="java.lang.Integer">
+        <![CDATA[
+       select count(id) from t_jh where urid=#urid# and type=#type#
+       ]]>
+	</select>
+   
+   <delete id="del_jh"  parameterClass="jh" >
+		 <![CDATA[
+		     DELETE t_jh,t_jh_item from t_jh LEFT JOIN t_jh_item ON t_jh.id=t_jh_item.jhid WHERE t_jh.id=#id# and t_jh.type=#type#
+		 ]]>
+	</delete>
+	
+    <select id="sel_jh_names" parameterClass="java.lang.String"  resultClass="java.lang.String">
+        <![CDATA[
+            SELECT GROUP_CONCAT(name) as names from t_jh where id in ($ids$)
+        ]]>
+	</select>
+	
+	
+	<select id="sel_jh_items_count" parameterClass="java.lang.Integer"  resultClass="java.lang.Integer">
+        <![CDATA[
+            	SELECT count(0) from t_jh_item where jhid=#id#
+        ]]>
+	</select>
+	
+	
+	
+   <select id="sel_jh_item_all" resultClass="jhitem" parameterClass="java.lang.Integer">
+       <![CDATA[
+        select  
+        t_jh_item.id,
+        t_jh_item.jhid,
+        t_jh_item.itemnames,
+        t_jh_item.itemids,
+        t_jh_item.sdate,
+        t_jh_item.edate,
+        t_jh_item.day,
+        t_jh_item.xiadate 
+        from t_jh_item
+        where t_jh_item.jhid=#jhid#
+        order by t_jh_item.id 
+        ]]>
+     </select>
+	
+	
+	<delete id="del_jh_item"  parameterClass="java.lang.Integer" >
+		 <![CDATA[
+		     DELETE  from t_jh_item where id=#id#
+		 ]]>
+	</delete>
+	
+	
+	<delete id="del_jh_id"  parameterClass="java.lang.Integer" >
+		 <![CDATA[
+		     DELETE  from t_jh where id=#id#
+		 ]]>
+	</delete>
+	
+
+
+     <select id="sel_jh_item_out_page" resultClass="jhitem" parameterClass="jhitem">
+       <![CDATA[
+        select  
+        t_jh_item.id,
+        t_jh_item.itemnames,
+        t_jh_item.itemids,
+        t_jh_item.sdate,
+        t_jh_item.edate,
+        t_jh_item.day,
+        t_jh_item.xiadate 
+        from t_jh_item
+        where t_jh_item.jhid=#jhid#
+        order by t_jh_item.edate 
+        limit #startid#,#pagetype#
+        ]]>
+     </select>
+     
+       
+     <select id="sel_jh_item_out_page_count" resultClass="java.lang.Integer" parameterClass="jhitem">
+         <![CDATA[
+        select  
+        count(0)
+        from t_jh_item
+        where t_jh_item.jhid= #jhid#
+        ]]>
+     </select>
+     
+     
+     <select id="sel_exist_jh_insert_item_bydate" resultClass="java.lang.Integer" parameterClass="jhitem">
+         <![CDATA[
+        select  
+        count(*)
+        from t_jh_item
+        where t_jh_item.jhid= #jhid# 
+        and ((t_jh_item.sdate >= #sdate# and t_jh_item.sdate <= #edate#)
+        or (t_jh_item.edate >= #sdate# and t_jh_item.edate <= #edate#))
+        ]]>
+     </select>
+     
+     <select id="sel_exist_jh_time_item_bydate" resultClass="java.lang.Integer" parameterClass="jhitem">
+         <![CDATA[
+        select  
+        count(*)
+        from t_jh_item
+        where t_jh_item.jhid = #jhid# 
+        and t_jh_item.day in (#day#,8)
+        and ((t_jh_item.sdate > #sdate# and t_jh_item.sdate < #edate#)
+        or (t_jh_item.edate > #sdate# and t_jh_item.edate < #edate#))
+        ]]>
+     </select>
+
+     <select id="sel_jh_item_byid" resultClass="jhitem" parameterClass="java.lang.Integer">
+         <![CDATA[
+        select 
+        * 
+        from t_jh_item
+        where t_jh_item.id= #id#
+        ]]>
+     </select>
+    
+    <select id="sel_exist_jh_insert_item_notid" resultClass="java.lang.Integer" parameterClass="jhitem">
+         <![CDATA[
+        select  
+        count(*)
+        from t_jh_item
+        where t_jh_item.jhid= #jhid# 
+        and t_jh_item.id <> #id#
+        and ((t_jh_item.sdate >= #sdate# and t_jh_item.sdate <= #edate#)
+        or (t_jh_item.edate >= #sdate# and t_jh_item.edate <= #edate#))
+        ]]>
+     </select>
+     
+     <select id="sel_exist_jh_time_item_notid" resultClass="java.lang.Integer" parameterClass="jhitem">
+         <![CDATA[
+        select  
+        count(*)
+        from t_jh_item
+        where t_jh_item.jhid = #jhid# 
+        and t_jh_item.id <> #id#
+        and t_jh_item.day in (#day#,8)
+        and ((t_jh_item.sdate >= #sdate# and t_jh_item.sdate <= #edate#)
+        or (t_jh_item.edate >= #sdate# and t_jh_item.edate <= #edate#))
+        ]]>
+     </select>
+     
+     <update id="upd_jhitem" parameterClass="jhitem">
+	    <![CDATA[
+	    UPDATE t_jh_item SET 
+		t_jh_item.jhid = #jhid#,
+		t_jh_item.itemnames = #itemnames#,
+		t_jh_item.itemids = #itemids#,
+		t_jh_item.sdate = #sdate#,
+		t_jh_item.edate = #edate#,
+		t_jh_item.day = #day#,
+		t_jh_item.xiadate = #xiadate#
+	    where t_jh_item.id=#id# 
+	    ]]>
+	 </update>
+	 
+	 
+	 
+	  <update id="upd_jh_ocheck" parameterClass="jh">
+	    <![CDATA[
+	      UPDATE t_jh SET 
+		  t_jh.ocheck = #ocheck#
+		  where t_jh.id=#id# 
+	    ]]>
+	 </update>
+	 
+	 
+	 <select id="sel_nocheck_jh_all_count" resultClass="java.lang.Integer" parameterClass="user">
+         <![CDATA[
+          
+             SELECT count(*) FROM t_jh tjh where tjh.urid in (
+
+			   SELECT id FROM t_user t where tkey like '%$tkey$%' and id!=#id#
+			
+			 ) and ocheck=#ocheck#
+     
+         ]]>
+     </select>
+     
+     
+
+     <select id="sel_nocheck_jh_page" resultClass="jh"  parameterClass="jh">
+         <![CDATA[
+          
+	           SELECT tjh.id,tjh.name,tuser.`name` as uname FROM t_jh tjh ,t_user tuser where 
+	
+				tjh.urid=tuser.id and
+				
+				tjh.urid in (
+				
+				   SELECT id FROM t_user t where tkey like '%$tkey$%' and id!=#urid#
+				
+				) and tjh.ocheck=#ocheck# and tjh.type =#type#
+				
+				order by tjh.id desc 
+				
+                limit #startid#,#pagetype#
+			     
+         ]]>
+     </select>
+     
+     
+      <select id="sel_nocheck_jh_page_count" resultClass="java.lang.Integer" parameterClass="jh">
+         <![CDATA[
+          
+	           SELECT count(tjh.id) FROM t_jh tjh ,t_user tuser where 
+	
+				tjh.urid=tuser.id and
+				
+				tjh.urid in (
+				
+				   SELECT id FROM t_user t where tkey like '%$tkey$%' and id!=#urid#
+				
+				) and tjh.ocheck=#ocheck# and tjh.type =#type#
+				
+         ]]>
+     </select>
+     
+     <select id="sel_jh_name" resultClass="java.lang.String"   parameterClass="java.lang.Integer">
+         <![CDATA[
+	        select 
+	        name
+	        from t_jh
+	        where t_jh.id= #id#
+        ]]>
+     </select>
+     
+     
+     
+     <select id="sel_jh_item" resultClass="jhitem" parameterClass="java.lang.Integer">
+         <![CDATA[
+        select  
+        *
+        from t_jh_item
+        where t_jh_item.jhid= #jhid#
+        ]]>
+     </select>
+          
+          
+      <update id="upd_jhitem_itemid" parameterClass="jhitem">
+	    <![CDATA[
+	    UPDATE t_jh_item SET 
+		t_jh_item.itemnames = #itemnames#,
+		t_jh_item.itemids = #itemids#
+	    where t_jh_item.id=#id# 
+	    ]]>
+	 </update>     
+	 
+	 
+	 <select id="sel_jh_group_all" resultClass="jhitem" parameterClass="java.lang.Integer">
+         <![CDATA[
+            SELECT * from t_jh_item where jhid=#jhid#  GROUP BY `day`
+        ]]>
+     </select>
+     
+     
+      <select id="sel_jh_group_day_info" resultClass="jhitem" parameterClass="jhitem">
+         <![CDATA[
+            SELECT * from t_jh_item where jhid=#jhid# and day=#day# order BY edate
+        ]]>
+     </select>
+     
+     <update id="upd_jhitem_xiadata" parameterClass="jhitem">
+	    <![CDATA[
+	    
+	       UPDATE t_jh_item SET 
+	           t_jh_item.xiadate = #xiadate#
+	       where jhid=#jhid# 
+	    
+	    ]]>
+	 </update>
+	  
+	 
+	
+</sqlMap>
+    

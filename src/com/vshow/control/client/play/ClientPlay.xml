@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="clientPlay">
+
+    <typeAlias alias="clientPlay" type="com.vshow.control.data.ClientPlay" />
+    <typeAlias alias="client" type="com.vshow.control.data.Client" />
+    <typeAlias alias="user" type="com.vshow.control.data.User" />
+    <typeAlias alias="item" type="com.vshow.control.data.Item" />
+     
+    <delete id="del_cp_by_stypeAndMark" parameterClass="clientPlay" >
+	    <![CDATA[
+	       delete from t_client_play where sendtype=#sendtype# and mark=#mark#
+	    ]]>
+	</delete>
+	
+	
+	<insert id="add_cp" parameterClass="clientPlay" >
+	    <![CDATA[
+	        insert into t_client_play (itemids,itemtype,sendtype,content,uid,mark,sendkey,state) values(#itemids#,#itemtype#,#sendtype#,#content#,#uid#,#mark#,#sendkey#,#state#)
+	    ]]>
+	    <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_client_play  limit 1
+        </selectKey>
+	</insert>
+	
+	
+    <update id="up_cp_state" parameterClass="client">    
+		<![CDATA[    
+		update t_client_play set state=#state#
+		where sendkey=#name# and mark=#mark#
+	    ]]>
+	</update>
+	
+	
+	<delete id="del_cp_by_mark" parameterClass="java.lang.String" >
+	    <![CDATA[
+	       delete from t_client_play where  mark=#mark#
+	    ]]>
+	</delete>
+	
+	<select id="sel_cp_mark" parameterClass="java.lang.String" resultClass="clientPlay">    
+		<![CDATA[    
+		   select * from t_client_play  where mark=#mark#
+		]]>
+	</select> 
+	
+	
+	<select id="sel_cp_items" parameterClass="java.lang.String" resultClass="item">    
+		<![CDATA[    
+		   select t_item.name,t_scene.filename from t_item,t_scene  where t_item.sceneid=t_scene.id and  t_item.id in ($itemids$)
+		]]>
+	</select> 
+
+
+
+    <delete id="del_cp_by_stypeAndMark_null" parameterClass="clientPlay" >
+	    <![CDATA[
+	       delete from t_client_play where sendtype=#sendtype# and mark=#mark# and state=#state#
+	    ]]>
+	</delete>
+   
+    
+</sqlMap>
+    

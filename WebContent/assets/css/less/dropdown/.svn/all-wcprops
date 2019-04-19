@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/dropdown
+END
+colorpicker.less
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/dropdown/colorpicker.less
+END
+navbar-tabbed-dropdown.less
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/dropdown/navbar-tabbed-dropdown.less
+END
+navbar-dropdown.less
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/assets/css/less/dropdown/navbar-dropdown.less
+END

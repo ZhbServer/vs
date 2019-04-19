@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/projection
+END
+DelProjectionAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/projection/DelProjectionAction.java
+END
+ToUpdateProjectionAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/projection/ToUpdateProjectionAction.java
+END
+AddProjectionAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/projection/AddProjectionAction.java
+END
+ProjectionListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/projection/ProjectionListAction.java
+END
+Projection.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/projection/Projection.xml
+END
+FbProjectionSendAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/projection/FbProjectionSendAction.java
+END

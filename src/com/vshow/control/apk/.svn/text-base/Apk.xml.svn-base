@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Apk">
+
+	<typeAlias alias="apk" type="com.vshow.control.data.Apk" />
+	
+	 <select id="sel_apk_all_id"  resultClass="apk"  parameterClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+       *
+       FROM t_apk 
+       where id=#id#
+    ]]>
+	</select>
+	
+	
+	   
+    <select id="sel_apk_all"  resultClass="apk" >
+    <![CDATA[
+       SELECT 
+       *
+       FROM t_apk 
+       order by id desc
+    ]]>
+	</select>
+	
+	
+     
+    <select id="sel_apk_all_page"  resultClass="apk" parameterClass="apk">
+    <![CDATA[
+       SELECT 
+       *
+       FROM t_apk 
+       order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_apk_all_page_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+       count(t_apk.id)
+       FROM t_apk 
+    ]]>
+	</select>
+	
+     
+	     
+    <insert id="add_apk" parameterClass="apk" >
+	   
+	    <![CDATA[
+	       insert into t_apk (name,filename,title,sdate) values(#name#,#filename#,#title#,#sdate#)
+	    ]]>
+	   
+	</insert>
+	
+		     
+    <delete id="del_apk" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	         delete from t_apk where id=#id#
+	    ]]>
+	</delete>
+	
+	
+	
+	
+</sqlMap>
+    

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/dao
+END
+DaoItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/dao/DaoItemAction.java
+END
+DaoInteractItemInAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/dao/DaoInteractItemInAction.java
+END
+DaoItemBatchAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/dao/DaoItemBatchAction.java
+END
+DaoTimeJhAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/dao/DaoTimeJhAction.java
+END
+DaoItemInAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/dao/DaoItemInAction.java
+END
+DaoInsertJhAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/dao/DaoInsertJhAction.java
+END
+DaoInteractItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/dao/DaoInteractItemAction.java
+END
+ToDaoItemInAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/dao/ToDaoItemInAction.java
+END

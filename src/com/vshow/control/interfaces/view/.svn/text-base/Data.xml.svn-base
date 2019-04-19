@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="data">
+
+	<typeAlias alias="dt" type="com.vshow.control.interfaces.DllTxt" />
+	
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+	
+	
+    <delete id="del_dll_txt" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_data
+      where id=#id#
+    ]]>
+	</delete>
+	
+	
+	
+	<insert id="insert_data" parameterClass="dt">
+		 <![CDATA[
+			insert
+			into 
+			t_data
+			(bcolor,txtcontent,fs,fcolor,mDirection,uid)
+			values
+			(#bcolor#,#txtcontent#,#fs#,#fcolor#,#mDirection#,#uid#);
+		]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_data  limit 1
+        </selectKey>
+	</insert>
+	
+     
+	<select id="see_data_id"  parameterClass="java.lang.Integer"   resultClass="dt">
+	   <![CDATA[
+           select
+           id,
+           bcolor,
+           txtcontent,
+	       fs,
+	       fcolor,
+	       mDirection
+	       from t_data where id=#id#
+       ]]>
+    </select>
+	
+     
+	<update id="update_data" parameterClass="dt">
+	      <![CDATA[
+			    UPDATE t_data SET
+			    bcolor=#bcolor# ,
+			    txtcontent=#txtcontent# ,
+			    fs=#fs# ,
+			    fcolor=#fcolor# ,
+			    mDirection=#mDirection#
+			    where id=#id#
+	       ]]>
+	</update>
+	
+	<select id="sel_data_all_son" parameterClass="user"  resultClass="dt">
+	    <![CDATA[
+	        select
+	        t_data.id,
+	        t_data.txtcontent,
+	        t_data.bcolor,
+	        t_data.fs,
+	        t_data.fcolor,
+	        t_data.mDirection
+	        from t_data,t_user
+	        where
+	        t_data.uid=t_user.id 
+	        and
+	        t_user.id in
+			(SELECT id FROM t_user t where tkey like '%$tkey$%') 
+		    order by t_data.id desc
+		    limit #startid#,#pagetype#
+	       ]]>
+    </select>
+    
+    
+    
+    <select id="sel_data_all_son_count"  parameterClass="user"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	    
+	        select
+	        count(t_data.id)
+	        from t_data,t_user
+	        where
+	        t_data.uid=t_user.id 
+	        and
+	        t_user.id in
+		   (SELECT id FROM t_user t where tkey like '%$tkey$%') 
+	 
+	    ]]>
+    </select>
+    
+    
+	
+</sqlMap>
+    

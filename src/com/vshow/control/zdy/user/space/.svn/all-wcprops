@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/user/space
+END
+ToSetUserSpaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/user/space/ToSetUserSpaceAction.java
+END
+UserSpace.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/user/space/UserSpace.xml
+END
+AjaxCheckUserSpaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/user/space/AjaxCheckUserSpaceAction.java
+END
+AjaxSaveUserSpaceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/user/space/AjaxSaveUserSpaceAction.java
+END
+getUSTotal.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/zdy/user/space/getUSTotal.java
+END

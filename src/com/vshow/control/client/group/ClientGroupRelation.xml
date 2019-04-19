@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="cgr">
+
+
+    <typeAlias alias="cgr" type="com.vshow.control.data.ClientGroupRelation" />
+    
+   	<insert id="add_cgr" parameterClass="cgr">    
+		<![CDATA[    
+		     insert into t_client_group_relation
+			 (cid, gtype,gid,uid)
+			  values	
+		     (#cid#,#gtype#,#gid#,#uid#)
+		]]>
+	</insert>
+	
+	
+	<select id="sel_cgr_gtype_ccount" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        SELECT count(*) from t_client_group_relation where gtype=#gtype# and gid=#gid#
+	    ]]>
+	</select>
+	
+	
+	<delete id="del_cgr" parameterClass="cgr">
+	    <![CDATA[
+	       delete from t_client_group_relation where gtype=#gtype# and gid=#gid#
+	    ]]>
+	</delete>
+	
+	
+	
+	<delete id="del_cgr_cid_by_uid" parameterClass="cgr">
+	    <![CDATA[
+	       delete from t_client_group_relation where cid=#cid# and uid=#uid#
+	    ]]>
+	</delete>
+	
+	
+	<delete id="del_cgr_cid" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       delete from t_client_group_relation where cid=#cid#
+	    ]]>
+	</delete>
+	
+	
+	<select id="sel_cgr_gid_by_gtype" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        SELECT cid from t_client_group_relation where gtype=#gtype# and gid=#gid#
+	    ]]>
+	</select>
+	
+	<update id="update_cgr" parameterClass="cgr">    
+		<![CDATA[    
+			 update t_client_group_relation set gid=#gid#,gtype=#gtype#
+			 where uid=#uid# and cid=#cid# 
+	    ]]>
+	</update>
+	
+	
+	<select id="sel_cgr_cig_by_uid" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        SELECT cid from t_client_group_relation where cid=#cid# and uid=#uid# limit 0,1
+	    ]]>
+	</select>
+	
+	
+		<delete id="del_cgr_cid_uid" parameterClass="cgr">
+	    <![CDATA[
+	       delete from t_client_group_relation where cid=#cid# and uid=#uid#
+	    ]]>
+	</delete>
+	
+	
+	<select id="sel_cgr_gid_uid_by_gtype" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        SELECT cid from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_cgr_gid_uid_gtype_by_id" parameterClass="cgr" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        SELECT id from t_client_group_relation where gtype=#gtype# and gid=#gid# and uid=#uid#
+	    ]]>
+	</select>
+	
+	
+	<update id="update_cgr_id_init" parameterClass="java.lang.Integer">    
+		<![CDATA[    
+			 update t_client_group_relation set gid=0,gtype=0
+			 where id=#id# 
+	    ]]>
+	</update>
+	
+	
+	<select id="sel_cgr_uid_accounts" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	        SELECT group_concat(account) as accounts from t_client_group_relation,t_user where cid=#cid# and t_client_group_relation.uid=t_user.id
+	    ]]>
+	</select>
+	
+	
+	
+	<delete id="del_cgr_gid" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       delete from t_client_group_relation where  gid=#gid#
+	    ]]>
+	</delete>
+	
+	<select id="sel_cgr_gid" parameterClass="java.lang.Integer" resultClass="cgr">
+	    <![CDATA[
+	        select * from t_client_group_relation where gid=#gid#
+	    ]]>
+	</select>
+	
+</sqlMap>
+    

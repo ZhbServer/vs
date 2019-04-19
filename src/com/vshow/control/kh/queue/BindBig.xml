@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="bindBig">
+
+	<typeAlias alias="bb" type="com.vshow.control.data.BindBig" />
+	
+	<insert id="add_bindbig" parameterClass="bb">
+	   <![CDATA[ 
+		insert into t_bind_big
+		(name,point,cid,uid)
+		value
+		(#name#,#point#,#cid#,#uid#)
+		]]>
+    </insert>
+	
+	
+    <select id="sel_bindbig_page" parameterClass="bb" resultClass="bb">
+	    <![CDATA[	      
+	      SELECT t_bind_big.id,point,t_bind_big.name,t_client.name as cname from t_bind_big,t_client 
+	      where t_bind_big.cid=t_client.id and t_bind_big.uid=#uid#
+	      order by t_bind_big.id desc
+	      limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_bindbig_page_count" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[	      
+	      SELECT count(0) from t_bind_big,t_client 
+	      where t_bind_big.cid=t_client.id and t_bind_big.uid=#uid#
+	     
+	    ]]>
+	</select>
+	
+	
+	<delete id="del_bindbig" parameterClass="java.lang.Integer">
+	   <![CDATA[
+		delete
+		from t_bind_big where id=#id#
+	  ]]>
+    </delete>
+	
+   
+   <select id="sel_bindbig_point_cid" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+	    <![CDATA[	      
+	       SELECT cid from t_bind_big where point = #point# limit 1
+	    ]]>
+	</select>
+	
+</sqlMap>
+    

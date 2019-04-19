@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="SendDate">
+
+	<typeAlias alias="senddate" type="com.vshow.control.data.SendDate" />
+	<typeAlias alias="user" type="com.vshow.control.data.User" />
+	
+ 
+	
+	<insert id="ad_send_date" parameterClass="senddate">
+		 <![CDATA[
+			insert
+			into 
+			t_send_date
+			(itemids,resultid,sdate,edate)
+			values
+			(#itemids#,#resultid#,#sdate#,#edate#)
+		]]>
+	</insert>
+	
+     
+
+	
+   <delete id="del_send_date_rid" parameterClass="java.lang.Integer">
+       <![CDATA[
+            delete  from t_send_date where resultid=#id#
+       ]]>
+   </delete>
+
+
+  <select id="sel_send_date_all_id" resultClass="send" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  *  from  t_send_date where resultid = #resultid#
+       ]]>     
+   </select>  	
+	
+     
+	
+
+  
+</sqlMap>
+    

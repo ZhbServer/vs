@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="itemEditHistory">
+
+	<typeAlias alias="itemEditHistory" type="com.vshow.control.data.ItemEditHistory" />
+	
+  	
+	
+	 <insert id="ad_item_history" parameterClass="itemEditHistory">
+	 
+		    <![CDATA[
+		    
+		       insert into t_item_edit_history
+	           (itemId,itemType,editUid,editDate)
+	           value 
+	           (#itemId#,#itemType#,#editUid#,#editDate#)
+	       
+	       ]]>
+         
+     </insert> 
+     
+     
+       <select id="sel_item_edit_history_last"  resultClass="java.lang.Integer"  parameterClass="itemEditHistory">
+	    <![CDATA[
+	     	SELECT
+			editUid
+			FROM t_item_edit_history
+			where
+			itemType=#itemType# and itemId=#itemId#
+			order by editDate desc
+			limit 1
+	    ]]>
+	 </select>
+	 
+	 
+	 
+	   <select id="sel_item_edit_history_list"  resultClass="itemEditHistory"  parameterClass="itemEditHistory">
+	    <![CDATA[
+	     	SELECT
+			t_item_edit_history.editDate,t_user.name as editUname
+			FROM t_item_edit_history,t_user
+			where
+			t_item_edit_history.editUid=t_user.id and
+			itemType=#itemType# and itemId=#itemId#
+			order by editDate desc
+			
+	    ]]>
+	 </select>
+	 
+	 
+	 
+</sqlMap>
+    

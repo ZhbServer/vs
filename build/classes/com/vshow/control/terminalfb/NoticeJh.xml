@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="noticejh">
+
+	<typeAlias alias="njh" type="com.vshow.control.data.NoticeJh" />
+	
+     <select id="see_noticejh_page" parameterClass="user"  resultClass="njh">
+       select
+        id,
+        name,
+        urid
+        from t_notice_jh where urid=#id#
+	    order by id desc
+	    limit #startid#,#pagetype#
+    </select>
+	  
+    <select id="see_noticejh_page_count" parameterClass="user"  resultClass="java.lang.Integer">
+       select count(id) from t_notice_jh where urid=#id# 
+     </select>
+	
+	
+	<insert id="insert_one_noticejh" parameterClass="njh">
+		 <![CDATA[
+			insert
+			into 
+			t_notice_jh
+			(name,urid)
+			values
+			(#name#,#urid#);
+		]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_notice_jh  limit 1
+        </selectKey>
+	</insert>
+	
+	
+	<delete id="del_one_noticejh" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_notice_jh
+      where id =#id#;
+    ]]>
+	</delete>
+	
+	<select id="see_jname_jid" parameterClass="java.lang.Integer"  resultClass="java.lang.String">
+       select name from t_notice_jh where id=#id# 
+     </select>
+	
+</sqlMap>
+    

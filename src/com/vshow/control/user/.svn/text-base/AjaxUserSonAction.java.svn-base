@@ -1,0 +1,88 @@
+package com.vshow.control.user;
+
+import java.util.List;
+
+import com.opensymphony.xwork.ActionSupport;
+import com.vshow.control.data.User;
+import com.vshow.control.tool.SqlConnect;
+
+public class AjaxUserSonAction extends ActionSupport {
+	private int uid;
+	private String zpid;
+	private List<User> userssonlist;
+	
+	private int sel=0;
+	
+	private String ser="";
+
+	@Override
+	public String execute() throws Exception {
+		// TODO Auto-generated method stub
+	
+		User user;
+		if(uid==0){
+			uid=1;
+		}
+		if(sel==0){
+			
+			userssonlist = (List<User>) SqlConnect.getSqlMapInstance().queryForList("sel_user_son_list1", uid);
+			
+		}else if(sel==1){//登录名
+			user=new User();
+			user.setFatherid(uid);
+			ser=java.net.URLDecoder.decode(ser, "UTF-8");
+			user.setAccount(ser);
+			userssonlist = (List<User>) SqlConnect.getSqlMapInstance().queryForList("sel_user_son_list1_account", user);
+			
+		}else if(sel==2){//昵称
+			user=new User();
+			user.setFatherid(uid);
+			ser=java.net.URLDecoder.decode(ser, "UTF-8");
+			user.setName(ser);
+			userssonlist = (List<User>) SqlConnect.getSqlMapInstance().queryForList("sel_user_son_list1_name", user);
+		}
+		
+		return SUCCESS;
+	}
+
+	public int getSel() {
+		return sel;
+	}
+
+	public void setSel(int sel) {
+		this.sel = sel;
+	}
+
+	public String getSer() {
+		return ser;
+	}
+
+	public void setSer(String ser) {
+		this.ser = ser;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+	public List<User> getUserssonlist() {
+		return userssonlist;
+	}
+
+	public void setUserssonlist(List<User> userssonlist) {
+		this.userssonlist = userssonlist;
+	}
+
+	public String getZpid() {
+		return zpid;
+	}
+
+	public void setZpid(String zpid) {
+		this.zpid = zpid;
+	}
+	
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="CsSet">
+
+
+    <typeAlias alias="csset" type="com.vshow.control.data.CsSet" />
+    
+    <select id="sel_csset_csvalue" parameterClass="java.lang.String" resultClass="java.lang.String">
+	    <![CDATA[
+	        select csvalue from t_cs_set where cskey=#cskey#
+	    ]]>
+	</select>
+	
+	
+	 <select id="sel_csset_all"  resultClass="csset">
+	    <![CDATA[
+	        select cskey,csvalue from t_cs_set 
+	    ]]>
+	</select>
+	
+	
+	
+</sqlMap>
+    

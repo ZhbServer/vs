@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="ClientNumber">
+
+
+	<typeAlias alias="ClientNumber" type="com.vshow.control.data.ClientNumber" />
+
+
+	<insert id="insert_client_number" parameterClass="ClientNumber">
+       <![CDATA[
+		insert
+		into
+		t_client_number
+		(number,clientid)
+		values
+		(#number#,#clientid#)
+	   ]]>
+	</insert>
+
+	<select id="select_clientid_number" resultClass="java.lang.String"
+		parameterClass="java.lang.Integer">
+     <![CDATA[
+   			    SELECT number FROM t_client_number where clientid = #clientid#
+    ]]>
+	</select>
+
+	<select id="select_clientid_all" resultClass="ClientNumber"
+		parameterClass="java.lang.Integer">
+    	 <![CDATA[
+   			    SELECT * FROM t_client_number where clientid = #clientid#
+    	]]>
+	</select>
+	
+	<update id="update_client_number" parameterClass="ClientNumber">   
+	 <![CDATA[      
+		 update      
+		 t_client_number     
+		 set number=#number#
+		 where id=#id#    
+	 ]]>
+	</update>
+	
+	<delete id="delete_client_number_clientid" parameterClass="java.lang.Integer">   
+	 <![CDATA[      
+		 delete from     
+		 t_client_number     
+		 where clientid = #clientid#  
+	 ]]>
+	</delete>
+</sqlMap>
+    

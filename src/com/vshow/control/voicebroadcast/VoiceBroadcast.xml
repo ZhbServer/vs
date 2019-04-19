@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="noticejh">
+
+	<typeAlias alias="voicebroadcast" type="com.vshow.control.data.VoiceBroadcast" />
+	
+     <select id="sel_voicebroadcast_page" parameterClass="user"  resultClass="voicebroadcast">
+       select
+        tvb.id,
+        tvb.numberstr,
+        tvb.uid,
+        tvb.resourcefilename,
+        tvb.contents,
+        t_sucai.name as resourcename
+        from t_voice_broadcast as tvb  left join t_sucai on tvb.resourcefilename=t_sucai.filename  where tvb.uid=#id#
+	    order by tvb.numberstr 
+	    limit #startid#,#pagetype#
+    </select>
+	  
+    <select id="sel_voicebroadcast_page_count" parameterClass="java.lang.Integer"  resultClass="java.lang.Integer">
+         select count(id) from t_voice_broadcast where uid=#id# 
+     </select>
+	
+	
+	<insert id="insert_voicebroadcast" parameterClass="voicebroadcast">
+		 <![CDATA[
+			insert
+			into 
+			t_voice_broadcast
+			(numberstr,uid,resourcefilename)
+			values
+			(#numberstr#,#uid#,#resourcefilename#);
+		]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_voice_broadcast  limit 1
+        </selectKey>
+	</insert>
+	
+	
+	<delete id="del_voicebroadcast" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_voice_broadcast
+      where id =#id#;
+    ]]>
+	</delete>
+	
+	
+	<select id="sel_voicebroadcast_numberstr" parameterClass="java.lang.Integer"  resultClass="java.lang.Integer">
+        
+        select
+        numberstr
+        from t_voice_broadcast where uid=#uid#
+	 
+    </select>
+    
+    
+	 <select id="sel_voicebroadcast_id_all_property" parameterClass="java.lang.Integer"  resultClass="voicebroadcast">
+        
+        select
+        tvb.id,
+        tvb.numberstr,
+        tvb.uid,
+        tvb.resourcefilename,
+        tvb.contents,
+        t_sucai.name as resourcename
+        from t_voice_broadcast as tvb  left join t_sucai on tvb.resourcefilename=t_sucai.filename  where tvb.id=#id#;
+	  
+     </select>
+    
+    
+     <update id="update_voicebroadcast" parameterClass="voicebroadcast">
+       <![CDATA[
+         update t_voice_broadcast set 
+         numberstr=#numberstr#,resourcefilename=#resourcefilename#
+         where id=#id#;
+       ]]>
+    </update> 
+    
+    
+    
+    <delete id="del_voicebroadcast_id" parameterClass="java.lang.Integer">
+	   <![CDATA[
+		delete
+		from t_voice_broadcast where id=#id#
+	  ]]>
+    </delete>
+    
+    
+    
+    
+
+</sqlMap>
+    

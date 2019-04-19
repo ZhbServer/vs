@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="item">
+
+	<typeAlias alias="cct" type="com.vshow.control.data.CountClientTime" />
+	   
+	 <typeAlias alias="ccc" type="com.vshow.control.data.CountClientTimeApi" />
+	<insert id="insert_CountCTime" parameterClass="cct">
+	   <![CDATA[
+		insert into t_count_client_time
+		(clientid,date,h0,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12,h13,h14,h15,h16,h17,h18,h19,h20,h21,h22,h23,bcount)
+		value 
+		(#clientid#,#date#,#h0#,#h1#,#h2#,#h3#,#h4#,#h5#,#h6#,#h7#,#h8#,#h9#,#h10#,#h11#,#h12#,#h13#,#h14#,#h15#,#h16#,#h17#,#h18#,#h19#,#h20#,#h21#,#h22#,#h23#,#bcount#)
+       ]]>
+       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_count_client_time  limit 1
+       </selectKey>
+    </insert> 
+    
+    
+    <update id="update_cct_h0" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h0=#h0#,
+		 bcount=bcount+#h0#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	<update id="update_cct_h1" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h1=#h1#,
+		 bcount=bcount+#h1#   
+		where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	<update id="update_cct_h2" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h2=#h2#,
+		 bcount=bcount+#h2#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h3" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h3=#h3#,
+		 bcount=bcount+#h3#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h4" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h4=#h4#,
+		 bcount=bcount+#h4#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h5" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h5=#h5#,
+		 bcount=bcount+#h5#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+    
+    
+    <update id="update_cct_h6" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h6=#h6#,
+		 bcount=bcount+#h6#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h7" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h7=#h7#,
+		 bcount=bcount+#h7#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h8" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h8=#h8#,
+		 bcount=bcount+#h8#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h9" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h9=#h9#,
+		 bcount=bcount+#h9#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h10" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h10=#h10#,
+		 bcount=bcount+#h10#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h11" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h11=#h11#,
+		 bcount=bcount+#h11#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h12" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h12=#h12#,
+		 bcount=bcount+#h12#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h13" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h13=#h13#,
+		 bcount=bcount+#h13#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h14" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h14=#h14#,
+		 bcount=bcount+#h14#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h15" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h15=#h15#,
+		 bcount=bcount+#h15#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	
+	<update id="update_cct_h16" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h16=#h16#,
+		 bcount=bcount+#h16#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h17" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h17=#h17#,
+		 bcount=bcount+#h17#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h18" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h18=#h18#,
+		 bcount=bcount+#h18#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h19" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h19=#h19#,
+		 bcount=bcount+#h19#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h20" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h20=#h20#,
+		 bcount=bcount+#h20#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h21" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h21=#h21#,
+		 bcount=bcount+#h21#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h22" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h22=#h22#,
+		 bcount=bcount+#h22#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+	
+	<update id="update_cct_h23" parameterClass="cct">   
+	 <![CDATA[      
+		 update      
+		 t_count_client_time     
+		 set h23=#h23#,
+		 bcount=bcount+#h23#   
+		 where id=#id# and date=#date#
+	 ]]>
+	</update>
+	
+    
+    <select id="sel_cct_byclientid"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select id
+		from t_count_client_time
+		where clientid=#clientid# and date = #date# 
+        ]]> 
+	</select>
+	
+	
+	<select id="sel_cct_list_count"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(*) count
+		from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+		
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_count_group"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(c) from (
+		select sum(cct.bcount) c
+		from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+		group by c.name,c.ip,c.mark
+		)a
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+    	limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+    	group by c.name,c.ip,c.mark limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_name_count"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+        select count(*) 
+		from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.name like '%$name$%'
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_name_count_group"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(c) from (
+		select sum(cct.bcount) c
+		from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.name like '%$name$%'
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+		group by c.name,c.ip,c.mark
+		)a
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_name"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+		and c.name like '%$name$%' limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_name_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.name like '%$name$%'
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+    	group by c.name,c.ip,c.mark limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_ip_count"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+        select count(*) from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+		and c.ip like '%$ip$%' 
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_ip_count_group"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(c) from (
+		select sum(cct.bcount) c
+		from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.ip like '%$ip$%' 
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+		group by c.name,c.ip,c.mark
+		)a
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_ip"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+		and c.ip like '%$ip$%' limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_ip_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.ip like '%$ip$%' 
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+    	group by c.name,c.ip,c.mark limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_mark_count"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+        select count(*) from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+		and c.mark like '%$mark$%'
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_mark_count_group"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(c) from (
+		select sum(cct.bcount) c
+		from t_count_client_time cct
+		right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.mark like '%$mark$%' 
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+		group by c.name,c.ip,c.mark
+		)a
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_mark_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.mark like '%$mark$%'
+		and c.id in (select cid from t_client_group_relation where uid=#uid#)
+    	group by c.name,c.ip,c.mark limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+
+	
+	<select id="sel_cct_list_mark"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+		and c.mark like '%$mark$%' limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+		<select id="sel_cct_list_mark_api"  parameterClass="cct" resultClass="ccc">
+       <![CDATA[
+	    select cct.bcount bcount,cct.clientid,cct.date,c.uid as uid
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime#
+		and c.id in (select cid from t_client_group_relation where uid=#uid#) 
+		and c.mark like '%$mark$%' limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	<select id="sel_cct_min_date"  parameterClass="cct" resultClass="java.lang.String">
+       <![CDATA[
+	    select min(date)
+		from t_count_client_time
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_max_date"  parameterClass="cct" resultClass="java.lang.String">
+       <![CDATA[
+	    select max(date)
+		from t_count_client_time
+        ]]> 
+	</select>
+	
+	<select id="sel_between_time_client_count"  parameterClass="cct" resultClass="java.lang.Integer">
+       <![CDATA[
+	    select count(cct.id)
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where c.name = #name# and c.mark = #mark#
+		and c.ip = #ip# and cct.date <=#etime# and cct.date >=#btime#
+        ]]> 
+	</select>
+	
+	<select id="sel_between_time_client"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where c.name = #name# and c.mark = #mark#
+		and c.ip = #ip# and cct.date <=#etime# and cct.date >=#btime# 
+		limit #startid#,#pagetype#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_byid"  parameterClass="java.lang.Integer" resultClass="cct">
+       <![CDATA[
+	    select * from t_count_client_time where id = #id#
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+    	group by c.name,c.ip,c.mark
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out_name"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.name like '%$name$%'
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out_name_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.name like '%$name$%' 
+    	group by c.name,c.ip,c.mark
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out_ip"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.ip like '%$ip$%'
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out_ip_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.ip like '%$ip$%' 
+    	group by c.name,c.ip,c.mark
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out_mark"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select cct.id,c.name,c.ip,c.mark,cct.bcount bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.mark like '%$mark$%'
+        ]]> 
+	</select>
+	
+	<select id="sel_cct_list_out_mark_group"  parameterClass="cct" resultClass="cct">
+       <![CDATA[
+	    select c.name,c.ip,c.mark,sum(cct.bcount) bcount,cct.date
+		from t_count_client_time cct 
+	  	right join t_client c on (cct.clientid = c.id)
+		where cct.date <=#etime# and cct.date >=#btime# 
+		and c.mark like '%$mark$%'
+    	group by c.name,c.ip,c.mark
+        ]]> 
+	</select>
+</sqlMap>
+    

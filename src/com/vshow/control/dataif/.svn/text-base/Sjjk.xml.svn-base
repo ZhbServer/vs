@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Sjjk">
+
+	<typeAlias alias="sjjk" type="com.vshow.control.data.Sjjk" />
+	   
+    <select id="sel_sjjk_all_id" resultClass="sjjk" parameterClass="java.lang.Integer" >
+    <![CDATA[
+       SELECT * FROM t_sjjk 
+       where id = #id#
+    ]]>
+	</select>
+	
+	<select id="sel_sjjk_all" resultClass="sjjk">
+    <![CDATA[
+       SELECT * FROM t_sjjk 
+    ]]>
+	</select>
+	
+	<select id="sel_sjjk_all_ser" resultClass="sjjk" parameterClass="sjjk">
+    <![CDATA[
+       SELECT * FROM t_sjjk where name like '%$name$%'
+    ]]>
+	</select>
+     
+    <select id="sel_sjjk_all_page"  resultClass="sjjk" parameterClass="sjjk">
+    <![CDATA[
+       SELECT 
+       t_sjjk.id,
+       t_sjjk.name,
+       t_sjjk.content,
+       t_sjjk.source
+       FROM t_sjjk 
+       order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_sjjk_all_page_count"  resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+       count(t_sjjk.id)
+       FROM t_sjjk 
+    ]]>
+	</select>
+	
+    <insert id="add_sjjk" parameterClass="sjjk" >
+	    <![CDATA[
+	       insert into t_sjjk (name,content,source) values(#name#,#content#,#source#)
+	    ]]>
+	</insert>
+	
+		     
+    <delete id="del_sjjk" parameterClass="java.lang.Integer" >
+    <![CDATA[
+       delete from t_sjjk where id=#id#
+    ]]>
+	</delete>
+	
+	
+	
+	<select id="sel_sjjk_all_item" resultClass="sjjk">
+    <![CDATA[
+       SELECT id,name,content FROM t_sjjk 
+    ]]>
+	</select>
+	
+</sqlMap>
+    

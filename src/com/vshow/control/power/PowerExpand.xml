@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="PowerExpand">
+	
+	
+	<typeAlias alias="powerExpand" type="com.vshow.control.data.PowerExpand" />
+  
+	
+	<insert id="ad_powerExpand" parameterClass="powerExpand">    
+	<![CDATA[    
+	    insert into t_power_expand
+		(
+			 expandContent, powerId
+		)
+		values	
+	    (
+		     #expandContent#, #powerId#
+	     )
+	]]>
+	</insert>
+	
+	<select id="sel_powerExpand_all" parameterClass="java.lang.Integer" resultClass="powerExpand">    
+		<![CDATA[    
+		     select * from t_power_expand where powerId=#powerId#
+		]]>
+	</select>
+	
+	<delete id="del_powerExpand" parameterClass="java.lang.Integer">    
+	<![CDATA[
+	    
+		 delete      
+		 from      
+		 t_power_expand 
+		 where powerId=#powerId#   
+	
+	]]>
+	</delete>
+
+	
+	<update id="update_powerExpand" parameterClass="powerExpand">    
+		<![CDATA[    
+			 
+			 update t_power_expand set expandContent=#expandContent#
+			 
+			 where powerId=#powerId#
+			 
+	    ]]>
+	</update>
+	
+	
+	<select id="sel_powerExpand_type" parameterClass="powerExpand" resultClass="powerExpand">    
+		<![CDATA[    
+		
+		     select * from t_power_expand where powerId=#powerId# and expandContent like '%$powerName$%'
+		
+		]]>
+	</select>
+	
+	
+	<update id="update_powerExpand_id" parameterClass="powerExpand">    
+		<![CDATA[    
+			 
+			 update t_power_expand set expandContent=#expandContent#
+			 
+			 where id=#id#
+			 
+	    ]]>
+	</update>
+	
+	
+</sqlMap>
+    

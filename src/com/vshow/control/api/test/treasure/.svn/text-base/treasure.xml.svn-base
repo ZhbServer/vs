@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="treasure">
+
+
+	<typeAlias alias="Tre" type="com.vshow.control.data.Treasure" />
+	    	      	
+  	<select id="go_treasure_all_page_count"  resultClass="java.lang.Integer" parameterClass="java.lang.String">
+	    <![CDATA[	    
+	       SELECT COUNT(id) FROM t_treasure WHERE t_treasure.creator=#creator#
+	    ]]>
+	</select>	         
+     <select id="go_treasure_name_page"  resultClass="java.lang.Integer" parameterClass="java.lang.String">
+	    <![CDATA[
+	      SELECT COUNT(id) FROM t_treasure WHERE t_treasure.creator=#creator# AND t_treasure.treasureName LIKE '%$treasureName$%'	     
+	    ]]>
+	</select>		
+	 <select id="go_treasure_ban_page"  resultClass="java.lang.Integer" parameterClass="java.lang.String">
+	    <![CDATA[
+	     SELECT COUNT(id) FROM t_treasure WHERE t_treasure.creator=#creator# AND t_treasure.ban LIKE '%$ban$%'    
+	    ]]>
+	</select>
+	 <select id="go_treasure_onStatus_page"  resultClass="java.lang.Integer" parameterClass="java.lang.String">
+	    <![CDATA[
+	      SELECT COUNT(id) FROM t_treasure WHERE t_treasure.creator=#creator# AND t_treasure.onStatus LIKE '%$onStatus$%'
+	    ]]>
+	</select>
+				
+	<select id="go_treasure_user"  resultClass="java.lang.String" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	    SELECT t_user.account FROM t_user WHERE  t_user.id=#uid#
+	    ]]>
+	</select>
+	
+	 <select id="go_treasure_all"  resultClass="Tre" parameterClass="Tre">
+	    <![CDATA[
+	       SELECT * FROM t_treasure WHERE t_treasure.creator=#creator#
+	       order by id desc limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	 <select id="go_treasure_name"  resultClass="Tre" parameterClass="Tre">
+	    <![CDATA[
+	      SELECT * FROM t_treasure WHERE t_treasure.creator=#creator# AND t_treasure.treasureName LIKE '%$treasureName$%'
+	       ORDER BY id DESC LIMIT #startid#,#pagetype#	     
+	    ]]>
+	</select>		
+	 <select id="go_treasure_ban"  resultClass="Tre" parameterClass="Tre">
+	    <![CDATA[
+	    SELECT * FROM t_treasure WHERE t_treasure.creator=#creator# AND t_treasure.ban LIKE '%$ban$%'
+   		 ORDER BY id DESC LIMIT #startid#,#pagetype#
+	    ]]>
+	</select>
+	 <select id="go_treasure_onStatus"  resultClass="Tre" parameterClass="Tre">
+	    <![CDATA[
+	      SELECT * FROM t_treasure WHERE t_treasure.creator=#creator# AND t_treasure.onStatus LIKE '%$onStatus$%'
+	      ORDER BY id DESC LIMIT #startid#,#pagetype#
+	    ]]>
+	</select>
+						
+	<insert id="add_treasure"  parameterClass="Tre">
+	   <![CDATA[
+		INSERT INTO t_treasure (treasureName,itemName,cid,onStatus,treasureType,onTime,offTime,url,code,styleImg,skipImg,creator,creatorTime,lastModifier,modifierTime,ban,treasureHeight,treasureWidth,treasureInsideType,showTime,itemFileName,itemId,imgHeight,imgWidth)
+		VALUES(#treasureName#,#itemName#,#cid#,#onStatus#,#treasureType#,#onTime#,#offTime#,#url#,#code#,#styleImg#,#skipImg#,#creator#,#creatorTime#,#lastModifier#,#modifierTime#,#ban#,#treasureHeight#,#treasureWidth#,#treasureInsideType#,#showTime#,#itemFileName#,#itemId#,#imgHeight#,#imgWidth#)		
+		]]>	
+	    
+	    <selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	            select last_insert_id() as id from  t_treasure  limit 1
+	          ]]>
+	     </selectKey>
+	    	    	   	     		      
+	</insert>	
+	
+	<update id="update_treasure_ban" parameterClass="Tre">   
+	 <![CDATA[      
+		UPDATE t_treasure SET t_treasure.ban=#ban# WHERE id=#id#	 
+		]]>
+	</update>
+	
+	<delete id="del_treasure" parameterClass="Tre">
+    <![CDATA[
+     DELETE FROM t_treasure WHERE t_treasure.id=#id#;
+    ]]>
+	</delete>
+	
+	<select id="go_treasure_info"  resultClass="Tre" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	      SELECT * FROM t_treasure WHERE id=#id#	      
+	    ]]>
+	</select>
+	
+	<update id="update_treasure" parameterClass="Tre">   
+	 <![CDATA[      
+			UPDATE t_treasure
+			SET treasureName = #treasureName#,
+			itemName = #itemName#,
+			onStatus = #onStatus#,
+			treasureType = #treasureType#,
+			onTime = #onTime#,
+			offTime = #offTime#,
+			url = #url#,
+			CODE = #code#,
+			styleImg = #styleImg#,
+			skipImg = #skipImg#,
+			lastModifier = #lastModifier#,
+			modifierTime = #modifierTime#,
+			treasureHeight = #treasureHeight#,
+			treasureWidth = #treasureWidth#,
+			treasureInsideType = #treasureInsideType#,
+			showTime = #showTime#,	
+			itemFileName=#itemFileName#,
+			itemId=#itemId#,			
+			imgHeight=#imgHeight#,
+			imgWidth=#imgWidth#
+			WHERE
+				id = #id# 
+		]]>
+	</update>
+	
+	<select id="go_id_code"  resultClass="Tre" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	      SELECT * FROM t_treasure WHERE id=#id#	      
+	    ]]>
+	</select>
+
+	<select id="go_filename_code"  resultClass="Tre" parameterClass="java.lang.String">
+	    <![CDATA[
+	      SELECT * FROM t_treasure WHERE code=#code#	      
+	    ]]>
+	</select>
+	
+	<select id="go_filename_styleImg"  resultClass="Tre" parameterClass="java.lang.String">
+	    <![CDATA[
+	      SELECT * FROM t_treasure WHERE styleImg=#styleImg#	      
+	    ]]>
+	</select>
+	
+	<select id="go_filename_skipImg"  resultClass="Tre" parameterClass="java.lang.String">
+	    <![CDATA[
+	      SELECT * FROM t_treasure WHERE skipImg=#skipImg#	      
+	    ]]>
+	</select>
+	
+	<select id="sel_treasure_tids" resultClass="Tre" parameterClass="java.lang.String">
+       <![CDATA[
+          SELECT * FROM t_treasure WHERE id in ($itemidStr$)  order by find_in_set(id,'$itemidStr$')
+           
+       ]]>     
+    </select>
+    
+    <select id="sel_id_treasure" resultClass="Tre" parameterClass="java.lang.Integer">
+       <![CDATA[
+          SELECT * FROM t_treasure WHERE id=#id#	
+           
+       ]]>     
+    </select>
+    
+     <select id="sel_treasure_filename" resultClass="Tre" parameterClass="java.lang.String">
+       <![CDATA[
+          SELECT * FROM t_treasure WHERE t_treasure.treasureName=#treasureName#	          
+       ]]>     
+    </select> 
+    
+     <select id="sel_treasures_codename_all" resultClass="java.lang.String">
+       <![CDATA[
+        SELECT t_treasure.code FROM t_treasure        
+       ]]>     
+    </select> 
+    <select id="sel_treasures_imgname_all" resultClass="java.lang.String">
+       <![CDATA[
+       SELECT t_treasure.skipImg FROM t_treasure      
+       ]]>     
+    </select> 
+    <select id="sel_treasures_stylename_all" resultClass="java.lang.String">
+       <![CDATA[
+    	 SELECT t_treasure.styleImg FROM t_treasure       
+       ]]>     
+    </select> 
+    
+	  <select id="sel_item_id_scene_filename" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+			SELECT t_scene.filename FROM t_scene
+			WHERE
+				t_scene.id = (SELECT t_item.sceneid FROM t_item WHERE t_item.id=#id#) 
+		]]>
+	 </select>
+       
+</sqlMap>

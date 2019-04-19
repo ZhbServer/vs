@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/advertising
+END
+AdvertisingPlay.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/advertising/AdvertisingPlay.xml
+END
+OutAdvertisingPlayAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/advertising/OutAdvertisingPlayAction.java
+END
+advertisingPlayCountAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/advertising/advertisingPlayCountAction.java
+END

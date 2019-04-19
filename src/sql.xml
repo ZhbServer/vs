@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig 
+    PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+    <sqlMapConfig>
+<properties resource="jdbc.properties" />
+	<settings
+		cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="true"
+		maxRequests="32"
+		maxSessions="10"
+		maxTransactions="5"
+		useStatementNamespaces="false"
+/>
+
+<transactionManager type="JDBC" >
+<dataSource type="SIMPLE">
+<property name="JDBC.Driver" value="${driver}"/>
+<property name="JDBC.ConnectionURL" value="${url}"/>
+<property name="JDBC.Username" value="${username}"/>
+<property name="JDBC.Password" value="${password}"/>
+<property name="JDBC.DefaultAutoCommit" value="true" />
+<property name="Pool.MaximumActiveConnections" value="10"/>
+<property name="Pool.MaximumIdleConnections" value="5"/>
+<property name="Pool.MaximumCheckoutTime" value="120000"/>
+<property name="Pool.TimeToWait" value="500"/>
+<property name="Pool.PingQuery" value="select 1 from t_user"/>
+<property name="Pool.PingEnabled" value="false"/>
+<property name="Pool.PingConnectionsOlderThan" value="1"/>
+<property name="Pool.PingConnectionsNotUsedFor" value="1"/>
+</dataSource>
+</transactionManager> 
+<sqlMap resource="com/vshow/control/csset/CsSet.xml"/>
+<sqlMap resource="com/vshow/control/user/User.xml"/>
+<sqlMap resource="com/vshow/control/power/Power.xml"/>
+<sqlMap resource="com/vshow/control/sucai/Sucai.xml"/>
+<sqlMap resource="com/vshow/control/sucai/group/ScGroup.xml"/>
+<sqlMap resource="com/vshow/control/log/Log.xml"/>
+<sqlMap resource="com/vshow/control/result/Result.xml"/>
+<sqlMap resource="com/vshow/control/fbl/Fbl.xml"/>
+<sqlMap resource="com/vshow/control/tq/ch/Tq.xml"/>
+<sqlMap resource="com/vshow/control/tq/en/EnTq.xml"/>
+<sqlMap resource="com/vshow/control/screen/Screen.xml"/>
+<sqlMap resource="com/vshow/control/rss/Rss.xml"/>
+<sqlMap resource="com/vshow/control/client/group/ClientGroup1.xml"/>
+<sqlMap resource="com/vshow/control/client/group/ClientGroup2.xml"/>
+<sqlMap resource="com/vshow/control/client/group/ClientGroup3.xml"/>
+<sqlMap resource="com/vshow/control/client/group/ClientGroupRelation.xml"/>
+<sqlMap resource="com/vshow/control/item/Item.xml"/>
+<sqlMap resource="com/vshow/control/item/group/ItemGroup.xml"/>
+<sqlMap resource="com/vshow/control/client/set/Client.xml"/>
+<sqlMap resource="com/vshow/control/client/set/AllMark.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/Send.xml"/>
+<sqlMap resource="com/vshow/control/item/interact/InteractItem.xml"/>
+<sqlMap resource="com/vshow/control/item/interact/InteractScene.xml"/>
+<sqlMap resource="com/vshow/control/log/LogSend.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/SendInteract.xml"/>
+<sqlMap resource="com/vshow/control/client/onoff/ShutNew.xml"/>
+<sqlMap resource="com/vshow/control/client/notice/Notice.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/SendTime.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/InsertSend.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/DpSend.xml"/>
+<sqlMap resource="com/vshow/control/client/play/ClientPlay.xml"/>
+<sqlMap resource="com/vshow/control/datainfo/DataHl.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/SendDate.xml"/>
+<sqlMap resource="com/vshow/control/item/jh/Jh.xml"/>
+<sqlMap resource="com/vshow/control/kh/cut/Caveats.xml"/>
+<sqlMap resource="com/vshow/control/kh/cut/CutClientP.xml"/>
+<sqlMap resource="com/vshow/control/kh/cut/CutD.xml"/>
+<sqlMap resource="com/vshow/control/kh/cut/CutM.xml"/>
+<sqlMap resource="com/vshow/control/kh/queue/BindBig.xml"/>
+<sqlMap resource="com/vshow/control/kh/queue/BindWin.xml"/>
+<sqlMap resource="com/vshow/control/client/group/ClientGroup.xml"/>
+<sqlMap resource="com/vshow/control/client/set/ClientPaw.xml"/>
+<sqlMap resource="com/vshow/control/kh/bus/BindBus.xml"/>
+<sqlMap resource="com/vshow/control/sucai/share/ScShare.xml"/>
+<sqlMap resource="com/vshow/control/terminalfb/NoticeJh.xml"/>
+<sqlMap resource="com/vshow/control/terminalfb/NoticeJhRelation.xml"/>
+<sqlMap resource="com/vshow/control/item/share/ItemShare.xml"/>
+<sqlMap resource="com/vshow/control/item/interact/share/InteractItemShare.xml"/>
+<sqlMap resource="com/vshow/control/statics/SucaiPlayCount.xml"/>
+<sqlMap resource="com/vshow/control/statics/CountClientTime.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/SendInduction.xml"/>
+<sqlMap resource="com/vshow/control/letv/cloud/SucaiCloud.xml"/>
+<sqlMap resource="com/vshow/control/dataif/Sjjk.xml"/>
+<sqlMap resource="com/vshow/control/client/bind/ClientBind.xml"/>
+<sqlMap resource="com/vshow/control/voicebroadcast/VoiceBroadcast.xml"/>
+<sqlMap resource="com/vshow/control/count/CountPeople.xml"/>
+<sqlMap resource="com/vshow/control/zdy/item/interact/InteractItemGroup.xml"/>
+<sqlMap resource="com/vshow/control/power/PowerExpand.xml"/>
+<sqlMap resource="com/vshow/control/zdy/user/space/UserSpace.xml"/>
+<sqlMap resource="com/vshow/control/result/ResultDownFail.xml"/>
+<sqlMap resource="com/vshow/control/zdy/item/material/ItemMaterial.xml"/>
+<sqlMap resource="com/vshow/control/zdy/item/factoryplan/factoryPlan.xml"/>
+<sqlMap resource="com/vshow/control/item/fb/AccurateSend.xml"/>
+<sqlMap resource="com/vshow/control/item/ItemEditHistory.xml"/>
+<sqlMap resource="com/vshow/control/tb/Tb.xml"/>
+<sqlMap resource="com/vshow/control/apk/Apk.xml"/>
+<sqlMap resource="com/vshow/control/jiankong/JianKong.xml"/>
+<sqlMap resource="com/vshow/control/user/EditUserPwdHistory.xml"/>
+<sqlMap resource="com/vshow/control/user/UserCheck.xml"/>
+<sqlMap resource="com/vshow/control/projection/Projection.xml"/>
+<sqlMap resource="com/vshow/control/advertising/AdvertisingPlay.xml"/>
+<sqlMap resource="com/vshow/control/warningitem/ClientWarningItem.xml"/>
+<sqlMap resource="com/vshow/control/client/standbywalk/StandbyWalk.xml"/>
+<sqlMap resource="com/vshow/control/client/timingbacklight/TimingBacklight.xml"/>
+<sqlMap resource="com/vshow/control/interfaces/view/Data.xml"/>
+<sqlMap resource="com/vshow/control/dish/Dish.xml"/>
+<sqlMap resource="com/vshow/control/api/test/treasure/treasure.xml"/>
+<sqlMap resource="com/vshow/control/client/set/ClientNumber.xml"/>
+</sqlMapConfig> 

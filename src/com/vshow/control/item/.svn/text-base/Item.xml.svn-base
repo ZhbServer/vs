@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="item">
+
+	<typeAlias alias="item" type="com.vshow.control.data.Item" />
+	<typeAlias alias="scene" type="com.vshow.control.data.Scene" />
+	<typeAlias alias="user" type="com.vshow.control.data.User" /> 
+	<typeAlias alias="itemKey" type="com.vshow.control.data.ItemKey" />
+	
+	<typeAlias alias="sceneContent" type="com.vshow.control.data.SceneContent" /> 
+	
+	   
+  	<select id="sel_item_page_all" parameterClass="item" resultClass="item">
+	    <![CDATA[
+	    select * from((select 
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user 
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+		left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%'))
+		union 
+		(select
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id)) a
+		order by id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	 <select id="sel_item_page_all_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select count(*) from((select 
+		t_item.id
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+		left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%'))
+		union 
+		(select
+		t_item.id
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id)) a
+	    ]]>
+	</select>
+	
+	<select id="sel_item_page_other" parameterClass="item" resultClass="item">
+	    <![CDATA[
+		select
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_item_group_relation.itemgroupid=#gpid#
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		order by t_item.id desc 
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_item_page_other_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_item.id)
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_item_group_relation.itemgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+	    ]]>
+	</select>
+	
+	
+	 <select id="sel_item_allscene"  resultClass="scene" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	     	 select   t_scene.id,t_scene.name,t_scene.filename,t_scene.vname,t_scene.stime,t_scene.fcontent  from t_item_scene,t_scene where
+             t_scene.id=t_item_scene.sceneid and
+             t_item_scene.itemid=#id# order by t_item_scene.id 
+	    ]]>
+	 </select>
+	 
+	 
+	  <insert id="insert_one_item" parameterClass="item">
+	    <![CDATA[
+		    insert into t_item
+	           (name,userid,sdate,stime,ocheck,fblid,len,lable)
+	        value 
+	           (#name#,#userid#,#sdate#,#stime#,#ocheck#,#fblid#,#len#,#lable#)
+       ]]>
+       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_item  limit 1
+       </selectKey>
+    </insert> 
+    
+    
+    <select id="sel_scfilename_scene"  resultClass="scene"  parameterClass="java.lang.String">
+	    <![CDATA[
+	     	SELECT
+			t_scene.id,
+			t_scene.name,
+			t_scene.filename,
+			t_scene.mcontent,
+			t_scene.stime,
+			t_scene.vname,
+			t_scene.fcontent,
+			t_scene.sf
+			FROM t_scene
+			where
+			t_scene.filename=#filename#;
+	    ]]>
+	 </select>
+	 
+	 
+	 <select id="sel_zjitem"  resultClass="item" parameterClass="item">
+	    <![CDATA[
+	       select 
+	       t_item.id,
+	       t_item.name,
+	       t_item.sdate,
+	       t_item.stime,
+	       t_item.ocheck,
+	       t_item.fblid,
+	       t_item.len,
+	       t_user.id as userid,
+	       t_user.name as user
+	       from t_item,t_user 
+	       where 
+	       t_user.id=t_item.userid
+	       and t_item.userid=#userid# 
+	       and t_item.sdate=#sdate# 
+	       and t_item.name=#name#
+	    ]]>
+	 </select>
+	 
+	 
+	 <insert id="insert_one_scene" parameterClass="scene">
+	   <![CDATA[
+		    insert into t_scene
+	         (name,filename,mcontent,stime,vname,fcontent,sf)
+	         value
+	        (#name#,#filename#,#mcontent#,#stime#,#vname#,#fcontent#,#sf#)
+        ]]>
+        <selectKey resultClass="java.lang.Integer" keyProperty="id">
+        <![CDATA[
+            select last_insert_id() as id from  t_scene  limit 1
+        ]]>
+        </selectKey>
+    </insert>
+ 
+    <update id="update_item_sceneid" parameterClass="item">
+       <![CDATA[
+         update t_item set 
+         sceneid=#sceneid#
+         where id=#id#;
+       ]]>
+    </update> 
+       
+    
+    <update id="update_scene" parameterClass="scene">
+       <![CDATA[
+         update t_scene set 
+         name=#name#,mcontent=#mcontent#,stime=#stime#,vname=#vname#,fcontent=#fcontent#,sf=#sf#
+         where filename=#filename#;
+       ]]>
+    </update> 
+    
+    
+     <select id="sel_fnvn_iid"  resultClass="scene" parameterClass="java.lang.Integer">
+		    <![CDATA[
+		     	SELECT
+		     	t_scene.id,
+				t_scene.filename,
+				t_scene.vname,
+				t_scene.stime
+				FROM t_scene
+				where
+				t_scene.id = (select sceneid from t_item where id=#id#)
+		    ]]>
+	 </select>
+	
+	
+
+	<select id="sel_zjscene"  resultClass="java.lang.Integer" parameterClass="scene">
+	    <![CDATA[
+	       SELECT id FROM t_scene where t_scene.filename=#filename#;
+	    ]]>
+	 </select>
+	 
+	<update id="upd_item" parameterClass="item">
+	    <![CDATA[
+	      UPDATE t_item t SET 
+	      stime=#stime#,len=#len#,ocheck=#ocheck#
+	      where id=#id# 
+	    ]]>
+	</update>
+	
+	<update id="upd_item2" parameterClass="item">
+	    <![CDATA[
+	      UPDATE t_item t SET 
+	      stime=#stime#,len=#len#,ocheck=#ocheck#,name=#name#
+	      where id=#id# 
+	    ]]>
+	</update>
+	
+	
+	<update id="upd_item2_sub" parameterClass="item">
+	    <![CDATA[
+	      UPDATE t_item t SET 
+	      len=#len#,ocheck=#ocheck#
+	      where id=#id# 
+	    ]]>
+	</update>
+	
+	
+	
+	<delete id="del_scene" parameterClass="java.lang.Integer">
+	  <![CDATA[
+       DELETE FROM t_scene
+       WHERE id=#id#
+       ]]>
+    </delete> 
+    
+	<select id="sel_item_name"  resultClass="java.lang.String" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT name FROM t_item where t_item.id=#id#;
+	    ]]>
+	 </select>
+	 
+	 <delete id="del_item_id" parameterClass="java.lang.Integer">
+	  <![CDATA[
+       DELETE FROM t_item
+       WHERE id=#id#
+       ]]>
+    </delete> 
+    
+    
+      <select id="sel_item_all_id"  resultClass="item" parameterClass="java.lang.Integer">
+      <![CDATA[
+	       select 
+	       t_item.id,
+	       t_item.name,
+	       t_item.sdate,
+	       t_item.stime,
+	       t_item.ocheck,
+	       t_item.fblid,
+	       t_item.len,
+	       t_item.sceneid,
+	       t_item.lable,
+	       t_user.id as userid,
+	       t_user.name as user
+	       from t_item,t_user 
+	       where 
+	       t_user.id=t_item.userid
+	       and t_item.id=#id# 
+	    ]]>
+	 </select>
+	 
+	 
+	  <select id="sel_scene_all_id"  resultClass="scene" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	     	SELECT
+			t_scene.id,
+			t_scene.name,
+			t_scene.filename,
+			t_scene.mcontent,
+			t_scene.stime,
+			t_scene.vname,
+			t_scene.fcontent,
+			t_scene.sf
+			FROM t_scene
+			where
+			t_scene.id=#id#;
+	    ]]>
+	 </select>
+	 
+	 
+	 
+	   	<select id="sel_item_name_page_all" parameterClass="item" resultClass="item">
+	    <![CDATA[
+	    select * from((select 
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user 
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+		left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%') 
+		and t_item.name like '%$name$%')
+		union 
+		(select
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		and t_item.name like '%$name$%')) a
+		order by id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	 <select id="sel_item_name_page_all_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select count(*) from((select 
+		t_item.id
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+		left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%')
+		and t_item.name like '%$name$%')
+		union 
+		(select
+		t_item.id
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		and t_item.name like '%$name$%')) a
+	    ]]>
+	</select>
+	
+	<select id="sel_item_name_page_other" parameterClass="item" resultClass="item">
+	    <![CDATA[
+	    select
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_item_group_relation.itemgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		and t_item.name like '%$name$%'
+		order by t_item.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	 <select id="sel_item_name_page_other_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_item.id)
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_item_group_relation.itemgroupid=#gpid# 
+		and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		and t_item.name like '%$name$%' 
+	    ]]>
+	</select>
+	
+	 <select id="sel_scene_by_item_id"  resultClass="scene" parameterClass="java.lang.Integer">
+		    <![CDATA[
+		    	
+				SELECT
+					t_item.name,
+					t_scene.id,
+					t_scene.filename,
+					t_scene.vname,
+					t_scene.stime
+				FROM t_scene,t_item
+					where
+				    t_item.id=#id# and
+				    t_scene.id = t_item.sceneid
+		    ]]>
+	 </select>
+	 
+     <select id="sel_all_scene_fname"  resultClass="java.lang.String" >
+	    <![CDATA[
+	     	SELECT
+			t_scene.filename
+			FROM t_scene
+			
+	    ]]>
+	 </select>
+	 
+	 <select id="sel_nocheckitem"  resultClass="item" parameterClass="user">
+	    <![CDATA[
+	       select 
+	       t_item.id,
+	       t_item.name,
+	       t_item.sdate,
+	       t_item.stime,
+	       t_item.ocheck,
+	       t_item.fblid,
+	       t_item.len,
+	       t_user.id as userid,
+	       t_user.name as user,
+	       t_scene.filename as filename
+	       from t_item,t_user,t_scene
+	       where  
+	       t_user.id=t_item.userid and
+	       userid in(select id from t_user where tkey like '%$tkey$%' and id!=#id# ) 
+	       and t_item.ocheck=0
+	       and t_item.sceneid=t_scene.id
+	       order by t_item.id desc
+           limit #startid#,#pagetype#
+          
+        ]]>
+	 </select>
+	 
+	 <select id="sel_nocheckitem_count"  resultClass="java.lang.Integer" parameterClass="user">
+	    <![CDATA[
+	       
+	       
+	       SELECT count(t_item.id) from t_item RIGHT JOIN t_user on t_item.userid=t_user.id  where t_user.tkey like '%$tkey$%' and t_user.id !=#id#  and t_item.ocheck=0
+	       
+	       
+	    ]]>
+	 </select>
+	 
+	 <update id="upd_item_ocheck" parameterClass="item">
+	    <![CDATA[
+	      UPDATE t_item t SET 
+	      ocheck=#ocheck#
+	      where id=#id# 
+	    ]]>
+	 </update>
+	 
+	  <select id="sel_item_filename"  resultClass="item" parameterClass="java.lang.String">
+	    <![CDATA[
+	       select id,name from t_item where sceneid= (select id from t_scene where filename=#filename#)
+	    ]]>
+	 </select>
+	 
+	 
+	<select id="sel_item_ocheck_page" parameterClass="item" resultClass="item">
+	    <![CDATA[
+	      select
+	      t_item.id,
+	      t_item.name,
+	      t_item.stime,
+	      t_item.sdate,
+	      t_item.ocheck,
+	      t_scene.filename as filename, 
+	      t_item.len,t_item.userid,t_user.name as user
+	      from t_item,t_user,t_item_group_relation,t_scene
+	      where (case when #gpid# > 0 then t_item_group_relation.itemgroupid=#gpid# else 1=1 end)
+	      and t_user.id in
+	      (SELECT id FROM t_user t where tkey like '%$tkey$%')
+	      and t_item.userid=t_user.id
+	      and t_item.id=t_item_group_relation.itemid
+	      and t_item.sceneid=t_scene.id
+	      and t_item.ocheck=1
+	      order by t_item.id desc
+	      limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	 <select id="sel_item_ocheck_page_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select
+	      count(t_item.id)
+	      from t_item,t_user,t_item_group_relation,t_scene
+	      where (case when #gpid# > 0 then t_item_group_relation.itemgroupid=#gpid# else 1=1 end)
+	      and t_user.id in
+	      (SELECT id FROM t_user t where tkey like '%$tkey$%')
+	      and t_item.userid=t_user.id
+	      and t_item.id=t_item_group_relation.itemid
+	      and t_item.sceneid=t_scene.id
+	      and t_item.ocheck=1
+	    ]]>
+	</select>
+	
+	
+	 <select id="sel_scene_by_item_all"  resultClass="scene" parameterClass="java.lang.Integer">
+		    <![CDATA[
+		    	
+				SELECT
+				    t_scene.id,
+				    t_scene.name,
+				    t_scene.filename,
+				    t_scene.vname,
+				    t_scene.stime,
+				    t_scene.fcontent
+				FROM t_scene,t_item
+					where
+				    t_item.id=#id# and
+				    t_scene.id = t_item.sceneid
+		    ]]>
+	 </select>
+	 
+	 
+	<select id="sel_th_item_id" parameterClass="item" resultClass="java.lang.Integer">
+	   <![CDATA[
+		   SELECT id FROM t_item t where userid=#userid#
+		   and ocheck=#ocheck# and fblid=#fblid# and  name=#name#
+		   and stime=#stime# and len=#len# limit 0,1
+	   
+       ]]>
+	</select>
+	
+	
+	<select id="sel_itemshare_page" parameterClass="item" resultClass="item">
+    <![CDATA[
+        select 
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user 
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+    	left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%')
+		order by t_item.id desc
+		limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_itemshare_page_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        count(t_item_share.id)
+	        from t_item_share 
+			left join t_item on (t_item_share.itemid = t_item.id)
+	    	left join t_user on (t_item_share.userid=t_user.id)
+	    	left join t_scene on(t_item.sceneid=t_scene.id)
+			where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+			t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%')
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_itemshare_name_page" parameterClass="item" resultClass="item">
+    <![CDATA[
+        select 
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user 
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+    	left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%') and t_item.name like '%$name$%'
+		order by t_item.id desc
+		limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+	<select id="sel_itemshare_page_name_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        count(t_item_share.id)
+	        from t_item_share 
+			left join t_item on (t_item_share.itemid = t_item.id)
+	    	left join t_user on (t_item_share.userid=t_user.id)
+	    	left join t_scene on(t_item.sceneid=t_scene.id)
+			where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+			t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%') and t_item.name like '%$name$%'
+	    ]]>
+	</select>
+	
+	<select id="get_item_userid_id"  resultClass="java.lang.Integer" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT userid FROM t_item where t_item.id=#id#;
+	    ]]>
+	 </select>
+	 
+	 
+	 <select id="sel_item_name_page_self" parameterClass="item" resultClass="item">
+	    <![CDATA[
+	    select
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id = #userid#
+		
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		and t_item.name like '%$name$%'
+		order by t_item.id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	 
+	 <select id="sel_item_page_self_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_item.id)
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id = #userid#
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_item_page_self" parameterClass="item" resultClass="item">
+	    <![CDATA[
+		select
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id = #userid#
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		order by t_item.id desc 
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_item_name_page_self_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select
+		count(t_item.id)
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id = #userid#
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		and t_item.name like '%$name$%' 
+	    ]]>
+	</select>
+	
+	
+	 <select id="sel_itemIdStr" resultClass="item" parameterClass="java.lang.String">
+       <![CDATA[
+          SELECT t_item.id,t_item.name from t_item where id in ($itemidStr$)  order by find_in_set(id,'$itemidStr$')
+           
+       ]]>     
+    </select>
+    
+    
+    <!-- ApiSelItemAction -->
+     <select id="sel_item_byUser" parameterClass="user" resultClass="item">
+	    <![CDATA[
+		select
+		t_item.id,
+		t_item.name,
+		t_user.name as user,
+		t_item.sdate,
+		t_item.stime,
+		t_item.ocheck,
+		t_item.len,
+		t_scene.filename as filename
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_item_group_relation.itemgroupid=0
+		and t_user.id = #id#
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id
+		order by t_item.id desc 
+	    ]]>
+	</select>
+    
+    
+   
+    
+   <select id="sel_item_user_all"  parameterClass="java.lang.Integer" resultClass="item">
+    <![CDATA[
+       select * from t_item where userid=#userid#
+    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_item_fcontent"  resultClass="java.lang.String"  parameterClass="java.lang.Integer">
+	    <![CDATA[
+	            SELECT
+				  
+				    t_scene.fcontent
+				FROM t_scene,t_item
+					where
+				    t_item.id=#id# and
+				    t_scene.id = t_item.sceneid
+			
+	    ]]>
+	 </select>
+	 
+	 
+	  <insert id="insert_scene_content" parameterClass="sceneContent">
+	    <![CDATA[
+		    insert into t_scene_content
+	        (filename,content,type)
+	         value 
+	        (#filename#,#content#,#type#)
+	       ]]>
+	       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+	            select last_insert_id() as id from  t_scene_content  limit 1
+	       </selectKey>
+    </insert> 
+    
+    
+    
+    <select id="sel_scene_content_filename"  resultClass="sceneContent"  parameterClass="java.lang.String">
+	    <![CDATA[
+	            SELECT
+				*
+				FROM t_scene_content
+				where
+				filename=#filename#
+		 ]]>
+	 </select>
+	 
+	   <update id="update_scene_content" parameterClass="sceneContent">
+       <![CDATA[
+         update t_scene_content set 
+         content=#content#
+         where filename=#filename#;
+       ]]>
+    </update> 
+    
+    
+    
+    
+    <select id="sel_scene_content_filename_sub"  resultClass="sceneContent"  parameterClass="java.lang.String">
+	    <![CDATA[
+	            SELECT
+				*
+				FROM t_scene_content_sub
+				where
+				filename=#filename#
+		 ]]>
+	 </select>
+	 
+	 
+	  <insert id="insert_scene_content_sub" parameterClass="sceneContent">
+	    <![CDATA[
+		    insert into t_scene_content_sub
+	        (filename,content,type)
+	         value 
+	        (#filename#,#content#,#type#)
+	       ]]>
+	       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+	            select last_insert_id() as id from  t_scene_content_sub  limit 1
+	       </selectKey>
+    </insert> 
+    
+    
+       <update id="update_scene_content_sub" parameterClass="sceneContent">
+       <![CDATA[
+         update t_scene_content_sub set 
+         content=#content#
+         where filename=#filename#;
+       ]]>
+    </update> 
+    
+    
+    
+     <insert id="insert_one_scene_sub" parameterClass="scene">
+	   <![CDATA[
+		    insert into t_scene_sub
+	         (name,filename,mcontent,stime,vname,fcontent,sf,fbltype)
+	         value
+	        (#name#,#filename#,#mcontent#,#stime#,#vname#,#fcontent#,#sf#,#fbltype#)
+        ]]>
+        <selectKey resultClass="java.lang.Integer" keyProperty="id">
+        <![CDATA[
+            select last_insert_id() as id from  t_scene_sub  limit 1
+        ]]>
+        </selectKey>
+    </insert>
+	 
+	 
+	 
+	<update id="update_scene_sub" parameterClass="scene">
+       <![CDATA[
+         update t_scene_sub set 
+         name=#name#,mcontent=#mcontent#,stime=#stime#,vname=#vname#,fcontent=#fcontent#,sf=#sf#
+         where filename=#filename#;
+       ]]>
+    </update> 
+    
+	 
+	 
+	 <select id="sel_fnvn_iid_sub"  resultClass="scene" parameterClass="java.lang.String">
+		    <![CDATA[
+		     	SELECT
+		     	t_scene_sub.id,
+				t_scene_sub.filename,
+				t_scene_sub.vname,
+				t_scene_sub.stime
+				FROM t_scene_sub
+				where
+				t_scene_sub.filename=#filename#
+		    ]]>
+	 </select>
+	 
+	 
+	 <select id="sel_scfilename_scene_sub"  resultClass="scene"  parameterClass="java.lang.String">
+	    <![CDATA[
+	     	SELECT
+			t_scene_sub.id,
+			t_scene_sub.name,
+			t_scene_sub.filename,
+			t_scene_sub.mcontent,
+			t_scene_sub.stime,
+			t_scene_sub.vname,
+			t_scene_sub.fcontent,
+			t_scene_sub.sf,
+			t_scene_sub.fbltype
+			FROM t_scene_sub
+			where
+			t_scene_sub.filename=#filename#;
+	    ]]>
+	 </select>
+	 
+	 
+	 
+	 <select id="sel_item_page_all_ocheck_count" parameterClass="item" resultClass="java.lang.Integer">
+	    <![CDATA[
+	    select count(*) from((select 
+		t_item.id
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+		left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%') and t_item.ocheck = #ocheck#)
+		union 
+		(select
+		t_item.id
+		from t_item,t_user,t_item_group_relation,t_scene
+		where  t_item.ocheck = #ocheck# and t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id)) a
+		]]>
+	</select>
+	
+	
+	
+	<select id="sel_item_page_all_ocheck" parameterClass="item" resultClass="item">
+	    <![CDATA[
+	    select * from((select 
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user 
+		from t_item_share 
+		left join t_item on (t_item_share.itemid = t_item.id)
+    	left join t_user on (t_item_share.userid = t_user.id) 
+		left join t_scene on(t_item.sceneid=t_scene.id)
+		where (t_item_share.shareid like '$userid$,%' or t_item_share.shareid like '%,$userid$' or 
+		t_item_share.shareid like '$userid$' or t_item_share.shareid like '%,$userid$,%'))
+		union 
+		(select
+		t_item.id,
+		t_item.name,
+		t_item.stime,
+		t_item.sdate,
+		t_item.ocheck,
+		t_scene.filename as filename, 
+		t_item.len,t_item.userid,t_user.name as user
+		from t_item,t_user,t_item_group_relation,t_scene
+		where t_user.id in
+		(SELECT id FROM t_user t where tkey like '%$tkey$%')
+		and t_item.userid=t_user.id
+		and t_item.id=t_item_group_relation.itemid
+		and t_item.sceneid=t_scene.id)) a
+		where ocheck = #ocheck#
+		order by id desc
+		limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	
+	  <insert id="ad_item_key" parameterClass="itemKey">
+	    <![CDATA[
+		    insert into t_item_key
+	           (`key`,filename,type)
+	        value 
+	           (#key#,#filename#,#type#)
+       ]]>
+       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_item_key  limit 1
+       </selectKey>
+    </insert> 
+	 
+	 
+	 
+	  <select id="sel_filename_key"  resultClass="itemKey"  parameterClass="java.lang.String">
+	    <![CDATA[
+	     	SELECT
+			t_item_key.id,
+			t_item_key.key,
+			t_item_key.filename,
+		    t_item_key.type
+			FROM t_item_key
+			where
+			t_item_key.filename=#filename#;
+	    ]]>
+	 </select>
+	 
+	 
+	 
+	 <update id="up_filename_key" parameterClass="itemKey">
+       <![CDATA[
+         update t_item_key set 
+         `key`=#key#
+         where filename=#filename#;
+       ]]>
+    </update> 
+    
+    
+      <select id="sel_un_key"  resultClass="itemKey"  parameterClass="itemKey">
+	    <![CDATA[
+	     	SELECT
+			t_item_key.id,
+			t_item_key.key,
+			t_item_key.filename,
+		    t_item_key.type
+			FROM t_item_key
+			where
+			t_item_key.filename!=#filename# and t_item_key.key=#key#
+	    ]]>
+	 </select>
+	 
+	 
+	  <select id="sel_key_filename"  resultClass="itemKey"  parameterClass="java.lang.String">
+	    <![CDATA[
+	     	SELECT
+			t_item_key.id,
+			t_item_key.filename,
+		    t_item_key.type
+			FROM t_item_key
+			where
+			t_item_key.key=#key#;
+	    ]]>
+	 </select>
+	 
+	 
+	 
+	 <update id="update_item_fbl" parameterClass="item">
+       <![CDATA[
+         update t_item set 
+         fblid=#fblid#
+         where id=#id#;
+       ]]>
+    </update>
+    
+    
+     <select id="sel_iid_filename"  resultClass="java.lang.Integer"  parameterClass="java.lang.String">
+	    <![CDATA[
+	     	SELECT id from t_item where sceneid =
+
+           ( SELECT id from t_scene where filename=#filename# )
+	    ]]>
+	 </select> 
+	 
+	 
+	 <select id="sel_item_pro_id"  resultClass="item"  parameterClass="java.lang.Integer">
+	    <![CDATA[
+	     	SELECT t_item.*,t_scene.filename from t_item ,t_scene WHERE t_item.sceneid=t_scene.id and t_item.id=#id#
+	    ]]>
+	 </select> 
+	 
+	 
+	 <select id="sel_item_pro_filename"  resultClass="item"  parameterClass="java.lang.String">
+	    <![CDATA[
+	     	SELECT t_item.*,t_scene.filename from t_item ,t_scene WHERE t_item.sceneid=t_scene.id and t_scene.filename=#filename#
+	    ]]>
+	 </select> 
+    
+    
+    <select id="sel_item_filename_all" parameterClass="item" resultClass="item">
+		<![CDATA[
+		
+		
+		      SELECT t_item.`name` ,t_scene.filename from t_item,t_scene 
+		      
+		      where t_item.sceneid = t_scene.id and t_item.userid=#userid# 
+		      
+		      and t_item.ocheck=#ocheck# order by t_item.id desc
+				
+	   
+	     ]]>
+	</select>
+	 
+</sqlMap>
+    

@@ -1,0 +1,335 @@
+package com.vshow.control.data;
+
+/***
+ * 终端信息
+ * 
+ * @author Administrator
+ * 
+ */
+public class Client extends PublicData {
+	
+	private int id; // 终端Id
+	private String name; // 终端名
+	private String namesub;
+	private String mark; // 唯一标识
+	private String ip; // 终端Ip
+	private String last; // 最后连接时间
+	private int serverid; // 二级服务Id
+	private String downstate; // 下载状态
+	private String size; // 终端参数 可用/总大小/版本号/音量/开关机(星期_开机时间_关机时间)
+	private int nvn; // 终端版本号
+	private int uid; // 创建人Id
+	private int state; // reuslt 结果 0 未接受 1已接收 2操作成功 22协议文件无法下载
+	private int luid; // 日志用户id
+	private int rid; // 结果id
+	private String lsdate; // 日志操作日期
+	private int rstate; // 结果状态
+	private String lcontent; // 日志内容
+	private String lcontentsub;
+	//private int zxstate; // 在线状态
+	private String fenpei; // 分配
+	private int netstate; // 软加密是否认证 (0 未认证 1认证)
+	private int lid; // 日志id
+	private int standbystate; // 待机状态 (0否 1是)
+	private int disabledstate; // 终端是否禁用(0否 1是)
+	private String userBelongs; // 所属用户
+	private String userBelongsSub; // 所属用户title
+	private int clientId;   //终端id 过滤条件
+	private int mltState;  //Mlt 是否录入 (0未录入 1已录入)
+	private String downloadKey; //下载队列 key 
+	
+	/** 二次开发切纸机 **/
+	private Integer cutstate; //  切纸状态 1开启 2关机 3无纸 4卡纸 0ornull 未连接
+	private Integer delnum; //    切纸使用量
+	private Integer addnum; //    切纸总量
+	private Integer stock; //     库存
+
+	private Integer lxDay;//      离线终端天数 
+	
+	private Integer gid; // 分组id
+	
+	
+	
+	public Integer getGid() {
+		return gid;
+	}
+
+
+	public void setGid(Integer gid) {
+		this.gid = gid;
+	}
+
+
+	public Integer getLxDay() {
+		return lxDay;
+	}
+
+
+	public void setLxDay(Integer lxDay) {
+		this.lxDay = lxDay;
+	}
+
+
+	public String getDownloadKey() {
+		return downloadKey;
+	}
+
+	
+	public void setDownloadKey(String downloadKey) {
+		this.downloadKey = downloadKey;
+	}
+	
+	
+	public int getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(int clientId) {
+		this.clientId = clientId;
+	}
+	
+	
+	public int getMltState() {
+		return mltState;
+	}
+
+	public void setMltState(int mltState) {
+		this.mltState = mltState;
+	}
+	
+	
+	public String getUserBelongsSub() {
+		return userBelongsSub;
+	}
+
+	public void setUserBelongsSub(String userBelongsSub) {
+		this.userBelongsSub = userBelongsSub;
+	}
+
+	public String getUserBelongs() {
+		return userBelongs;
+	}
+
+	public void setUserBelongs(String userBelongs) {
+		this.userBelongs = userBelongs;
+	}
+
+	public int getDisabledstate() {
+		return disabledstate;
+	}
+
+	public void setDisabledstate(int disabledstate) {
+		this.disabledstate = disabledstate;
+	}
+
+	public int getLid() {
+		return lid;
+	}
+
+	public void setLid(int lid) {
+		this.lid = lid;
+	}
+
+	public Integer getCutstate() {
+		return cutstate;
+	}
+
+	public void setCutstate(Integer cutstate) {
+		this.cutstate = cutstate;
+	}
+
+	public Integer getDelnum() {
+		return delnum;
+	}
+
+	public void setDelnum(Integer delnum) {
+		this.delnum = delnum;
+	}
+
+	public Integer getAddnum() {
+		return addnum;
+	}
+
+	public void setAddnum(Integer addnum) {
+		this.addnum = addnum;
+	}
+
+	public int getStandbystate() {
+		return standbystate;
+	}
+
+	public void setStandbystate(int standbystate) {
+		this.standbystate = standbystate;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
+
+	public int getNetstate() {
+		return netstate;
+	}
+
+	public void setNetstate(int netstate) {
+		this.netstate = netstate;
+	}
+
+	public String getFenpei() {
+		return fenpei;
+	}
+
+	public void setFenpei(String fenpei) {
+		this.fenpei = fenpei;
+	}
+
+	public String getNamesub() {
+		return namesub;
+	}
+
+	public void setNamesub(String namesub) {
+		this.namesub = namesub;
+	}
+
+	public String getLcontentsub() {
+		return lcontentsub;
+	}
+
+	public void setLcontentsub(String lcontentsub) {
+		this.lcontentsub = lcontentsub;
+	}
+
+	
+
+	public String getLcontent() {
+		return lcontent;
+	}
+
+	public void setLcontent(String lcontent) {
+		this.lcontent = lcontent;
+	}
+
+	public int getLuid() {
+		return luid;
+	}
+
+	public void setLuid(int luid) {
+		this.luid = luid;
+	}
+
+	public int getRid() {
+		return rid;
+	}
+
+	public void setRid(int rid) {
+		this.rid = rid;
+	}
+
+	public String getLsdate() {
+		return lsdate;
+	}
+
+	public void setLsdate(String lsdate) {
+		this.lsdate = lsdate;
+	}
+
+	public int getRstate() {
+		return rstate;
+	}
+
+	public void setRstate(int rstate) {
+		this.rstate = rstate;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getMark() {
+		return mark;
+	}
+
+	public void setMark(String mark) {
+		this.mark = mark;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getLast() {
+		return last;
+	}
+
+	public void setLast(String last) {
+		this.last = last;
+	}
+
+	public int getServerid() {
+		return serverid;
+	}
+
+	public void setServerid(int serverid) {
+		this.serverid = serverid;
+	}
+
+	public String getDownstate() {
+		return downstate;
+	}
+
+	public void setDownstate(String downstate) {
+		this.downstate = downstate;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public int getNvn() {
+		return nvn;
+	}
+
+	public void setNvn(int nvn) {
+		this.nvn = nvn;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+}

@@ -1,0 +1,401 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/item
+END
+SfSceneBjAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/SfSceneBjAction.java
+END
+AdOfficeToAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdOfficeToAction.java
+END
+ToAdElevaAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToAdElevaAction.java
+END
+ToProgramDllAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/item/ToProgramDllAction.java
+END
+AdImageGrouptoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdImageGrouptoAction.java
+END
+ToMakePageAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToMakePageAction.java
+END
+ToMediaAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToMediaAction.java
+END
+ToItemSeeSucaiAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/item/ToItemSeeSucaiAction.java
+END
+SaveSubSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/SaveSubSceneAction.java
+END
+ItemEditHistoryAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ItemEditHistoryAction.java
+END
+ToAdScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToAdScreenAction.java
+END
+ToItemSeeSucaiAjaxAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToItemSeeSucaiAjaxAction.java
+END
+ToInteractGroupDocumentAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToInteractGroupDocumentAction.java
+END
+UpCallXmlAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/item/UpCallXmlAction.java
+END
+AdTimetoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdTimetoAction.java
+END
+AdNewTqTo.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdNewTqTo.java
+END
+AdAudiotoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdAudiotoAction.java
+END
+ToSeeItemInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/ToSeeItemInfoAction.java
+END
+ToSceneSubAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/ToSceneSubAction.java
+END
+ToSeeItemListAction1.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToSeeItemListAction1.java
+END
+AjaxGetItemKeyAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/item/AjaxGetItemKeyAction.java
+END
+AdHtmltoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdHtmltoAction.java
+END
+ToCallAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/item/ToCallAction.java
+END
+ToTxtAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToTxtAction.java
+END
+DelItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/DelItemAction.java
+END
+AjaxCheckSceneSubAccountAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/AjaxCheckSceneSubAccountAction.java
+END
+DelItemAjaxAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/DelItemAjaxAction.java
+END
+CopyItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/CopyItemAction.java
+END
+ToSeeItemListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToSeeItemListAction.java
+END
+SeeSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/SeeSceneAction.java
+END
+AdImagetoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/AdImagetoAction.java
+END
+ItemRelatedFileListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ItemRelatedFileListAction.java
+END
+ToDllItemUserAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToDllItemUserAction.java
+END
+CreateCjTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/CreateCjTimeAction.java
+END
+AjaxItemSonZTreeRootAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AjaxItemSonZTreeRootAction.java
+END
+ToDataHlAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToDataHlAction.java
+END
+AlterSceneBjAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AlterSceneBjAction.java
+END
+AdFlashtoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdFlashtoAction.java
+END
+ToAddItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/item/ToAddItemAction.java
+END
+ToItemSetPlayNumberAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToItemSetPlayNumberAction.java
+END
+AdVideotoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/item/AdVideotoAction.java
+END
+ToAdRssAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToAdRssAction.java
+END
+ToCameraTAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToCameraTAction.java
+END
+ClientPlayInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ClientPlayInfoAction.java
+END
+AjaxItemZTreeRootAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AjaxItemZTreeRootAction.java
+END
+ToClientYxItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToClientYxItemAction.java
+END
+ReturnMainAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/item/ReturnMainAction.java
+END
+ToQueueAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToQueueAction.java
+END
+ItemToAddSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/ItemToAddSceneAction.java
+END
+ToAdTqAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToAdTqAction.java
+END
+ToInteractGroupTouchAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToInteractGroupTouchAction.java
+END
+ItemUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ItemUtil.java
+END
+ToCodeTAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToCodeTAction.java
+END
+ToTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToTimeAction.java
+END
+EditItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/EditItemAction.java
+END
+ItemEditHistory.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ItemEditHistory.xml
+END
+ToHtmlAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/item/ToHtmlAction.java
+END
+SaveSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/item/SaveSceneAction.java
+END
+ToItemDataSourceAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToItemDataSourceAction.java
+END
+Item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/Item.xml
+END
+ToItemDataSourceAjaxAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToItemDataSourceAjaxAction.java
+END
+AjaxToSeeItemListMobileAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/item/AjaxToSeeItemListMobileAction.java
+END
+AdTxttoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/AdTxttoAction.java
+END
+CreateHlShowAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/CreateHlShowAction.java
+END
+ToBusAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/ToBusAction.java
+END
+ToSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/ToSceneAction.java
+END

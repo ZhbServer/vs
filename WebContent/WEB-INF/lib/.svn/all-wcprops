@@ -1,0 +1,449 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib
+END
+vsjsp.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/vsjsp.jar
+END
+jakarta-oro.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jakarta-oro.jar
+END
+wx-1.0-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/wx-1.0-sources.jar
+END
+xstream-1.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/xstream-1.2.2.jar
+END
+htmlparser.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/htmlparser.jar
+END
+ant.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/ant.jar
+END
+jurt-2.3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jurt-2.3.0.jar
+END
+unoil-3.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/unoil-3.0.1.jar
+END
+freemarker.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/freemarker.jar
+END
+swtgraphics2d.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/swtgraphics2d.jar
+END
+jcommon-1.0.17.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jcommon-1.0.17.jar
+END
+jfreechart-1.0.14-experimental.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jfreechart-1.0.14-experimental.jar
+END
+json-lib-2.2.2-jdk15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/json-lib-2.2.2-jdk15.jar
+END
+jdom.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jdom.jar
+END
+commons-fileupload-1.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-fileupload-1.2.1.jar
+END
+servlet-api.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/servlet-api.jar
+END
+filterbuilder.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/filterbuilder.jar
+END
+jxl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jxl.jar
+END
+iText-2.1.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/iText-2.1.5.jar
+END
+ognl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/ognl.jar
+END
+PDFRenderer.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/PDFRenderer.jar
+END
+log4j-1.2.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/log4j-1.2.15.jar
+END
+jodconverter-2.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jodconverter-2.2.1.jar
+END
+jodconverter-2.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/jodconverter-2.2.2.jar
+END
+aspose.slides-15.9.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/aspose.slides-15.9.0.jar
+END
+xwork.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/xwork.jar
+END
+sitecapturer.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/sitecapturer.jar
+END
+poi-3.17.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/poi-3.17.jar
+END
+rife-continuations.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/rife-continuations.jar
+END
+juh-3.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/juh-3.0.1.jar
+END
+mysql-connector-java-5.1.6-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/mysql-connector-java-5.1.6-bin.jar
+END
+commons-collections-3.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-collections-3.2.jar
+END
+ridl-2.3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/ridl-2.3.0.jar
+END
+wx-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/wx-1.0.jar
+END
+rome-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/rome-1.0.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-logging.jar
+END
+gson-2.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/gson-2.2.2.jar
+END
+fontbox-2.0.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/fontbox-2.0.2.jar
+END
+thumbnailator-0.4.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/thumbnailator-0.4.7.jar
+END
+jacob.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jacob.jar
+END
+httpclient-4.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/httpclient-4.2.1.jar
+END
+commons-io-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-io-1.4.jar
+END
+jurt-3.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/jurt-3.0.1.jar
+END
+webwork-2.2.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/webwork-2.2.6.jar
+END
+unoil-2.3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/unoil-2.3.0.jar
+END
+aspose-diagram-17.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/aspose-diagram-17.8.jar
+END
+aspose-words-16.4.0-jdk16.jar
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/aspose-words-16.4.0-jdk16.jar
+END
+httpcore-4.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/httpcore-4.2.1.jar
+END
+thumbelina.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/thumbelina.jar
+END
+oscore.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/oscore.jar
+END
+ibatis-2.3.0.677.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/ibatis-2.3.0.677.jar
+END
+jfreechart-1.0.14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jfreechart-1.0.14.jar
+END
+portlet-api.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/portlet-api.jar
+END
+aspose-cells-8.5.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/aspose-cells-8.5.2.jar
+END
+htmllexer.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/htmllexer.jar
+END
+jodconverter-cli-2.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jodconverter-cli-2.2.1.jar
+END
+jfreechart-1.0.14-swt.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jfreechart-1.0.14-swt.jar
+END
+json.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/json.jar
+END
+commons-cli-1.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-cli-1.0.jar
+END
+pdfbox-2.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/pdfbox-2.0.4.jar
+END
+ezmorph-1.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/ezmorph-1.0.4.jar
+END
+netty-all-4.0.32.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/netty-all-4.0.32.Final.jar
+END
+commons-httpclient-3.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-httpclient-3.0.1.jar
+END
+juh-2.3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/juh-2.3.0.jar
+END
+xfire-all-1.2.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/xfire-all-1.2.6.jar
+END
+commons-codec-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-codec-1.4.jar
+END
+ridl-3.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/ridl-3.0.1.jar
+END
+javax.websocket-api-1.0-rc4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/WebContent/WEB-INF/lib/javax.websocket-api-1.0-rc4.jar
+END
+slf4j-api-1.4.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/slf4j-api-1.4.3.jar
+END
+commons-lang-2.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-lang-2.4.jar
+END
+slf4j-jdk14-1.4.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/slf4j-jdk14-1.4.3.jar
+END
+commons-beanutils-1.7.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/commons-beanutils-1.7.0.jar
+END
+wx-1.0-jar-with-dependencies.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/WEB-INF/lib/wx-1.0-jar-with-dependencies.jar
+END
+jsoup-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/WEB-INF/lib/jsoup-1.6.1.jar
+END

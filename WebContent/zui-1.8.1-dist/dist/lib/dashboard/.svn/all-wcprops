@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/dashboard
+END
+zui.dashboard.css
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/dashboard/zui.dashboard.css
+END
+zui.dashboard.min.css
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/dashboard/zui.dashboard.min.css
+END
+zui.dashboard.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/dashboard/zui.dashboard.js
+END
+zui.dashboard.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/zui-1.8.1-dist/dist/lib/dashboard/zui.dashboard.min.js
+END

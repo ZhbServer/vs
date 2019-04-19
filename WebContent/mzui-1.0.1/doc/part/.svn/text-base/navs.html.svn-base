@@ -1,0 +1,250 @@
+<div class="section">
+  <div class="heading">
+    <div class="title"><strong>基本用法</strong></div>
+  </div>
+  <div class="box">
+    <p class="space-sm">在 <code>.nav</code> 直接包含 <code>a</code> 或 <code>.btn</code> 作为导航条目即可。</p>
+    <p class="space-sm">导航的选中项目标记为 <code>.active</code>。</p>
+    <p class="space-sm">当导航的水平方向无法显示完所有导航条目时，则允许在水平滚动浏览所有导航条目。</p>
+    <div class="box outline">
+      <nav class="nav">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+      </nav>
+    </div>
+    <pre>
+<code>&lt;nav class=&quot;nav&quot;&gt;
+  &lt;a&gt;&lt;i class=&quot;icon-home&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;a&gt;&#x4ea7;&#x54c1;&lt;/a&gt;
+  ...
+&lt;/nav&gt;</code></pre>
+  </div>
+</div>
+
+<div class="section">
+  <div class="heading">
+    <div class="title"><strong>固定导航</strong></div>
+  </div>
+  <div class="box">
+    <p>导航作为应用全局导航条，通常需要固定在页面顶部或底部。在 <code>&lt;body&gt;</code> 或 <code>.page</code> 上使用辅助类 <code>.with-nav-top</code> 或 <code>.with-nav-bottom</code>，并在 <code>.nav</code> 上使用辅助类 <code>.affix.dock-top</code> 或 <code>.affix.dock-bottom</code>。</p>
+  </div>
+  <pre class="prettyprint"><code><span class="muted">// &#x56fa;&#x5b9a;&#x5728;&#x9876;&#x90e8;</span>
+&lt;body class=&quot;<em>with-nav-top</em>&quot;&gt;
+  &lt;nav class=&quot;<em>nav affix dock-top</em>&quot;&gt;
+    ...
+  &lt;/nav&gt;
+&lt;/body&gt;</code></pre>
+  <pre class="prettyprint"><code><span class="muted">// 固定在底部</span>
+&lt;body class=&quot;<em>with-nav-bottom</em>&quot;&gt;
+  &lt;nav class=&quot;<em>nav affix dock-bottom</em>&quot;&gt;
+    ...
+  &lt;/nav&gt;
+&lt;/body&gt;</code></pre>
+  <div class="box">
+    <p>在同一个页面可以同时将两个应用导航条分别固定顶部和底部。</p>
+  </div>
+  <pre class="prettyprint"><code><span class="muted">// 固定在顶部和底部</span>
+&lt;body class=&quot;<em>with-nav-top with-nav-bottom</em>&quot;&gt;
+  &lt;nav class=&quot;<em>nav affix dock-top</em>&quot;&gt;
+    ...
+  &lt;/nav&gt;
+  ...
+  &lt;nav class=&quot;<em>nav affix dock-bottom</em>&quot;&gt;
+    ...
+  &lt;/nav&gt;
+&lt;/body&gt;</code></pre>
+  <div class="box">
+    <p>当应用导航条固定时，可以为 <code>.nav.affix</code> 使用 <code>.dock-auto</code> 来让固定的应用导航条响应页面滚动事件并在合适的时候自动隐藏和显示。</p>
+  </div>
+  <pre class="prettyprint"><code><span class="muted">// 固定在顶部和底部并自动显示或隐藏</span>
+&lt;body class=&quot;with-nav-top with-nav-bottom&quot;&gt;
+  &lt;nav class=&quot;nav affix dock-top <em>dock-auto</em>&quot;&gt;
+    ...
+  &lt;/nav&gt;
+  ...
+  &lt;nav class=&quot;nav affix dock-bottom <em>dock-auto</em>&quot;&gt;
+    ...
+  &lt;/nav&gt;
+&lt;/body&gt;</code></pre>
+</div>
+
+<div class="section">
+  <div class="heading">
+    <div class="title"><strong>着色</strong></div>
+  </div>
+  <div class="box">
+    <p class="space-sm">使用外观选项的着色辅助类为导航着色。</p>
+    <p class="space-sm"><code>.nav.primary</code></p>
+    <div class="box outline space">
+      <nav class="nav primary">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+      </nav>
+    </div>
+    <p class="space-sm"><code>.nav.gray</code></p>
+    <div class="box outline space">
+      <nav class="nav gray">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+      </nav>
+    </div>
+    <p class="space-sm"><code>.nav.dark</code></p>
+    <div class="box outline space">
+      <nav class="nav dark">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="heading">
+    <div class="title"><strong>次要导航</strong></div>
+  </div>
+  <div class="box">
+    <p class="space-sm">使用 <code>.nav-secondary</code>，为一个着色后的导航应用次要导航外观。</p>
+    <div class="box outline space">
+      <nav class="nav primary nav-secondary space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+      <nav class="nav dark nav-secondary space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+      <nav class="nav primary-pale nav-secondary space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="heading">
+    <div class="title"><strong>自适应</strong></div>
+  </div>
+  <div class="box">
+    <p class="space-sm">使用 <code>.justified</code>，让导航为项目自动分配空间。</p>
+    <div class="box outline space">
+      <nav class="nav primary justified">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+      </nav>
+      <hr class="space">
+      <nav class="nav gray justified">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+      </nav>
+      <hr class="space">
+      <nav class="nav dark justified">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="heading">
+    <div class="title"><strong>轮廓外观</strong></div>
+  </div>
+  <div class="box">
+    <p class="space-sm">使用 <code>.outline</code>，为一个着色后的导航应用轮廓外观。</p>
+    <div class="box outline space">
+      <nav class="nav primary outline justified space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+      <nav class="nav dark outline justified space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+      <nav class="nav red outline rounded justified space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+      <nav class="nav success outline circle justified space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="heading">
+    <div class="title"><strong>大小</strong></div>
+  </div>
+  <div class="box">
+    <p class="space-sm">使用 <code>.nav-lg</code>，使得导航更高。</p>
+    <div class="box outline space">
+      <nav class="nav nav-lg primary justified space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+    </div>
+    <p class="space-sm">使用 <code>.nav-sm</code>，使得导航更高。</p>
+    <div class="box outline space">
+      <nav class="nav nav-sm primary justified space">
+        <a><i class="icon-home"></i></a>
+        <a class="active">产品</a>
+        <a>项目</a>
+        <a>任务</a>
+        <a>需求</a>
+        <a>测试</a>
+      </nav>
+    </div>
+  </div>
+</div>

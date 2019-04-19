@@ -1,0 +1,63 @@
+package com.vshow.control.count;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import net.sf.json.JSONArray;
+
+public class CountPeopleDetails {
+    private int age;//年龄
+	private int sex;// 性别(1男 2女)
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getSex() {
+		return sex;
+	}
+
+	public void setSex(int sex) {
+		this.sex = sex;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		List<CountPeopleDetails> countPeopleDetailsList = new ArrayList<CountPeopleDetails>();// 统计人数详情
+		
+		CountPeopleDetails cd=new CountPeopleDetails();
+		cd.setAge(15);
+		cd.setSex(1);
+		countPeopleDetailsList.add(cd);
+		
+		
+		CountPeopleDetails cd2=new CountPeopleDetails();
+		cd2.setAge(16);
+		cd2.setSex(2);
+		countPeopleDetailsList.add(cd2);
+		
+		
+		
+		CountPeopleDetails cd3=new CountPeopleDetails();
+		cd3.setAge(25);
+		cd3.setSex(1);
+		countPeopleDetailsList.add(cd3);
+		
+		
+		CountPeopleDetails cd4=new CountPeopleDetails();
+		cd4.setAge(34);
+		cd4.setSex(2);
+		countPeopleDetailsList.add(cd4);
+		
+		JSONArray jsonArray = JSONArray.fromObject(countPeopleDetailsList);
+		System.out.println(jsonArray.toString());
+		
+		
+		
+	}
+}

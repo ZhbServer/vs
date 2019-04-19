@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/test/treasure
+END
+FbTreasureClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/FbTreasureClientAction.java
+END
+TreasureAddAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/TreasureAddAction.java
+END
+ToSeeTreasureInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/ToSeeTreasureInfoAction.java
+END
+RevokedTreasureClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/RevokedTreasureClientAction.java
+END
+AjaxTreasureInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/AjaxTreasureInfoAction.java
+END
+treasure.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/test/treasure/treasure.xml
+END
+DelTreasureListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/DelTreasureListAction.java
+END
+TreasurePlay.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/TreasurePlay.java
+END
+AddTreasureItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/AddTreasureItemAction.java
+END
+TreasureClientListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/TreasureClientListAction.java
+END
+TreasureListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/test/treasure/TreasureListAction.java
+END
+SeeTreasureImg.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/SeeTreasureImg.java
+END
+UpdateTreasureListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/UpdateTreasureListAction.java
+END
+OncheckBanAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/OncheckBanAction.java
+END
+AddTreasureListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/test/treasure/AddTreasureListAction.java
+END

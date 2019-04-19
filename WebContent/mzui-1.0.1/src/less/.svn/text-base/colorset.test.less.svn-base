@@ -1,0 +1,115 @@
+//
+// Colorset
+// --------------------------------------------------
+
+.colorset {
+  .clearfix();
+  padding-bottom: 10*@rem;
+  padding-top: 10*@rem;
+  border-bottom: 1*@rem dashed darken(@color-back, 10%);
+}
+
+.color-tile {
+  display: block;
+  width: 139*@rem;
+  height: 100*@rem;
+  color: #fff;
+  position: relative;
+  float: left;
+  margin-right: 10*@rem;
+  margin-bottom: 10*@rem;
+  border: 1*@rem solid rgba(0, 0, 0, 0.5);
+
+  &:after,
+  &:before {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 24*@rem;
+    line-height: 24*@rem;
+    width: 100%;
+    font-size: 12*@rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+    padding: 0 5*@rem;
+    opacity: .5;
+    .transition-normal();
+  }
+
+  &:after {
+    top: 0;
+    bottom: auto;
+    background-color: transparent;
+    text-align: right;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  &:hover {
+    &:after,
+    &:before {
+      opacity: 1
+    }
+  }
+}
+
+.color(@c) {
+  .colorset .@{c} {
+    .color-tile();
+    border-color: darken(@@c, 10%);
+    background-color: @@c;
+    &:after,
+    &:before {
+      .better-color(@@c);
+    }
+    &:after {
+      content: %("%d", @@c);
+    }
+    &:before {
+      content: %("%s", @c);
+    }
+    &:hover:before {
+      content: %("%s,%d,%a", round(hue(@@c)), round(saturation(@@c)), round(lightness(@@c)));
+    }
+  }
+}
+
+@color-1: lighten(@color-gray-pale, 3%);
+@color-2: #f5f5f5;
+
+.color(color-primary);
+.color(color-secondary);
+.color(color-pale);
+.color(color-fore);
+.color(color-back);
+.color(color-gray-darker);
+.color(color-gray-dark);
+.color(color-gray);
+.color(color-gray-light);
+.color(color-gray-lighter);
+.color(color-gray-pale);
+.color(color-white);
+.color(color-black);
+.color(color-red);
+.color(color-yellow);
+.color(color-green);
+.color(color-blue);
+.color(color-brown);
+.color(color-purple);
+.color(color-light);
+.color(color-dark);
+.color(color-success);
+.color(color-warning);
+.color(color-danger);
+.color(color-info);
+.color(color-important);
+.color(color-special);
+.color(color-success-pale);
+.color(color-warning-pale);
+.color(color-danger-pale);
+.color(color-info-pale);
+.color(color-important-pale);
+.color(color-special-pale);
+.color(color-1);
+.color(color-2);

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen
+END
+GetScreen.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen/GetScreen.java
+END
+ScreenToAciton.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen/ScreenToAciton.java
+END
+DelScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen/DelScreenAction.java
+END
+AddScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen/AddScreenAction.java
+END
+AjaxAllScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen/AjaxAllScreenAction.java
+END
+SeeScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen/SeeScreenAction.java
+END
+Screen.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/screen/Screen.xml
+END

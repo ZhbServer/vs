@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="countsucai">
+	<typeAlias alias="countsucai" type="com.vshow.control.data.CountSucai" />
+
+
+	<insert id="insert_one_countsucai" parameterClass="countsucai">
+	    <![CDATA[
+	     insert into t_count_sucai
+          (itemid,type,sucaiid,count)
+         value 
+         (#itemid#,#type#,#sucaiid#,#count#)
+        ]]>
+	</insert>
+
+	<select id="see_exist_countsucai" parameterClass="countsucai"
+		resultClass="countsucai">
+		<![CDATA[
+		   SELECT id,itemid,type,sucaiid,count FROM t_count_sucai t where sucaiid=#sucaiid# and itemid=#itemid#
+		]]>
+	</select>
+
+	<update id="upd_countsucai" parameterClass="countsucai">
+	    <![CDATA[
+	      UPDATE t_count_sucai t SET 
+	      count=#count#
+	      where id=#id# 
+	    ]]>
+	</update>
+
+	<delete id="del_countsucai_itemid" parameterClass="java.lang.Integer">
+       <![CDATA[
+	       DELETE FROM t_count_sucai
+	       WHERE itemid=#itmeid#;
+        ]]>
+	</delete>
+
+	<delete id="del_countsucai_sucaiid" parameterClass="java.lang.Integer">
+       <![CDATA[
+	       DELETE FROM t_count_sucai
+	       WHERE sucaiid=#sucaiid#;
+        ]]>
+	</delete>
+
+	<select id="get_count_sucai" resultClass="countsucai"
+		parameterClass="map">  
+        <![CDATA[  
+           select 
+           t_sucai.name as scname,
+           t_sucai.filename as scfilename,
+           t_count_sucai.count as count,
+           t_count_sucai.itemid,
+           t_sucai.sdate as scdate
+           from t_count_sucai,t_sucai where
+           t_count_sucai.sucaiid=t_sucai.id and 
+           t_count_sucai.type=#type# and
+           t_count_sucai.itemid in
+           (   
+	           select 
+	           t_count_client.itemid
+	           FROM t_count_client,t_item,t_client 
+	           where t_count_client.itemid=t_item.id and t_count_client.clientid=t_client.id
+	           and  clientid in ($clientid$) and thendate>=#sdate# and thendate<=#edate# 
+           )
+           order by t_count_sucai.id
+           limit #startid#,9  
+        ]]>
+	</select>
+
+	<select id="get_count_sucai_count" resultClass="java.lang.Integer"
+		parameterClass="map">  
+        <![CDATA[  
+           select 
+           count(*)
+           from t_count_sucai,t_sucai where
+           t_count_sucai.sucaiid=t_sucai.id and 
+           t_count_sucai.itemid=t_count_client.itemid and
+           t_count_sucai.type=#type# and
+           t_count_sucai.itemid in
+           (   
+	           select 
+	           t_count_client.itemid
+	           FROM t_count_client,t_item,t_client 
+	           where t_count_client.itemid=t_item.id and t_count_client.clientid=t_client.id
+	           and  clientid in ($clientid$) and thendate>=#sdate# and thendate<=#edate# 
+           ) 
+        ]]>
+	</select>
+	<select id="see_count_sucai_count" parameterClass="map"
+		resultClass="java.lang.Integer">
+		<![CDATA[
+		   SELECT count FROM t_count_sucai t where sucaiid=#sucaiid# and itemid=#itemid#
+		]]>
+	</select>
+	
+	<select id="see_count_order" parameterClass="map"
+		resultClass="java.lang.Integer">
+		<![CDATA[
+		   SELECT sum(count) FROM t_count_sucai t where itemid=#itemid# and type=#type#;
+		]]>
+	</select>
+	
+	
+
+</sqlMap>
+    

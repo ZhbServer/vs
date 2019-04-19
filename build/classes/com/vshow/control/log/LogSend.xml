@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="LogSend">
+
+	<typeAlias alias="logsend" type="com.vshow.control.data.Log" />
+	
+	<insert id="add_log_send" parameterClass="logsend">
+	   <![CDATA[ 
+		insert into t_log_send
+		(sdate,content,userid,sendkey,stype,ocheck)
+		value
+		(#sdate#,#content#,#urid#,#sendkey#,#stype#,#ocheck#)
+		]]>
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_log_send  limit 1
+        </selectKey>
+    </insert>
+    
+    
+    <select id="sel_log_send_by_id_sendkey" parameterClass="java.lang.String"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	      select
+	      id
+	      from t_log_send
+	      where sendkey=#sendkey#
+	    ]]>
+	</select>
+	
+	
+	<update id="upd_log_send_msg" parameterClass="logsend">
+	    <![CDATA[
+           UPDATE t_log_send t SET 
+           msg=#msg#
+           where sendkey=#sendkey#  
+         ]]> 
+	</update>
+	
+	
+	
+	<select id="sel_log_send_all" parameterClass="logsend"  resultClass="logsend">
+	    <![CDATA[
+	       SELECT t_log_send.id,t_log_send.sdate,t_log_send.content,t_user.name as uname FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%' 
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_log_send_all_count" parameterClass="logsend"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(t_log_send.id) FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%' 	     
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_log_send_uname_all" parameterClass="logsend"  resultClass="logsend">
+	    <![CDATA[
+	       SELECT t_log_send.id,t_log_send.sdate,t_log_send.content,t_user.name as uname FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%'
+	       and t_user.name like '%$uname$%' 
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_log_send_uname_all_count" parameterClass="logsend"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(t_log_send.id) FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%'
+	       and t_user.name like '%$uname$%'  	     
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_log_send_ocheck_by_id" parameterClass="java.lang.Integer"  resultClass="logsend">
+	    <![CDATA[
+	       select * from t_log_send where ocheck=#ocheck# 	     
+	    ]]>
+	</select>
+	
+	
+	
+	<insert id="add_log_send_history" parameterClass="logsend">
+	   <![CDATA[ 
+		insert into t_log_send_history
+		(sdate,content,userid,sendkey,stype)
+		value
+		(#sdate#,#content#,#urid#,#sendkey#,#stype#)
+		]]>
+    </insert>
+    
+    <delete id="del_log_send_id" parameterClass="java.lang.Integer">
+	   <![CDATA[
+		delete
+		from t_log_send where id=#id#
+	  ]]>
+    </delete>
+    
+    
+     <select id="get_log_send_ocheck" resultClass="logsend"
+		parameterClass="java.lang.Integer">
+    <![CDATA[
+      select
+      *
+      from t_log_send
+      where id=(select logid from t_result where id=#id#);
+    ]]>
+	</select>
+    
+    
+    
+    <select id="sel_log_send_all_id" parameterClass="java.lang.Integer"  resultClass="logsend">
+	    <![CDATA[
+	      select * from t_log_send where id=#id#     
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_log_send_stype_all" parameterClass="logsend"  resultClass="logsend">
+	    <![CDATA[
+	       SELECT t_log_send.id,t_log_send.sdate,t_log_send.content,t_user.name as uname FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_log_send.stype=#stype#
+	       and t_user.tkey like '%$tkey$%' 
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_log_send_stype_all_count" parameterClass="logsend"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(t_log_send.id) FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_log_send.stype=#stype#
+	       and t_user.tkey like '%$tkey$%' 
+	      
+	    ]]>
+	</select>
+	
+	
+	
+	<select id="sel_log_send_uname_stype_all" parameterClass="logsend"  resultClass="logsend">
+	    <![CDATA[
+	       SELECT t_log_send.id,t_log_send.sdate,t_log_send.content,t_user.name as uname FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%'
+	       and t_user.name like '%$uname$%'
+	       and t_log_send.stype=#stype#
+	       order by id DESC 
+	       limit #startid#,#pagetype#
+	    ]]>
+	</select>
+	
+	<select id="sel_log_send_uname_stype_all_count" parameterClass="logsend"  resultClass="java.lang.Integer">
+	    <![CDATA[
+	       SELECT count(t_log_send.id) FROM 
+	       t_log_send,t_user 
+	       where t_log_send.userid=t_user.id 
+	       and t_user.tkey like '%$tkey$%'
+	       and t_user.name like '%$uname$%'
+	       and t_log_send.stype=#stype#  	     
+	    ]]>
+	</select>
+	
+	
+	
+	 <select id="sel_log_send_all_pro"  resultClass="logsend"  parameterClass="java.lang.Integer">
+	    <![CDATA[
+	      select
+	      *
+	      from t_log_send
+	      where id=#id#
+	    ]]>
+	</select>
+	
+	
+	 <select id="sel_log_send_content_sendkey"  resultClass="java.lang.String"  parameterClass="java.lang.String">
+	    <![CDATA[
+	      select
+	      content
+	      from t_log_send
+	      where sendkey=#sendkey#
+	    ]]>
+	</select>
+	
+	
+	  
+   <select id="sel_all_logs_send_sel" parameterClass="java.lang.String" resultClass="logsend">
+		 <![CDATA[
+		  SELECT t_log_send.id,t_log_send.sdate,t_log_send.content,t_user.name as uname FROM 
+	      t_log_send,t_user 
+	      where t_log_send.userid=t_user.id 
+	      and t_log_send.id in ($idstr$)
+	      order by id DESC 
+		]]> 
+   </select>
+   
+	
+	
+</sqlMap>
+    

@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys
+END
+ApiConNoverTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiConNoverTimeAction.java
+END
+ApiVolSetAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiVolSetAction.java
+END
+ApiTouchSpaceTimeAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiTouchSpaceTimeAction.java
+END
+ApiResendAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiResendAction.java
+END
+ApiNewDsAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiNewDsAction.java
+END
+ApiUpClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiUpClientAction.java
+END
+ApiDownSetAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiDownSetAction.java
+END
+ApiRestartAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiRestartAction.java
+END
+ApiTimeWriteInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiTimeWriteInfoAction.java
+END
+ApiClientPwdAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiClientPwdAction.java
+END
+ApiClientInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiClientInfoAction.java
+END
+ApiRouseAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiRouseAction.java
+END
+ApiBanClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiBanClientAction.java
+END
+ApiUpNoItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiUpNoItemAction.java
+END
+ApiStandByAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiStandByAction.java
+END
+ApiSelResultLastAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/client/sys/ApiSelResultLastAction.java
+END

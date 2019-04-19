@@ -1,0 +1,21 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 28
+/svn/vs_server_6.1/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/vs_server_6.1/!svn/ver/28/trunk/vs
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/.classpath
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/.project
+END

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="noticejhrelation">
+
+	
+	<typeAlias alias="njr" type="com.vshow.control.data.NoticeJhRelation" />
+	
+     
+	<insert id="insert_one_noticejh_relation" parameterClass="njr">
+		 <![CDATA[
+			insert
+			into 
+			t_notice_jh_relation
+			(nid,jid)
+			values
+			(#nid#,#jid#);
+		]]>
+		 <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_notice_jh_relation  limit 1
+        </selectKey>
+	</insert>
+	
+	<delete id="del_one_noticejh_relation" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_notice_jh_relation
+      where jid =#id#;
+    ]]>
+	</delete>
+	
+	<delete id="del_one_noticejh_relation_nid" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_notice_jh_relation
+      where nid =#nid#;
+    ]]>
+	</delete>
+</sqlMap>
+    

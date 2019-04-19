@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+
+
+    <typeAlias alias="user" type="com.vshow.control.data.User" />
+    <typeAlias alias="power" type="com.vshow.control.data.Power" />
+    <typeAlias alias="usertree" type="com.vshow.control.data.UserTree" />
+    <typeAlias alias="userToken" type="com.vshow.control.data.UserToken" />
+    
+    <select id="sel_login" parameterClass="user" resultClass="java.lang.String">
+	    <![CDATA[    
+			select 
+			t_user.id as userid,
+			t_user.name as username,
+			t_user.account as account,
+			t_user.ocheck,
+			t_user.tkey as usertkey,
+			t_power.seesucai,
+			t_power.addsucai,
+			t_power.delsucai,
+			t_power.publicitem,
+			t_power.publicsucai,
+			t_power.seeitem,
+			t_power.additem,
+			t_power.delitem,
+			t_power.itemsend,
+			t_power.listsend,
+			t_power.insertsend,
+			t_power.dpsend,
+			t_power.downmanager,
+			t_power.clientset,
+			t_power.delitem,
+			t_power.clearclient,
+			t_power.noticesend,
+			t_power.onoffset,
+			t_power.groupmanager,
+			t_power.parameterset,
+			t_power.serverip,
+			t_power.usermanager,
+			t_power.powermanager,
+			t_power.sysset,
+			t_power.userlog,
+			t_power.clientlog,
+			t_power.statistical,
+			t_power.checksend,
+			t_power.checkitem,
+			t_power.size,
+			t_power.uid			
+			from t_user,t_power
+			where t_user.account=#account#      
+			and t_user.password=#password#
+			and t_user.powerid=t_power.id
+	     ]]>
+	</select>
+	
+    <select id="sel_user_id_powerid" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[    
+	         SELECT id FROM t_user where powerid=#powerid#
+		 ]]>
+    </select>
+    
+    <update id="update_user_powerid" parameterClass="java.lang.Integer">    
+		<![CDATA[
+		      update t_user set powerid=0 where id=#id#     
+		 ]]>
+	</update>
+	
+	<select id="sel_users_tkey" parameterClass="user"  resultClass="user">    
+	<![CDATA[    
+	select 
+	*
+	from t_user
+ 	where tkey like '%$tkey$%' and id!=#id# order by id 
+	]]>
+	</select>
+	
+	<select id="sel_users_tkey_tree" parameterClass="user"  resultClass="usertree">    
+	<![CDATA[    
+	select 
+	id,name,fatherid as pid
+	from t_user
+ 	where fatherid =#id# and id!=#id# order by id 
+	]]>
+	</select>
+	
+	<select id="sel_users_tkey_page" parameterClass="user"  resultClass="user">    
+	<![CDATA[    
+	select 
+	*
+	from t_user
+ 	where id!=#id# order by id 
+ 	limit #startid#,#pagetype#
+	]]>
+	</select>
+	
+	<select id="sel_users_tkey_page_count" parameterClass="user"  resultClass="java.lang.Integer">    
+	<![CDATA[    
+	select 
+	count(*)
+	from t_user
+ 	where id!=#id# order by id 
+	]]>
+	</select>
+	
+		<select id="sel_users_all_page" parameterClass="user"  resultClass="user">    
+	<![CDATA[    
+	select 
+	*
+	from t_user
+ 	where id!=#id# order by id 
+ 	limit #startid#,#pagetype#
+	]]>
+	</select>
+	
+	<select id="sel_users_all_page_count" parameterClass="user"  resultClass="java.lang.Integer">    
+	<![CDATA[    
+	select 
+	count(*)
+	from t_user
+ 	where id!=#id# order by id 
+	]]>
+	</select>
+	
+     <select id="sel_user_name_id"  parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[    
+	         SELECT name FROM t_user where id=#id#
+		 ]]>
+    </select>
+    
+    
+    <insert id="adduser" parameterClass="user">    
+		<![CDATA[    
+		     insert into t_user
+			  (account,phone,email,name,password,fatherid,powerid,ocheck)
+			     values
+			  (#account#,#phone#,#email#,#name#,#password#,#fatherid#,#powerid#,#ocheck#)
+		]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	               select last_insert_id() as id from  t_user  limit 1
+	          ]]>
+        </selectKey>
+        
+	</insert>
+	
+	
+	
+	 <insert id="adduser2" parameterClass="user">    
+		<![CDATA[    
+		     insert into t_user
+			  (account,phone,email,name,password,fatherid,powerid,ocheck,jhocheck)
+			     values
+			  (#account#,#phone#,#email#,#name#,#password#,#fatherid#,#powerid#,#ocheck#,#jhocheck#)
+		]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	               select last_insert_id() as id from  t_user  limit 1
+	          ]]>
+        </selectKey>
+        
+	</insert>
+	
+	
+	
+	<select id="sel_user_all_id" parameterClass="java.lang.Integer" resultClass="user">    
+			<![CDATA[    
+			select 
+			*
+			from t_user
+			where id=#id#
+		    ]]>
+	</select>
+	
+	<select id="sel_user_all_account" parameterClass="java.lang.String" resultClass="user">    
+		<![CDATA[    
+		 select  * from t_user where account=#account#
+	    ]]>
+	</select>
+    
+    <update id="up_user_tkey" parameterClass="user">    
+	<![CDATA[    
+	update t_user set tkey=#tkey#
+	where id=#id#
+    ]]>
+	</update>
+	
+	
+	<select id="sel_user_check_account" parameterClass="java.lang.String" resultClass="java.lang.String">    
+			<![CDATA[    
+			   SELECT account from t_user where account =#account#
+		    ]]>
+	</select>
+	
+	
+	<select id="sel_user_son_list1" parameterClass="java.lang.Integer" resultClass="user">    
+			<![CDATA[    
+			   select tu.id,tu.account,tu.name,tu.ban,tp.name as powername from t_user AS tu LEFT JOIN t_power tp ON tu.powerid=tp.id where tu.fatherid=#fatherid#
+		    ]]>
+	</select>
+	
+	
+	<update id="up_user_property" parameterClass="user">    
+	<![CDATA[    
+	  update t_user set name=#name#,phone=#phone#,email=#email#,powerid=#powerid#,ocheck=#ocheck#,ban=#ban#,password=#password#
+	  where id=#id#
+    ]]>
+	</update>
+	
+	
+	<update id="up_user_pwd" parameterClass="user">    
+		<![CDATA[    
+		update t_user set password=#password# 
+		where id=#id#
+	    ]]>
+	</update>
+	
+	<!-- ApiSelSubUserAction -->
+	<select id="api_sel_sub_user_list" parameterClass="java.lang.Integer" resultClass="user">    
+			<![CDATA[    
+			   select * from t_user where fatherid=#fatherid#
+		    ]]>
+	</select>
+	
+	
+	<select id="sel_check_user_login" parameterClass="user" resultClass="user">    
+			<![CDATA[    
+			   SELECT * from t_user where account =#account# and password =#password#
+		    ]]>
+	</select>
+	
+	
+	<delete id="del_user" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	         delete from t_user where id=#id#
+	    ]]>
+	</delete>
+	
+	
+	<select id="sel_users_tkey_self" parameterClass="java.lang.String"  resultClass="user">    
+		<![CDATA[    
+		select 
+		*
+		from t_user
+	 	where tkey like '%$tkey$%'
+		]]>
+	</select>
+	
+	
+	
+	<delete id="del_user_client" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            DELETE tu.* ,tc.* ,tcg.*,tcgr.uid
+				
+				FROM t_user tu
+			    
+			    LEFT JOIN t_client tc
+				ON tu.id = tc.uid
+				
+				LEFT JOIN t_client_group tcg
+				ON tu.id = tcg.uid
+				
+				LEFT JOIN t_client_group_relation tcgr
+				ON tu.id = tcgr.uid
+				
+				WHERE tu.id = #uid#
+	    ]]>
+	</delete>
+	
+	
+	<delete id="del_user_notice" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            DELETE tn.* 
+				
+				FROM t_notice tn
+			    
+			    WHERE tn.urid = #uid#
+	    ]]>
+	</delete>
+	
+	
+	
+	<delete id="del_user_sucai_group" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            
+	            DELETE tsg.* ,tsgr.* 
+				
+				FROM t_sucai_group tsg
+			    
+			    LEFT JOIN t_sucai_group_relation tsgr
+			    
+				ON tsg.id = tsgr.scgroupid
+				
+				where tsg.userid=#userid#
+				
+				
+	    ]]>
+	</delete>
+	
+	
+	
+	<delete id="del_user_client_group" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            
+	            DELETE 
+				
+				FROM t_client_group 
+				
+				where uid=#uid#
+				
+				
+	    ]]>
+	</delete>
+	
+	
+	<delete id="del_user_client_group_relation" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            
+	            DELETE 
+				
+				FROM t_client_group_relation 
+				
+				where uid=#uid#
+				
+				
+	    ]]>
+	</delete>
+	
+	
+	
+	
+	<delete id="del_user_item_group" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            
+	            DELETE tig.* ,tigr.* 
+				
+				FROM t_item_group tig
+			    
+			    LEFT JOIN t_item_group_relation tigr
+			    
+				ON tig.id = tigr.itemgroupid
+				
+				where tig.uid=#uid#
+				
+				
+	    ]]>
+	</delete>
+	
+	
+	
+	<delete id="del_user_interactItem_group" parameterClass="java.lang.Integer" >
+	    <![CDATA[
+	            
+	            DELETE tiig.* ,tiigr.* 
+				
+				FROM t_interact_item_group tiig
+			    
+			    LEFT JOIN t_interact_item_group_relation tiigr
+			    
+				ON tiig.id = tiigr.itemgroupid
+				
+				where tiig.uid=#uid#
+		
+	    ]]>
+	</delete>
+	
+	
+	
+	
+	<select id="sel_user_son_list1_account" parameterClass="user" resultClass="user">    
+			<![CDATA[    
+			   select tu.id,tu.account,tu.name,tu.ban,tp.name as powername from t_user AS tu LEFT JOIN t_power tp ON tu.powerid=tp.id 
+			   
+			   where tu.fatherid=#fatherid# and tu.account like '%$account$%' 
+		    ]]>
+	</select>
+	
+	
+	<select id="sel_user_son_list1_name" parameterClass="user" resultClass="user">    
+			<![CDATA[    
+			   select tu.id,tu.account,tu.name,tu.ban,tp.name as powername from t_user AS tu LEFT JOIN t_power tp ON tu.powerid=tp.id 
+			   
+			   where tu.fatherid=#fatherid# and tu.name like '%$name$%' 
+		    ]]>
+	</select>
+	
+	
+	<update id="up_user_property_up" parameterClass="user">    
+		<![CDATA[    
+		  update t_user set name=#name#,phone=#phone#,email=#email#,powerid=#powerid#,ocheck=#ocheck#,ban=#ban#
+		  where id=#id#
+	    ]]>
+	</update>
+	
+	
+	<update id="up_user_property_up2" parameterClass="user">    
+		<![CDATA[    
+		  update t_user set name=#name#,phone=#phone#,email=#email#,powerid=#powerid#,ocheck=#ocheck#,ban=#ban#,jhocheck=#jhocheck#
+		  where id=#id#
+	    ]]>
+	</update>
+	
+	
+	
+	<select id="sel_users_like_name" parameterClass="user"  resultClass="user">    
+		<![CDATA[    
+		select 
+		*
+		from t_user
+	 	where name like '%$name$%' and tkey like '%$tkey$%'  limit 0,1 
+		]]>
+	</select>
+	
+	
+	
+	<update id="update_user_ban" parameterClass="java.lang.String">    
+		<![CDATA[
+		      update t_user set ban=1 where account=#account#     
+		 ]]>
+	</update>
+	
+	
+	 <select id="sel_user_token"  parameterClass="java.lang.String"  resultClass="java.lang.String">    
+		<![CDATA[    
+		  select token from t_user_token
+	 	   where 
+	 	    account=(
+	 	       select account from t_user where account=#account# and ban=0
+	 	    )
+		]]>
+	  </select>
+	  
+	  
+	   <insert id="ad_user_token" parameterClass="userToken">    
+		<![CDATA[    
+		     insert into t_user_token
+			  (token,account,create_time,last_edit_time)
+			     values
+			  (#token#,#account#,#create_time#,#last_edit_time#)
+		]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	               select last_insert_id() as id from  t_user_token  limit 1
+	          ]]>
+        </selectKey>
+        
+	</insert>
+	
+	
+	
+	<select id="sel_token_user"  parameterClass="java.lang.String"  resultClass="java.lang.String">    
+		<![CDATA[    
+		  select account from t_user_token where token=#token#
+		]]>
+	  </select>
+	  
+	  
+	  
+	   <insert id="adduserimprot" parameterClass="user">    
+		<![CDATA[    
+		     insert into t_user
+			  (account,password,name,fatherid,powerid,ocheck,jhocheck,ban)
+			     values
+			  (#account#,#password#,#name#,#fatherid#,#powerid#,#ocheck#,#jhocheck#,#ban#)
+		]]>
+		
+		<selectKey resultClass="java.lang.Integer" keyProperty="id">
+			  <![CDATA[
+	               select last_insert_id() as id from  t_user  limit 1
+	          ]]>
+        </selectKey>
+        
+	</insert>
+		<select id="sel_user_import" parameterClass="user"
+		resultClass="user">    
+		<![CDATA[    
+		select t_user.id, t_user.account ,t_user.name,t_user.password ,t_user.powerid,t_power.name as powername
+		from t_user 
+		LEFT JOIN t_power  ON t_user.powerid=t_power.id 
+		where t_user.tkey like CONCAT('%', #id#, '_%')
+		]]>
+	</select>
+	  
+	  
+	 
+	
+	
+	
+</sqlMap>
+    

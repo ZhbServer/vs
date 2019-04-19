@@ -1,0 +1,209 @@
+package com.vshow.control.statics;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.ActionContext;
+import com.vshow.control.data.Client;
+import com.vshow.control.data.ClientGroup;
+import com.vshow.control.data.ClientGroupRelation;
+import com.vshow.control.data.Log;
+import com.vshow.control.data.Pages;
+import com.vshow.control.data.Result;
+import com.vshow.control.data.User;
+import com.vshow.control.tool.Constant;
+import com.vshow.control.tool.SqlConnect;
+
+public class OutZxStatusAction implements Action {
+
+	private String fname;
+	private int type;
+	private int cgid;
+	private String ser; // 查询条件
+	private int sel = 0; // 查询编号 (0全部,1终端名,2ip,3标识mark)
+	private String orderv = "id"; // 排序方式
+
+	@SuppressWarnings("unchecked")
+	public String execute() throws Exception {
+		ActionContext ctx = ActionContext.getContext();
+		Map session = ctx.getSession();
+
+		// 获取当前用户
+		int urid = (Integer) ActionContext.getContext().getSession()
+				.get("urid");
+		ClientGroupRelation cgr = new ClientGroupRelation();
+
+		cgr.setGid(cgid);
+		cgr.setUid(urid);
+		cgr.setGtype(type);
+		cgr.setOrderv(orderv);
+
+		ClientGroup tempC = (ClientGroup) SqlConnect.getSqlMapInstance()
+				.queryForObject("sel_cg_id", cgid);
+		if (tempC != null) {
+			cgr.setTkey(tempC.getTkey());
+		}
+
+		List<Client> clients = null;
+
+		if (sel == 0) {
+			if (cgr.getTkey() == null) {
+				if (cgr.getGid() == 0) {
+					clients = (List<Client>) SqlConnect.getSqlMapInstance()
+							.queryForList("sel_client_all_out_page", cgr);
+				} else {
+					clients = (List<Client>) SqlConnect.getSqlMapInstance()
+							.queryForList("sel_client_default_out_page", cgr);
+				}
+			} else {
+				clients = (List<Client>) SqlConnect.getSqlMapInstance()
+						.queryForList("sel_client_out_page", cgr);
+			}
+		} else {
+			if (sel == 1) {
+				cgr.setSname("name");
+			} else if (sel == 2) {
+				cgr.setSname("ip");
+			} else if (sel == 3) {
+				cgr.setSname("mark");
+			}
+			// 转码
+			ser = java.net.URLDecoder.decode(ser, "UTF-8");
+			cgr.setSer(ser.trim());
+			if (cgr.getTkey() == null) {
+				if (cgr.getGid() == 0) {
+					clients = (List<Client>) SqlConnect.getSqlMapInstance()
+							.queryForList("sel_client_all_ser_out_page", cgr);
+				} else {
+					clients = (List<Client>) SqlConnect.getSqlMapInstance()
+							.queryForList("sel_client_default_ser_out_page",
+									cgr);
+				}
+			} else {
+				clients = (List<Client>) SqlConnect.getSqlMapInstance()
+						.queryForList("sel_client_ser_out_page", cgr);
+			}
+		}
+		
+		checkUserBelongs(clients);
+
+		SimpleDateFormat formatfile = new SimpleDateFormat(
+				"yyyy_MM_dd_HH_mm_ss");
+		fname = formatfile.format(new Date()) + ".xls";
+		String filename = Constant.SEE + File.separator + fname;
+		File f = new File(filename);
+		WritableWorkbook wwb = Workbook.createWorkbook(f);
+		WritableSheet ws = wwb.createSheet(Constant.LOCAL.getA00114(), 0); // 日志列表
+		ws.setColumnView(0, 50); // 设置列的宽度
+		ws.setColumnView(1, 50); // 设置列的宽度
+		ws.setColumnView(2, 50); // 设置列的宽度
+		ws.setColumnView(3, 50); // 设置列的宽度
+		ws.setColumnView(4, 50); // 设置列的宽度
+		ws.setColumnView(5, 50); // 设置列的宽度
+		WritableFont wf = new WritableFont(WritableFont.TIMES, 12,
+				WritableFont.BOLD, false);
+		WritableCellFormat wcfF = new WritableCellFormat(wf);
+		ws.addCell(new Label(0, 0, Constant.LOCAL.getA00038(), wcfF)); // 终端名称
+		ws.addCell(new Label(1, 0, Constant.LOCAL.getD00024(), wcfF)); // 终端编码
+		ws.addCell(new Label(2, 0, Constant.LOCAL.getA00041(), wcfF)); // ip地址
+		ws.addCell(new Label(3, 0, Constant.LOCAL.getA00040(), wcfF)); // 标识码
+		ws.addCell(new Label(4, 0, Constant.LOCAL.getA00043(), wcfF)); // 在线状态
+		ws.addCell(new Label(5, 0, Constant.LOCAL.getA00762(), wcfF)); // 所属用户
+		ws.addCell(new Label(6, 0, Constant.LOCAL.getA00765(), wcfF)); // 是否禁用
+		String number="";
+		for (int i = 0; i < clients.size(); i++) {
+			Client client = clients.get(i);
+
+			ws.addCell(new Label(0, i+1, client.getName()));
+			number=(String)SqlConnect.getSqlMapInstance().queryForObject("select_clientid_number",client.getId());
+			ws.addCell(new Label(1, i+1, number));
+			ws.addCell(new Label(2, i+1, client.getIp()));
+			ws.addCell(new Label(3, i+1, client.getMark()));
+			if (client.getZxstate() == 0) {
+				ws.addCell(new Label(4, i+1, Constant.LOCAL.getA00045()));
+			} else if (client.getZxstate() == 1) {
+				ws.addCell(new Label(4, i+1, Constant.LOCAL.getA00044()));
+			}
+			ws.addCell(new Label(5, i+1, client.getUserBelongs()));
+			if (client.getDisabledstate() == 0) {
+				ws.addCell(new Label(6, i+1, Constant.LOCAL.getA00233()));
+			} else if (client.getZxstate() == 1) {
+				ws.addCell(new Label(6, i+1, Constant.LOCAL.getA00232()));
+			}
+		}
+		wwb.write();
+		wwb.close();
+
+		return SUCCESS;
+	}
+	
+	public void checkUserBelongs(List<Client> clients) throws SQLException{
+		String userBelongs = "";
+		for (int i = 0; i < clients.size(); i++) {
+			Client client = clients.get(i);
+			userBelongs=(String)SqlConnect.getSqlMapInstance().queryForObject("sel_cgr_uid_accounts", client.getId());
+			client.setUserBelongs(userBelongs);
+		}
+	}
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public int getCgid() {
+		return cgid;
+	}
+
+	public void setCgid(int cgid) {
+		this.cgid = cgid;
+	}
+
+	public String getSer() {
+		return ser;
+	}
+
+	public void setSer(String ser) {
+		this.ser = ser;
+	}
+
+	public int getSel() {
+		return sel;
+	}
+
+	public void setSel(int sel) {
+		this.sel = sel;
+	}
+
+	public String getOrderv() {
+		return orderv;
+	}
+
+	public void setOrderv(String orderv) {
+		this.orderv = orderv;
+	}
+}

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/LICENSE
+END
+gulpfile.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/gulpfile.js
+END
+package.json
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/package.json
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/.gitignore
+END
+bower.json
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/bower.json
+END
+CHANGES.md
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/CHANGES.md
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/index.html
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/README.md
+END
+mzui.json
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/WebContent/mzui-1.0.1/mzui.json
+END

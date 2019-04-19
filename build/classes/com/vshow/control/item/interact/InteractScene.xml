@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Scene">
+
+	<typeAlias alias="scene" type="com.vshow.control.data.Scene" />
+	<typeAlias alias="interactitem" type="com.vshow.control.data.InteractItem" />
+    
+     
+   <select id="sel_item_interact_allscene"  resultClass="scene" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	     	 select   t_interact_scene.id,t_interact_scene.name,t_interact_scene.filename,t_interact_scene.vname,t_interact_scene.fcontent  from t_interact_item_scene,t_interact_scene where
+             t_interact_scene.id=t_interact_item_scene.sceneid and
+             t_interact_item_scene.itemid=#id# order by t_interact_item_scene.id 
+	    ]]>
+	 </select>
+	 
+	 
+	 
+	   <select id="sel_scene_filenames"  resultClass="scene" parameterClass="java.lang.String">
+	    <![CDATA[
+	        select 
+	        t_interact_scene.id,
+	        t_interact_scene.name,
+			t_interact_scene.filename,
+			t_interact_scene.mcontent,
+			t_interact_scene.vname,
+			t_interact_scene.fcontent,
+			t_interact_scene.sf,
+			t_interact_scene.tson
+	        from t_interact_scene where t_interact_scene.filename=#filename# order by id  limit 1 
+	    ]]>
+	 </select> 
+	 
+	 
+	 <insert id="insert_one_interactscene" parameterClass="scene">
+        <![CDATA[
+	    insert into t_interact_scene
+         (filename,name,mcontent,vname,fcontent,sf,tson)
+         value
+        (#filename#,#name#,#mcontent#,#vname#,#fcontent#,#sf#,#tson#)
+        ]]>
+        <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_interact_scene  limit 1
+        </selectKey>
+    </insert>
+	 
+	 
+	<update id="update_interactscene" parameterClass="scene">
+       <![CDATA[	 
+        update t_interact_scene set 
+        name=#name#,mcontent=#mcontent#,tson=#tson#,vname=#vname#,fcontent=#fcontent#,sf=#sf#
+        where filename=#filename#;
+       ]]> 
+    </update>
+    
+    <select id="sel_it_fnVn_iid"  resultClass="scene" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	     	SELECT
+			t_interact_scene.filename,
+			t_interact_scene.vname
+			FROM t_interact_scene
+			where
+			t_interact_scene.id in (select sceneid from t_interact_item_scene where itemid=#id#)
+	    ]]>
+	 </select>
+	 
+	 
+	 <select id="sel_one_scene" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	        select filename from t_interact_scene where id=(SELECT min(sceneid) FROM t_interact_item_scene t where itemid=#itemid#);
+	     ]]>
+	 </select>
+
+  
+	
+	
+	<select id="sel_one_interactscene"  resultClass="scene" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	        select 
+	        t_interact_scene.id,
+	        t_interact_scene.name,
+			t_interact_scene.filename,
+			t_interact_scene.mcontent,
+			t_interact_scene.vname,
+			t_interact_scene.fcontent,
+			t_interact_scene.sf,
+			t_interact_scene.tson 
+	        from t_interact_scene 
+	        where id=(SELECT sceneid FROM t_interact_item_scene where itemid=#itemid# order by id limit 1)
+	    ]]>
+	 </select>
+	 
+	 
+	 <select id="sel_interactitem_allscene"  resultClass="scene" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	     	 select   t_interact_scene.id,t_interact_scene.name,t_interact_scene.filename,t_interact_scene.vname from t_interact_item_scene,t_interact_scene where
+             t_interact_scene.id=t_interact_item_scene.sceneid and
+             t_interact_item_scene.itemid=#id# order by t_interact_item_scene.id 
+	    ]]>
+	 </select> 
+	 
+	 <delete id="del_interactscene" parameterClass="java.lang.Integer">
+       DELETE FROM t_interact_scene
+       WHERE id=#id#;
+     </delete> 
+    
+    
+     <select id="sel_all_interactscene_name"  resultClass="java.lang.String" >
+	    <![CDATA[
+	     	SELECT
+			t_interact_scene.filename
+			FROM t_interact_scene
+			
+	    ]]>
+	 </select>
+	 
+	 
+	  <select id="sel_interact_scene_filename" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	        select filename from t_interact_scene where id=(SELECT min(sceneid) FROM t_interact_item_scene t where itemid=#itemid#);
+	     ]]>
+	 </select>
+	 
+	 
+	 
+	  <select id="sel_interactScene_exist" parameterClass="java.lang.String" resultClass="java.lang.String">
+	    <![CDATA[
+	        select filename from t_interact_scene where filename=#filename#;
+	     ]]>
+	 </select>
+	 
+	 
+	  <delete id="del_interactscene_filename" parameterClass="java.lang.String">
+       DELETE FROM t_interact_scene
+       WHERE  filename=#filename#;
+     </delete> 
+	 
+	 
+	 
+</sqlMap>
+    

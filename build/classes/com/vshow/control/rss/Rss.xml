@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="rss">
+
+	<typeAlias alias="rss" type="com.vshow.control.data.Rss" />
+
+	<select id="gt_news_one" resultClass="rss">
+	    <![CDATA[
+	      select
+	      *
+	      from t_rss
+	      order by id desc
+	    ]]>
+	</select>
+	<update id="update_newcontent" parameterClass="rss">
+    <![CDATA[
+      update
+      t_rss
+      set 
+      content=#content#
+      where id=#id#
+    ]]>
+	</update>
+	
+	
+	<update id="update_newcontent_server" parameterClass="rss">
+    <![CDATA[
+      update
+      t_rss
+      set 
+      content=#content#
+      where url=#url#
+    ]]>
+	</update>
+	
+	
+	 
+	<select id="sel_rss_all_page" resultClass="rss" parameterClass="rss">
+    <![CDATA[
+       SELECT 
+        *
+       FROM t_rss 
+       order by id desc
+       limit #startid#,#pagetype#
+    ]]>
+	</select>
+	
+   <select id="sel_rss_all_page_count" resultClass="java.lang.Integer">
+    <![CDATA[
+       SELECT 
+        count(id)
+       FROM t_rss;
+    ]]>
+	</select>
+	
+
+	<select id="find_idname_rss" resultClass="rss">
+    <![CDATA[
+       SELECT 
+        id,name,url
+       FROM t_rss;
+    ]]>
+	</select>
+	 
+	<select id="gt_nds_one" parameterClass="java.lang.Integer"
+		resultClass="java.lang.String">
+    <![CDATA[
+      select
+      content
+      from t_rss
+      where id=#id#
+    ]]>
+	</select>
+	
+	<select id="gt_nds_one_url" parameterClass="java.lang.String"
+		resultClass="java.lang.String">
+    <![CDATA[
+      select
+      content
+      from t_rss
+      where url=#url#
+      limit 0,1
+    ]]>
+	</select>
+
+	 
+	<select id="find_rss_byid" parameterClass="java.lang.Integer" resultClass="rss">
+	    <![CDATA[
+	        SELECT * from t_rss  where id=#id#
+	    ]]>
+	</select>
+	
+	<select id="find_rss_byurl" parameterClass="java.lang.String" resultClass="rss">
+	    <![CDATA[
+	       SELECT * from t_rss  where url=#url# limit 0,1
+	    ]]>
+	</select>
+
+	 
+	<insert id="add_rss" parameterClass="rss">
+	    <![CDATA[
+	       insert into t_rss (url,freshtime,name) values(#url#,#freshtime#,#name#)
+	    ]]>
+        <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_rss  limit 1
+        </selectKey>
+	</insert>
+
+    <insert id="add_rss_server" parameterClass="rss">
+	    <![CDATA[
+	       insert into t_rss (url,freshtime,name,content) values(#url#,#freshtime#,#name#,#content#)
+	    ]]>
+       <selectKey resultClass="java.lang.Integer" keyProperty="id">
+            select last_insert_id() as id from  t_rss  limit 1
+       </selectKey>
+	</insert>
+    
+    
+    	 
+
+
+	 
+	<delete id="del_rss" parameterClass="java.lang.Integer">
+    <![CDATA[
+       delete from t_rss where id=#id#
+    ]]>
+	</delete>
+	
+	<select id="gt_nds_url" parameterClass="java.lang.String"
+		resultClass="rss">
+    <![CDATA[
+      select
+      *
+      from t_rss
+      where url=#url#
+      limit 0,1
+    ]]>
+	</select>
+
+</sqlMap>
+    

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="caveats">
+
+	<typeAlias alias="caveat" type="com.vshow.control.kh.cut.Caveats" />
+	
+    <select id="sel_caveat" resultClass="java.lang.Integer">
+         <![CDATA[
+            select caveat from t_kh_cut_c limit 1
+         ]]>
+    </select>
+    
+    <update id="up_caveat" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	      update
+	      t_kh_cut_c
+	      set 
+	      caveat=#caveat#
+	    ]]>
+	</update> 
+    
+    
+    <insert id="add_caveat" parameterClass="java.lang.Integer" >
+	   <![CDATA[
+	       insert into t_kh_cut_c (caveat)
+	       values(#caveat#)
+	   ]]>
+	</insert>
+     
+    
+    
+     
+    
+</sqlMap>
+    

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="sendtime">
+
+	<typeAlias alias="sendtime" type="com.vshow.control.data.SendTime" />
+     <delete id="del_one_timeitem" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_send_time
+      where resultid in (select id from t_result where clientid =#clid#)
+    ]]>
+	</delete>
+    
+     <delete id="del_one_timeitems" parameterClass="java.lang.Integer">
+    <![CDATA[
+      delete
+      from 
+      t_send_time
+      where resultid = #rid#;
+    ]]>
+	</delete>
+ 
+
+     
+	<insert id="insert_one_timeitem" parameterClass="sendtime">
+		insert
+		into
+		t_send_time
+		(sdate,edate,itemid,day,resultid)
+		values
+		(#sdate#,#edate#,#itemid#,#day#,#resultid#)
+    </insert>
+    
+    
+	<select id="see_onocheck_timesend_all" resultClass="sendtime">
+	   <![CDATA[
+	     select * from t_send_time where resultid in (select id from t_result where logid in (select id from t_log where ocheck=3)) group by resultid
+	   ]]>
+	</select>
+   
+   
+    <select id="sel_send_time_all_id" resultClass="sendtime" parameterClass="java.lang.Integer">
+       <![CDATA[
+         select  *  from  t_send_time where resultid = #resultid# 
+       ]]>     
+   </select>  
+   
+</sqlMap>
+    

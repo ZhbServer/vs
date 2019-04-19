@@ -1,0 +1,51 @@
+package com.vshow.control.item;
+
+import com.opensymphony.xwork.Action;
+import com.vshow.control.data.Item;
+
+public class ItemToAddSceneAction implements Action {
+	
+	
+	private Item item;
+    private String info;
+  
+	private int itemViceType; //普通节目类型    0 普通节目 1双屏节目
+	
+	private int screenType; //副屏分辨率  
+	
+	@Override
+	public String execute() throws Exception {
+		if(item!=null){
+			info=item.getName().replaceAll("\\@","");
+			//info=info+"@"+item.getFblid();
+			info=info+"@"+item.getFblid()+"@"+item.getLable()+"@"+itemViceType+"@"+screenType;
+		}
+		return SUCCESS;
+	}
+	public Item getItem() {
+		return item;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
+	public void setItem(Item item) {
+		this.item = item;
+	}
+	
+	public int getItemViceType() {
+		return itemViceType;
+	}
+	public void setItemViceType(int itemViceType) {
+		this.itemViceType = itemViceType;
+	}
+	public int getScreenType() {
+		return screenType;
+	}
+	public void setScreenType(int screenType) {
+		this.screenType = screenType;
+	}
+}

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/util
+END
+JSONResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/17/trunk/vs/src/com/vshow/control/api/v1/util/JSONResult.java
+END
+ResponseEntity.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/api/v1/util/ResponseEntity.java
+END

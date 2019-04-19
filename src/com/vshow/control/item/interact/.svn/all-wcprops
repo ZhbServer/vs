@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/vs_server_6.1/!svn/ver/27/trunk/vs/src/com/vshow/control/item/interact
+END
+DelInteractItemAjaxAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/DelInteractItemAjaxAction.java
+END
+ToInteractItemSceneAllAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/ToInteractItemSceneAllAction.java
+END
+CopyInteractItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/CopyInteractItemAction.java
+END
+ToSeeItemInteractInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/interact/ToSeeItemInteractInfoAction.java
+END
+ToSeeItemInteractListAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/ToSeeItemInteractListAction.java
+END
+ToSeeItemInteractListAction1.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/ToSeeItemInteractListAction1.java
+END
+SaveInteractSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/28/trunk/vs/src/com/vshow/control/item/interact/SaveInteractSceneAction.java
+END
+InteractScene.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/InteractScene.xml
+END
+InteractItem.xml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/interact/InteractItem.xml
+END
+ToInteractSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/interact/ToInteractSceneAction.java
+END
+DelInteractItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/DelInteractItemAction.java
+END
+EditInteractItemAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/item/interact/EditInteractItemAction.java
+END
+ToInteractUrlAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/ToInteractUrlAction.java
+END
+AddInteractSceneAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/item/interact/AddInteractSceneAction.java
+END

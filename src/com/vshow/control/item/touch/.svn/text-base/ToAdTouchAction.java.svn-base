@@ -1,0 +1,454 @@
+package com.vshow.control.item.touch;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import net.sf.ezmorph.bean.MorphDynaBean;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+import com.opensymphony.xwork.Action;
+import com.opensymphony.xwork.ActionContext;
+import com.vshow.control.data.ScGroup;
+import com.vshow.control.data.program.ProgramMedia;
+import com.vshow.control.data.program.ProgramWeather;
+import com.vshow.control.data.program.TouchBasis;
+import com.vshow.control.data.program.TouchInteractive;
+import com.vshow.control.tool.Constant;
+import com.vshow.control.tool.HtmlUtil;
+import com.vshow.control.tool.SqlConnect;
+
+public class ToAdTouchAction implements Action {
+   
+	
+	private String currentdivid;//当前 选中元素id
+	private String touchIds;     //目标元素id集  多个用 *分割
+	
+	private String touchJson=""; 
+	private TouchInteractive editTouchInteractive;
+	private String resourcesListJson="";
+	private List<String> touchIdList=new ArrayList<String>(); 
+	
+	
+    private List listsfgp; // 分组集合（自己）
+	
+	private List listsfgpimg; // 分组集合（图片）
+	
+	private float sf;
+	
+	
+	private int fonttype=0;     //字体类型
+    private int txtfontsize=36;  //字体大小
+    private double lineH;        //字距
+    private String gdtype;       //滚动方式
+    private String gdspeed;      //滚动速度 
+    private String fbackcolor="0";    //背景颜色
+    private String txtfontcolor="000000";    //字体颜色  
+    private String divHtml="";      //内容
+    private int textDataSource;    //数据来源
+    private String txtcontent="";
+    private int advancedType;
+	private String fonttypeStr="";	
+	private int fbold=0;
+	private int fitallic=0;
+	private int fsetline=0;
+	private int fsetstrike=0;
+
+	private List listclientgroups; //终端分组集合
+	
+	private String tClientJson; //已选终端集合
+	
+	public String execute() throws Exception {
+		String touchIdss[]=touchIds.split("\\*");
+		for (int i = 0; i < touchIdss.length; i++) {
+			touchIdList.add(touchIdss[i]);
+		}
+		
+		if(!touchJson.equals("")){
+			
+			editTouchInteractive=(TouchInteractive)JSONObject.toBean(JSONObject.fromObject(touchJson), TouchInteractive.class);
+			
+			JSONArray jsonArr = JSONArray.fromObject(editTouchInteractive.gettResourcesList());
+			
+			resourcesListJson=jsonArr.toString();
+			
+			tClientJson=JSONArray.fromObject(editTouchInteractive.getTargetClients()).toString();
+			
+			
+			
+		}else{
+			
+			editTouchInteractive=new TouchInteractive();
+			editTouchInteractive.settType(5);
+			editTouchInteractive.settTouchKey("");
+		}
+		
+		
+		if(editTouchInteractive.gettType()==11){
+			
+			
+		
+			JSONArray jsonArr = JSONArray.fromObject(editTouchInteractive.gettResourcesList());
+			
+			editTouchInteractive.settResources(jsonArr.toString());
+			
+			JSONObject job = jsonArr.getJSONObject(0);  
+			
+			float lhf=job.getInt("lh");
+			
+			float fsf=job.getInt("fs");
+			
+			txtfontsize=job.getInt("fs");
+			
+			lineH=lhf/fsf;
+			
+			gdtype=job.getString("mDirection");
+			
+			gdspeed=job.getString("speed");
+			
+			textDataSource=job.getInt("textDataSource");
+			
+			advancedType=job.getInt("advancedType");
+			
+			fbold=job.getInt("fjc");
+			fitallic=job.getInt("fxx");
+			fsetline=job.getInt("fdx");
+			fsetstrike=job.getInt("fzx");
+			
+			txtcontent=job.getString("txtcontent");
+			txtcontent=Constant.replaceAllSpan(txtcontent);
+			txtcontent=Constant.replaceAllFont(txtcontent);  
+			txtcontent=HtmlUtil.delHTMLTag(txtcontent);
+			
+			txtfontcolor=job.getString("fcolor");
+			
+			 if(txtfontcolor.equals("-65536")){
+	              
+	              txtfontcolor="ED1C24";
+	              
+	         }else if(txtfontcolor.equals("-16776961")){
+	           
+	              txtfontcolor="3F48CC";
+	              
+	         }else if(txtfontcolor.equals("-256")){
+	        	 
+	        	  txtfontcolor="FFC90E";
+	              
+	         }else if(txtfontcolor.equals("-16711936")){
+	        	 
+	        	  txtfontcolor="22B14C";
+	              
+	         }else if(txtfontcolor.equals("-2")){
+	        	 
+	        	  txtfontcolor="FFFFFF";
+	              
+	         }else if(txtfontcolor.equals("-7829368")){
+	              
+	              txtfontcolor="7F7F7F";
+	            	  
+	         }else if(txtfontcolor.equals("-16777216")){
+	        	 
+	        	 txtfontcolor="000000";
+	           
+	         }         
+			 Object obj=job.get("bcolor");
+			 if(obj!=null){
+				 
+				 try {
+					 fbackcolor=job.getString("bcolor");
+						
+					 if(fbackcolor.equals("-65536")){
+			              
+						 fbackcolor="ED1C24";
+			              
+			         }else if(fbackcolor.equals("-16776961")){
+			           
+			        	 fbackcolor="3F48CC";
+			              
+			         }else if(fbackcolor.equals("-256")){
+			        	 
+			        	 fbackcolor="FFC90E";
+			              
+			         }else if(fbackcolor.equals("-16711936")){
+			        	 
+			        	 fbackcolor="22B14C";
+			              
+			         }else if(fbackcolor.equals("-2")){
+			        	 
+			        	 fbackcolor="FFFFFF";
+			              
+			         }else if(fbackcolor.equals("-7829368")){
+			              
+			        	 fbackcolor="7F7F7F";
+			            	  
+			         }else if(fbackcolor.equals("-16777216")){
+			        	 
+			        	 fbackcolor="000000";
+			           
+			         }         
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				 
+			 }
+			
+			
+			
+		
+			
+		}
+		
+		
+		
+		ActionContext ctx = ActionContext.getContext();
+		
+		Map session = ctx.getSession();
+
+		int uid = (Integer) session.get("urid");
+		
+		String tkey = (String) session.get("urtkey");
+		
+		ScGroup gp = new ScGroup();
+		gp.setType(3);
+		gp.setTkey(tkey);
+		gp.setUserid(uid);
+		
+		//获取分组视频
+		listsfgp = SqlConnect.getSqlMapInstance().queryForList("sc_self_group_all", gp);
+		
+		//获取分组图片
+		gp.setType(4);
+		listsfgpimg = SqlConnect.getSqlMapInstance().queryForList("sc_self_group_all", gp);
+		
+		
+		//获取终端分组
+		listclientgroups=SqlConnect.getSqlMapInstance().queryForList("sel_cg_uid_all",uid);
+		
+	    return SUCCESS;
+	}
+	
+	public String gettClientJson() {
+		return tClientJson;
+	}
+
+	public void settClientJson(String tClientJson) {
+		this.tClientJson = tClientJson;
+	}
+
+	public List getListclientgroups() {
+		return listclientgroups;
+	}
+
+	public void setListclientgroups(List listclientgroups) {
+		this.listclientgroups = listclientgroups;
+	}
+
+	public int getTextDataSource() {
+		return textDataSource;
+	}
+
+	public void setTextDataSource(int textDataSource) {
+		this.textDataSource = textDataSource;
+	}
+
+	public float getSf() {
+		return sf;
+	}
+
+	public void setSf(float sf) {
+		this.sf = sf;
+	}
+
+	public String getResourcesListJson() {
+		return resourcesListJson;
+	}
+
+	public void setResourcesListJson(String resourcesListJson) {
+		this.resourcesListJson = resourcesListJson;
+	}
+
+	public String getTouchJson() {
+		return touchJson;
+	}
+
+	public void setTouchJson(String touchJson) {
+		this.touchJson = touchJson;
+	}
+
+	public TouchInteractive getEditTouchInteractive() {
+		return editTouchInteractive;
+	}
+
+	public void setEditTouchInteractive(TouchInteractive editTouchInteractive) {
+		this.editTouchInteractive = editTouchInteractive;
+	}
+
+	public String getCurrentdivid() {
+		return currentdivid;
+	}
+	public void setCurrentdivid(String currentdivid) {
+		this.currentdivid = currentdivid;
+	}
+	public String getTouchIds() {
+		return touchIds;
+	}
+	public void setTouchIds(String touchIds) {
+		this.touchIds = touchIds;
+	}
+	public int getFbold() {
+		return fbold;
+	}
+
+	public void setFbold(int fbold) {
+		this.fbold = fbold;
+	}
+
+	public int getFitallic() {
+		return fitallic;
+	}
+
+	public void setFitallic(int fitallic) {
+		this.fitallic = fitallic;
+	}
+
+	public int getFsetline() {
+		return fsetline;
+	}
+
+	public void setFsetline(int fsetline) {
+		this.fsetline = fsetline;
+	}
+
+	public int getFsetstrike() {
+		return fsetstrike;
+	}
+
+	public void setFsetstrike(int fsetstrike) {
+		this.fsetstrike = fsetstrike;
+	}
+
+	public List<String> getTouchIdList() {
+		return touchIdList;
+	}
+	public void setTouchIdList(List<String> touchIdList) {
+		this.touchIdList = touchIdList;
+	}
+	
+	public List getListsfgp() {
+		return listsfgp;
+	}
+
+	public void setListsfgp(List listsfgp) {
+		this.listsfgp = listsfgp;
+	}
+
+	public List getListsfgpimg() {
+		return listsfgpimg;
+	}
+
+	public void setListsfgpimg(List listsfgpimg) {
+		this.listsfgpimg = listsfgpimg;
+	}
+	
+	
+	public int getAdvancedType() {
+		return advancedType;
+	}
+
+	public void setAdvancedType(int advancedType) {
+		this.advancedType = advancedType;
+	}
+
+	public String getTxtcontent() {
+		return txtcontent;
+	}
+
+	public void setTxtcontent(String txtcontent) {
+		this.txtcontent = txtcontent;
+	}
+
+	public int getFonttype() {
+		return fonttype;
+	}
+
+	public void setFonttype(int fonttype) {
+		this.fonttype = fonttype;
+	}
+
+	public int getTxtfontsize() {
+		return txtfontsize;
+	}
+
+	public void setTxtfontsize(int txtfontsize) {
+		this.txtfontsize = txtfontsize;
+	}
+
+	
+
+	
+
+	
+
+	public double getLineH() {
+		return lineH;
+	}
+
+	public void setLineH(double lineH) {
+		this.lineH = lineH;
+	}
+
+	public String getGdtype() {
+		return gdtype;
+	}
+
+	public void setGdtype(String gdtype) {
+		this.gdtype = gdtype;
+	}
+
+	public String getGdspeed() {
+		return gdspeed;
+	}
+
+	public void setGdspeed(String gdspeed) {
+		this.gdspeed = gdspeed;
+	}
+
+	public String getFbackcolor() {
+		return fbackcolor;
+	}
+
+	public void setFbackcolor(String fbackcolor) {
+		this.fbackcolor = fbackcolor;
+	}
+
+	public String getTxtfontcolor() {
+		return txtfontcolor;
+	}
+
+	public void setTxtfontcolor(String txtfontcolor) {
+		this.txtfontcolor = txtfontcolor;
+	}
+
+	public String getDivHtml() {
+		return divHtml;
+	}
+
+	public void setDivHtml(String divHtml) {
+		this.divHtml = divHtml;
+	}
+
+	public String getFonttypeStr() {
+		return fonttypeStr;
+	}
+
+	public void setFonttypeStr(String fonttypeStr) {
+		this.fonttypeStr = fonttypeStr;
+	}
+	
+	
+	
+
+}

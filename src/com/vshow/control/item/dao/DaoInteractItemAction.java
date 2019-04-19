@@ -1,0 +1,218 @@
+package com.vshow.control.item.dao;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import net.sf.json.JSONArray;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+import com.opensymphony.xwork.ActionContext;
+import com.opensymphony.xwork.ActionSupport;
+import com.vshow.control.data.Fbl;
+import com.vshow.control.data.InteractItem;
+import com.vshow.control.data.InteractScene;
+import com.vshow.control.data.Item;
+import com.vshow.control.data.Scene;
+import com.vshow.control.log.LogHandle;
+import com.vshow.control.tool.Constant;
+import com.vshow.control.tool.DoZip;
+import com.vshow.control.tool.FileHandle;
+import com.vshow.control.tool.SqlConnect;
+
+public class DaoInteractItemAction extends ActionSupport {
+
+	private String fname;
+	private int iid;
+
+	public String execute() throws Exception {
+		
+		SqlMapClient sm = SqlConnect.getSqlMapInstance();
+		
+		ActionContext ctx = ActionContext.getContext();
+		
+		Map session = ctx.getSession();
+	
+		//节目集合
+		List<InteractItem> interactItemAll=new ArrayList<InteractItem>();
+		InteractItem interactItem;
+	
+		
+		
+		
+		// 创建节目文件夹
+		String temp = Long.toString(System.currentTimeMillis());
+
+		String olddir = Constant.FILES + File.separator + temp;
+		new File(olddir).mkdir();
+
+		Scene scene;
+		String oldfile;
+		String newfile;
+		Scene tempScene = (Scene) sm.queryForObject("sel_one_interactscene",
+				iid);
+		String playlist = "playlist=";
+		//String playlist2 = "playlist=";
+		
+		
+		String filenNameR =(String)sm.queryForObject("sel_interact_item_filename_id", iid);
+		
+		List<Scene> scenes=new ArrayList<Scene>();
+		
+		Constant.recursionFileNameTson(filenNameR, scenes);
+		
+		//拼接播放协议
+		long clen=0L;
+
+		int fileExists=0;
+		String[] vms;
+		String filepathzip; 
+		String cmd = "";
+		String downcmd = "";
+		Fbl fbl;
+		for (int i = 0; i < scenes.size(); i++) {
+			
+			scene = (Scene) scenes.get(i);
+			
+			//根据场景获取节目
+			interactItem=(InteractItem)SqlConnect.getSqlMapInstance().queryForObject("sel_interact_item_filename_attributes_all", scene.getFilename());
+			
+			if(interactItem!=null){
+
+                //获取分辨率
+			    fbl=(Fbl)SqlConnect.getSqlMapInstance().queryForObject("sel_fbl_all_id", interactItem.getFblid());	
+				
+			    scene.setTx(fbl.getTx());
+			    
+			    scene.setTy(fbl.getTy());
+				
+			    //获取场景				
+				interactItem.setScene(scene);
+				
+				interactItemAll.add(interactItem);
+			}
+			
+			
+			
+			
+			if (i == 0) {
+				playlist = playlist+scene.getFilename();
+				cmd = scene.getFilename();
+				downcmd = scene.getFilename() + ".zip";
+			} else {
+				playlist = playlist + "|" + scene.getFilename();
+				cmd = cmd + "|" + scene.getFilename();
+				downcmd = downcmd + "|" + scene.getFilename() + ".zip";
+			}
+			
+			if (scene.getVname().length() > 0
+					&& (scene.getVname().indexOf(':') == -1)) {
+				downcmd += "|" + scene.getVname();
+			}
+			oldfile = Constant.FILES + File.separator + scene.getFilename();
+			// newfile = olddir + File.separator + scene.getFilename();
+			// new File(newfile).mkdir();
+			// FileHandle.copy(oldfile, newfile);
+			FileHandle.copy2(oldfile + ".zip",
+					olddir + File.separator + scene.getFilename() + ".zip");
+			
+		
+			// 写入视频或者音频
+			String[] sstr = scene.getVname().split("\\|");
+			String flv = "";
+			for (int j = 0; j < sstr.length; j++) {
+				if (!"".equals(sstr[j])) {
+					FileHandle.copy2(Constant.FILES + File.separator + sstr[j],
+							olddir + File.separator + sstr[j]);
+					flv = sstr[j].substring(0, sstr[j].lastIndexOf('.'))
+							+ "_.flv";
+					FileHandle.copy2(Constant.FILES + File.separator + flv,
+							olddir + File.separator + flv);
+				}
+			}
+			//获取场景zip大小
+			filepathzip = Constant.FILES + File.separator+ scene.getFilename() + ".zip";
+			
+			long len = FileHandle.getFileByte(filepathzip);
+			
+			//获取视频,音频大小
+			if(!"".equals(scene.getVname())){					
+				vms = scene.getVname().split("\\|");
+				for (int j = 0; j < vms.length; j++) {
+					
+					fileExists=FileHandle.fileExists(Constant.FILES + File.separator+ vms[j]);
+					//if(fileExists==0){
+					//	return "success2"; 
+					//}
+					len += FileHandle.getFileByte(Constant.FILES + File.separator+ vms[j]);
+				}
+			}
+			clen+=len;
+			
+		}
+		
+		String msg = "02" + clen + "/" + downcmd + "+"
+		+ "sendkey!" + LogHandle.createSendKey() + "%playlist!" + cmd;	
+		
+		
+		// 写入protocol.txt文件
+		new File(olddir + File.separator + "protocol.txt");
+		FileHandle.readFileInfo(olddir + File.separator + "protocol.txt", msg);
+		
+		
+		// 写入config文件 / 创建一个ini文件
+	    String ininame = olddir + File.separator + "config.ini";
+		new File(ininame);
+		FileHandle.readFileInfo(ininame, playlist);
+
+		
+		//写入节目列表数据
+		JSONArray jsonArray = JSONArray.fromObject(interactItemAll);
+		System.out.println(jsonArray.toString());
+		new File(olddir + File.separator + "itemData.txt");
+		FileHandle.readFileInfo(olddir + File.separator + "itemData.txt", jsonArray.toString());
+		
+		
+		
+		// 获取节目
+		InteractItem item = (InteractItem) sm.queryForObject("sel_id_interactitem", iid);
+
+		// 获取分辨率
+		fbl = (Fbl) sm.queryForObject("sel_fbl_all_id", item.getFblid());
+
+		if (fbl != null) {
+			// 写入item.txt文件
+			String itemTxt = item.getName() + "*" + +fbl.getTx()+"-"+fbl.getTy() + "*"
+					+ item.getLen();
+			new File(olddir + File.separator + "item.txt");
+			FileHandle.readFileInfo(olddir + File.separator + "item.txt",
+					itemTxt);
+		}
+		
+		
+		
+		// 压缩zip
+		fname = temp + ".zip";
+		DoZip zip = new DoZip();
+		zip.zip(olddir, olddir + ".zip");
+		return SUCCESS;
+	}
+
+	public int getIid() {
+		return iid;
+	}
+
+	public void setIid(int iid) {
+		this.iid = iid;
+	}
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+}

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/calendar
+END
+zui.calendar.css
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/calendar/zui.calendar.css
+END
+zui.calendar.min.css
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/calendar/zui.calendar.min.css
+END
+zui.calendar.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/calendar/zui.calendar.js
+END
+zui.calendar.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/WebContent/zui-1.5.0-dist/dist/lib/calendar/zui.calendar.min.js
+END

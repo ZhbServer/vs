@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<xwork>
+	<include file="webwork-default.xml" />
+
+	<package name="vsapi" extends="vsm"  namespace="/api">
+	
+	
+		<result-types>
+			<result-type name="json" class="com.vshow.control.api.v1.util.JSONResult" />
+		</result-types>
+	    
+	    <!-- Api接口 -->
+		
+		<!-- 用户登录 -->
+		<action name="apiloginuser" class="com.vshow.control.api.user.ApiLoginUserAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查看下级用户 -->
+		<action name="apisubuser" class="com.vshow.control.api.user.ApiSelSubUserAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 添加用户 -->
+		<action name="apiadduser" class="com.vshow.control.api.user.ApiAddUserAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 修改用户 -->
+		<action name="apiupdateuser" class="com.vshow.control.api.user.ApiUpdateUserAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 修改密码 -->
+		<action name="apiupdatepassword" class="com.vshow.control.api.user.ApiUpdateUserPwdAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询节目 -->
+		<action name="apiselitem" class="com.vshow.control.api.item.ApiSelItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 新增节目 -->
+		<!-- 修改节目 -->
+		<!-- 新增互动节目 -->
+		<!-- 修改互动节目 -->
+		
+		<!-- 查询互动节目 -->
+		<action name="apiselinteractitem" class="com.vshow.control.api.item.interact.ApiSelInteractItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除节目 -->
+		<action name="apidelitem" class="com.vshow.control.api.item.ApiDelItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除互动节目 -->
+		<action name="apidelinteractitem" class="com.vshow.control.api.item.interact.ApiDelInteractItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 复制节目 -->
+		<action name="apicopyitem" class="com.vshow.control.api.item.ApiCopyItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 导出节目 -->
+		<action name="apidaoitembatch" class="com.vshow.control.api.item.ApiDaoItemBatchAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<result name="input" type="dispatcher">
+				<param name="location">/item_dao_api.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 导入节目 -->
+		<action name="apidaoitemin" class="com.vshow.control.api.item.ApiDaoItemInAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 导出互动节目 -->
+		<action name="apidaointeractitem" class="com.vshow.control.api.item.interact.ApiDaoInteractItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<result name="input" type="dispatcher">
+				<param name="location">/item_dao_api.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 共享节目 -->
+		<action name="apishareitem" class="com.vshow.control.api.item.ApiShareItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 取消共享节目 -->
+		<action name="apidelshareitem" class="com.vshow.control.api.item.ApiDelShareItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 共享互动节目 -->
+		<action name="apishareinitem" class="com.vshow.control.api.item.interact.ApiShareInItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 取消共享互动节目 -->
+		<action name="apidelshareinitem" class="com.vshow.control.api.item.interact.ApiDelShareInItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询终端 -->
+		<action name="apiselclient" class="com.vshow.control.api.client.ApiSelClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 修改终端名 -->
+		<action name="apiclientupname" class="com.vshow.control.api.client.ApiClientUpNameAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除终端 -->
+		<action name="apidelclient" class="com.vshow.control.api.client.ApiDelClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 分配终端 -->
+		<action name="apifpclient" class="com.vshow.control.api.client.ApiFpClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 取消分配终端 -->
+		<action name="apiunfpclient" class="com.vshow.control.api.client.ApiUNFpClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 未录入终端 -->
+		<action name="apinoenterclient" class="com.vshow.control.api.client.ApiNoEnterClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 录入终端 -->
+		<action name="apienterclient" class="com.vshow.control.api.client.ApiEnterClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询在线终端 -->
+		<action name="apiselzxclient" class="com.vshow.control.api.client.ApiSelZxClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询离线终端 -->
+		<action name="apisellxclient" class="com.vshow.control.api.client.ApiSelLxClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 终端绑定 -->
+		<action name="apiclientbind" class="com.vshow.control.api.client.ApiClientBindAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 移动终端 -->
+		<action name="apiclientmove" class="com.vshow.control.api.client.ApiClientMoveAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询权限 -->
+		<action name="apiselpower" class="com.vshow.control.api.power.ApiSelPowerAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 新增权限 -->
+		<action name="apiaddpower" class="com.vshow.control.api.power.ApiAddPowerAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 修改权限 -->
+		<action name="apiupdatepower" class="com.vshow.control.api.power.ApiUpdatePowerAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除权限 -->
+		<action name="apidelpower" class="com.vshow.control.api.power.ApiDelPowerAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询分辨率 -->
+		<action name="apiselfbl" class="com.vshow.control.api.system.fbl.ApiSelFblAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 新增分辨率-->
+		<action name="apiaddfbl" class="com.vshow.control.api.system.fbl.ApiAddFblAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除分辨率 -->
+		<action name="apidelfbl" class="com.vshow.control.api.system.fbl.ApiDelFblAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询天气 -->
+		<action name="apiseltq" class="com.vshow.control.api.system.tq.ApiSelTqAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询指定城市天气 -->
+		<action name="apiselcitytq" class="com.vshow.control.api.system.tq.ApiSelCityTqAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 新增天气-->
+		<action name="apiaddtq" class="com.vshow.control.api.system.tq.ApiAddTqAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除天气 -->
+		<action name="apideltq" class="com.vshow.control.api.system.tq.ApiDelTqAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询RSS -->
+		<action name="apiselrss" class="com.vshow.control.api.system.rss.ApiSelRssAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 新增RSS-->
+		<action name="apiaddrss" class="com.vshow.control.api.system.rss.ApiAddRssAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除RSS -->
+		<action name="apidelrss" class="com.vshow.control.api.system.rss.ApiDelRssAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询截屏 -->
+		<action name="apiselscreen" class="com.vshow.control.api.system.screen.ApiSelScreenAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 新增截屏-->
+		<action name="apiaddscreen" class="com.vshow.control.api.system.screen.ApiAddScreenAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除截屏 -->
+		<action name="apidelscreen" class="com.vshow.control.api.system.screen.ApiDelScreenAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+		<!-- 上传背景 -->
+		<action name="apiupbj" class="com.vshow.control.api.sucai.ApiUpBjAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传图片 -->
+		<action name="apiupimg" class="com.vshow.control.api.sucai.ApiUpImgAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传视频 -->
+		<action name="apiupvideo" class="com.vshow.control.api.sucai.ApiUpVideoAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传音频 -->
+		<action name="apiupaudio" class="com.vshow.control.api.sucai.ApiUpAudioAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传PPT-->
+		<action name="apiupppt" class="com.vshow.control.api.sucai.ApiUpPPTAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传Word-->
+		<action name="apiupword" class="com.vshow.control.api.sucai.ApiUpWordAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传Excel-->
+		<action name="apiupexcel" class="com.vshow.control.api.sucai.ApiUpExcelAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传PDF-->
+		<action name="apiuppdf" class="com.vshow.control.api.sucai.ApiUpPDFAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 上传文档 -->
+		<action name="apiuptxt" class="com.vshow.control.api.sucai.ApiUpTxtAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询素材 -->
+		<action name="apiselsucai" class="com.vshow.control.api.sucai.ApiSelSucaiAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除素材 -->
+		<action name="apidelsucai" class="com.vshow.control.api.sucai.ApiDelSucaiAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 共享素材 -->
+		<action name="apisharesucai" class="com.vshow.control.api.sucai.ApiShareSucaiAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 取消共享素材 -->
+		<action name="apiunsharesucai" class="com.vshow.control.api.sucai.ApiUnShareSucaiAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询素材分组 -->
+		<action name="apiselsucaigroup" class="com.vshow.control.api.sucai.ApiSelSucaiGroupAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 新增素材分组 -->
+		<action name="apiaddsucaigroup" class="com.vshow.control.api.sucai.ApiAddSucaiGroupAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 修改素材分组 -->
+		<action name="apiupdatesucaigroup" class="com.vshow.control.api.sucai.ApiUpdateSucaiGroupAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除素材分组 -->
+		<action name="apidelsucaigroup" class="com.vshow.control.api.sucai.ApiDelSucaiGroupAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询日志 -->
+		<action name="apisellog" class="com.vshow.control.api.log.ApiSelLogAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 删除日志 -->
+		<action name="apidellog" class="com.vshow.control.api.log.ApiDelLogAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 导出日志 -->
+		<action name="apioutlog" class="com.vshow.control.api.log.ApiOutLogAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<result name="input" type="dispatcher">
+				<param name="location">/count_client_out.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 发布节目 -->
+		<action name="apifbitem" class="com.vshow.control.api.item.fb.ApiFbItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 撤销节目 -->
+		<action name="apirevokeitem" class="com.vshow.control.api.item.fb.ApiRevokeItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 清理发布节目 -->
+		<action name="apicleanitem" class="com.vshow.control.api.item.fb.ApiCleanItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 发布互动节目 -->
+		<action name="apifbinteractitem" class="com.vshow.control.api.item.fb.ApiFbInteractItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 发布轮播计划 -->
+		<action name="apifbtimejhitem" class="com.vshow.control.api.item.fb.ApiFbTimeJhItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 清理轮播 -->
+		<action name="apicleanclienttime" class="com.vshow.control.api.item.fb.ApiCleanClientTimeAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 发布插播计划 -->
+		<action name="apifbinsertjhitem" class="com.vshow.control.api.item.fb.ApiFbInsertJhItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 清理插播 -->
+		<action name="apicleanclientinsert" class="com.vshow.control.api.item.fb.ApiCleanClientInsertAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 发布通知 -->
+		<action name="apifbnotice" class="com.vshow.control.api.item.fb.ApiFbNoticeAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 取消发布通知 -->
+		<action name="apicanclenotice" class="com.vshow.control.api.item.fb.ApiCancleNoticeAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 终端重启 -->
+		<action name="apirestart" class="com.vshow.control.api.client.sys.ApiRestartAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+	
+		<!-- 终端唤醒 -->
+		<action name="apirouse" class="com.vshow.control.api.client.sys.ApiRouseAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 终端待机 -->
+		<action name="apistandby" class="com.vshow.control.api.client.sys.ApiStandByAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 定时开关机 -->
+		<action name="apinewds" class="com.vshow.control.api.client.sys.ApiNewDsAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 终端禁用 -->
+		<action name="apibanclient" class="com.vshow.control.api.client.sys.ApiBanClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 音量设置 -->
+		<action name="apivolset" class="com.vshow.control.api.client.sys.ApiVolSetAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 连接超时 -->
+		<action name="apiconnovertime" class="com.vshow.control.api.client.sys.ApiConNoverTimeAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 下载限速 -->
+		<action name="apidownset" class="com.vshow.control.api.client.sys.ApiDownSetAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- app跳转间隔时间 -->
+		<action name="apitouchspacetime" class="com.vshow.control.api.client.sys.ApiTouchSpaceTimeAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 程序更新 -->
+		<action name="apiupclient" class="com.vshow.control.api.client.sys.ApiUpClientAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 获取终端信息 -->
+		<action name="apiclientinfo" class="com.vshow.control.api.client.sys.ApiClientInfoAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 修改无节目播放图片 -->
+		<action name="apiupnoitem" class="com.vshow.control.api.client.sys.ApiUpNoItemAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="fileUploadStack" />
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 回传数据 -->
+		<action name="apitimewriteinfo" class="com.vshow.control.api.client.sys.ApiTimeWriteInfoAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 终端密码 -->
+		<action name="apiclientpwd" class="com.vshow.control.api.client.sys.ApiClientPwdAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 查询执行结果 -->
+		<action name="apiselresultlast" class="com.vshow.control.api.client.sys.ApiSelResultLastAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 重发 -->
+		<action name="apiresend" class="com.vshow.control.api.client.sys.ApiResendAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+		<!-- 终端接口对接api -->
+		<action name="apiSelCountPeople" class="com.vshow.control.api.client.interact.ApiSelCountPeopleAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		<!-- 发布通知new -->
+		<action name="apifbnoticenew" class="com.vshow.control.api.item.fb.ApiFbNoticeNewAction">
+			<result name="success" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+		
+		<!-- 用户登录 -->
+		<action name="login" class="com.vshow.control.api.v1.user.LoginUserAction">
+			<result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+			<interceptor-ref name="params" />
+		</action>
+		
+		
+	  <!-- 获取区域终端终端信息 -->
+	  <action name="getAreaDeviceList" class="com.vshow.control.api.v1.client.GetAreaDeviceListAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	    <!-- 获取终端信息 -->
+	  <action name="getDeviceInfo" class="com.vshow.control.api.v1.client.GetDeviceInfoAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	  <!-- 设置终端播放的节目 -->
+	  <action name="setDevicePlayItem" class="com.vshow.control.api.v1.client.SetDevicePlayItemAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	   <!-- 设置终端音量 -->
+	  <action name="setDeviceVol" class="com.vshow.control.api.v1.client.SetDeviceVolAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	  
+	     <!-- 设置待机唤醒重启 -->
+	  <action name="setDevicePowerAction" class="com.vshow.control.api.v1.client.SetDevicePowerAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	  <!-- 设置播放暂停停止 -->
+	 <action name="setDevicePlayStop" class="com.vshow.control.api.v1.client.SetDevicePlayStopAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	  
+	    <!-- 设置图片切换播放方式-->
+	 <action name="setDevicePlayImgMode" class="com.vshow.control.api.v1.client.SetDevicePlayImgModeAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	  
+	     <!-- 设置图片切换上一张下一张-->
+	 <action name="setDevicePlayImgNext" class="com.vshow.control.api.v1.client.SetDevicePlayImgNextAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+	  </action>
+	  
+	  
+	  
+	 <!-- 设置视频快进快退-->
+	 <action name="setDevicePlayVideoFast" class="com.vshow.control.api.v1.client.SetDevicePlayVideoFastAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+			
+	  </action>
+	  
+	 <!-- 获取节目信息-->
+	 <action name="getItemInfoAction" class="com.vshow.control.api.v1.client.GetItemInfoAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+			
+	  </action>
+	  
+	   <!-- 获得终端当前状态  -->
+	  <action name="getDeviceState" class="com.vshow.control.api.v1.client.GetDeviceStateAction">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+			
+	  </action>
+	  
+	  <!--统计终端在线时长  -->
+	  <action name="getClientOnlineTime" class="com.vshow.control.api.v1.client.GetClientOnlineTime">
+	        
+	        <result name="success" type="json">
+	               <param name="jsonObjectProperty">responseEntity</param>
+	        </result>
+	        <result name="tokenerr" type="dispatcher">
+				<param name="location">/result_json_success2.jsp</param>
+			</result>
+	        
+	        <interceptor-ref name="params" />
+			<interceptor-ref name="checkToken" />
+			
+	  </action>
+  	
+
+		
+		
+	</package>	
+</xwork>  
+

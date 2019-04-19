@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="cutClientP">
+
+	<typeAlias alias="ccp" type="com.vshow.control.kh.cut.CutClientP" />
+	
+    
+    
+    <update id="up_ccp" parameterClass="ccp">
+	    <![CDATA[
+	      update
+	      t_kh_cut_client_p
+	      set 
+	      cutstate=#cutstate#
+	      where cmark=#mark#
+	    ]]>
+	</update> 
+    
+    
+    <update id="up_ccp56">
+	    <![CDATA[
+	      update
+	      t_kh_cut_client_p
+	      set 
+	      cutstate=6
+	      where cutstate=5
+	    ]]>
+	</update> 
+	
+    
+    <insert id="add_ccp" parameterClass="ccp" >
+	   <![CDATA[
+	       insert into t_kh_cut_client_p 
+	       (cmark,cutstate)
+	       values
+	       (#mark#,#cutstate#)
+	   ]]>
+	</insert>
+     
+    
+     <select id="sel_ccp_cutstate" parameterClass="java.lang.String"  resultClass="java.lang.Integer">
+         <![CDATA[
+            select cutstate from t_kh_cut_client_p where cmark=#mark#
+         ]]>
+    </select>
+     
+    
+</sqlMap>
+    

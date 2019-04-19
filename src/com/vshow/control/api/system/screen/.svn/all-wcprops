@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/system/screen
+END
+ApiAddScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/system/screen/ApiAddScreenAction.java
+END
+ApiSelScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/system/screen/ApiSelScreenAction.java
+END
+ApiDelScreenAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/api/system/screen/ApiDelScreenAction.java
+END

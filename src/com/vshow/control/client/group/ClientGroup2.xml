@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="cgroup2">
+
+
+    <typeAlias alias="cg2" type="com.vshow.control.data.ClientGroup2" />
+    
+   	<insert id="add_cg2" parameterClass="cg2">    
+	<![CDATA[    
+	  insert into t_client_group2
+		 (uid, g2name,g1id)
+		 values	
+	     (#uid#,#g2name#,#g1id#)
+	]]>
+	</insert>
+	
+	
+	<select id="sel_cg2_page" parameterClass="cg2" resultClass="cg2">
+	    <![CDATA[
+	        select id,g2name,uid,g1name from view_tcg2 where uid=#uid# order by id desc   limit #startid#,#pagetype# 
+	    ]]>
+	</select>
+	
+	
+	<select id="sel_cg2_page_count" parameterClass="java.lang.Integer" resultClass="java.lang.Integer">
+	    <![CDATA[
+	        select count(id) from view_tcg2 where uid=#uid#
+	    ]]>
+	</select>
+	
+	<select id="sel_cg2_pro_id" parameterClass="java.lang.Integer" resultClass="cg2">
+	    <![CDATA[
+	        select id,g1id,g2name from t_client_group2 where id=#id#
+	    ]]>
+	</select>
+	
+	
+	
+	<update id="update_cg2" parameterClass="cg2">    
+		<![CDATA[    
+			 update t_client_group2 set g2name=#g2name#,g1id=#g1id#
+			 where id=#id# 
+	    ]]>
+	</update>
+	
+	<select id="sel_cg2_g2name_id" parameterClass="java.lang.Integer" resultClass="java.lang.String">
+	    <![CDATA[
+	        select g2name from t_client_group2 where id=#id#  
+	    ]]>
+	</select>
+	
+	<select id="sel_cg2_pro_g1id" parameterClass="java.lang.Integer" resultClass="cg2">
+	    <![CDATA[
+	        select id,g2name from t_client_group2 where g1id=#g1id#
+	    ]]>
+	</select>
+	
+	<select id="sel_cg2_all" parameterClass="java.lang.Integer" resultClass="cg2">
+	    <![CDATA[
+	        select id,g2name,uid from t_client_group2 where uid=#uid# order by id 
+	    ]]>
+	</select>
+	
+	
+	<delete id="del_cg2" parameterClass="java.lang.Integer">
+	    <![CDATA[
+	       delete from t_client_group2 where id=#id#
+	    ]]>
+	</delete>
+	
+	<select id="sel_cg2_all_g1id" parameterClass="java.lang.Integer" resultClass="cg2">
+	    <![CDATA[
+	        select id,g2name,g1id from t_client_group2 where g1id=#g1id#  
+	    ]]>
+	</select>
+	
+	
+	
+	
+	
+	
+</sqlMap>
+    

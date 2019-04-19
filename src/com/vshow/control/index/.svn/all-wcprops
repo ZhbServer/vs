@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/index
+END
+ToZxClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/index/ToZxClientAction.java
+END
+IndexAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/index/IndexAction.java
+END
+IndexSystemInfoAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/index/IndexSystemInfoAction.java
+END
+EnterClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/15/trunk/vs/src/com/vshow/control/index/EnterClientAction.java
+END
+ToNoEnterClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/index/ToNoEnterClientAction.java
+END
+ToOffClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/vs_server_6.1/!svn/ver/14/trunk/vs/src/com/vshow/control/index/ToOffClientAction.java
+END
+ClearNoenterClientAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/vs_server_6.1/!svn/ver/16/trunk/vs/src/com/vshow/control/index/ClearNoenterClientAction.java
+END
